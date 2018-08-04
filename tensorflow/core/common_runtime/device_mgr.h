@@ -35,8 +35,8 @@ class DeviceAttributes;
 class DeviceMgr {
  public:
   // Takes ownership of each device in 'devices'.
-  // TODO(zhifengc): Other initialization information.
-  // TODO(b/37437134): Use std::unique_ptr's to track ownership.
+  // TODO (zhifengc): Other initialization information. id:679
+  // TODO (b/37437134): Use to track ownership. std::unique_ptr's id:741
   explicit DeviceMgr(const std::vector<Device*>& devices);
   ~DeviceMgr();
 
@@ -62,7 +62,7 @@ class DeviceMgr {
   int NumDeviceType(const string& type) const;
 
  private:
-  // TODO(b/37437134): Use std::unique_ptr's to track ownership.
+  // TODO (b/37437134): Use to track ownership. std::unique_ptr's id:791
   typedef gtl::InlinedVector<Device*, 8> DeviceVec;
   DeviceVec devices_;
 

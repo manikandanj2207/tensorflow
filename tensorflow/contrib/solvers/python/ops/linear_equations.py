@@ -73,7 +73,7 @@ def conjugate_gradient(operator,
   def stopping_criterion(i, state):
     return math_ops.logical_and(i < max_iter, state.gamma > tol)
 
-  # TODO(rmlarsen): add preconditioning
+  # TODO (rmlarsen): add preconditioning id:526
   def cg_step(i, state):
     z = operator.apply(state.p)
     alpha = state.gamma / util.dot(state.p, z)

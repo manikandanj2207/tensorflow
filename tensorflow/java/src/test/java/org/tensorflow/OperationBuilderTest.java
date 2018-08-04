@@ -27,7 +27,7 @@ import org.junit.runners.JUnit4;
 /** Unit tests for {@link org.tensorflow.OperationBuilder}. */
 @RunWith(JUnit4.class)
 public class OperationBuilderTest {
-  // TODO(ashankar): Restore this test once the C API gracefully handles mixing graphs and
+  // TODO (ashankar): Restore this test once the C API gracefully handles mixing graphs and id:1875
   // operations instead of segfaulting.
   @Test
   @Ignore

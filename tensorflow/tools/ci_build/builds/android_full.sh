@@ -60,7 +60,7 @@ done
 # Build Jar and also demo containing native libs for all architectures.
 # Enable sandboxing so that zip archives don't get incorrectly packaged
 # in assets/ dir (see https://github.com/bazelbuild/bazel/issues/2334)
-# TODO(gunan): remove extra flags once sandboxing is enabled for all builds.
+# TODO (gunan): remove extra flags once sandboxing is enabled for all builds. id:2406
 echo "========== Building TensorFlow Android Jar and Demo =========="
 bazel --bazelrc=/dev/null build -c opt --fat_apk_cpu=${CPUS} \
     --spawn_strategy=sandboxed --genrule_strategy=sandboxed \
@@ -75,7 +75,7 @@ cp bazel-bin/tensorflow/examples/android/tensorflow_demo.apk \
 cp bazel-bin/tensorflow/contrib/android/android_tensorflow_inference_java.aar \
    ${OUT_DIR}/tensorflow.aar
 
-# TODO(andrewharp): build native libs into AAR directly once
+# TODO (andrewharp): build native libs into AAR directly once id:2322
 # https://github.com/bazelbuild/bazel/issues/348 is resolved.
 echo "Adding native libs to AAR"
 chmod +w ${OUT_DIR}/tensorflow.aar

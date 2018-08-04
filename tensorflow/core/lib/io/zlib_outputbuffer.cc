@@ -90,7 +90,7 @@ void ZlibOutputBuffer::AddToInputBuffer(StringPiece data) {
   // In order to avoid shifting the avail_in bytes at next_in to the head of
   // the buffer we try to fit `data` in the empty space at the tail of the
   // input stream.
-  // TODO(srbs): This could be avoided if we had a circular buffer.
+  // TODO (srbs): This could be avoided if we had a circular buffer. id:1721
   // If it doesn't fit we free the space at the head of the stream and then
   // append `data` at the end of existing data.
 

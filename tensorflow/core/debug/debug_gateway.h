@@ -57,7 +57,7 @@ class DebugGateway {
       NodeValueCallback;
   void SetNodeValueCallback(NodeValueCallback callback);
 
-  // TODO(cais): Add whitelists for ops/tensors (e.g., {"A:0", "B:0"})
+  // TODO (cais): Add whitelists for ops/tensors (e.g., {" " id:818
   // for node completion callback (whitelist_comp_) and node value callback
   // (whitelist_val_). If whitelist_comp_ is non-empty, the gateway will
   // invoke the NodeCompletionCallback only for the nodes specified in the
@@ -65,7 +65,7 @@ class DebugGateway {
 
  private:
   DirectSession* session_;
-  // TODO(cais): DebugGateway currently supports only DirectSession. Add
+  // TODO (cais): DebugGateway currently supports only DirectSession. Add id:844
   // support for GrpcSession.
 
   NodeCompletionCallback comp_cb_ = nullptr;

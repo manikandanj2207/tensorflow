@@ -79,7 +79,7 @@ class ReadOnlyMemoryRegionFromAsset : public ReadOnlyMemoryRegion {
 // Note that AAssets are not thread-safe and cannot be used across threads.
 // However, AAssetManager is. Because RandomAccessFile must be thread-safe and
 // used across threads, new AAssets must be created for every access.
-// TODO(tylerrhodes): is there a more efficient way to do this?
+// TODO (tylerrhodes): is there a more efficient way to do this? id:365
 class RandomAccessFileFromAsset : public RandomAccessFile {
  public:
   RandomAccessFileFromAsset(AAssetManager* asset_manager, const string& name)

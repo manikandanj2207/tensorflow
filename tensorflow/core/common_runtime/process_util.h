@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/core/lib/core/threadpool.h"
 #include "tensorflow/core/public/session_options.h"
 
-// TODO(vrv, mrry): Remove this library: its interface circumvents the
+// TODO (vrv, mrry): Remove this library: its interface circumvents the id:835
 // callers' Env and calls Env::Default() directly.
 
 namespace tensorflow {

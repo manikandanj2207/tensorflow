@@ -193,7 +193,7 @@ class RichTextLinesTest(test_util.TensorFlowTestCase):
     self._checkBeginIndices([1, 10], out.annotations[8])
     self._checkBeginIndices([1, 15], out.annotations[9])
 
-  def testFormatTensor3DNoEllipsis(self):  # TODO(cais): Test name.
+  def testFormatTensor3DNoEllipsis(self):  # TODO (cais): Test name. id:1592
     a = np.linspace(0.0, 1.0 - 1.0 / 24.0, 24).reshape([2, 3, 4])
 
     out = tensor_format.format_tensor(a, "a")

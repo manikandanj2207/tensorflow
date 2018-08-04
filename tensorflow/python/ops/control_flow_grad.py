@@ -49,7 +49,7 @@ def _SwitchGrad(op, *grad):
       # This is the second time this Switch is visited. It comes from
       # the non-exit branch of the Switch, so update the second input
       # to the Merge.
-      # TODO: Perform shape inference with this new input.
+      # TODO: Perform shape inference with this new input. id:1897
       if grad[1] is not None:
         # pylint: disable=protected-access
         control_flow_ops._AddNextAndBackEdge(merge_grad, grad[1])
@@ -212,7 +212,7 @@ def _EnterGrad(op, grad):
     elif isinstance(grad, ops.IndexedSlices):
       result = grad_ctxt.AddBackPropIndexedSlicesAccumulator(op, grad)
     else:
-      # TODO(yuanbyu, lukasr): Add support for SparseTensor.
+      # TODO (yuanbyu, lukasr): Add support for SparseTensor. id:2190
       raise TypeError("Type %s not supported" % type(grad))
   else:
     result = exit(grad)

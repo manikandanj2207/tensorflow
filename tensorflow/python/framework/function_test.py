@@ -661,7 +661,7 @@ class FunctionTest(test.TestCase):
         return y
 
       with self.assertRaisesRegexp(ValueError, "not an element of this graph."):
-        # NOTE: We still do not support capturing control deps.
+        # NOTE: We still do not support capturing control deps. id:1797
         _ = Foo(x)
 
   def testStableName(self):

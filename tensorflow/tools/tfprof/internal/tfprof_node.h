@@ -48,7 +48,7 @@ class TFNode {
     if (!node) return;
 
     for (const auto& attr : node->attr()) {
-      // TODO(xpan): Also consider _output_shapes.
+      // TODO (xpan): Also consider _output_shapes. id:2430
       if (attr.first != "shape" || !attr.second.has_shape()) continue;
       if (!shape_.empty()) {
         fprintf(stderr, "Found duplicated shapes!\n");

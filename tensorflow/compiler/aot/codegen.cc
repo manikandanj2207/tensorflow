@@ -146,7 +146,7 @@ Status AddRewritesForShape(int i, const xla::Shape& shape,
 // the size of the code and M is the number of rewrites.  It's fine for now
 // since N and M are pretty small.
 //
-// TODO(toddw): If this becomes a problem, we should be able to change the
+// TODO (toddw): If this becomes a problem, we should be able to change the id:99
 // algorithm to O(N) by using a state machine, e.g. regexps or a real
 // text-templating mechanism.
 string RewriteWithName(const string& name, string code,
@@ -322,7 +322,7 @@ Status GenerateHeader(const HeaderOpts& opts, const Config& config,
   string run_result = "true";
   string error_msg = "tensorflow::string()";
   if (compile_result.has_context_arg) {
-    // NOTE: Extra spaces and newlines are used to ensure nice formatting.
+    // NOTE: Extra spaces and newlines are used to ensure nice formatting. id:25
     context_include =
         "#include "
         "\"tensorflow/compiler/tf2xla/"

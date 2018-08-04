@@ -31,7 +31,7 @@ namespace grappler {
 // A TensorFlow model to optimize.
 // Models are represented by the combination of a graph, one of more fetch
 // nodes, and potentially a set of nodes to feed.
-// TODO(volunteer_needed): turn this struct into a class.
+// TODO (volunteer_needed): turn this struct into a class. id:1135
 struct GrapplerItem {
   string id;  // A unique id for this item
 

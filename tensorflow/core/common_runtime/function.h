@@ -33,7 +33,7 @@ namespace tensorflow {
 // interpreter op kernel to execute a function. If 'cb()' returns OK,
 // takes ownership of the returned OpKernel.
 //
-// TODO(zhifengc/phawkins): b/32379046
+// TODO (zhifengc/phawkins): b/32379046 id:920
 typedef std::function<Status(FunctionLibraryRuntime*, const NodeDef&,
                              std::unique_ptr<OpKernel>*)>
     CustomKernelCreator;
@@ -144,7 +144,7 @@ void ToGraphDef(const Graph* g, GraphDef* gdef, bool pretty = false);
 //                                     dL/dy1, dL/dy2, ..., dL/dy_M),
 // where L is a scalar-value function of (...x_i...).
 //
-// TODO(zhifengc): Asks math expert to say the comment again.
+// TODO (zhifengc): Asks math expert to say the comment again. id:979
 FunctionBody* SymbolicGradient(const FunctionBody& f);
 
 }  // end namespace tensorflow

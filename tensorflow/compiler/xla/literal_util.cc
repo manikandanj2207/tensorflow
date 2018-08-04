@@ -563,7 +563,7 @@ void TransposeLiteralInternal(const Literal& original,
            GetAsString(literal, indices);
   };
 
-  // TODO(b/32894291): refactor this code to reduce code duplication.
+  // TODO (b/32894291): refactor this code to reduce code duplication. id:127
   if (ShapeUtil::IsTuple(shape)) {
     pieces.push_back(ShapeUtil::HumanString(shape));
     pieces.push_back(" (\n");

@@ -20,6 +20,6 @@ suite('graph loader', () => {
     assert.isTrue(document.getElementById('loader') != null);
   });
 
-  // TODO(bp): write tests.
+  // TODO (bp): write tests. id:2096
 
 });

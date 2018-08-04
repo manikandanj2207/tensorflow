@@ -80,7 +80,7 @@ class AssignOpT : public AssignOp {
   }
 };
 
-// TODO(jeff): Get rid of use_exclusive_lock_ option
+// TODO (jeff): Get rid of use_exclusive_lock_ option id:1350
 template <typename Device, typename T, DenseUpdateType OP>
 class DenseUpdateOp : public OpKernel {
  public:

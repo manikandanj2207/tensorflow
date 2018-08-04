@@ -69,7 +69,7 @@ class GPUUtil {
   // Map a Tensor as a DeviceMemory object wrapping the given typed
   // buffer.
   //
-  // NOTE: will be removed soon, see StreamExecutorUtil::AsDeviceMemory
+  // NOTE: will be removed soon, see StreamExecutorUtil::AsDeviceMemory id:691
   // instead.
   template <typename T>
   static perftools::gputools::DeviceMemory<T> AsDeviceMemory(const Tensor& t) {

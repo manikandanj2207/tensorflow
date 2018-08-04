@@ -65,7 +65,7 @@ def parse_branch_ref(filename):
 def configure(src_base_path, debug=False):
   """Configure `src_base_path` to embed git hashes if available."""
 
-  # TODO(aselle): No files generated or symlinked here are deleted by
+  # TODO (aselle): No files generated or symlinked here are deleted by id:2415
   # the build system. I don't know of a way to do it in bazel. It
   # should only be a problem if somebody moves a sandbox directory
   # without running ./configure again.

@@ -215,8 +215,8 @@ class Env {
   /// symlinks if there is any.
   string GetExecutablePath();
 
-  // TODO(jeff,sanjay): Add back thread/thread-pool support if needed.
-  // TODO(jeff,sanjay): if needed, tighten spec so relative to epoch, or
+  // TODO (jeff,sanjay): Add back thread/thread-pool support if needed. id:1542
+  // TODO (jeff,sanjay): if needed, tighten spec so relative to epoch, or id:1837
   // provide a routine to get the absolute time.
 
   /// \brief Returns the number of micro-seconds since the Unix epoch.
@@ -239,13 +239,13 @@ class Env {
 
   // \brief Schedules the given closure on a thread-pool.
   //
-  // NOTE(mrry): This closure may block.
+  // NOTE (mrry): This closure may block. id:1386
   virtual void SchedClosure(std::function<void()> closure) = 0;
 
   // \brief Schedules the given closure on a thread-pool after the given number
   // of microseconds.
   //
-  // NOTE(mrry): This closure must not block.
+  // NOTE (mrry): This closure must not block. id:1769
   virtual void SchedClosureAfter(int64 micros,
                                  std::function<void()> closure) = 0;
 
@@ -400,7 +400,7 @@ namespace register_file_system {
 template <typename Factory>
 struct Register {
   Register(Env* env, const string& scheme) {
-    // TODO(b/32704451): Don't just ignore the ::tensorflow::Status object!
+    // TODO (b/32704451): Don't just ignore the :: object! tensorflow::Status id:1697
     env->RegisterFileSystem(scheme, []() -> FileSystem* { return new Factory; })
         .IgnoreError();
   }

@@ -37,7 +37,7 @@ Status GraphMemory::InferDynamically(Cluster* cluster) {
 
 Status GraphMemory::InferFromGraphProperties(GraphProperties* properties) {
   // Compute the worst case usage between initialization and normal mode.
-  // TODO(bsteiner): we should consider persistent memory usage separately.
+  // TODO (bsteiner): we should consider persistent memory usage separately. id:1133
   int64 worst_case_init_mem_usage;
   int64 best_case_init_mem_usage;
   InferMemUsageForNodes(item_.InitOpsFanin(), properties,
@@ -58,7 +58,7 @@ Status GraphMemory::InferFromGraphProperties(GraphProperties* properties) {
 void GraphMemory::InferMemUsageForNodes(
     const std::vector<const NodeDef*>& nodes, GraphProperties* properties,
     int64* worst_case_memory_usage, int64* best_case_memory_usage) const {
-  // TODO(bsteiner) refine this: we should consider the multidevice case.
+  // TODO (bsteiner) refine this: we should consider the multidevice case. id:893
   *worst_case_memory_usage = 0;
   *best_case_memory_usage = 0;
   for (const auto& node : item_.graph.node()) {

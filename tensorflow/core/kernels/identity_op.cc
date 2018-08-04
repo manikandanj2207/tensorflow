@@ -99,7 +99,7 @@ REGISTER_GPU_KERNEL(bfloat16);
 
 #if GOOGLE_CUDA
 // A special GPU kernel for int32 and bool.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1164
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_GPU_HOST_KERNEL(type)                    \
   REGISTER_KERNEL_BUILDER(Name("Identity")                \

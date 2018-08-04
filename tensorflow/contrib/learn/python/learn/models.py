@@ -174,7 +174,7 @@ def logistic_regression(x,
 
 
 ## This will be in TensorFlow 0.7.
-## TODO(ilblackdragon): Clean this up when it's released
+## TODO (ilblackdragon): Clean this up when it's released id:705
 def _reverse_seq(input_seq, lengths):
   """Reverse a list of Tensors up to specified lengths.
 
@@ -328,7 +328,7 @@ def get_rnn_model(rnn_size, cell_type, num_layers, input_op_fn, bidirectional,
           contrib_rnn.BasicLSTMCell, state_is_tuple=False)
     else:
       raise ValueError('cell_type {} is not supported. '.format(cell_type))
-    # TODO(ipolosukhin): state_is_tuple=False is deprecated
+    # TODO (ipolosukhin): state_is_tuple=False is deprecated id:642
     if bidirectional:
       # forward direction cell
       fw_cell = lambda: cell_fn(rnn_size)

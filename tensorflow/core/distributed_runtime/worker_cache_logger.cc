@@ -25,7 +25,7 @@ namespace tensorflow {
 
 namespace {
 // Maximum number of step_ids for which RPC logs can be maintained.
-// TODO(mrry): Make this configurable if necessary.
+// TODO (mrry): Make this configurable if necessary. id:860
 const int32 kWorkerCacheLoggerLimit = 1 << 10;
 }  // namespace
 
@@ -99,7 +99,7 @@ void WorkerCacheLogger::RecordRecvTensor(int64 step_id, int64 start_usecs,
   ns->set_op_end_rel_micros(end_usecs - start_usecs);
   NodeOutput* no = ns->add_output();
   no->set_slot(0);
-  // TODO(tucker): Maybe set the dimensions too, but then they'll
+  // TODO (tucker): Maybe set the dimensions too, but then they'll id:954
   // need to be passed in.
   no->mutable_tensor_description()
       ->mutable_allocation_description()

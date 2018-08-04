@@ -273,7 +273,7 @@ Status ValidateNodeDef(const NodeDef& node_def, const OpDef& op_def) {
 
   bool seen_control = false;
   size_t num_inputs = 0;
-  // TODO(josh11b): Unify the input field validation.
+  // TODO (josh11b): Unify the input field validation. id:1037
   for (const string& input : node_def.input()) {
     if (StringPiece(input).starts_with("^")) {
       seen_control = true;

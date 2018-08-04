@@ -72,7 +72,7 @@ class PluginRegistry {
                                               const string& name,
                                               FactoryT factory);
 
-  // TODO(b/22689637): Setter for temporary mapping until all users are using
+  // TODO (b/22689637): Setter for temporary mapping until all users are using id:2390
   // MultiPlatformManager / PlatformId.
   void MapPlatformKindToId(PlatformKind platform_kind,
                            Platform::Id platform_id);
@@ -95,7 +95,7 @@ class PluginRegistry {
   port::StatusOr<FactoryT> GetFactory(Platform::Id platform_id,
                                       PluginId plugin_id);
 
-  // TODO(b/22689637): Deprecated/temporary. Will be deleted once all users are
+  // TODO (b/22689637): Deprecated/temporary. Will be deleted once all users are id:2059
   // on MultiPlatformManager / PlatformId.
   template <typename FactoryT>
   port::StatusOr<FactoryT> GetFactory(PlatformKind platform_kind,
@@ -141,7 +141,7 @@ class PluginRegistry {
   // The singleton itself.
   static PluginRegistry* instance_;
 
-  // TODO(b/22689637): Temporary mapping until all users are using
+  // TODO (b/22689637): Temporary mapping until all users are using id:2355
   // MultiPlatformManager / PlatformId.
   std::map<PlatformKind, Platform::Id> platform_id_by_kind_;
 

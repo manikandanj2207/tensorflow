@@ -634,7 +634,7 @@ def embedding_lookup_sparse_with_distributed_aggregation(
         sp_weights.indices.get_shape())
     sp_ids.dense_shape.get_shape().assert_is_compatible_with(
         sp_weights.dense_shape.get_shape())
-    # TODO(yleon): Add enhanced node assertions to verify that sp_ids and
+    # TODO (yleon): Add enhanced node assertions to verify that sp_ids and id:390
     # sp_weights have equal indices and shapes.
 
   with ops.name_scope(name, "embedding_lookup_sparse",

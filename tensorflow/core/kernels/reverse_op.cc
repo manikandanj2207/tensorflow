@@ -227,7 +227,7 @@ class ReverseV2Op : public OpKernel {
       OP_REQUIRES_OK(context,
                      context->allocate_output(0, input.shape(), &output));
 
-// TODO(cwhipkey): we can do dimension folding to reduce, e.g., a reverse of
+// TODO (cwhipkey): we can do dimension folding to reduce, e.g., a reverse of id:1185
 // a single dimension to the dims=3 or dims=2 case, regardless of the number
 // of dimensions in the tensor. This would let some ops use faster
 // lower-dimension code (and use optimized versions).
@@ -318,7 +318,7 @@ TF_CALL_complex128(DECLARE_GPU_SPEC);
                           ReverseV2Op<GPUDevice, T>)
 TF_CALL_uint8(REGISTER_GPU_KERNELS);
 TF_CALL_int8(REGISTER_GPU_KERNELS);
-// TODO decide whether we want to enable the bool kernel.
+// TODO decide whether we want to enable the bool kernel. id:1527
 // TF_CALL_bool(REGISTER_GPU_KERNELS);
 TF_CALL_half(REGISTER_GPU_KERNELS);
 TF_CALL_float(REGISTER_GPU_KERNELS);
@@ -328,7 +328,7 @@ TF_CALL_complex128(REGISTER_GPU_KERNELS);
 #undef REGISTER_GPU_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1567
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Reverse")
                             .Device(DEVICE_GPU)

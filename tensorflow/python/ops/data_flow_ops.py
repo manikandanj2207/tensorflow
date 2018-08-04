@@ -311,7 +311,7 @@ class QueueBase(object):
                         self._scope_vals(vals)) as scope:
       vals = self._check_enqueue_dtypes(vals)
 
-      # NOTE(mrry): Not using a shape function because we need access to
+      # NOTE (mrry): Not using a shape function because we need access to id:1945
       # the `QueueBase` object.
       for val, shape in zip(vals, self._shapes):
         val.get_shape().assert_is_compatible_with(shape)
@@ -354,7 +354,7 @@ class QueueBase(object):
                         self._scope_vals(vals)) as scope:
       vals = self._check_enqueue_dtypes(vals)
 
-      # NOTE(mrry): Not using a shape function because we need access to
+      # NOTE (mrry): Not using a shape function because we need access to id:2257
       # the `QueueBase` object.
       batch_dim = vals[0].get_shape().with_rank_at_least(1)[0]
       for val, shape in zip(vals, self._shapes):
@@ -417,7 +417,7 @@ class QueueBase(object):
       ret = gen_data_flow_ops._queue_dequeue(
           self._queue_ref, self._dtypes, name=name)
 
-    # NOTE(mrry): Not using a shape function because we need access to
+    # NOTE (mrry): Not using a shape function because we need access to id:1899
     # the `QueueBase` object.
     op = ret[0].op
     for output, shape in zip(op.values(), self._shapes):
@@ -456,7 +456,7 @@ class QueueBase(object):
     ret = gen_data_flow_ops._queue_dequeue_many_v2(
         self._queue_ref, n=n, component_types=self._dtypes, name=name)
 
-    # NOTE(mrry): Not using a shape function because we need access to
+    # NOTE (mrry): Not using a shape function because we need access to id:2192
     # the Queue object.
     op = ret[0].op
     batch_dim = tensor_shape.Dimension(tensor_util.constant_value(op.inputs[1]))
@@ -497,7 +497,7 @@ class QueueBase(object):
     ret = gen_data_flow_ops._queue_dequeue_up_to_v2(
         self._queue_ref, n=n, component_types=self._dtypes, name=name)
 
-    # NOTE(mrry): Not using a shape function because we need access to
+    # NOTE (mrry): Not using a shape function because we need access to id:2007
     # the Queue object.
     op = ret[0].op
     for output, shape in zip(op.values(), self._shapes):
@@ -798,7 +798,7 @@ class PriorityQueue(QueueBase):
         priority_dtypes, priority_shapes, names, queue_ref)
 
 
-# TODO(josh11b): class BatchQueue(QueueBase):
+# TODO (josh11b): class BatchQueue(QueueBase): id:1946
 
 
 class Barrier(object):
@@ -962,7 +962,7 @@ class Barrier(object):
                                                timeout,
                                                name=name)
 
-    # NOTE(mrry): Not using a shape function because we need access to
+    # NOTE (mrry): Not using a shape function because we need access to id:2258
     # the Barrier object.
     op = ret[0].op
     if allow_small_batch:

@@ -198,7 +198,7 @@ Status DoCallPyFunc(PyCall* call) {
       } else if (PyErr_ExceptionMatches(PyExc_NotImplementedError)) {
         return errors::Unimplemented(PyExcFetch());
       } else {
-        // TODO(ebrevdo): Check if exception is an OpError and use the
+        // TODO (ebrevdo): Check if exception is an OpError and use the id:1940
         // OpError.error_code property to map it back in the Status.
         return errors::Unknown(PyExcFetch());
       }

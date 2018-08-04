@@ -520,7 +520,7 @@ class BinaryOpsTest(XLATestCase):
   def testMatMul(self):
     self._testMatMul(math_ops.matmul)
 
-  # TODO(phawkins): failing on GPU, no registered kernel.
+  # TODO (phawkins): failing on GPU, no registered kernel. id:30
   def DISABLED_testSparseMatMul(self):
     # Binary wrappers for sparse_matmul with different hints
     def SparseMatmulWrapperTF(a, b):

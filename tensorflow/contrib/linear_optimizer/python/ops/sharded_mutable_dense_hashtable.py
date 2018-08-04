@@ -41,7 +41,7 @@ class ShardedMutableDenseHashTable(lookup.LookupInterface):
   internally. The shard is computed via the modulo operation on the key.
   """
 
-  # TODO(andreasst): consider moving this to lookup module
+  # TODO (andreasst): consider moving this to lookup module id:660
 
   def __init__(self,
                key_dtype,
@@ -63,7 +63,7 @@ class ShardedMutableDenseHashTable(lookup.LookupInterface):
                 empty_key=empty_key,
                 name='%s-%d-of-%d' % (name, i + 1, num_shards)))
       self._table_shards = table_shards
-      # TODO(andreasst): add a value_shape() method to LookupInterface
+      # TODO (andreasst): add a value_shape() method to LookupInterface id:514
       # pylint: disable=protected-access
       self._value_shape = self._table_shards[0]._value_shape
       # pylint: enable=protected-access
@@ -111,7 +111,7 @@ class ShardedMutableDenseHashTable(lookup.LookupInterface):
       return self._table_shards[0].lookup(keys, name=name)
 
     shard_indices = self._shard_indices(keys)
-    # TODO(andreasst): support 'keys' that are not vectors
+    # TODO (andreasst): support 'keys' that are not vectors id:715
     key_shards = data_flow_ops.dynamic_partition(keys, shard_indices,
                                                  num_shards)
     value_shards = [
@@ -136,7 +136,7 @@ class ShardedMutableDenseHashTable(lookup.LookupInterface):
       return self._table_shards[0].insert(keys, values, name=name)
 
     shard_indices = self._shard_indices(keys)
-    # TODO(andreasst): support 'keys' that are not vectors
+    # TODO (andreasst): support 'keys' that are not vectors id:652
     key_shards = data_flow_ops.dynamic_partition(keys, shard_indices,
                                                  num_shards)
     value_shards = data_flow_ops.dynamic_partition(values, shard_indices,

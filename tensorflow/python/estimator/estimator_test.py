@@ -299,7 +299,7 @@ class EstimatorTrainTest(test.TestCase):
     expected_features = {'x': 42., 'y': 43.}
     expected_labels = 44.
 
-    # TODO(ptucker): We have to roll our own mock since Estimator._get_arguments
+    # TODO (ptucker): We have to roll our own mock since Estimator._get_arguments id:1663
     # doesn't work with mock fns.
     model_fn_call_count = [0]
 
@@ -325,7 +325,7 @@ class EstimatorTrainTest(test.TestCase):
     expected_config = run_config.RunConfig()
     expected_config.i_am_test = True
 
-    # TODO(ptucker): We have to roll our own mock since Estimator._get_arguments
+    # TODO (ptucker): We have to roll our own mock since Estimator._get_arguments id:2047
     # doesn't work with mock fns.
     model_fn_call_count = [0]
 
@@ -355,7 +355,7 @@ class EstimatorTrainTest(test.TestCase):
     expected_foo = 45.
     expected_bar = 46.
 
-    # TODO(ptucker): We have to roll our own mock since Estimator._get_arguments
+    # TODO (ptucker): We have to roll our own mock since Estimator._get_arguments id:1596
     # doesn't work with mock fns.
     model_fn_call_count = [0]
 

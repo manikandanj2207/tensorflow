@@ -96,7 +96,7 @@ class Array {
 //  ... schedule Fill(rng_copy, output, 512, 1024) in thread 2;
 //  ... wait for thread 1 & 2 to finish executing Fill().
 //
-// NOTE:
+// NOTE:  id:1621
 // 1. PhiloxRandom is trivially copyable.
 // 2. PhiloxRandom is compilable by gcc and nvcc.
 class PhiloxRandom {

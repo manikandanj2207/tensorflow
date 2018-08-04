@@ -53,7 +53,7 @@ class ArgOp : public XlaOpKernel {
     const XlaContext::Argument& arg = tc.args()[index_];
     if (arg.is_variable) {
       // We use the argument position of the variable input as a unique ID.
-      // TODO(phawkins): this code assumes that variables do not alias.
+      // TODO (phawkins): this code assumes that variables do not alias. id:204
       OP_REQUIRES_OK(ctx, tc.CreateVariable(index_, arg.name, arg.value.type,
                                             arg.value.handle));
       ctx->SetVariableOutput(0, index_);

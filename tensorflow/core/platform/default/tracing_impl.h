@@ -47,7 +47,7 @@ inline void Tracing::RegisterCurrentThread(const char* name) {}
 
 // Posts an atomic threadscape event with the supplied category and arg.
 inline void Tracing::RecordEvent(EventCategory category, uint64 arg) {
-  // TODO(opensource): Implement
+  // TODO (opensource): Implement id:1768
 }
 
 inline Tracing::ScopedActivity::ScopedActivity(EventCategory category,

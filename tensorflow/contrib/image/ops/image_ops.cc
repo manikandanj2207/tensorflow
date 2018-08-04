@@ -21,9 +21,9 @@ namespace tensorflow {
 
 using shape_inference::InferenceContext;
 
-// TODO(ringwalt): Add a "fill_mode" argument with "constant", "mirror", etc.
-// TODO(ringwalt): Add a "fill_constant" argument for constant mode (default 0).
-// TODO(ringwalt): Add an "output_shape" argument. This is sufficient to
+// TODO (ringwalt): Add a "fill_mode" argument with "constant", "mirror", etc. id:413
+// TODO (ringwalt): Add a "fill_constant" argument for constant mode (default 0). id:423
+// TODO (ringwalt): Add an "output_shape" argument. This is sufficient to id:356
 // implement "same" and "valid" modes in the Python function.
 REGISTER_OP("ImageProjectiveTransform")
     .Input("images: dtype")

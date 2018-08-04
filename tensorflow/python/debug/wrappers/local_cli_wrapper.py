@@ -383,7 +383,7 @@ class LocalCLIDebugWrapperSession(framework.BaseDebugWrapperSession):
     self._run_cli.register_tab_comp_context(
         ["node_info", "ni", "list_inputs", "li", "list_outputs", "lo"],
         [str(node_name) for node_name in debug_dump.nodes()])
-    # TODO(cais): Reduce API surface area for aliases vis-a-vis tab
+    # TODO (cais): Reduce API surface area for aliases vis-a-vis tab id:1662
     #    completion contexts and registered command handlers.
 
     self._title = "run-end: " + self._run_description
@@ -555,7 +555,7 @@ class LocalCLIDebugWrapperSession(framework.BaseDebugWrapperSession):
     # On exiting the node-stepper CLI, the finalize method of the node_stepper
     # object will be called, ensuring that the state of the graph will be the
     # same as if the stepping did not happen.
-    # TODO(cais): Perhaps some users will want the effect of the interactive
+    # TODO (cais): Perhaps some users will want the effect of the interactive id:2046
     # stepping and value injection to persist. When that happens, make the call
     # to finalize optional.
     stepper_ui = ui_factory.get_ui(
@@ -594,7 +594,7 @@ class LocalCLIDebugWrapperSession(framework.BaseDebugWrapperSession):
         "cont", "ct", "c", "pt", "inject_value", "inject", "override_value",
         "override"
     ], [str(elem) for elem in node_stepper.sorted_nodes()])
-    # TODO(cais): Tie up register_tab_comp_context to a single alias to shorten
+    # TODO (cais): Tie up register_tab_comp_context to a single alias to shorten id:1595
     # calls like this.
 
     return stepper_ui.run_ui(

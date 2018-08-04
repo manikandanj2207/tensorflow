@@ -37,7 +37,7 @@ limitations under the License.
 #include "tensorflow/stream_executor/lib/inlined_vector.h"
 
 #if defined(PLATFORM_WINDOWS)
-// TODO: in windows ARRAYSIZE is defined in winnt.h but including it
+// TODO: in windows ARRAYSIZE is defined in winnt.h but including it id:2383
 //  here creates a conflict with cuda.h - for now define it here.
 #define ARRAYSIZE(a) \
   ((sizeof(a) / sizeof(*(a))) / \
@@ -113,14 +113,14 @@ class CreatedContexts {
 // Error summaries taken from:
 // http://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__TYPES.html#group__CUDA__TYPES_1gc6c391505e117393cc2558fff6bfc2e9
 //
-// TODO(leary) switch to cuGetErrorName when updated cuda.h is available.
+// TODO (leary) switch to cuGetErrorName when updated cuda.h is available. id:2052
 string ToString(CUresult result) {
 #define OSTREAM_CUDA_ERROR(__name) \
   case CUDA_ERROR_##__name:        \
     return "CUDA_ERROR_" #__name;
 
 ///////////////
-// NOTE: here we specify return code values outside of the enum explicitly
+// NOTE: here we specify return code values outside of the enum explicitly id:2303
 // because our in-tree cuda.h is from the CUDA 5.5 SDK, but CUDA 6.0+ driver
 // libraries are deployed in the fleet these error codes are backwards
 // compatible, but if we see a "new" one, we want to be able to identify it in
@@ -130,7 +130,7 @@ string ToString(CUresult result) {
 // eliminate this function and just rely on the driver to provide us these
 // strings.
 //
-// NOTE: "Must reboot all context" below is shorthand for, "must
+// NOTE: "Must reboot all context" below is shorthand for, "must id:2214
 // destroy/recreate the offending context and any allocation which come from
 // it if you are to continue using CUDA."
 #pragma GCC diagnostic push
@@ -489,7 +489,7 @@ bool DeviceOptionsToContextFlags(DeviceOptions device_options, int *flags) {
   CUcontext former_context;
   CUcontext new_context;
   {
-    // TODO(leary) Need to see if NVIDIA can expunge the leakiness in their
+    // TODO (leary) Need to see if NVIDIA can expunge the leakiness in their id:2172
     // context creation: see http://b/13248943
 
 #if CUDA_VERSION >= 7000
@@ -710,7 +710,7 @@ CUDADriver::ContextGetSharedMemConfig(CudaContext* context) {
 
     CUresult res;
     {
-      // TODO(leary) Need to see if NVIDIA can expunge the leakiness in their
+      // TODO (leary) Need to see if NVIDIA can expunge the leakiness in their id:2384
       // module loading: see http://b/13248943
 
       res = cuModuleLoadDataEx(module, ptx_data, ARRAYSIZE(options), options,
@@ -879,7 +879,7 @@ CUDADriver::ContextGetSharedMemConfig(CudaContext* context) {
 
 /* static */ bool CUDADriver::CreateStream(CudaContext *context,
                                            CUstream *out) {
-  // TODO(leary) can we switch this to CU_STREAM_NON_BLOCKING or will that mess
+  // TODO (leary) can we switch this to CU_STREAM_NON_BLOCKING or will that mess id:2053
   // up synchronization with respect to memsets and any other things that have
   // to occur on the default stream?
   ScopedActivateContext activated{context};

@@ -28,7 +28,7 @@ namespace tensorflow {
 /*
   HexagonControlWrapper is implementing interfaces in IRemoteFusedGraphExecutor.
   This class calls APIs on hexagon via hexagon control binary.
-  TODO(satok): Add more documents about hexagon control binary.
+  TODO (satok): Add more documents about hexagon control binary. id:1465
  */
 class HexagonControlWrapper final : public IRemoteFusedGraphExecutor {
  public:
@@ -56,10 +56,10 @@ class HexagonControlWrapper final : public IRemoteFusedGraphExecutor {
   const RemoteFusedGraphExecuteInfo* execute_info_{};
   GraphTransferer graph_transferer_{};
   // Dummy float array for input node.
-  // TODO(satok): Use actual data passed by FillInputNode and remove
+  // TODO (satok): Use actual data passed by FillInputNode and remove id:1265
   std::vector<float> dummy_input_float_{};
   // Dummy byte array for cosnt node.
-  // TODO(satok): Remove
+  // TODO (satok): Remove id:1475
   std::unordered_map<int, std::vector<uint8>> dummy_const_data_{};
 
   TF_DISALLOW_COPY_AND_ASSIGN(HexagonControlWrapper);

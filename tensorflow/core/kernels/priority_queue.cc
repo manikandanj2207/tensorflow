@@ -202,7 +202,7 @@ void PriorityQueue::TryDequeue(OpKernelContext* ctx,
     already_cancelled = !cm->RegisterCallback(
         token, [this, cm, token]() { Cancel(kDequeue, cm, token); });
     if (!already_cancelled) {
-      // TODO(josh11b): This makes two copies of callback, avoid this if possible.
+      // TODO (josh11b): This makes two copies of callback, avoid this if possible. id:1174
       dequeue_attempts_.emplace_back(
           1, [callback]() { callback(Tuple()); }, ctx, cm, token,
           [callback, this](Attempt* attempt) EXCLUSIVE_LOCKS_REQUIRED(mu_) {
@@ -247,7 +247,7 @@ void PriorityQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
     Tuple tuple;
     tuple.reserve(num_components());
     for (int i = 0; i < num_components(); ++i) {
-      // TODO(josh11b,misard): Switch to allocate_output().  Problem is
+      // TODO (josh11b,misard): Switch to allocate_output(). Problem is id:1412
       // this breaks the abstraction boundary since we don't *really*
       // know if and how the Tensors in the tuple we pass to callback
       // correspond to the outputs of *ctx.  For example, the
@@ -293,7 +293,7 @@ void PriorityQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
     already_cancelled = !cm->RegisterCallback(
         token, [this, cm, token]() { Cancel(kDequeue, cm, token); });
     if (!already_cancelled) {
-      // TODO(josh11b): This makes two copies of callback, avoid this if possible.
+      // TODO (josh11b): This makes two copies of callback, avoid this if possible. id:1556
       dequeue_attempts_.emplace_back(
           num_elements, [callback]() { callback(Tuple()); }, ctx, cm, token,
           [callback, this,
@@ -324,7 +324,7 @@ void PriorityQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
             // entries in an identical priority_queue and push onto
             // this queue dynamically, then when it is full, do all
             // the Tensor concatenation at the very end.
-            // TODO(ebrevdo): Change approach if this leads to locking issues.
+            // TODO (ebrevdo): Change approach if this leads to locking issues. id:1285
             if (s < attempt->elements_requested) {
               // If we have no elements at all, then wait.
               // Otherwise proceed if closed and allow small batch is true.

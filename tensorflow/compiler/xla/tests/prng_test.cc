@@ -139,7 +139,7 @@ double PrngTest::UniformChiSquared(int32 range_size, int32 expected_count) {
 // These range sizes are arbitrary but include prime numbers, powers of 2, and
 // other composite numbers.
 // The level of significance in all these cases is 1/20.
-// TODO(b/35723038): Use parametrized tests where possible.
+// TODO (b/35723038): Use parametrized tests where possible. id:286
 XLA_TEST_F(PrngTest, Uniformity7) {
   EXPECT_LT(UniformChiSquared(7, 256), 12.5916);
 }
@@ -269,7 +269,7 @@ XLA_TEST_F(PrngTest, TenValuesN01) {
 
   SetSeed(42);
   ExecuteAndTransferOrDie(&builder, /*arguments=*/{});
-  // TODO(b/25995601): Test that resultant values are reasonable
+  // TODO (b/25995601): Test that resultant values are reasonable id:362
 }
 
 }  // namespace

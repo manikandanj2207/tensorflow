@@ -52,7 +52,7 @@ class HloInstruction;
 //
 // Note: this may change to an iterator in the future for flexibility purposes.
 //
-// TODO(b/26548304): Stop passing in information about the visited
+// TODO (b/26548304): Stop passing in information about the visited id:159
 // instruction that is accessible from the instruction object itself.
 class DfsHloVisitor {
  public:

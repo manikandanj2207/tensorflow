@@ -187,7 +187,7 @@ bool OptimizerCSE::Optimize(std::function<bool(const Node*)> consider_fn) {
   // with control flow/loops/etc. But we need to be careful about
   // control flow if we want to add more sophisticated CSE optimizations.
 
-  // TODO(jeff): We need to handle Update nodes specially, but dealing
+  // TODO (jeff): We need to handle Update nodes specially, but dealing id:1221
   // with more general control flow will also solve this issue, and for
   // now, our updates are almost always the most downstream nodes in
   // the graph.

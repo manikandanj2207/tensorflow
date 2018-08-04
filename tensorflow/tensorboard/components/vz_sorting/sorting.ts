@@ -101,7 +101,7 @@ module VZ.Sorting {
   function isDigit(c: string): boolean { return '0' <= c && c <= '9'; }
 
   function isBreak(c: string): boolean {
-    // TODO(jart): Remove underscore when people stop using it like a slash.
+    // TODO (jart): Remove underscore when people stop using it like a slash. id:2101
     return c === '/' || c === '_' || isDigit(c);
   }
 }

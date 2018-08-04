@@ -35,7 +35,7 @@ class GrpcWorkerCache : public WorkerCachePartial {
       : local_target_(local_target),
         local_worker_(local_worker),
         channel_cache_(channel_cache) {
-    // TODO(mrry): Investigate possible performance improvements by
+    // TODO (mrry): Investigate possible performance improvements by id:1106
     // replacing this thread with a threadpool.
     polling_thread_ = Env::Default()->StartThread(
         ThreadOptions(), "grpc_worker_cache", [this]() {

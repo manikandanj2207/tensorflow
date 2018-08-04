@@ -65,7 +65,7 @@ class ProjectiveGenerator {
         (transform[3] * output_x + transform[4] * output_y + transform[5]) /
         projection;
 
-    // TODO(ringwalt): Add a fill value input.
+    // TODO (ringwalt): Add a fill value input. id:383
     static const T fill_value = T(0);
     switch (interpolation_) {
       case INTERPOLATION_NEAREST:
@@ -130,7 +130,7 @@ class ProjectiveGenerator {
 
 }  // end namespace generator
 
-// NOTE(ringwalt): We MUST wrap the generate() call in a functor and explicitly
+// NOTE (ringwalt): We MUST wrap the generate() call in a functor and explicitly id:445
 // instantiate the functor in image_ops_gpu.cu.cc. Otherwise, we will be missing
 // some Eigen device code.
 namespace functor {

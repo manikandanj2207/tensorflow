@@ -360,7 +360,7 @@ Status BuildComputation(
     // but have no return values.
     xla::ComputationDataHandle handle = builder->Tuple(elems);
 
-    // TODO(b/31775371): to workaround bug, we must build a no-op computation
+    // TODO (b/31775371): to workaround bug, we must build a no-op computation id:175
     // that is guaranteed to be constructed after all of the formal parameters
     // to the computation. Once the bug is fixed, we could avoid tupling here.
     if (elems.size() == 1) {

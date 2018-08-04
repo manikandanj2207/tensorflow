@@ -505,7 +505,7 @@ DebugGrpcChannel::DebugGrpcChannel(const string& server_stream_addr)
       stub_(EventListener::NewStub(channel_)),
       reader_writer_(stub_->SendEvents(&ctx_)),
       mu_() {}
-// TODO(cais): Set GRPC_ARG_MAX_MESSAGE_LENGTH to max if necessary.
+// TODO (cais): Set GRPC_ARG_MAX_MESSAGE_LENGTH to max if necessary. id:819
 
 bool DebugGrpcChannel::is_channel_ready() {
   return channel_->GetState(false) == GRPC_CHANNEL_READY;

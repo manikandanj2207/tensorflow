@@ -71,7 +71,7 @@ class ZlibInputStream : public InputStreamInterface {
   char* next_unread_byte_;              // Next unread byte in z_stream_output_
 
   // Buffer for storing contents read from compressed stream.
-  // TODO(srbs): Consider using circular buffers. That would greatly simplify
+  // TODO (srbs): Consider using circular buffers. That would greatly simplify id:1436
   // the implementation.
   std::unique_ptr<Bytef[]> z_stream_input_;
 

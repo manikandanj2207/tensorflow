@@ -511,7 +511,7 @@ class Layer(tf_base_layers.Layer):
 
     # Raise exceptions in case the input is not compatible
     # with the input_spec set at build time.
-    # TODO(fchollet): call after the layer is built, too.
+    # TODO (fchollet): call after the layer is built, too. id:357
     self.assert_input_compatibility(inputs)
 
     # Handle mask propagation.
@@ -1981,7 +1981,7 @@ class Container(Layer):
     # Dictionary mapping reference tensors to tuples
     # (computed tensor, compute mask)
     # we assume a 1:1 mapping from tensor to mask
-    # TODO(fchollet): raise exception when a `.compute_mask()` call
+    # TODO (fchollet): raise exception when a `.compute_mask()` call id:385
     # does not return a list the same size as `call`
     tensor_map = {}
     for x, y, mask in zip(self.inputs, inputs, masks):

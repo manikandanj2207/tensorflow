@@ -101,7 +101,7 @@ Status AddArgNodes(Graph* graph, const NodeMap& node_map,
                                      ", output index should be < ",
                                      feed_node->num_outputs());
     }
-    // TODO(toddw): Invoke shape inference on the graph and add a "_shape" attr
+    // TODO (toddw): Invoke shape inference on the graph and add a "_shape" attr id:163
     // if we can determine it.  That way the graph will be initialized with
     // whatever shapes we can infer, while the user can still explicitly specify
     // or override them.
@@ -118,7 +118,7 @@ Status AddArgNodes(Graph* graph, const NodeMap& node_map,
     // these will be replaced with edges from the arg node instead.  Also
     // replaces all control edges from Placeholder feed nodes; similar code
     // exists in subgraph::RewriteGraphForExecution.
-    // TODO(toddw): Why only replace control edges from Placeholder?
+    // TODO (toddw): Why only replace control edges from Placeholder? id:71
     //
     // We must collect the edges first and process them in a second pass, since
     // removing the edge from the graph invalidates feed_node->out_edges.
@@ -308,7 +308,7 @@ Status ConvertGraphToXla(xla::LocalClient* client, std::unique_ptr<Graph> graph,
     // from the generated function.  It's most likely a configuration error,
     // since the user shouldn't be asking for output args that end up as consts.
     //
-    // TODO(toddw): Provide a way for the user to access const output args,
+    // TODO (toddw): Provide a way for the user to access const output args, id:46
     // e.g. perhaps hard-coded into the header, or somehow copied into the
     // output buffers.
     if (result.outputs[i].is_constant) {
@@ -337,7 +337,7 @@ Status CompileXla(xla::LocalClient* client, const xla::Computation& computation,
                   const xla::cpu::CpuAotCompilationOptions& aot_opts,
                   CompileResult* compile_result) {
   // Retrieves arg and result layouts from the computation.
-  // TODO(toddw): Should we let the user choose the major/minor ordering?
+  // TODO (toddw): Should we let the user choose the major/minor ordering? id:100
   xla::StatusOr<std::unique_ptr<xla::ProgramShape>> pshape_or =
       client->GetComputationShape(computation);
   if (!pshape_or.ok()) {
@@ -390,7 +390,7 @@ Status CompileGraph(std::unique_ptr<Graph> graph, const MainFlags& flags,
                     CompileResult* compile_result) {
   // Converts the graph into an XLA computation, and compiles the
   // computation.
-  // TODO(toddw): Should we let the user pick the XLA cpu vs. gpu client?
+  // TODO (toddw): Should we let the user pick the XLA cpu vs. gpu client? id:26
   namespace gpu = perftools::gputools;
   gpu::Platform* cpu_platform =
       gpu::MultiPlatformManager::PlatformWithName("Host").ValueOrDie();

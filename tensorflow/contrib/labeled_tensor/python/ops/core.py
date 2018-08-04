@@ -117,7 +117,7 @@ class Axis(object):
   @tc.returns(string_types)
   def __repr__(self):
     # Axis('x', Dimension(2))
-    # TODO(shoyer): make very long reprs more succint?
+    # TODO (shoyer): make very long reprs more succint? id:416
     return "%s('%s', %r)" % (type(self).__name__, self.name, self.value)
 
   @tc.returns(bool)
@@ -375,7 +375,7 @@ class LabeledTensor(object):
     """
     return self._tensor.get_shape()
 
-  # TODO(shoyer): consider how/if to implement .eval(). Maybe it should return
+  # TODO (shoyer): consider how/if to implement .eval(). Maybe it should return id:426
   # an xarray.DataArray?
 
   def __getitem__(self, key):
@@ -531,7 +531,7 @@ def convert_to_labeled_tensor(value, dtype=None, name=None):
     ValueError: If the output would have rank>0 but the input was not already a
       `LabeledTensor`.
   """
-  # TODO(shoyer): consider extending to accept xarray.DataArray as input.
+  # TODO (shoyer): consider extending to accept xarray.DataArray as input. id:359
   if isinstance(value, LabeledTensor):
     axes = value.axes.values()
     value = value.tensor
@@ -847,7 +847,7 @@ class AxisOrderError(ValueError):
   """Error class for cases where there is no valid axis order."""
 
 
-# TODO(shoyer): should this function accept a list of labeled tensors instead?
+# TODO (shoyer): should this function accept a list of labeled tensors instead? id:387
 @tc.returns(type(None))
 @tc.accepts(LabeledTensorLike, tc.Optional(tc.Collection(string_types)))
 def check_axis_order(labeled_tensor, axis_order=None):

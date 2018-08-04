@@ -48,7 +48,7 @@ struct ReluGrad {
   void operator()(const Device& d, typename TTypes<T>::ConstTensor gradients,
                   typename TTypes<T>::ConstTensor features,
                   typename TTypes<T>::Tensor backprops) {
-    // NOTE: When the activation is exactly zero, we do not propagate the
+    // NOTE: When the activation is exactly zero, we do not propagate the id:1493
     // associated gradient value. This allows the output of the Relu to be used,
     // as well as its input.
     backprops.device(d) =
@@ -81,7 +81,7 @@ struct Relu6Grad {
   void operator()(const Device& d, typename TTypes<T>::ConstTensor gradients,
                   typename TTypes<T>::ConstTensor features,
                   typename TTypes<T>::Tensor backprops) {
-    // NOTE: When the activation is exactly zero or six, we
+    // NOTE: When the activation is exactly zero or six, we id:1181
     // arbitrarily choose to not propagate the associated gradient
     // value.
     backprops.device(d) =

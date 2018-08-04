@@ -69,7 +69,7 @@ Status CpuTransferManager::TransferLiteralToInfeed(se::StreamExecutor* executor,
   VLOG(2) << "transferring literal shape to infeed: "
           << ShapeUtil::HumanString(shape);
 
-  // TODO(b/31381668) handle tuples.
+  // TODO (b/31381668) handle tuples. id:143
   if (ShapeUtil::IsTuple(shape)) {
     return Unimplemented("Infeed with a tuple shape is not supported: %s",
                          ShapeUtil::HumanString(literal.shape()).c_str());

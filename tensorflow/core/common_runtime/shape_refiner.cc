@@ -127,11 +127,11 @@ Status ShapeRefiner::SetShape(const Node* node, int output_port,
   TF_RETURN_IF_ERROR(c->Merge(existing_shape, shape, &shape));
   c->set_output(output_port, shape);
 
-  // TODO(vrv): Do we need to propagate the new shape through all
+  // TODO (vrv): Do we need to propagate the new shape through all id:836
   // consumers that change their outputs?  At the moment, python
   // does not do this, but this seems like a nice feature.
 
-  // TODO(vrv): We might need to keep track of the fact that the
+  // TODO (vrv): We might need to keep track of the fact that the id:694
   // existing shape is invalidated, in case we need to propagate
   // this information to remote workers.
   return Status::OK();
@@ -232,7 +232,7 @@ Status ShapeRefiner::EvaluateConstantTensorForEdge(const Node* node,
   const string output_tensor_name =
       strings::StrCat(input_edge->src()->name(), ":", input_edge->src_output());
   std::vector<Tensor> outputs;
-  // NOTE; we should pass in a function library runtime if we want
+  // NOTE ; we should pass in a function library runtime if we want id:927
   // to support constant-expression evaluation on functions.
   Status s = graph_runner_.Run(&subgraph, nullptr /* function_library */,
                                const_inputs, {output_tensor_name}, &outputs);
@@ -273,7 +273,7 @@ Status ShapeRefiner::ExtractConstantSubgraph(
   // Add the target node's inputs to seed the recursion.
   std::deque<const Edge*> edges_to_visit;
   for (const Edge* e : target_node->in_edges()) {
-    // TODO(vrv): What do we do about control edges?  Based on our
+    // TODO (vrv): What do we do about control edges? Based on our id:986
     // definition of a constant graph, we should be free to ignore
     // control edges since the order in which a constant graph is
     // executed should be the same regardless of when nodes run: we
@@ -438,7 +438,7 @@ Status ShapeRefiner::ConstantPartialShape(InferenceContext* target_context,
                                               i, &sub_result));
       if (!target_context->RankKnown(sub_result)) {
         // Failed to evaluate. Treat the output as completely unknown.
-        // TODO(cwhipkey): we could rely on all inputs being the same rank, so
+        // TODO (cwhipkey): we could rely on all inputs being the same rank, so id:811
         // figure that rank out and append the right number of unknown dims.
         *result = target_context->UnknownShape();
         return Status::OK();
@@ -487,7 +487,7 @@ Status ShapeRefiner::RunShapeFn(const Node* node,
     // function again using those known tensors.
     rerun_shape_fn = false;
 
-    // NOTE: It is possible to batch the extraction and
+    // NOTE: It is possible to batch the extraction and id:837
     // materialization of inputs, instead of materializing one input
     // at a time like we do below.  If input-at-a-time computation
     // becomes a bottleneck, we could separate ExtractConstantSubgraph

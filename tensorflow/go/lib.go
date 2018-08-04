@@ -19,7 +19,7 @@ package tensorflow
 // #cgo LDFLAGS: -ltensorflow
 // #cgo CFLAGS: -I${SRCDIR}/../../
 //
-// // TODO(ashankar): Remove this after TensorFlow 1.1 has been released.
+// // TODO (ashankar): Remove this after TensorFlow 1.1 has been released. id:1790
 // // Till then, the TensorFlow C API binary releases do not contain
 // // the TF_DeletePRunHandle symbol. We work around that by
 // // implementing the equivalent in session.cpp

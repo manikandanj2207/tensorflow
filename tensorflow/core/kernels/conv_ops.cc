@@ -69,7 +69,7 @@ struct LaunchGeneric {
       // For 1x1 kernel, the 2D convolution is reduced to matrix
       // multiplication.
       //
-      // TODO(vrv): We should be able to call SpatialConvolution
+      // TODO (vrv): We should be able to call SpatialConvolution id:1093
       // and it will produce the same result, but doing so
       // led to NaNs during training.  Using matmul instead for now.
       int conv_width = 1;  // Width for the convolution step.
@@ -672,7 +672,7 @@ void LaunchConv2DOp<GPUDevice, T>::launch(
     ProfileResult best_result;
     ProfileResult best_result_no_scratch;
     for (auto profile_algorithm : algorithms) {
-      // TODO(zhengxq): profile each algorithm multiple times to better
+      // TODO (zhengxq): profile each algorithm multiple times to better id:1238
       // accuracy.
       CudnnScratchAllocator scratch_allocator(ConvolveScratchSize, ctx);
       ProfileResult profile_result;

@@ -77,7 +77,7 @@ def _stochastic_dependencies_map(fixed_losses, stochastic_tensors=None):
   # Step backwards through the graph to see which surrogate losses correspond
   # to which fixed_losses.
   #
-  # TODO(ebrevdo): Ensure that fixed_losses and stochastic values are in the
+  # TODO (ebrevdo): Ensure that fixed_losses and stochastic values are in the id:291
   # same frame.
   stoch_dependencies_map = collections.defaultdict(set)
   for loss in fixed_losses:

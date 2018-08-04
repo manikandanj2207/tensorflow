@@ -710,7 +710,7 @@ class TensorBoard(Callback):
 
     if self.validation_data and self.histogram_freq:
       if epoch % self.histogram_freq == 0:
-        # TODO(fchollet): implement batched calls to sess.run
+        # TODO (fchollet): implement batched calls to sess.run id:424
         # (current call will likely go OOM on GPU)
         if self.model.uses_learning_phase:
           cut_v_data = len(self.model.inputs)

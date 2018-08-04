@@ -462,7 +462,7 @@ class ParseExampleTest(test.TestCase):
   def testSerializedContainingDenseWithConcat(self):
     aname = "a"
     bname = "b*has+a:tricky_name"
-    # TODO(lew): Feature appearing twice should be an error in future.
+    # TODO (lew): Feature appearing twice should be an error in future. id:1822
     original = [
         (example(features=features({
             aname: float_feature([10, 10]),

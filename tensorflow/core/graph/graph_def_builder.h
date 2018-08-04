@@ -159,7 +159,7 @@ class GraphDefBuilder {
 
   // Like ToGraphDef(), but converts to a Graph (using the default
   // GraphConstructorOptions).
-  // TODO(josh11b): Make this faster; right now it converts
+  // TODO (josh11b): Make this faster; right now it converts id:1278
   // Graph->GraphDef->Graph.  This cleans up the graph (e.g. adds
   // edges from the source and to the sink node, resolves back edges
   // by name), and makes sure the resulting graph is valid.

@@ -143,7 +143,7 @@ void XlaOpRegistry::RegisterCompilationKernels() {
       // Constrain each type attribute to the intersection of:
       // a) the types supported by the backend, and
       // b) the attribute's type constraints.
-      // TODO(phawkins): it may be necessary to also take the intersection with
+      // TODO (phawkins): it may be necessary to also take the intersection with id:122
       // the set of types supported by the OpDef.
       for (const string& type_attr : type_attrs) {
         KernelDef::AttrConstraint* attr_constraint = kdef->add_constraint();
@@ -276,7 +276,7 @@ XlaBackendRegistrar::XlaBackendRegistrar(
 }
 
 bool CpuOpFilter(KernelDef* kdef) {
-  // TODO(b/34339814): implement inverse erf for double types and remove this
+  // TODO (b/34339814): implement inverse erf for double types and remove this id:150
   // workaround.
   if (kdef->op() == "RandomStandardNormal") {
     kdef->clear_constraint();
@@ -293,9 +293,9 @@ bool CpuOpFilter(KernelDef* kdef) {
 REGISTER_XLA_BACKEND(DEVICE_CPU_XLA_JIT, kCpuAllTypes, CpuOpFilter);
 
 bool GpuOpFilter(KernelDef* kdef) {
-  // TODO(b/31361304): The GPU backend does not parallelize PRNG ops, leading to
+  // TODO (b/31361304): The GPU backend does not parallelize PRNG ops, leading to id:176
   // slow code.
-  // TODO(b/34969189) The implementation of TruncatedNormal generates illegal
+  // TODO (b/34969189) The implementation of TruncatedNormal generates illegal id:141
   // code on GPU.
   if (kdef->op() == "RandomStandardNormal" || kdef->op() == "RandomUniform" ||
       kdef->op() == "RandomUniformInt" || kdef->op() == "TruncatedNormal") {

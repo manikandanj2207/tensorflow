@@ -109,7 +109,7 @@ class ReduceOpsTest(XLATestCase):
                         self.FLOAT_DATA)
 
   def testReduceMean(self):
-    # TODO(phawkins): mean on XLA currently returns 0 instead of NaN when
+    # TODO (phawkins): mean on XLA currently returns 0 instead of NaN when id:82
     # reducing across zero inputs.
     self._testReduction(math_ops.reduce_mean, np.mean, np.float32,
                         self.NONEMPTY_FLOAT_DATA)

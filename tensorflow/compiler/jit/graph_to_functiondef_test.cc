@@ -30,7 +30,7 @@ namespace {
 
 bool EqualFunctionDef(const FunctionDef& a, const FunctionDef& b,
                       string* diff) {
-  // TODO(phawkins) use a more sophisticated equality test.
+  // TODO (phawkins) use a more sophisticated equality test. id:28
   if (a.DebugString() != b.DebugString()) {
     if (diff) {
       *diff = strings::StrCat("Definition mismatch for function ",

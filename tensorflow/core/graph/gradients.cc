@@ -32,7 +32,7 @@ limitations under the License.
 
 namespace tensorflow {
 
-// TODO(andydavis) Remove some of the code duplicated between this module
+// TODO (andydavis) Remove some of the code duplicated between this module id:1121
 // and that in 'common_runtime/function.cc'.
 // A few string constant used throughout this module.
 static const char* const kGradientOp = "SymbolicGradient";
@@ -317,7 +317,7 @@ Status SymbolicGradientBuilder::Compute() {
     auto iter = stop_nodes_.find(n->id());
     if (iter != stop_nodes_.end()) {
       // Stop backprop.
-      // TODO(andydavis) Support stop nodes with more than one output.
+      // TODO (andydavis) Support stop nodes with more than one output. id:881
       CHECK_EQ(1, num_y);
       continue;
     }
@@ -340,7 +340,7 @@ Status SymbolicGradientBuilder::Compute() {
 
     // Adds a gradient node with num_x + num_y inputs and num_x
     // outputs.
-    // TODO(andydavis) Support primitive gradient ops.
+    // TODO (andydavis) Support primitive gradient ops. id:975
     Node* grad = AddSymGrad(graph_, n, dy);
     for (const Edge* e : n->in_edges()) {
       if (e->IsControlEdge()) continue;

@@ -35,7 +35,7 @@ REGISTER(BinaryOp, CPU, "Sub", functor::sub, int32);
   REGISTER_SYCL_KERNEL(double);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1079
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Sub")
                             .Device(DEVICE_SYCL)
@@ -51,7 +51,7 @@ REGISTER6(BinaryOp, GPU, "Sub", functor::sub, float, Eigen::half, double, int64,
           complex64, complex128);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1345
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Sub")
                             .Device(DEVICE_GPU)

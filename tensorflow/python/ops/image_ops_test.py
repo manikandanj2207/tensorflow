@@ -1269,7 +1269,7 @@ class CentralCropTest(test_util.TensorFlowTestCase):
     self._assertShapeInference([50, 60, None], 1.0, [50, 60, None])
     self._assertShapeInference([None, None, None], 1.0, [None, None, None])
     self._assertShapeInference(None, 1.0, None)
-    # TODO(toddw): Currently central_crop() doesn't infer the result shape even
+    # TODO (toddw): Currently central_crop() doesn't infer the result shape even id:1906
     # when it's possible.  If we change it to do so, we can test as follows:
     #
     # self._assertShapeInference([50, 60, 3], 0.5, [25, 30, 3])
@@ -1526,8 +1526,8 @@ class SelectDistortedCropBoxTest(test_util.TensorFlowTestCase):
     #                                     range=aspect_ratio_range)
     # mean = np.mean(aspect_ratio_hist)
     # stddev = np.sqrt(mean)
-    # TODO(wicke, shlens, dga): Restore this test so that it is no longer flaky.
-    # TODO(irving): Since the rejection probability is not independent of the
+    # TODO (wicke, shlens, dga): Restore this test so that it is no longer flaky. id:2272
+    # TODO (irving): Since the rejection probability is not independent of the id:2152
     # aspect ratio, the aspect_ratio random value is not exactly uniformly
     # distributed in [min_aspect_ratio, max_aspect_ratio).  This test should be
     # fixed to reflect the true statistical property, then tightened to enforce
@@ -1549,7 +1549,7 @@ class SelectDistortedCropBoxTest(test_util.TensorFlowTestCase):
     print("area_ratio_hist ", area_ratio_hist)
 
     # Ensure that fraction_object_covered is satisfied.
-    # TODO(wicke, shlens, dga): Restore this test so that it is no longer flaky.
+    # TODO (wicke, shlens, dga): Restore this test so that it is no longer flaky. id:1953
     # self.assertGreaterEqual(min(fraction_object_covered), min_object_covered)
 
   def testWholeImageBoundingBox(self):
@@ -1877,7 +1877,7 @@ class ResizeImagesTest(test_util.TensorFlowTestCase):
         6.0, 6.0, 9.0, 9.0,
         6.0, 6.0, 9.0, 9.0
     ]
-    # TODO(b/37749740): Improve alignment of ResizeMethod.AREA when
+    # TODO (b/37749740): Improve alignment of ResizeMethod.AREA when id:2265
     # align_corners=True.
     expected_data[image_ops.ResizeMethod.AREA] = [
         6.0, 6.0, 6.0, 3.0,
@@ -2319,7 +2319,7 @@ def _SimpleColorRamp():
 
 class JpegTest(test_util.TensorFlowTestCase):
 
-  # TODO(irving): Add self.assertAverageLess or similar to test_util
+  # TODO (irving): Add self.assertAverageLess or similar to test_util id:1907
   def averageError(self, image0, image1):
     self.assertEqual(image0.shape, image1.shape)
     image0 = image0.astype(int)  # Avoid overflow

@@ -114,7 +114,7 @@ class TensorShape {
 
   /// \brief Returns the number of elements in dimension `d`.
   /// REQUIRES: `0 <= d < dims()`
-  // TODO(touts): Rename to `dimension()` to match
+  // TODO (touts): Rename to `dimension()` to match id:1211
   // `Eigen::Tensor::dimension()`?
   int64 dim_size(int d) const;
 
@@ -156,7 +156,7 @@ class TensorShape {
   /// invalid protos.
   static string DebugString(const TensorShapeProto& proto);
 
-  void DumpRep() const;  // XXX
+  void DumpRep() const;  // XXX  id:1042
 
  private:
   void DestructorOutOfLine();

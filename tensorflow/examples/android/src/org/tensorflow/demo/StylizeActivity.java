@@ -305,7 +305,7 @@ public class StylizeActivity extends CameraActivity implements OnImageAvailableL
             @Override
             public void onClick(final View v) {
               if (textureCopyBitmap != null) {
-                // TODO(andrewharp): Save as jpeg with guaranteed unique filename.
+                // TODO (andrewharp): Save as jpeg with guaranteed unique filename. id:1520
                 ImageUtils.saveBitmap(textureCopyBitmap, "stylized" + frameNum + ".png");
                 Toast.makeText(
                         StylizeActivity.this,
@@ -603,7 +603,7 @@ public class StylizeActivity extends CameraActivity implements OnImageAvailableL
   }
 
   private void renderDebug(final Canvas canvas) {
-    // TODO(andrewharp): move result display to its own View instead of using debug overlay.
+    // TODO (andrewharp): move result display to its own View instead of using debug overlay. id:1789
     final Bitmap texture = textureCopyBitmap;
     if (texture != null) {
       final Matrix matrix = new Matrix();

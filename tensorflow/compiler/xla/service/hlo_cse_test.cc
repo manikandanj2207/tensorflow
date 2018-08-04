@@ -379,7 +379,7 @@ TEST_F(HloCseTest, DoNotCombineRng) {
   EXPECT_THAT(root, op::Add(rng1, rng2));
 }
 
-// TODO(b/28245743): Handle impure functions correctly in CSE.
+// TODO (b/28245743): Handle impure functions correctly in CSE. id:225
 TEST_F(HloCseTest, DISABLED_DoNotCombineCallsToImpureFunctions) {
   // Test that two calls to an impure function are not commoned. RNG
   // is the source of the impurity.

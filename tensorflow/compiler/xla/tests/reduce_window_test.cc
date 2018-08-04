@@ -153,7 +153,7 @@ TEST_F(ReduceWindowTest, AmongMajor2DimsMediumSize) {
   ComputeAndCompareR4<float>(&builder_, *result, {}, ErrorSpec(1e-3, 1e-3));
 }
 
-// TODO(b/32173947): Test support for arbitrary-sized padding.
+// TODO (b/32173947): Test support for arbitrary-sized padding. id:363
 TEST_F(ReduceWindowTest, DISABLED_AmongMajor2DimsMediumSizeLargePadding) {
   Array4D<float> input_array(9, 12, 4, 89);  // simulate Dim0IsMinor layout
   input_array.FillRandom(2.0f);
@@ -182,7 +182,7 @@ TEST_F(ReduceWindowTest, DISABLED_AmongMajor2DimsMediumSizeLargePadding) {
 
   ComputeAndCompareR4<float>(&builder_, *result, {}, ErrorSpec(1e-3, 1e-3));
 }
-// TODO(b/31809540): Implement minor dim reduction to reduce num of reshapes.
+// TODO (b/31809540): Implement minor dim reduction to reduce num of reshapes. id:341
 TEST_F(ReduceWindowTest, ReduceR4AmongXYMinorSmall) {
   Array4D<float> input_array(2, 2, 4, 16);
 
@@ -209,7 +209,7 @@ TEST_F(ReduceWindowTest, ReduceR4AmongXYMinorSmall) {
   ComputeAndCompareR4<float>(&builder_, *res, {}, ErrorSpec(1e-3, 1e-3));
 }
 
-// TODO(b/31809540): Implement minor dim reduction to reduce num of reshapes.
+// TODO (b/31809540): Implement minor dim reduction to reduce num of reshapes. id:308
 TEST_F(ReduceWindowTest, ReduceR4AmongXYMinorSmallOverlapped) {
   constexpr int64 p = 2;
   constexpr int64 z = 2;

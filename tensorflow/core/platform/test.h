@@ -56,7 +56,7 @@ int RandomSeed();
 std::unique_ptr<SubProcess> CreateSubProcess(const std::vector<string>& argv);
 
 // Returns an unused port number, for use in multi-process testing.
-// NOTE: This function is not thread-safe.
+// NOTE: This function is not thread-safe. id:1389
 int PickUnusedPortOrDie();
 
 }  // namespace testing

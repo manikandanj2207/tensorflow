@@ -775,7 +775,7 @@ Status AlgebraicSimplifierVisitor::HandlePad(HloInstruction* pad) {
     // Pad has negative padding. Replace with a pad with the non-negative
     // padding followed by a slice which effectively performs the negative
     // padding.
-    // TODO(b/34628603): Add support for negative padding in the backends, or
+    // TODO (b/34628603): Add support for negative padding in the backends, or id:145
     // change kPad semantics to disallow negative padding and use slice
     // instead.
 
@@ -1132,7 +1132,7 @@ Status AlgebraicSimplifierVisitor::HandleConvolution(
   // - if bitcasts are supported, the simplifier will be called again with
   //   bitcasts_ == true.
 
-  // TODO(cwhipkey): b/31337498, make this layout insensitive.
+  // TODO (cwhipkey): b/31337498, make this layout insensitive. id:212
   if (!is_layout_sensitive_) return Status::OK();
 
   const ConvolutionDimensionNumbers& dnums =
@@ -1221,7 +1221,7 @@ Status AlgebraicSimplifierVisitor::HandleConvolution(
           convolution_shape.element_type(), {conv_width, output_channels});
 
   // We cannot insert bitcasts if the layouts will not be compatible.
-  // TODO(b/33178038): Consider inserting a transpose if a bitcast would be
+  // TODO (b/33178038): Consider inserting a transpose if a bitcast would be id:128
   // invalid.
   if (!valid_bitcast_callback_(lhs->shape(), input_shape) ||
       !valid_bitcast_callback_(rhs->shape(), new_filter_shape) ||

@@ -423,7 +423,7 @@ class CudnnSupport : public dnn::DnnSupport {
   // single cuda_dnn translation unit.
   void* dnn_handle_ GUARDED_BY(dnn_handle_mutex_);
 
-  // NOTE(keveman): Temporary data layout transformation until cuDNN supports
+  // NOTE (keveman): Temporary data layout transformation until cuDNN supports id:2171
   // kBatchYXDepth for backward pass. This function allocates temporary memory,
   // lays out the source data into the temporary but in the kBatchDepthXY
   // layout, and returns the temporary memory. The caller is responsible for

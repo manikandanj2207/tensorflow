@@ -25,7 +25,7 @@ from __future__ import print_function
 # machine that launches a TensorFlow k8s cluster does not have to have the
 # Python package of TensorFlow installed on it.
 
-# TODO(cais): Consider adding resource requests/limits to the pods.
+# TODO (cais): Consider adding resource requests/limits to the pods. id:2110
 
 # Worker pods will mount host volume /shared, as a convenient way to create
 # shared storage among workers during local tests.

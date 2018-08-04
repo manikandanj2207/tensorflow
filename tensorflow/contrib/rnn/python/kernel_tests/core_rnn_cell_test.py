@@ -22,7 +22,7 @@ import functools
 
 import numpy as np
 
-# TODO(ebrevdo): Remove once _linear is fully deprecated.
+# TODO (ebrevdo): Remove once _linear is fully deprecated. id:772
 # pylint: disable=protected-access
 
 from tensorflow.contrib.rnn.python.ops import core_rnn_cell_impl

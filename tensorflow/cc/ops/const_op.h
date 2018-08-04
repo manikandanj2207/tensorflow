@@ -45,7 +45,7 @@ Output Const(const Scope& scope, const Input::Initializer& val) {
     return Const(scope, Input::Initializer(t));
   }
 
-  // TODO(keveman): Refactor Cast op's kernel implementation such that the code
+  // TODO (keveman): Refactor Cast op's kernel implementation such that the code id:69
   // can be directly called here instead of adding the Cast op to the graph.
   auto orig_const = AsNodeOut(scope, orig_const_output);
   const auto cast_op_name = scope.GetUniqueNameForOp("Cast");

@@ -207,7 +207,7 @@ def conv2d_shape(op):
   if stride_b != 1 or stride_d != 1:
     raise ValueError("Current implementation does not yet support "
                      "strides in the batch and depth dimensions.")
-  # TODO(mrry,shlens): Raise an error if the stride would cause
+  # TODO (mrry,shlens): Raise an error if the stride would cause id:1599
   # information in the input to be ignored. This will require a change
   # in the kernel implementation.
   padding = op.get_attr("padding")
@@ -263,11 +263,11 @@ def depthwise_conv2d_native_shape(op):
     raise ValueError("Current implementation does not yet support "
                      "strides in the batch and depth dimensions.")
   if stride_r != stride_c:
-    # TODO(shlens): Add support for this.
+    # TODO (shlens): Add support for this. id:2025
     raise ValueError("Current implementation only supports equal length "
                      "strides in the row and column dimensions.")
 
-  # TODO(mrry,shlens): Raise an error if the stride would cause
+  # TODO (mrry,shlens): Raise an error if the stride would cause id:1893
   # information in the input to be ignored. This will require a change
   # in the kernel implementation.
   stride = stride_r
@@ -326,11 +326,11 @@ def separable_conv2d_shape(op):
     raise ValueError("Current implementation does not yet support "
                      "strides in the batch and depth dimensions.")
   if stride_r != stride_c:
-    # TODO(shlens): Add support for this.
+    # TODO (shlens): Add support for this. id:1667
     raise ValueError("Current implementation only supports equal length "
                      "strides in the row and column dimensions.")
 
-  # TODO(mrry,shlens): Raise an error if the stride would cause
+  # TODO (mrry,shlens): Raise an error if the stride would cause id:2065
   # information in the input to be ignored. This will require a change
   # in the kernel implementation.
   stride = stride_r
@@ -393,7 +393,7 @@ def avg_pool_shape(op):
     raise ValueError("Current implementation does not support strides "
                      "in the batch and depth dimensions.")
 
-  # TODO(mrry,shlens): Raise an error if the stride would cause
+  # TODO (mrry,shlens): Raise an error if the stride would cause id:1600
   # information in the input to be ignored. This will require a change
   # in the kernel implementation.
   padding = op.get_attr("padding")
@@ -465,7 +465,7 @@ def max_pool_shape(op):
     raise ValueError("MaxPooling supports exactly one of pooling across depth "
                      "or pooling across width/height.")
 
-  # TODO(mrry,shlens): Raise an error if the stride would cause
+  # TODO (mrry,shlens): Raise an error if the stride would cause id:2026
   # information in the input to be ignored. This will require a change
   # in the kernel implementation.
   if ksize_d == 1:
@@ -530,7 +530,7 @@ def broadcast_shape(shape_x, shape_y):
       # One or both dimensions is unknown. If either dimension is greater than
       # 1, we assume that the program is correct, and the other dimension will
       # be broadcast to match it.
-      # TODO(mrry): If we eliminate the shape checks in C++, we must still
+      # TODO (mrry): If we eliminate the shape checks in C++, we must still id:1894
       # assert that the unknown dim is either 1 or the same as the known dim.
       if dim_x.value is not None and dim_x.value > 1:
         return_dims.append(dim_x)

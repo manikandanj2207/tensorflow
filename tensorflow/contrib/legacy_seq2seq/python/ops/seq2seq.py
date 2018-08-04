@@ -75,7 +75,7 @@ from tensorflow.python.ops import nn_ops
 from tensorflow.python.ops import variable_scope
 from tensorflow.python.util import nest
 
-# TODO(ebrevdo): Remove once _linear is fully deprecated.
+# TODO (ebrevdo): Remove once _linear is fully deprecated. id:710
 linear = core_rnn_cell_impl._linear  # pylint: disable=protected-access
 
 
@@ -1080,7 +1080,7 @@ def sequence_loss_by_example(logits,
     log_perp_list = []
     for logit, target, weight in zip(logits, targets, weights):
       if softmax_loss_function is None:
-        # TODO(irving,ebrevdo): This reshape is needed because
+        # TODO (irving,ebrevdo): This reshape is needed because id:647
         # sequence_loss_by_example is called with scalars sometimes, which
         # violates our general scalar strictness policy.
         target = array_ops.reshape(target, [-1])

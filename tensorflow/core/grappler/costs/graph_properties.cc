@@ -129,7 +129,7 @@ Status GraphProperties::InferStatically() {
     }
     input_properties_[node->name()] = input_properties;
 
-    // TODO(bsteiner): share this code with the input processing above.
+    // TODO (bsteiner): share this code with the input processing above. id:1224
     CHECK_EQ(ctx->num_outputs(), node->num_outputs());
     std::vector<OpInfo::TensorProperties> output_properties;
     for (int i = 0; i < ctx->num_outputs(); ++i) {

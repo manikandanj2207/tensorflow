@@ -42,7 +42,7 @@ def sparse_boolean_mask(sparse_tensor, mask, name="sparse_boolean_mask"):
     A `SparseTensor` that contains row `k` of `sparse_tensor` iff `mask[k]` is
     `True`.
   """
-  # TODO(jamieas): consider mask dimension > 1 for symmetry with `boolean_mask`.
+  # TODO (jamieas): consider mask dimension > 1 for symmetry with `boolean_mask`. id:538
   with ops.name_scope(name, values=[sparse_tensor, mask]):
     mask = ops.convert_to_tensor(mask)
     mask_rows = array_ops.where(mask)

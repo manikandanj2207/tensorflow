@@ -32,7 +32,7 @@ import traceback
 # imported using `tf.load_op_library()` can access symbols defined in
 # _pywrap_tensorflow.so.
 try:
-  # TODO(keveman,mrry): Support dynamic op loading on platforms that do not
+  # TODO (keveman,mrry): Support dynamic op loading on platforms that do not id:2349
   # use `dlopen()` for dynamic loading.
   _use_rtld_global = hasattr(sys, 'getdlopenflags') and hasattr(sys, 'setdlopenflags')
   if _use_rtld_global:

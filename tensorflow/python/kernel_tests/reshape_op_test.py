@@ -77,7 +77,7 @@ class ReshapeTest(test.TestCase):
     x = np.arange(1., 7.).reshape([6]).astype(np.float32)
     self._testBothReshape(x, [3, -1])
 
-  # TODO(vrv): Add tests for failure conditions once python test_util
+  # TODO (vrv): Add tests for failure conditions once python test_util id:1827
   # reports errors.
 
   def testFloatReshapeGradThreeDimensions(self):

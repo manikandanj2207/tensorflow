@@ -88,7 +88,7 @@ TEST_F(WhileTest, WhileWithScalarResult) {
 // while (result.sum() < 15.5f) {
 //   result = result + vector<float>(0);
 // }
-// TODO(b/29185393): does not terminate on CPU.
+// TODO (b/29185393): does not terminate on CPU. id:342
 TEST_F(WhileTest, DISABLED_WhileWithEmptyVectorResult) {
   Shape result_shape = ShapeUtil::MakeShape(F32, {0});
 
@@ -407,7 +407,7 @@ TEST_F(WhileTest, TwoWhileLoopsAndSharedBody) {
 }
 
 // Test while nodes that share the while body computation.
-// TODO(b/37245345): Fails on GPU backend.
+// TODO (b/37245345): Fails on GPU backend. id:309
 TEST_F(WhileTest, DISABLED_ON_GPU(WhileLoopsWithSharedBodyAndInit)) {
   std::vector<Shape> shape_elements = {ShapeUtil::MakeShape(S32, {}),
                                        ShapeUtil::MakeShape(F32, {10})};
@@ -547,7 +547,7 @@ XLA_TEST_F(WhileTest, WhileWithDynamicUpdateSlice) {
 // Note: this test currently only tests generating random values within a loop.
 // Per backend the values generated can be different as the different backends
 // use different random number generators.
-// TODO(b/32240857): Extend test to verify outputs.
+// TODO (b/32240857): Extend test to verify outputs. id:258
 TEST_F(WhileTest, WhileWithPrngScalarResult) {
   auto v6s32 = ShapeUtil::MakeShape(S32, {6});
 
@@ -730,7 +730,7 @@ void BM_WhileLoop(int num_iters) {
   }
 }
 
-// TODO(b/32470510): Benchmark fails on parallel CPU backend.
+// TODO (b/32470510): Benchmark fails on parallel CPU backend. id:289
 #ifndef XLA_TEST_BACKEND_CPU_PARALLEL
 BENCHMARK(BM_WhileLoop);
 #endif

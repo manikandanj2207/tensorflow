@@ -28,7 +28,7 @@ namespace tf_tracking {
 // It provides the last known position and number of recent detection failures,
 // in addition to the more general appearance data associated with the object
 // class (which is in ObjectModel).
-// TODO(andrewharp): Make getters/setters follow styleguide.
+// TODO (andrewharp): Make getters/setters follow styleguide. id:1788
 class TrackedObject {
  public:
   TrackedObject(const std::string& id, const Image<uint8_t>& image,

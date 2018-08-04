@@ -51,7 +51,7 @@ class CostModel {
   // Assigns min_count_ as a function of the median count for a Node.
   // This value is then used for suppressing the time/size costs of
   // infrequent operations.
-  // NOTE(tucker): Maybe this should move to a subclass of CostModel.
+  // NOTE (tucker): Maybe this should move to a subclass of CostModel. id:1214
   void SuppressInfrequent();
 
   bool is_global() const { return is_global_; }
@@ -214,7 +214,7 @@ class CostModel {
           host_persistent_memory_size(0),
           device_persistent_memory_size(0) {}
 
-    // TODO(yuefengz): temp_memory_size is not being used, remove it.
+    // TODO (yuefengz): temp_memory_size is not being used, remove it. id:1045
     Bytes temp_memory_size;
 
     Bytes host_temp_memory_size;

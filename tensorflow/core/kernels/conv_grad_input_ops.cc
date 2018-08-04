@@ -69,7 +69,7 @@ void Col2im(const T* col_data, const int depth, const int height,
       for (int ih = h_pad; ih < h_pad + filter_h; ++ih) {
         for (int iw = w_pad; iw < w_pad + filter_w; ++iw) {
           if (ih >= 0 && ih < height && iw >= 0 && iw < width) {
-            // TODO(andydavis) Vectorize this loop (if compiler does not).
+            // TODO (andydavis) Vectorize this loop (if compiler does not). id:1145
             for (int i = 0; i < depth; ++i) {
               im_patch_data[i] += col_data[i];
             }
@@ -95,7 +95,7 @@ typedef Eigen::GpuDevice GPUDevice;
 
 // The fast versions using eigen computations directly. They are only enabled
 // for CPU for now since nvcc times out when trying to compile them.
-// TODO(yangke): enable them for GPUs when we have a faster compiler.
+// TODO (yangke): enable them for GPUs when we have a faster compiler. id:1091
 
 template <typename Device, class T>
 struct LaunchBackwardInputConvolution {
@@ -331,7 +331,7 @@ class Conv2DCustomBackpropInputOp : public OpKernel {
     OP_REQUIRES_OK(context,
                    context->allocate_output(0, input_shape, &in_backprop));
 
-// TODO(andydavis) Consider moving code shared with
+// TODO (andydavis) Consider moving code shared with id:1236
 // Conv2DCustomBackpropFilterOp into a shared helper function.
 #if defined TENSORFLOW_USE_LIBXSMM && defined TENSORFLOW_USE_LIBXSMM_BACKWARD
     int64 pad_top, pad_bottom;
@@ -387,7 +387,7 @@ class Conv2DCustomBackpropInputOp : public OpKernel {
     const int output_image_size =
         dims.spatial_dims[0].output_size * dims.spatial_dims[1].output_size;
 
-    // TODO(andydavis) Get L2/L3 cache sizes from device.
+    // TODO (andydavis) Get L2/L3 cache sizes from device. id:1333
     const size_t l2_cache_size = 256LL << 10;
     const size_t l3_cache_size = 30LL << 20;
 
@@ -416,7 +416,7 @@ class Conv2DCustomBackpropInputOp : public OpKernel {
     // minimum per-thread work unit size threshold has been exceeded.
     // Otherwise, revert to multiple single-threaded matmul ops running in
     // parallel to keep all threads busy.
-    // TODO(andydavis) Explore alternatives to branching the code in this way
+    // TODO (andydavis) Explore alternatives to branching the code in this way id:1070
     // (i.e. run multiple, parallel tensor contractions in another thread pool).
     const bool use_parallel_contraction =
         dims.batch_size == 1 ||
@@ -643,7 +643,7 @@ class Conv2DSlowBackpropInputOp : public OpKernel {
                                    dims.spatial_dims[1].filter_size -
                                    dims.spatial_dims[1].input_size);
 
-    // TODO(keveman): cuDNN only supports equal padding on both sides, so only
+    // TODO (keveman): cuDNN only supports equal padding on both sides, so only id:1146
     // calling it when that is true. Remove this check when (if?) cuDNN starts
     // supporting different padding.
     bool rows_odd = (padding_rows % 2 != 0);
@@ -762,7 +762,7 @@ class Conv2DSlowBackpropInputOp : public OpKernel {
         .set_zero_padding_height(padding_rows / 2)
         .set_zero_padding_width(padding_cols / 2);
 
-    // NOTE(keveman):
+    // NOTE (keveman): id:1092
     // cuDNN only supports the following layouts :
     // Input  : B x D x R x C
     // Filter : OD x ID x R x C
@@ -860,7 +860,7 @@ class Conv2DSlowBackpropInputOp : public OpKernel {
       ProfileResult best_result;
       ProfileResult best_result_no_scratch;
       for (auto profile_algorithm : algorithms) {
-        // TODO(zhengxq): profile each algorithm multiple times to better
+        // TODO (zhengxq): profile each algorithm multiple times to better id:1237
         // accuracy.
         CudnnScratchAllocator scratch_allocator(ConvolveBackwardDataScratchSize,
                                                 context);

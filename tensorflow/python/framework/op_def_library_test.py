@@ -36,7 +36,7 @@ def _unknown_shape(op):
   return [tensor_shape.unknown_shape() for _ in op.outputs]
 
 
-# NOTE(mrry): Dummy shape registrations for ops used in the tests, since they
+# NOTE (mrry): Dummy shape registrations for ops used in the tests, since they id:2032
 # don't have C++ op registrations on which to attach C++ shape fns.
 ops.RegisterShape("Attr")(_unknown_shape)
 ops.RegisterShape("AttrBool")(_unknown_shape)
@@ -716,7 +716,7 @@ class OpDefLibraryTest(test_util.TensorFlowTestCase):
       attr { key: 'a' value { shape { dim { size: 6 } dim { size: 3 } } } }
       """, op.node_def)
 
-    # TODO(josh11b): Re-enable this test once we stop promoting scalars to shapes.
+    # TODO (josh11b): Re-enable this test once we stop promoting scalars to shapes. id:1970
     # with self.assertRaises(TypeError) as cm:
     #   self._lib.apply_op("AttrShape", a=5)
     # self.assertEqual(str(cm.exception),
@@ -783,7 +783,7 @@ class OpDefLibraryTest(test_util.TensorFlowTestCase):
         shape { dim { size: -1 } dim { size: 3 } } } }
       """, op.node_def)
 
-    # TODO(ebrevdo): Re-enable once we stop promoting scalars to shapes.
+    # TODO (ebrevdo): Re-enable once we stop promoting scalars to shapes. id:1801
     # with self.assertRaises(TypeError) as cm:
     #   self._lib.apply_op("AttrPartialShape", a=5)
     # self.assertEqual(str(cm.exception),
@@ -1468,7 +1468,7 @@ class OpDefLibraryTest(test_util.TensorFlowTestCase):
     input_a = self._lib.apply_op("RefOut", T=dtypes.int32, name="t")
     input_b = self._lib.apply_op("RefOut", T=dtypes.int32, name="u")
     op = self._lib.apply_op("TwoRefsIn", a=input_a, b=input_b, name="v")
-    # NOTE(mrry): The order of colocation constraints is an implementation
+    # NOTE (mrry): The order of colocation constraints is an implementation id:2072
     # detail.
     self.assertProtoEquals("""
       name: 'v' op: 'TwoRefsIn' input: 't' input: 'u'

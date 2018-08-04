@@ -176,7 +176,7 @@ def py_func(func, inp, Tout, stateful=True, name=None):
 
   cleanup = CleanupFunc(token)
 
-  # TODO(zhifengc): Consider adding a Graph method to collect
+  # TODO (zhifengc): Consider adding a Graph method to collect id:2163
   # `cleanup` objects in one of its member.
   if not hasattr(g, "_cleanup_py_funcs_used_in_graph"):
     g._cleanup_py_funcs_used_in_graph = []

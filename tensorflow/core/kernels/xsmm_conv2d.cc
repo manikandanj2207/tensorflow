@@ -35,7 +35,7 @@ void dummy_xsmm_conv2d_ensure_file_is_not_empty(void);
 #include "tensorflow/core/lib/core/blocking_counter.h"
 #include "tensorflow/core/lib/core/threadpool.h"
 
-#include "libxsmm_main.h"  // TODO(bsteiner): API to avoid incl. header from src/
+#include "libxsmm_main.h"  // TODO (bsteiner): API to avoid incl. header from src/ id:1674
 #include "include/libxsmm_cpuid.h"
 #include "include/libxsmm_malloc.h"
 

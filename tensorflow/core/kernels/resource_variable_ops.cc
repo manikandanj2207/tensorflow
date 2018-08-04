@@ -50,7 +50,7 @@ class ReadVariableOp : public OpKernel {
                          handle.container(), ", name: ", handle.name()));
 
     core::ScopedUnref s(variable);
-    // TODO(apassos): It's possible to do copy-on-write here instead of always
+    // TODO (apassos): It's possible to do copy-on-write here instead of always id:1294
     // copying by coordinating with the writing code. Do this. This will also
     // obviate the need to hold a lock here.
     mutex_lock ml(*variable->mu());
@@ -63,7 +63,7 @@ class ReadVariableOp : public OpKernel {
   }
 };
 
-// TODO(apassos) register for the GPU as well.
+// TODO (apassos) register for the GPU as well. id:1496
 #define REGISTER_KERNELS(type)                                                 \
   REGISTER_KERNEL_BUILDER(                                                     \
       Name("ReadVariableOp").Device(DEVICE_CPU).TypeConstraint<type>("dtype"), \
@@ -176,14 +176,14 @@ class AssignVariableOp : public OpKernel {
             }));
     core::ScopedUnref s(variable);
 
-    // TODO(apassos): holding a lock and copying is unnecessary if we are the
+    // TODO (apassos): holding a lock and copying is unnecessary if we are the id:1184
     // last user of the value tensor. This should essentially always be the
     // case, yet the refcount is usually 2 instead of 1. Figure out what needs
     // to change in the code to make this not be the case, so we can safely take
     // ownership.
     mutex_lock ml(*variable->mu());
     const Tensor& value = context->input(1);
-    // TODO(apassos): should check that the declared shapes are compatible
+    // TODO (apassos): should check that the declared shapes are compatible id:1526
     // somewhere, probably.
     if (!variable->tensor()->shape().IsSameSize(value.shape())) {
       PersistentTensor unused;
@@ -204,7 +204,7 @@ class AssignVariableOp : public OpKernel {
   DataType dtype_;
 };
 
-// TODO(apassos) register for the GPU as well.
+// TODO (apassos) register for the GPU as well. id:1566
 #define REGISTER_KERNELS(type)                                \
   REGISTER_KERNEL_BUILDER(Name("AssignVariableOp")            \
                               .Device(DEVICE_CPU)             \
@@ -245,7 +245,7 @@ class AssignUpdateVariableOp : public OpKernel {
                                            &variable));
     core::ScopedUnref s(variable);
 
-    // TODO(apassos): holding a lock and copying is unnecessary if we are the
+    // TODO (apassos): holding a lock and copying is unnecessary if we are the id:1295
     // last user of the value tensor. This should essentially always be the
     // case, yet the refcount is usually 2 instead of 1. Figure out what needs
     // to change in the code to make this not be the case, so we can safely take
@@ -437,7 +437,7 @@ class ResourceScatterUpdateOp : public OpKernel {
   REGISTER_SCATTER_KERNEL_INDEX(type, int32, dev, name, op); \
   REGISTER_SCATTER_KERNEL_INDEX(type, int64, dev, name, op);
 
-// TODO(apassos) add the other types here.
+// TODO (apassos) add the other types here. id:1497
 #define REGISTER_SCATTER_ARITHEMTIC(type, dev)             \
   REGISTER_SCATTER_KERNEL(type, dev, "ResourceScatterAdd", \
                           scatter_op::UpdateOp::ADD);

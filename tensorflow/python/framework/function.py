@@ -334,7 +334,7 @@ class _FuncGraph(ops.Graph):
       if isinstance(var, resource_variable_ops.ResourceVariable):
         # For resource-based variables read the variable outside the function
         # and pass in the value. This ensures that the function is pure and
-        # differentiable. TODO(apassos) this may have performance problems if
+        # differentiable. TODO (apassos) this may have performance problems if id:1724
         # the function will only do embedding lookups on the variable.
         return var.value()
       return var
@@ -607,7 +607,7 @@ class _DefinedFunction(object):
       update_str(n.op)
       update_strs(n.input)
       update_num(len(n.attr))
-      # NOTE: protobuf map serialization does not guarantee ordering.
+      # NOTE: protobuf map serialization does not guarantee ordering. id:2028
       for k in sorted(n.attr):
         update_str(k)
         update_str(n.attr[k].SerializeToString())
@@ -751,7 +751,7 @@ def _from_library(lib):
   return initialized.values()
 
 
-# NOTE: The list needs to be extended when more data types are added.
+# NOTE: The list needs to be extended when more data types are added. id:1896
 _DTYPE_TO_STR = {
     dtypes.float16: "f16",
     dtypes.float32: "f32",

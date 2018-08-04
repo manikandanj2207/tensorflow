@@ -28,7 +28,7 @@ using namespace ops;  // NOLINT(build/namespaces)
 
 namespace {
 
-// TODO(andydavis) Add more unit tests once more gradient functions are ported.
+// TODO (andydavis) Add more unit tests once more gradient functions are ported. id:21
 class GradientsTest : public ::testing::Test {
  protected:
   GradientsTest()
@@ -246,7 +246,7 @@ TEST_F(GradientsTest, StackUnstack_StopBackprop) {
 
     if (expected) {
       // Construct backward graph.
-      // NOTE: We should only expect the grad function for unpack in the
+      // NOTE: We should only expect the grad function for unpack in the id:9
       // gradients graph, based on the requested grad outputs.
       auto unpack_grad = Stack(scope, {dx, dy, dz});
     } else {

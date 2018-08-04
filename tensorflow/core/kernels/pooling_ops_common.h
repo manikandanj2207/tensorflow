@@ -133,7 +133,7 @@ class MaxPoolingOp : public OpKernel {
   // does not handle all of the same options as SpatialMaxPool
   // (strict assumptions on no padding, stride).
   //
-  // TODO(vrv): implement a more general depthwise-max pool that works
+  // TODO (vrv): implement a more general depthwise-max pool that works id:1173
   // on GPU as well.
   void DepthwiseMaxPool(OpKernelContext* context, Tensor* output,
                         const Tensor& tensor_in, const PoolParameters& params) {
@@ -152,7 +152,7 @@ class MaxPoolingOp : public OpKernel {
     // EigenMatrix version that is currently faster than Eigen's
     // Spatial MaxPooling implementation.
     //
-    // TODO(vrv): Remove this once we no longer need it.
+    // TODO (vrv): Remove this once we no longer need it. id:1411
     if (std::is_same<Device, GPUDevice>::value) {
       Eigen::PaddingType pt = BrainPadding2EigenPadding(padding);
       functor::SpatialMaxPooling<Device, T>()(
@@ -239,8 +239,8 @@ class MaxPoolingOp : public OpKernel {
         }
       };
 
-      // TODO(andydavis) Consider sharding across batch x rows x cols.
-      // TODO(andydavis) Consider a higher resolution shard cost model.
+      // TODO (andydavis) Consider sharding across batch x rows x cols. id:1555
+      // TODO (andydavis) Consider a higher resolution shard cost model. id:1284
       const int64 shard_cost =
           params.tensor_in_rows * params.tensor_in_cols * params.depth;
       Shard(worker_threads.num_threads, worker_threads.workers,
@@ -337,7 +337,7 @@ void SpatialAvgPool(OpKernelContext* context, Tensor* output,
 
   const int64 work_unit_size =
       params.tensor_in_rows * params.tensor_in_cols * params.depth;
-  // NOTE: Constants in calculation below were estimated based on benchmarking.
+  // NOTE: Constants in calculation below were estimated based on benchmarking. id:1486
   // Nanoseconds/work_unit for benchmarks ranged from 0.01 to 0.001, and
   // so the factor 0.01 (i.e. 1/100) with a max of 10000, was chosen to limit
   // the work unit cost to an operating range in which it emperically performed

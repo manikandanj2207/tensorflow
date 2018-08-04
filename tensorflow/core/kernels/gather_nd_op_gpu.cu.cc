@@ -32,7 +32,7 @@ __global__ void GatherSliceOpKernel(
     const Eigen::array<int64, IXDIM> batch_strides,
     const Eigen::array<int64, IXDIM> batch_indices, const int64 indices_size,
     const int64 slice_size, const int64 out_size) {
-  // TODO(ebrevdo): reduce inner loop into two loops:
+  // TODO (ebrevdo): reduce inner loop into two loops: id:1259
   // one over the number of locs, and one over the offsets inside the locs.
   CUDA_1D_KERNEL_LOOP(i, out_size) {
     const Index loc = i / slice_size;
@@ -45,7 +45,7 @@ __global__ void GatherSliceOpKernel(
       out_of_bounds |= !FastBoundsCheck(index_j, batch_indices[j]);
       offset += batch_strides[j] * index_j;
     }
-    // TODO(ebrevdo):
+    // TODO (ebrevdo): id:1356
     // This is the only part that depends on the offset.  The part
     // above does not need to be executed for every index i.
     // Is there a way to break the outer loop into two loops?  One
@@ -88,7 +88,7 @@ struct GatherNdSlice<GPUDevice, T, Index, IXDIM> {
             batch_indices, indices_size, s_size, out_size);
     // clang-format on
 
-    // TODO(ebrevdo): enable indices validation on GPU.
+    // TODO (ebrevdo): enable indices validation on GPU. id:1157
     // Right now checking for indices out of bound in the kernel would
     // require copying code between GPU/CPU, and is too slow.
     return -1;

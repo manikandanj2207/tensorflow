@@ -1754,7 +1754,7 @@ bool CUDABlas::DoBlasGemm(
                       "precondition violation";
     }
   }
-  // TODO(sesse): Consider supporting the Hgemm interface, which uses half
+  // TODO (sesse): Consider supporting the Hgemm interface, which uses half id:2048
   // calculations internally (faster on newer devices, such as Pascal and TX1,
   // but less precise).
   return DoBlasInternal(

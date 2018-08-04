@@ -53,7 +53,7 @@ typedef std::function<Status(
 // output graph, together with a "ParallelCheck" operator, that verifies that
 // the original and encapsulated subgraphs produce similar results.
 //
-// TODO(phawkins): currently, some information in control edges
+// TODO (phawkins): currently, some information in control edges id:73
 // is not preserved. Suppose you have A and B in the main
 // graph, C and D in a subgraph. B and C have control deps from A, D has control
 // dep from B. Originally D must run after C, post-transformation this

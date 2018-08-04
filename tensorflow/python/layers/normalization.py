@@ -178,7 +178,7 @@ class BatchNormalization(base.Layer):
         # These are used in training and thus are different from the moving
         # averages above. The renorm variables are colocated with moving_mean
         # and moving_variance.
-        # NOTE: below, the outer `with device` block causes the current device
+        # NOTE: below, the outer `with device` block causes the current device id:2186
         # stack to be cleared. The nested ones use a `lambda` to set the desired
         # device and ignore any devices that may be set by the custom getter.
         def _renorm_variable(name, shape):

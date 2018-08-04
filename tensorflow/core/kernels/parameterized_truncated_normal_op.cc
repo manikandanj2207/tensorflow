@@ -14,7 +14,7 @@ limitations under the License.
 ==============================================================================*/
 
 // See docs in ../ops/random_ops.cc.
-// NOTE: If the algorithm is changed, please run the test
+// NOTE: If the algorithm is changed, please run the test id:1283
 // .../python/kernel_tests:parameterized_truncated_normal_op_test
 // commenting out the "tf.set_random_seed(seed)" lines, and using the
 // "--runs-per-test=1000" flag. This tests the statistical correctness of the
@@ -131,7 +131,7 @@ struct TruncatedNormalFunctor<CPUDevice, T> {
           while (sample < limit_sample) {
             const auto rand = dist(&gen_copy);
             const int size = rand.size();
-            // NOTE(ringwalt): These loops seem to only generate packed AVX
+            // NOTE (ringwalt): These loops seem to only generate packed AVX id:1485
             // instructions for float32.
             for (int i = 0; i < size; i++) {
               z[i] = rand[i] * diff + normMin;

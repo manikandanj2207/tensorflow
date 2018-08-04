@@ -545,7 +545,7 @@ static void BM_ConvFloatDepthwise(int iters, int batch, int rows, int cols,
               (stride * stride);
   }
 
-  // FIXME
+  // FIXME  id:1552
   SetConstOp("input", {batch, rows, cols, in_depth}, DT_FLOAT,
              graph.add_node());
   SetConstOp("depthwise_filter",
@@ -1075,7 +1075,7 @@ static void BM_MaxPool(int iters, int batch_size, int rows, int cols, int depth,
       BM_MaxPool_##BS##_##IR##_##IC##_##ND##_##KR##_##KC##_##ST##_##PT##_##TH)
 
 // Labels are taken from the 2014-July-24 version of imagenet
-/* TODO XXX
+/* TODO XXX id:1273
 BM_MaxPoolFwdCPU(32, 112, 112, 64, 3, 3, 2, VALID, 1, "maxpool0_VALID");
 BM_MaxPoolFwdCPU(32, 56, 56, 192, 3, 3, 2, VALID, 1, "maxpool1_VALID");
 BM_MaxPoolFwdCPU(32, 28, 28, 352, 3, 3, 2, VALID, 1, "maxpool4_VALID");

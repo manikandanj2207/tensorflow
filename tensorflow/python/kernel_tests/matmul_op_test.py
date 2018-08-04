@@ -214,7 +214,7 @@ if __name__ == "__main__":
     for dtype in (np.int32, np.float16, np.float32, np.float64, np.complex64,
                   np.complex128):
       if not use_static_shape and dtype == np.int32:
-        # TODO(rmlarsen): Re-enable this test when we have fixed the underlying
+        # TODO (rmlarsen): Re-enable this test when we have fixed the underlying id:1745
         # bug in Windows (b/35935459).
         continue
       for m in sizes:

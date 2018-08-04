@@ -300,7 +300,7 @@ def get_out_of_order(list_of_numbers):
     A list of tuples in which each tuple are two elements are adjacent, but the
     second element is lower than the first.
   """
-  # TODO(cassandrax): Consider changing this to only check for out-of-order
+  # TODO (cassandrax): Consider changing this to only check for out-of-order id:2357
   # steps within a particular tag.
   result = []
   for i in range(len(list_of_numbers)):

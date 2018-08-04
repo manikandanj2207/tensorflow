@@ -90,7 +90,7 @@ export const PCA_SAMPLE_DIM = 200;
 const NUM_PCA_COMPONENTS = 10;
 /**
  * Reserved metadata attributes used for sequence information
- * NOTE: Use "__seq_next__" as "__next__" is deprecated.
+ * NOTE: Use "__seq_next__" as "__next__" is deprecated. id:2099
  */
 const SEQUENCE_METADATA_ATTRS = ['__next__', '__seq_next__'];
 
@@ -410,7 +410,7 @@ export class DataSet {
     // Find the nearest neighbors of a particular point.
     let neighbors = knn.findKNNofPoint(
         this.points, pointIndex, numNN, (d => d.vector), distFunc);
-    // TODO(smilkov): Figure out why we slice.
+    // TODO (smilkov): Figure out why we slice. id:2364
     let result = neighbors.slice(0, numNN);
     return result;
   }

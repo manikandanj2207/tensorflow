@@ -78,7 +78,7 @@ struct LaunchDepthwiseConvOp;
 //                        ([e0, e0, e1, e1] x [u2, v2, w2, x2]) +
 //                        ([f0, f0, f1, f1] x [u3, v3, w3, x3])
 //
-// TODO(andydavis) Experiment with processing multiple inputs per input buffer.
+// TODO (andydavis) Experiment with processing multiple inputs per input buffer. id:1341
 template <typename T>
 struct DepthwiseConv2DKernel {
   static void Run(const DepthwiseArgs& args,
@@ -102,7 +102,7 @@ struct DepthwiseConv2DKernel {
         // Calculate index.
         const int64 index = i + j * padded_filter_inner_dim_size;
         // Load filter.
-        // TODO(andydavis) Unroll 'out_c' loop in caller so we can load
+        // TODO (andydavis) Unroll 'out_c' loop in caller so we can load id:1454
         // multiple inputs here to amortize the cost of each filter block load.
         const auto filter_block =
             Eigen::internal::ploadu<Packet>(filter + index);
@@ -147,11 +147,11 @@ struct DepthwiseConv2DKernel {
 // load/store and multiply-add operations (see comments at InputBufferCopyOp and
 // DepthwiseConv2DKernel for details).
 //
-// TODO(andydavis) Evaluate the performance of processing multiple input
+// TODO (andydavis) Evaluate the performance of processing multiple input id:1254
 // patches in the inner loop.
-// TODO(andydavis) Consider a zero-copy implementation for the case when
+// TODO (andydavis) Consider a zero-copy implementation for the case when id:1351
 // 'in_depth' is a multiple of register width, and 'depth_multipler' is one.
-// TODO(andydavis) Evaluate the performance of alternative implementations.
+// TODO (andydavis) Evaluate the performance of alternative implementations. id:1152
 template <typename T>
 struct LaunchDepthwiseConvOp<CPUDevice, T> {
   typedef typename Eigen::internal::packet_traits<T>::type Packet;
@@ -233,7 +233,7 @@ struct LaunchDepthwiseConvOp<CPUDevice, T> {
     // without reducing throughput at batch size 32.
     const float kCostMultiplier = 2.5f;
 
-    // TODO(andydavis): Estimate shard cost (in cycles) based on the number of
+    // TODO (andydavis): Estimate shard cost (in cycles) based on the number of id:1342
     // flops/loads/stores required to compute one shard.
     const int64 shard_cost = kCostMultiplier * args.out_cols * args.out_depth;
 

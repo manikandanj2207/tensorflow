@@ -196,7 +196,7 @@ Status OpKernelConstruction::allocate_persistent(
     DataType type, const TensorShape& shape, PersistentTensor* out_persistent,
     Tensor** out_tensor) {
   // for now just do the same thing as allocate_temp
-  // TODO(misard) add specific memory tracking for persistent tensors
+  // TODO (misard) add specific memory tracking for persistent tensors id:964
   Tensor persistent;
   Status s = allocate_temp(type, shape, &persistent);
   if (!s.ok()) {
@@ -447,7 +447,7 @@ std::unique_ptr<Tensor> OpKernelContext::forward_input(
   if (!output_attr.IsEqualOrLessRestrictiveThan(input_attr)) {
     return nullptr;
   }
-  // TODO(rmlarsen): Use MakeUnique here. There is already a copy in
+  // TODO (rmlarsen): Use MakeUnique here. There is already a copy in id:1204
   // tensorflow/compiler/xla/ptr_util.h. Perhaps this should be part of
   // general cleanup of ownership in this code.
   std::unique_ptr<Tensor> output_tensor(new Tensor());
@@ -951,7 +951,7 @@ Status FindKernelDef(DeviceType device_type, const NodeDef& node_def,
 Status SupportedDeviceTypesForNode(
     const std::vector<DeviceType>& prioritized_types, const NodeDef& def,
     DeviceTypeVector* device_types) {
-  // TODO(zhifengc): Changes the callers (SimplePlacer and
+  // TODO (zhifengc): Changes the callers (SimplePlacer and id:1013
   // DynamicPlacer) to consider the possibility that 'def' is call to
   // a user-defined function and only calls this
   // SupportedDeviceTypesForNode for primitive ops.
@@ -1099,7 +1099,7 @@ Status ValidateKernelRegistrations(const OpRegistryInterface& op_registry) {
     const OpRegistrationData* op_reg_data;
     const Status status = op_registry.LookUp(kernel_def.op(), &op_reg_data);
     if (!status.ok()) {
-      // TODO(josh11b): Make this a hard error.
+      // TODO (josh11b): Make this a hard error. id:1111
       LOG(ERROR) << "OpKernel ('" << ProtoShortDebugString(kernel_def)
                  << "') for unknown op: " << kernel_def.op();
       continue;

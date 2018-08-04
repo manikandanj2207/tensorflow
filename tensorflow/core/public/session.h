@@ -123,7 +123,7 @@ class Session {
 
   /// \brief Implementations which support `RunOptions`.
   //
-  /// NOTE: This API is still experimental and may change.
+  /// NOTE: This API is still experimental and may change. id:1547
   virtual Status Create(const RunOptions& run_options, const GraphDef& graph) {
     return errors::Unimplemented(
         "Create(const RunOptions& run_options, const GraphDef& graph) is not "
@@ -144,7 +144,7 @@ class Session {
   /// to retrieve non-Tensor metadata output via a `RunMetadata` proto for this
   /// step.  `run_metadata` may be nullptr, in which case any metadata output is
   /// discarded.
-  /// NOTE: This API is still experimental and may change.
+  /// NOTE: This API is still experimental and may change. id:1842
   virtual Status Run(const RunOptions& run_options,
                      const std::vector<std::pair<string, Tensor> >& inputs,
                      const std::vector<string>& output_tensor_names,
@@ -155,7 +155,7 @@ class Session {
   /// fetches are specified by `input_names` and `output_names`. Returns
   /// `handle` that can be used to perform a sequence of partial feeds and
   /// fetches.
-  /// NOTE: This API is still experimental and may change.
+  /// NOTE: This API is still experimental and may change. id:1391
   virtual Status PRunSetup(const std::vector<string>& input_names,
                            const std::vector<string>& output_names,
                            const std::vector<string>& target_nodes,
@@ -164,7 +164,7 @@ class Session {
   /// \brief Continues the pending execution specified by `handle` with the
   /// provided input tensors and fills `outputs` for the endpoints specified
   /// in `output_names`.
-  /// NOTE: This API is still experimental and may change.
+  /// NOTE: This API is still experimental and may change. id:1774
   virtual Status PRun(const string& handle,
                       const std::vector<std::pair<string, Tensor> >& inputs,
                       const std::vector<string>& output_names,

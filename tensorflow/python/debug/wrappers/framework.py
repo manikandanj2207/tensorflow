@@ -224,7 +224,7 @@ class OnRunStartAction(object):
 
   # Instead of running the fetches as a whole, as would normally happen, invoke
   # the (to-be-implemented) debug stepper.
-  # TODO(cais): Remove "to-be-implemented".
+  # TODO (cais): Remove "to-be-implemented". id:1661
   INVOKE_STEPPER = "invoke_stepper"
 
 
@@ -326,7 +326,7 @@ class BaseDebugWrapperSession(session.SessionInterface):
   methods such as on_session_init, on_run_start and on_run_end.
   """
 
-  # TODO(cais): Add on_cont_start and on_cont_end callbacks once the stepper is
+  # TODO (cais): Add on_cont_start and on_cont_end callbacks once the stepper is id:2045
   # is available.
 
   def __init__(self, sess, thread_name_filter=None):
@@ -364,7 +364,7 @@ class BaseDebugWrapperSession(session.SessionInterface):
     if response.action == OnSessionInitAction.PROCEED:
       pass
     elif response.action == OnSessionInitAction.REMOTE_INSTR_LOOP:
-      # TODO(cais): Implement REMOTE_INSTR_LOOP
+      # TODO (cais): Implement REMOTE_INSTR_LOOP id:1594
       raise NotImplementedError(
           "OnSessionInitAction REMOTE_INSTR_LOOP has not been "
           "implemented.")
@@ -595,7 +595,7 @@ class BaseDebugWrapperSession(session.SessionInterface):
   def close(self):
     self._sess.close()
 
-  # TODO(cais): Add _node_name_regex_whitelist and
+  # TODO (cais): Add _node_name_regex_whitelist and id:2020
   #   _node_op_type_regex_whitelist.
 
   @abc.abstractmethod

@@ -28,8 +28,8 @@ limitations under the License.
 
 namespace tensorflow {
 
-// NOTE: This is now a very thin layer over ResourceOpKernel.
-// TODO(sjhwang): Remove dependencies to this class, then delete this.
+// NOTE: This is now a very thin layer over ResourceOpKernel. id:1207
+// TODO (sjhwang): Remove dependencies to this class, then delete this. id:1016
 
 // Implementation for ops providing a Reader.
 class ReaderOpKernel : public ResourceOpKernel<ReaderInterface> {

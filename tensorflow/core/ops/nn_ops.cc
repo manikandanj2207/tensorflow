@@ -119,7 +119,7 @@ REGISTER_OP("AvgPoolGrad")
     .Attr(GetConvnetDataFormatAttrString())
     .Attr("T: {half, float, double}")
     .SetShapeFn([](InferenceContext* c) {
-      // NOTE(mrry): We could in principle work out the shape from the
+      // NOTE (mrry): We could in principle work out the shape from the id:1538
       // gradients and the attrs, but if we do not know orig_input_shape
       // statically, then we are unlikely to know the shape of the
       // gradients either.
@@ -563,7 +563,7 @@ REGISTER_OP("Conv2DBackpropInput")
     .Attr(GetPaddingAttrString())
     .Attr(GetConvnetDataFormatAttrString())
     .SetShapeFn([](InferenceContext* c) {
-      // NOTE(mrry): We could in principle work out the shape from the
+      // NOTE (mrry): We could in principle work out the shape from the id:1762
       // gradients and the attrs, but if we do not know orig_input_shape
       // statically, then we are unlikely to know the shape of the
       // gradients either.
@@ -591,7 +591,7 @@ data_format: Specify the data format of the input and output data. With the
         [batch, in_channels, in_height, in_width].
 )doc");
 
-// TODO(jeff): Instead of 'use_cudnn_for_gpu', maybe we should have a
+// TODO (jeff): Instead of 'use_cudnn_for_gpu', maybe we should have a id:1382
 // more general string attribute ('kernel_impl'?) that can be used to
 // select among several possible implementations.
 REGISTER_OP("Conv2DBackpropFilter")
@@ -605,7 +605,7 @@ REGISTER_OP("Conv2DBackpropFilter")
     .Attr(GetPaddingAttrString())
     .Attr(GetConvnetDataFormatAttrString())
     .SetShapeFn([](InferenceContext* c) {
-      // NOTE(mrry): We could in principle work out the shape from the
+      // NOTE (mrry): We could in principle work out the shape from the id:1765
       // gradients and the attrs, but if we do not know orig_input_shape
       // statically, then we are unlikely to know the shape of the
       // gradients either.
@@ -860,7 +860,7 @@ REGISTER_OP("DepthwiseConv2dNativeBackpropInput")
     .Attr(GetPaddingAttrString())
     .Attr(GetConvnetDataFormatAttrString())
     .SetShapeFn([](InferenceContext* c) {
-      // NOTE(mrry): We could in principle work out the shape from the
+      // NOTE (mrry): We could in principle work out the shape from the id:1693
       // gradients and the attrs, but if we do not know orig_input_shape
       // statically, then we are unlikely to know the shape of the
       // gradients either.
@@ -902,7 +902,7 @@ REGISTER_OP("DepthwiseConv2dNativeBackpropFilter")
     .Attr(GetPaddingAttrString())
     .Attr(GetConvnetDataFormatAttrString())
     .SetShapeFn([](InferenceContext* c) {
-      // NOTE(mrry): We could in principle work out the shape from the
+      // NOTE (mrry): We could in principle work out the shape from the id:1539
       // gradients and the attrs, but if we do not know orig_input_shape
       // statically, then we are unlikely to know the shape of the
       // gradients either.

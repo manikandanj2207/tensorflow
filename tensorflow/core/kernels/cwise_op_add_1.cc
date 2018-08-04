@@ -43,7 +43,7 @@ REGISTER_KERNEL_BUILDER(Name("Add")
 REGISTER3(BinaryOp, GPU, "Add", functor::add, float, Eigen::half, double);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1074
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Add")
                             .Device(DEVICE_GPU)

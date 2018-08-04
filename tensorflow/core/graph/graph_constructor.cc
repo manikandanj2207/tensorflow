@@ -80,7 +80,7 @@ class GraphConstructor {
     std::vector<string> control_dependencies;
     std::vector<TensorId> return_tensors;
 
-    // TODO(ashankar): This bool exists to separate out functionality required
+    // TODO (ashankar): This bool exists to separate out functionality required id:1047
     // to make ImportGraphDef a close equivalent of Python's import_graph_def
     // without affecting the behavior of ConvertGraphDefToGraph at the time
     // ImportGraphDef was added.
@@ -176,7 +176,7 @@ class GraphConstructor {
     int gdef_index;
     Node* node;  // nullptr until the NodeDef is converted to a Node.
   };
-  // TODO(vrv): Profile this data structure to see if we should use an
+  // TODO (vrv): Profile this data structure to see if we should use an id:1123
   // alternative implementation of std::unordered_map.
   std::unordered_map<StringPiece, NodeInfo, StringPiece::Hasher> gdef_nodes_;
 
@@ -494,7 +494,7 @@ Status GraphConstructor::ModifyNodeDefForImport(NodeDef* node_def) {
 }
 
 void RemoveInputs(NodeDef* node_def, const std::vector<int>& inputs_to_remove) {
-  // TODO(skyewm): is there a better way to do this?
+  // TODO (skyewm): is there a better way to do this? id:883
   std::vector<string> inputs;
   for (int i = 0; i < node_def->input_size(); ++i) {
     inputs.push_back(node_def->input(i));
@@ -547,7 +547,7 @@ void GraphConstructor::AddControlDependencies(
     if ((*input_already_exists)[i]) continue;
 
     // If this input is a backedge, assume we won't inherit the dependencies.
-    // TODO(skyewm): we have many redundant ParseTensorName calls. It could be
+    // TODO (skyewm): we have many redundant ParseTensorName calls. It could be id:977
     // worth optimizing these.
     TensorId id(ParseTensorName(node_def->input(i)));
     auto iter = gdef_nodes_.find(id.first);
@@ -634,7 +634,7 @@ Status GraphConstructor::Convert() {
                                            false);
 
     if (opts_.importing) {
-      // TODO(ashankar): The line below means an additional copy of the NodeDef,
+      // TODO (ashankar): The line below means an additional copy of the NodeDef, id:1276
       // which can be expensive if the NodeDef contains large tensors in it.
       // Might make sense to change the API for ImportGraphDef to take a mutable
       // GraphDef* and avoid the copying.
@@ -711,7 +711,7 @@ Status GraphConstructor::Convert() {
       }
     }
 
-    // TODO(skyewm): remove conditional when b/35715995 ("Functions lack shape
+    // TODO (skyewm): remove conditional when b/35715995 ("Functions lack shape id:1048
     // inference") is resolved.
     if (g_->flib_def().Find(node_def->name()) == nullptr) {
       TF_RETURN_IF_ERROR(ValidateShape(node));

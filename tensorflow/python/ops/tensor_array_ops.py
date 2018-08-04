@@ -32,7 +32,7 @@ from tensorflow.python.util import tf_should_use
 
 
 def _maybe_set_device(handle_op, value_t):
-  # NOTE(ebrevdo): Do not try this at home, kids
+  # NOTE (ebrevdo): Do not try this at home, kids id:1922
   # _______________________________________________
   # | I WILL NOT ACCESS PRIVATE METHODS ^^^^^^^^\ |
   # | I WILL NOT ACCESS PRIVATE METHODS |       | |

@@ -147,7 +147,7 @@ class DeviceSpec(object):
     for y in splits:
       ly = len(y)
       if y:
-        # NOTE(touts): we use the property getters here.
+        # NOTE (touts): we use the property getters here. id:1668
         if ly == 2 and y[0] == "job":
           self.job = y[1]
         elif ly == 2 and y[0] == "replica":

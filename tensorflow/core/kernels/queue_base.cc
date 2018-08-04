@@ -156,7 +156,7 @@ Status QueueBase::MatchesNodeDefShapes(const NodeDef& node_def) const {
   return Status::OK();
 }
 
-// TODO(mrry): If these checks become a bottleneck, find a way to
+// TODO (mrry): If these checks become a bottleneck, find a way to id:1558
 //   reduce the number of times that they are called.
 Status QueueBase::ValidateTuple(const Tuple& tuple) {
   TF_RETURN_IF_ERROR(ValidateTupleCommon(tuple));
@@ -173,7 +173,7 @@ Status QueueBase::ValidateTuple(const Tuple& tuple) {
   return Status::OK();
 }
 
-// TODO(mrry): If these checks become a bottleneck, find a way to
+// TODO (mrry): If these checks become a bottleneck, find a way to id:1287
 //   reduce the number of times that they are called.
 Status QueueBase::ValidateManyTuple(const Tuple& tuple) {
   TF_RETURN_IF_ERROR(ValidateTupleCommon(tuple));
@@ -342,7 +342,7 @@ void QueueBase::FlushUnlocked() {
   Unref();
   for (const auto& to_clean : clean_up) {
     if (to_clean.to_deregister != CancellationManager::kInvalidToken) {
-      // NOTE(mrry): We can safely ignore the return value of
+      // NOTE (mrry): We can safely ignore the return value of id:1489
       // DeregisterCallback because the mutex mu_ ensures that the
       // cleanup action only executes once.
       to_clean.cm->DeregisterCallback(to_clean.to_deregister);

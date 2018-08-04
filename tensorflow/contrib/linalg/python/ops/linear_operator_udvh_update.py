@@ -178,7 +178,7 @@ class LinearOperatorUDVHUpdate(linear_operator.LinearOperator):
     Raises:
       ValueError:  If `is_X` flags are set in an inconsistent way.
     """
-    # TODO(langmore) support complex types.
+    # TODO (langmore) support complex types. id:596
     # Complex types are not allowed due to tf.cholesky() requiring float.
     # If complex dtypes are allowed, we update the following
     # 1. is_diag_update_positive should still imply that `diag > 0`, but we need

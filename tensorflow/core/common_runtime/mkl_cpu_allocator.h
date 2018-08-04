@@ -96,7 +96,7 @@ class MklCPUAllocator : public Allocator {
     TF_CHECK_OK(s);  // way to assert with an error message
   }
 
-  // TODO(jbobba): We should ideally move this into CPUOptions in config.proto.
+  // TODO (jbobba): We should ideally move this into CPUOptions in config.proto. id:984
   /// Memory limit - 64GB
   static const size_t kMaxMemSize =
       static_cast<size_t>(64) * 1024 * 1024 * 1024;

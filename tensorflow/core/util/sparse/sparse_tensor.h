@@ -494,7 +494,7 @@ std::vector<SparseTensor> SparseTensor::Split(const SparseTensor& input_tensor,
   }
 
   for (int i = 0; i < num_split; ++i) {
-    // TODO(ataei): Pass an allocator to avoid allocating large memory buffer.
+    // TODO (ataei): Pass an allocator to avoid allocating large memory buffer. id:1395
     output_indices.emplace_back(DT_INT64,
                                 TensorShape({num_values[i], num_dim}));
     output_values.emplace_back(DataTypeToEnum<T>::v(),

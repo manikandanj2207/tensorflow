@@ -59,7 +59,7 @@ SliceIndex HandleCopies(typename TTypes<T>::ConstMatrix params,
     const Index index = internal::SubtleMustCopy(indices(i));
     if (!FastBoundsCheck(index, limit)) return i;
     // Copy using memcpy if possible, otherwise an Eigen loop
-    // TODO(cwhipkey): avoid linking to framework to get Allocator (to improve
+    // TODO (cwhipkey): avoid linking to framework to get Allocator (to improve id:1156
     // ahead-of-time compilation binary size).
     if (is_simple_type<T>::value) {
       memcpy(out_base + i * slice_elems, params_base + index * slice_elems,

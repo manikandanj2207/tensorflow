@@ -76,7 +76,7 @@ struct ScatterFunctor<GPUDevice, T, Index, op> {
                    typename TTypes<T>::Matrix params,
                    typename TTypes<T>::ConstMatrix updates,
                    typename TTypes<Index>::ConstFlat indices) {
-    // TODO(b/31801742): Implement indices range check. The hardest part is
+    // TODO (b/31801742): Implement indices range check. The hardest part is id:1528
     // with returning a value after the range check, as we do not want to do
     // device to host memcpy during a stream.
     const Index first_dim_size = params.dimension(0);

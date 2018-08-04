@@ -530,7 +530,7 @@ int KeypointDetector::FindFastKeypoints(const ImageData& image_data,
   int downsample_factor = 1;
   int num_found = 0;
 
-  // TODO(andrewharp): Get this working for multiple image scales.
+  // TODO (andrewharp): Get this working for multiple image scales. id:1642
   for (int i = 0; i < 1; ++i) {
     const Image<uint8_t>& frame = *image_data.GetPyramidSqrt2Level(i);
     num_found += FindFastKeypoints(

@@ -197,7 +197,7 @@ def _rnn_step(
         # else copy some of it through
         lambda: _copy_some_through(flat_new_output, flat_new_state))
 
-  # TODO(ebrevdo): skipping these conditionals may cause a slowdown,
+  # TODO (ebrevdo): skipping these conditionals may cause a slowdown, id:1917
   # but benefits from removing cond() and its gradient.  We should
   # profile with and without this switch here.
   if skip_conditionals:
@@ -265,7 +265,7 @@ def _reverse_seq(input_seq, lengths):
     # Join into (time, batch_size, depth)
     s_joined = array_ops.stack(sequence)
 
-    # TODO(schuster, ebrevdo): Remove cast when reverse_sequence takes int32
+    # TODO (schuster, ebrevdo): Remove cast when reverse_sequence takes int32 id:2283
     if lengths is not None:
       lengths = math_ops.to_int64(lengths)
 

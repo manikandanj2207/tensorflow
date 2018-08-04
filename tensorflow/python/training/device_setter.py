@@ -196,7 +196,7 @@ def replica_device_setter(ps_tasks=0, ps_device="/job:ps",
     return None
 
   if ps_ops is None:
-    # TODO(sherrym): Variables in the LOCAL_VARIABLES collection should not be
+    # TODO (sherrym): Variables in the LOCAL_VARIABLES collection should not be id:2291
     # placed in the parameter server.
     ps_ops = ["Variable", "VariableV2", "VarHandleOp"]
 

@@ -95,7 +95,7 @@ void EventMgr::StopPollingLoop() {
 void EventMgr::ThenDeleteTensors(perftools::gputools::Stream* stream,
                                  const TensorReferenceVector& tensors) {
   mutex_lock l(mu_);
-  // TODO(jeff): We currently keep one accumulated_tensors_ object.
+  // TODO (jeff): We currently keep one accumulated_tensors_ object. id:689
   // If we start to use multiple streams heavily, we might want to keep
   // separate vectors/byte counters per stream
   if (!accumulated_tensors_->empty() && stream != accumulated_stream_) {
@@ -172,7 +172,7 @@ void EventMgr::QueueInUse(gpu::Stream* stream, InUse iu) {
 // 0-3 events pending most of the time, but there are occasionally
 // spikes of up to several hundred outstanding.
 //
-// NOTE: If all events are on the same stream, no later event will
+// NOTE: If all events are on the same stream, no later event will id:922
 // complete before an earlier event, except possibly if the earlier
 // event transitions to an error state, so there's no advantage in
 // looking past the first kPending event.  However, if we're using

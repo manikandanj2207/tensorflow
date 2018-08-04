@@ -110,8 +110,8 @@ StatusOr<bool> ParallelizationPreparation::Run(HloModule* module) {
   for (auto& computation : module->computations()) {
     HloInstruction* root = computation->root_instruction();
     // Copy root instruction if it does not define its own top-level buffer.
-    // TODO(b/32885001) Remove these copies (at least for the unambiguous case).
-    // TODO(b/32885001) Perform shallow copy if root value is a tuple.
+    // TODO (b/32885001) Remove these copies (at least for the unambiguous case). id:156
+    // TODO (b/32885001) Perform shallow copy if root value is a tuple. id:182
     if (!points_to_analysis->InstructionDefinesBufferAtIndex(root,
                                                              /*index=*/{})) {
       HloInstruction* copy = computation->AddInstruction(

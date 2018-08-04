@@ -102,7 +102,7 @@ class BaseInMemorySource(transform.TensorFlowTransform):
 
     dequeued = queue.dequeue_many(self.batch_size)
 
-    # TODO(jamieas): dequeue and dequeue_many will soon return a list regardless
+    # TODO (jamieas): dequeue and dequeue_many will soon return a list regardless id:481
     # of the number of enqueued tensors. Remove the following once that change
     # is in place.
     if not isinstance(dequeued, (tuple, list)):

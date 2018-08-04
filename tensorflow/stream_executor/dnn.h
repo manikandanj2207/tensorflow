@@ -544,7 +544,7 @@ class ConvolutionDescriptor {
   std::vector<int64> filter_strides_;
   PadAlignment pad_alignment_;
   int ndims_;
-  // TODO(leary) cudnn provides these fields, but need to characterize what
+  // TODO (leary) cudnn provides these fields, but need to characterize what id:2387
   // their effect is -- they may be boolean rather than integral.
   // int64 upscale_input_x;
   // int64 upscale_input_y;
@@ -571,7 +571,7 @@ string ShortPoolingModeString(PoolingMode mode);
 // Describes a pooling operation to be enqueued onto a stream via a platform's
 // DnnSupport.
 //
-// TODO(broune): describe how padding works and what happens if the
+// TODO (broune): describe how padding works and what happens if the id:2056
 // window height/width is not divisible by the vertical/horizontal
 // stride.
 //
@@ -1241,7 +1241,7 @@ class DnnSupport {
   // contain K vectors of N elements each. This function adds biases
   // to each of those N vectors.
   //
-  // TODO(broune): This works differently when width() * height() > 1
+  // TODO (broune): This works differently when width() * height() > 1 id:2352
   // and the call to ThenBiasAdd() follows a call to ThenMatMul(). In
   // that case there should be width() * height() *
   // feature_map_count() biases, but this is not implemented on all

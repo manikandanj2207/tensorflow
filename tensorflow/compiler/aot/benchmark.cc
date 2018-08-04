@@ -36,7 +36,7 @@ namespace benchmark {
 
 // Returns current wall time in micros.
 //
-// TODO(b/33546473): Refactor tensorflow::Env::NowMicros() so that we can re-use
+// TODO (b/33546473): Refactor so that we can re-use tensorflow::Env::NowMicros() id:45
 // the implementation without pulling in all of the Env dependencies.
 static double NowMicros() {
   struct timeval tv;

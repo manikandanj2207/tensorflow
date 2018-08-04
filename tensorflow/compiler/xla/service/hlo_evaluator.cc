@@ -234,7 +234,7 @@ StatusOr<std::unique_ptr<Literal>> HloEvaluator::EvaluateSameTypedElementwise(
   const Shape& shape = instruction->shape();
 
   switch (opcode) {
-    // TODO(b/35950897): many of the stl function used here are not overloaded
+    // TODO (b/35950897): many of the stl function used here are not overloaded id:233
     // for every XLA primitive types.
 
     // Unary element-wise ops.
@@ -251,7 +251,7 @@ StatusOr<std::unique_ptr<Literal>> HloEvaluator::EvaluateSameTypedElementwise(
           GetEvaluatedLiteralFor(operands[0]));
     case HloOpcode::kConvert:
       CHECK_EQ(operands.size(), 1);
-      // TODO(b/35950897): implement Convert.
+      // TODO (b/35950897): implement Convert. id:244
       return Unimplemented("unhandled HLO ops for HloEvaluator: %s.",
                            HloOpcodeString(opcode).c_str());
     case HloOpcode::kCopy:

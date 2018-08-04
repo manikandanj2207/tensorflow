@@ -92,7 +92,7 @@ bool HexagonControlWrapper::SetupGraph() {
   }
 
   // Generate a new output node which is connected to graph output node
-  // TODO(satok): Support multiple output nodes
+  // TODO (satok): Support multiple output nodes id:1464
   CHECK_EQ(graph_transfer_info.graph_output_node_info_size(), 1);
   for (const GraphTransferInfo::GraphOutputNodeInfo& graph_output :
        graph_transfer_info.graph_output_node_info()) {
@@ -191,7 +191,7 @@ bool HexagonControlWrapper::SetupGraph() {
   for (const GraphTransferInfo::ConstNodeInfo& params :
        graph_transfer_info.const_node_info()) {
     const int node_id = params.node_id();
-    // TODO(satok): Stop assuming shape size is 4.
+    // TODO (satok): Stop assuming shape size is 4. id:1264
     CHECK(params.shape_size() == 4);
     const int64 shape_0 = params.shape(0);
     const int64 shape_1 = params.shape(1);
@@ -294,7 +294,7 @@ bool HexagonControlWrapper::ReadOutputNode(
     const string& node_name, TensorAllocatorFunc tensor_allocator) {
   CHECK_NE(execute_info_, nullptr);
   TensorShape output_shape;
-  // TODO(satok): Switch shape corresponding to input shape
+  // TODO (satok): Switch shape corresponding to input shape id:1474
   for (int i = 0; i < execute_info_->graph_output_node_name_size(); ++i) {
     if (execute_info_->graph_output_node_name(i) == node_name) {
       for (const TensorShapeProto::Dim& dim :
@@ -311,7 +311,7 @@ bool HexagonControlWrapper::ReadOutputNode(
   Tensor* output_tensor = tensor_allocator(output_shape);
   CHECK(output_tensor->TotalBytes() >= std::get<1>(output))
       << output_tensor->TotalBytes() << ", " << std::get<1>(output);
-  // TODO(satok): Avoid specifying float
+  // TODO (satok): Avoid specifying float id:1162
   std::memcpy(output_tensor->flat<float>().data(), std::get<0>(output),
               std::get<1>(output));
 }
@@ -322,7 +322,7 @@ bool HexagonControlWrapper::ReadOutputNode(
   ByteArray output;
   soc_interface_ReadOutputNodeFloat(node_name.c_str(), &std::get<0>(output),
                                     &std::get<1>(output));
-  // TODO: Accept all results
+  // TODO: Accept all results id:1400
   std::get<2>(output) = DT_FLOAT;
   outputs->emplace_back(output);
   return true;

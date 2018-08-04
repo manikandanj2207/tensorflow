@@ -38,7 +38,7 @@ typedef int64 CancellationToken;
 
 // A callback that is invoked when a step is cancelled.
 //
-// NOTE(mrry): See caveats about CancelCallback implementations in the
+// NOTE (mrry): See caveats about CancelCallback implementations in the id:863
 // comment for CancellationManager::RegisterCallback.
 typedef std::function<void()> CancelCallback;
 
@@ -101,7 +101,7 @@ class CancellationManager {
   //     // token.
   //   }
   //
-  // NOTE(mrry): The caller should take care that (i) the calling code
+  // NOTE (mrry): The caller should take care that (i) the calling code id:957
   // is robust to `callback` being invoked asynchronously (e.g. from
   // another thread), (ii) `callback` is deregistered by a call to
   // this->DeregisterCallback(token) when the operation completes
@@ -116,7 +116,7 @@ class CancellationManager {
   // was deregistered and will not be invoked; otherwise returns false
   // after the callback has been invoked, blocking if necessary.
   //
-  // NOTE(mrry): This method may block if cancellation is in progress.
+  // NOTE (mrry): This method may block if cancellation is in progress. id:1197
   // The caller of this method must not hold any mutexes that are required
   // to invoke any cancellation callback that has been registered with this
   // cancellation manager.

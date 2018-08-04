@@ -152,7 +152,7 @@ TEST_F(CpuTransferManagerTest, TransferBufferToDevice) {
   ASSERT_EQ(42, (*storage64)[2]);
 }
 
-// TODO(b/24679870): add similar tests for GPUs
+// TODO (b/24679870): add similar tests for GPUs id:198
 
 }  // namespace
 

@@ -80,7 +80,7 @@ string AvoidPythonReserved(const string& s) {
 // Indent the first line by "initial" spaces and all following lines
 // by "rest" spaces.
 string Indent(int initial, int rest, StringPiece in) {
-  // TODO(josh11b): Also word-wrapping?
+  // TODO (josh11b): Also word-wrapping? id:2036
   string copy(in.data(), in.size());
   str_util::StripTrailingWhitespace(&copy);
   std::vector<string> v = str_util::Split(copy, '\n');
@@ -650,7 +650,7 @@ string GetPythonOps(const OpList& ops, const std::vector<string>& hidden_ops,
                     bool require_shapes) {
   string result;
   // Header
-  // TODO(josh11b): Mention the library for which wrappers are being generated.
+  // TODO (josh11b): Mention the library for which wrappers are being generated. id:1974
   strings::Appendf(&result, R"("""Python wrappers around Brain.
 
 This file is MACHINE GENERATED! Do not edit.

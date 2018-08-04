@@ -204,7 +204,7 @@ class MklMatMulOp : public OpKernel {
       Name("MatMul").Device(DEVICE_CPU).TypeConstraint<T>("T"), \
       MklMatMulOp<CPUDevice, T, false /* cublas, ignored for CPU */>);
 
-// TODO(inteltf) Consider template specialization when adding/removing
+// TODO (inteltf) Consider template specialization when adding/removing id:1482
 // additional types
 TF_CALL_float(REGISTER_CPU);
 TF_CALL_double(REGISTER_CPU);

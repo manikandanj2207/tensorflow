@@ -51,14 +51,14 @@ class MatrixInverseOp : public LinearAlgebraOp<Scalar> {
     }
     Eigen::PartialPivLU<Matrix> lu_decomposition;
     if (adjoint_) {
-      // TODO(rmlarsen): For Eigen 3.2, this creates a temporary copy.
+      // TODO (rmlarsen): For Eigen 3.2, this creates a temporary copy. id:1478
       // Make sure to backport: https://bitbucket.org/eigen/eigen/commits/
       // bd2219a74c96dfe3f6bc2c23588749e36d2d8173
       lu_decomposition.compute(input.adjoint());
     } else {
       lu_decomposition.compute(input);
     }
-    // TODO(rmlarsen): Add check based on condition number estimation.
+    // TODO (rmlarsen): Add check based on condition number estimation. id:1166
     // PartialPivLU cannot give strong guarantees on invertibility, but
     // we can at least guard against exact zero pivots. This can occur as
     // a result of basic user mistakes, such as providing integer valued

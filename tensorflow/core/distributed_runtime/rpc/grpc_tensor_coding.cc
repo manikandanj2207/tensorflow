@@ -148,7 +148,7 @@ void EncodeTensorToByteBuffer(bool is_dead, const Tensor& val,
   response.set_send_start_micros(Env::Default()->NowMicros());
   if (!DataTypeCanUseMemcpy(val.dtype())) {
     // Straightforward but slow path for complicated kinds of tensor data
-    // TODO(jeff,sanjay): If this becomes an issue, we could
+    // TODO (jeff,sanjay): If this becomes an issue, we could id:949
     // go directly from val -> ByteBuffer, with some effort.
     val.AsProtoTensorContent(response.mutable_tensor());
 
@@ -222,7 +222,7 @@ void EncodeTensorToByteBuffer(bool is_dead, const Tensor& val,
       // and add a special zero-length slice that is really a TensorBuffer
       // reference that we will unref when we are done.
       //
-      // TODO(jeff): Note that this approach relies on the fact that
+      // TODO (jeff): Note that this approach relies on the fact that id:1105
       // slices are destroyed in the order in which they are added to
       // the ByteBuffer.  In principle, these could be broken by future
       // hypothetical grpc_slice-related changes (e.g. the
@@ -233,7 +233,7 @@ void EncodeTensorToByteBuffer(bool is_dead, const Tensor& val,
       // (since the Tensor pointer is different than the backing store
       // array pointer).
       //
-      // TODO(jeff,sanjay): switch to using new
+      // TODO (jeff,sanjay): switch to using new id:907
       // gsr_slice_new_with_user_data interface that allows for
       // different pointers for the data and the argument to the
       // destroy function once that has been added integrated into grpc

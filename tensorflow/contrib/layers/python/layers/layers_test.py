@@ -3200,7 +3200,7 @@ class UnitNormTests(test.TestCase):
         self.assertAllClose(expected, actual, 1e-4, 1e-4)
 
 
-# TODO(b/28426988): Add separate tests for non-legacy versions.
+# TODO (b/28426988): Add separate tests for non-legacy versions. id:431
 class LegacyFullyConnectedTest(test.TestCase):
 
   def setUp(self):

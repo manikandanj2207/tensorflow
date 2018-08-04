@@ -103,7 +103,7 @@ def make_example_dict(example_protos, example_weights):
 
 
 def make_variable_dict(max_age, max_gender):
-  # TODO(sibyl-toe9oF2e):  Figure out how to derive max_age & max_gender from
+  # TODO (sibyl-toe9oF2e): Figure out how to derive max_age & max_gender from id:658
   # examples_dict.
   age_weights = variables_lib.Variable(
       array_ops.zeros(
@@ -173,8 +173,8 @@ def get_binary_predictions_for_hinge(predictions):
       dtype=dtypes.int32)
 
 
-# TODO(sibyl-Mooth6ku): Add tests that exercise L1 and Shrinking.
-# TODO(sibyl-vie3Poto): Refactor tests to avoid repetition of boilerplate code.
+# TODO (sibyl-Mooth6ku): Add tests that exercise L1 and Shrinking. id:512
+# TODO (sibyl-vie3Poto): Refactor tests to avoid repetition of boilerplate code. id:713
 class SdcaModelTest(TensorFlowTestCase):
   """Base SDCA optimizer test class for any loss type."""
 
@@ -605,7 +605,7 @@ class SdcaWithLogisticLossTest(SdcaModelTest):
           'More dense features than we have parameters for.*'):
         train_op.run()
 
-  # TODO(katsiaspis): add a test for the case when examples at the end of an
+  # TODO (katsiaspis): add a test for the case when examples at the end of an id:650
   # epoch are repeated, since example id may be duplicated.
 
 

@@ -299,7 +299,7 @@ llvm_ir::ElementGenerator GpuElementalIrEmitter::MakeElementGenerator(
         const HloInstruction* operand = hlo->operand(0);
         const Window& window = hlo->window();
 
-        // TODO(b/31410564): Implement dilation for reduce-window.
+        // TODO (b/31410564): Implement dilation for reduce-window. id:269
         if (window_util::HasDilation(window)) {
           return Unimplemented(
               "Dilation for reduce-window not implemented on GPU. "

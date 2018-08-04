@@ -27,7 +27,7 @@ typedef Eigen::GpuDevice GPUDevice;
 
 // Derive Index type. int (32-bit) or long (64-bit) depending on the
 // compile-time configuration. "float" here is not relevant.
-// TODO(zhifengc): Moves the definition to TTypes.
+// TODO (zhifengc): Moves the definition to TTypes. id:1492
 typedef TTypes<float>::Tensor::Index Index;
 
 template <typename Reducer>

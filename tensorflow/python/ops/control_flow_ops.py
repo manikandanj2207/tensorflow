@@ -342,7 +342,7 @@ def _SwitchRefOrTensor(data, pred, name="Switch"):
     TypeError: if data is not a Tensor or IndexedSlices
   """
   data = ops.convert_to_tensor_or_indexed_slices(data, name="data")
-  # NOTE(vrv): ops.colocate_with(data, ignore_existing=True) below
+  # NOTE (vrv): ops.colocate_with(data, ignore_existing=True) below id:2005
   # addresses the following scenario.
   #
   # Assume you execute Optimizer.apply_gradients() in a branch of a cond().
@@ -979,7 +979,7 @@ class GradLoopState(object):
             break
         else:
           # Record the history of this value in forward_ctxt.
-          # TODO(yuanbyu): Avoid recording constants.
+          # TODO (yuanbyu): Avoid recording constants. id:1944
           self._grad_context.Exit()
           history_value = cur_grad_state.AddForwardAccumulator(cur_value)
           self._grad_context.Enter()
@@ -1753,7 +1753,7 @@ def cond(pred, true_fn=None, false_fn=None, strict=False, name=None,
   # We needed to make true_fn/false_fn keyword arguments for
   # backwards-compatibility. This check exists so that we can convert back to
   # having them be positional arguments.
-  # TODO(josh11b): Make `true_fn` and `false_fn` positional arguments after
+  # TODO (josh11b): Make `true_fn` and `false_fn` positional arguments after id:2256
   # `fn1` and `fn2` are deleted.
   if fn1 is not None:
     if true_fn is not None:
@@ -1862,7 +1862,7 @@ def _resource_safe_shape(t):
   return array_ops.shape_internal(t, optimize=False)
 
 
-# TODO(yuanbyu): Consider having a unified notion of context for
+# TODO (yuanbyu): Consider having a unified notion of context for id:1898
 # not only conditionals and loops but also control dependency and
 # subgraphs.
 class WhileContext(ControlFlowContext):
@@ -2790,7 +2790,7 @@ def _GroupControlDeps(dev, deps, name=None):
         return no_op(name=name)
 
 
-# TODO(touts): Accept "inputs" as a list.
+# TODO (touts): Accept "inputs" as a list. id:2191
 def group(*inputs, **kwargs):
   """Create an op that groups multiple operations.
 

@@ -387,7 +387,7 @@ TEST(StatusOr, TestPointerValueConst) {
   EXPECT_EQ(&kI, thing.ValueOrDie());
 }
 
-// NOTE(tucker): tensorflow::StatusOr does not support this kind
+// NOTE (tucker): does not support this kind tensorflow::StatusOr id:337
 // of resize op.
 // TEST(StatusOr, StatusOrVectorOfUniquePointerCanResize) {
 //   using EvilType = std::vector<std::unique_ptr<int>>;

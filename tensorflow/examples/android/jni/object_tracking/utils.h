@@ -30,7 +30,7 @@ limitations under the License.
 
 #include "tensorflow/examples/android/jni/object_tracking/logging.h"
 
-// TODO(andrewharp): clean up these macros to use the codebase statndard.
+// TODO (andrewharp): clean up these macros to use the codebase statndard. id:1871
 
 // A very small number, generally used as the tolerance for accumulated
 // floating point errors in bounds-checks.
@@ -285,7 +285,7 @@ inline float ComputeStdDev(const float* const values,
 }
 
 
-// TODO(andrewharp): Accelerate with NEON.
+// TODO (andrewharp): Accelerate with NEON. id:1645
 inline float ComputeWeightedMean(const float* const values,
                                  const float* const weights,
                                  const int num_vals) {

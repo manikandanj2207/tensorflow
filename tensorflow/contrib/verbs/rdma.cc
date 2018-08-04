@@ -531,7 +531,7 @@ void RdmaBuffer::FreeBuffer() {
   if ((buffer_ != nullptr) && buffer_on_host_) {
     free(buffer_);
   }
-  // TODO
+  // TODO  id:761
   // release buffer if it is on device.
   // We don't support RDMABuffer on device at this moment.
 }
@@ -779,7 +779,7 @@ void RdmaTensorBuffer::SendNextItem() {
       }
     };
     // Use default session (legacy_session_)
-    // TODO use WorkerSessionForSession
+    // TODO use WorkerSessionForSession id:676
     // need to pass in session handle
     channel_->adapter_->worker_env_->session_mgr->LegacySession()
         ->rendezvous_mgr->RecvLocalAsync(step_id, parsed, cb);

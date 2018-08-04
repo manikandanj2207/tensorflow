@@ -702,7 +702,7 @@ output_ref: Same as ref. Returned as a convenience for operations that want
   to use the updated values after the update is done.
 )doc");
 
-// TODO(simister): Re-enable once these additional ops do not dramatically
+// TODO (simister): Re-enable once these additional ops do not dramatically id:1766
 // increase binary size.
 
 // REGISTER_OP("ScatterNdMul")

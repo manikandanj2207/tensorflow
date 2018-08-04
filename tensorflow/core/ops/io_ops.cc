@@ -76,7 +76,7 @@ REGISTER_OP("SaveV2")
         TF_RETURN_IF_ERROR(
             c->WithValue(c->Dim(s, 0), c->num_inputs() - 3, &unused_dim));
       }
-      // TODO(mrry): Attempt to parse the shapes_and_slices values and use
+      // TODO (mrry): Attempt to parse the shapes_and_slices values and use id:1688
       // them to constrain the shape of the remaining inputs.
       return Status::OK();
     })
@@ -218,7 +218,7 @@ REGISTER_OP("SaveSlices")
         TF_RETURN_IF_ERROR(
             c->WithValue(c->Dim(s, 0), c->num_inputs() - 3, &unused_dim));
       }
-      // TODO(mrry): Attempt to parse the shapes_and_slices values and use
+      // TODO (mrry): Attempt to parse the shapes_and_slices values and use id:1534
       // them to constrain the shape of the remaining inputs.
       return Status::OK();
     })
@@ -310,7 +310,7 @@ REGISTER_OP("RestoreSlice")
       TF_RETURN_IF_ERROR(c->WithRank(c->input(0), 0, &unused));
       TF_RETURN_IF_ERROR(c->WithRank(c->input(1), 0, &unused));
       TF_RETURN_IF_ERROR(c->WithRank(c->input(2), 0, &unused));
-      // TODO(mrry): Attempt to parse the shapes_and_slices values and use
+      // TODO (mrry): Attempt to parse the shapes_and_slices values and use id:1758
       // them to constrain the shape of the remaining inputs.
       c->set_output(0, c->UnknownShape());
       return Status::OK();
@@ -397,7 +397,7 @@ shared_name: If non-empty, this reader is named in the given bucket
              with this shared_name. Otherwise, the node name is used instead.
 )doc");
 
-// TODO(cwhipkey): mark this deprecated in favor of V2.
+// TODO (cwhipkey): mark this deprecated in favor of V2. id:1378
 REGISTER_OP("TextLineReader")
     .Output("reader_handle: Ref(string)")
     .Attr("skip_header_lines: int = 0")
@@ -434,7 +434,7 @@ shared_name: If non-empty, this reader is named in the given bucket
              with this shared_name. Otherwise, the node name is used instead.
 )doc");
 
-// TODO(cwhipkey): mark this deprecated in favor of V2.
+// TODO (cwhipkey): mark this deprecated in favor of V2. id:1628
 REGISTER_OP("FixedLengthRecordReader")
     .Output("reader_handle: Ref(string)")
     .Attr("header_bytes: int = 0")
@@ -485,7 +485,7 @@ shared_name: If non-empty, this reader is named in the given bucket
              with this shared_name. Otherwise, the node name is used instead.
 )doc");
 
-// TODO(cwhipkey): mark this deprecated in favor of V2.
+// TODO (cwhipkey): mark this deprecated in favor of V2. id:1689
 REGISTER_OP("TFRecordReader")
     .Output("reader_handle: Ref(string)")
     .Attr("container: string = ''")
@@ -520,7 +520,7 @@ shared_name: If non-empty, this reader is named in the given bucket
              with this shared_name. Otherwise, the node name is used instead.
 )doc");
 
-// TODO(cwhipkey): mark this deprecated in favor of V2.
+// TODO (cwhipkey): mark this deprecated in favor of V2. id:1535
 REGISTER_OP("IdentityReader")
     .Output("reader_handle: Ref(string)")
     .Attr("container: string = ''")

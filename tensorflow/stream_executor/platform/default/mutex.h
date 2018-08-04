@@ -69,7 +69,7 @@ class SCOPED_LOCKABLE mutex_lock : public std::unique_lock<BaseMutex> {
 #define mutex_lock(x) static_assert(0, "mutex_lock_decl_missing_var_name");
 
 #ifdef STREAM_EXECUTOR_USE_SHARED_MUTEX
-// TODO(vrv): Annotate these with ACQUIRE_SHARED after implementing
+// TODO (vrv): Annotate these with ACQUIRE_SHARED after implementing id:2306
 // as classes.
 typedef std::shared_lock<BaseMutex> shared_lock;
 #else

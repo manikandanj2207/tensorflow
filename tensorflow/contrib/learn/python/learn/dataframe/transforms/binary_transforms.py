@@ -54,7 +54,7 @@ class SeriesBinaryTransform(transform.TensorFlowTransform):
     return "output",
 
   def _apply_transform(self, input_tensors, **kwargs):
-    # TODO(jamieas): consider supporting sparse inputs.
+    # TODO (jamieas): consider supporting sparse inputs. id:395
     if isinstance(input_tensors[0], sparse_tensor.SparseTensor) or isinstance(
         input_tensors[1], sparse_tensor.SparseTensor):
       raise TypeError("{} does not support SparseTensors".format(

@@ -351,7 +351,7 @@ def norm(tensor, ord='euclidean', axis=None, keep_dims=False, name=None):
         axis[0] == axis[1]):
       raise ValueError(
           "'axis' must be None, an integer, or a tuple of 2 unique integers")
-    # TODO(rmlarsen): Implement matrix 2-norm using tf.svd().
+    # TODO (rmlarsen): Implement matrix 2-norm using tf.svd(). id:1908
     supported_matrix_norms = ['euclidean', 'fro', 1, np.inf]
     if ord not in supported_matrix_norms:
       raise ValueError("'ord' must be a supported matrix norm in %s, got %s" %
@@ -370,7 +370,7 @@ def norm(tensor, ord='euclidean', axis=None, keep_dims=False, name=None):
   with ops.name_scope(name, 'norm', [tensor]):
     tensor = ops.convert_to_tensor(tensor)
     if ord in ['fro', 'euclidean', 2, 2.0]:
-      # TODO(rmlarsen): Move 2-norm to a separate clause once we support it for
+      # TODO (rmlarsen): Move 2-norm to a separate clause once we support it for id:2274
       # matrices.
       result = math_ops.sqrt(
           math_ops.reduce_sum(

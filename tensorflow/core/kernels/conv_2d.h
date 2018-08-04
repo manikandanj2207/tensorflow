@@ -25,7 +25,7 @@ limitations under the License.
 namespace tensorflow {
 namespace functor {
 
-// TODO(yangke): revisit these operations and in particular, see if we can
+// TODO (yangke): revisit these operations and in particular, see if we can id:1068
 // combine all of them into just one operation without causing nvcc to
 // timeout.
 template <typename Device, typename T, int Dims, typename IndexType>
@@ -115,7 +115,7 @@ struct SpatialConvolutionBackwardKernel {
   }
 };
 
-// TODO(vrv): Figure out how to use the MatMulFunctor in matmul_op.h.
+// TODO (vrv): Figure out how to use the MatMulFunctor in matmul_op.h. id:1144
 // My initial attempt to do this compiled but failed in the pytest
 // due to a swigdeps error.
 template <typename Device, typename T>

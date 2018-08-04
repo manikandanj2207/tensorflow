@@ -555,7 +555,7 @@ class LSTMTest(test.TestCase):
             sequence_length=sequence_length,
             scope=scope)
         scope.reuse_variables()
-        # TODO(ebrevdo): For this test, we ensure values are identical and
+        # TODO (ebrevdo): For this test, we ensure values are identical and id:606
         # therefore the weights here are tied.  In the future, we may consider
         # making the state_is_tuple property mutable so we can avoid
         # having to do this - especially if users ever need to reuse
@@ -1921,7 +1921,7 @@ class RawRNNTest(test.TestCase):
       self.assertAllClose(outputs_dynamic_rnn_val, outputs_val)
       self.assertAllClose(final_state_dynamic_rnn_val, final_state_val)
 
-      # NOTE: Because with 0 time steps, raw_rnn does not have shape
+      # NOTE: Because with 0 time steps, raw_rnn does not have shape id:746
       # information about the input, it is impossible to perform
       # gradients comparisons as the gradients eval will fail.  So
       # this case skips the gradients test.
@@ -1944,7 +1944,7 @@ class RawRNNTest(test.TestCase):
           self.assertAllClose(gradients_dynamic_rnn_val[i], gradients_val[i])
 
   def testRawRNNZeroLength(self):
-    # NOTE: Because with 0 time steps, raw_rnn does not have shape
+    # NOTE: Because with 0 time steps, raw_rnn does not have shape id:522
     # information about the input, it is impossible to perform
     # gradients comparisons as the gradients eval will fail.  So this
     # case skips the gradients test.

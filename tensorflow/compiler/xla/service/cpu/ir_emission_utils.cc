@@ -47,7 +47,7 @@ bool PotentiallyImplementedAsEigenConvolution(
   const ConvolutionDimensionNumbers& dnums =
       convolution.convolution_dimension_numbers();
   // Only 2D convolutions are supported at the moment.
-  // TODO(b/32897908): add an optimized implementation for 3D convolution.
+  // TODO (b/32897908): add an optimized implementation for 3D convolution. id:139
   if (dnums.spatial_dimensions_size() != 2) {
     return false;
   }

@@ -34,7 +34,7 @@ namespace tensorforest {
 // entry of a two dimensional tensor; this is that function's type.
 using GetFeatureFnType = std::function<float(int32, int32)>;
 
-// TODO(gilberth): Put these in protos so they can be shared by C++ and python.
+// TODO (gilberth): Put these in protos so they can be shared by C++ and python. id:782
 // Indexes in the tree representation's 2nd dimension for children and features.
 const int32 CHILDREN_INDEX = 0;
 const int32 FEATURE_INDEX = 1;

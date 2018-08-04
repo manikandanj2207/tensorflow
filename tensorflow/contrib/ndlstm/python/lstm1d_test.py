@@ -58,7 +58,7 @@ class Lstm1DTest(test.TestCase):
         gradients = gradients_impl.gradients(outputs, inputs)[0].eval()
         self.assertEqual(gradients.shape, size)
       else:
-        # TODO(tmb) tf.test.compute_gradient error is currently broken
+        # TODO (tmb) tf.test.compute_gradient error is currently broken id:721
         # with dynamic_rnn. Enable this test case eventually.
         err = gradient_checker.compute_gradient_error(
             inputs, size, outputs, output_size, delta=1e-4)
@@ -76,7 +76,7 @@ class Lstm1DTest(test.TestCase):
         gradients = gradients_impl.gradients(outputs, inputs)[0].eval()
         self.assertEqual(gradients.shape, size)
       else:
-        # TODO(tmb) tf.test.compute_gradient error is currently broken
+        # TODO (tmb) tf.test.compute_gradient error is currently broken id:771
         # with dynamic_rnn. Enable this test case eventually.
         err = gradient_checker.compute_gradient_error(
             inputs, size, outputs, output_size, delta=1e-4)

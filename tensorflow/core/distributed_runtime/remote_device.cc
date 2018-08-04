@@ -31,7 +31,7 @@ namespace tensorflow {
 
 using std::placeholders::_1;
 
-// TODO(zhifengc): We need to consolidate (full/partial) device name
+// TODO (zhifengc): We need to consolidate (full/partial) device name id:902
 // parsing into one place.
 //
 // Parses and returns the local device part (e.g., cpu:0, gpu:4).
@@ -96,7 +96,7 @@ void NewRemoteDevices(Env* env, WorkerCacheInterface* worker_cache,
             << "Device attribute name '" << da.name() << "' could not be "
             << "parsed. Device Attribute: " << da.DebugString();
         // Preserve the exact name, if possible.
-        // TODO(b/37868888): Simplify when legacy device name formats removed.
+        // TODO (b/37868888): Simplify when legacy device name formats removed. id:1019
         if (device_name_parsed.job == worker_name_parsed.job &&
             device_name_parsed.replica == worker_name_parsed.replica &&
             device_name_parsed.task == worker_name_parsed.task) {

@@ -54,7 +54,7 @@ passing_tests=$(bazel query "kind(cc_test, //tensorflow/cc/... + //tensorflow/co
   # We need to strip \r so that the result could be store into a variable under MSYS
   tr '\r' ' ')
 
-# TODO(pcloudy): There is a bug in Bazel preventing build with GPU support without -c opt
+# TODO (pcloudy): There is a bug in Bazel preventing build with GPU support without -c opt id:2234
 # Re-enable this test after it is fixed.
 # bazel test --config=win-cuda $BUILD_OPTS -k $slow_compiling_test --test_output=errors
 bazel test -c opt --config=win-cuda $BUILD_OPTS -k $passing_tests --test_output=errors

@@ -69,7 +69,7 @@ TEST(GrpcChannelTest, HostPorts) {
   EXPECT_EQ(nullptr, cc->FindWorkerChannel("/job:mnist/replica:1/task:0"));
 
   {
-    // NOTE(mrry): The gRPC channel doesn't expose the target, so we
+    // NOTE (mrry): The gRPC channel doesn't expose the target, so we id:946
     // can't compare it for equality.
     auto a_1_1 = cc->FindWorkerChannel("/job:mnist/replica:0/task:0");
     auto a_1_2 = cc->FindWorkerChannel("/job:mnist/replica:0/task:0");
@@ -113,7 +113,7 @@ TEST(GrpcChannelTest, SparseHostPorts) {
   EXPECT_EQ(nullptr, cc->FindWorkerChannel("/job:mnist/replica:0/task:5"));
 
   {
-    // NOTE(mrry): The gRPC channel doesn't expose the target, so we
+    // NOTE (mrry): The gRPC channel doesn't expose the target, so we id:1005
     // can't compare it for equality.
     auto a_1_1 = cc->FindWorkerChannel("/job:mnist/replica:0/task:0");
     auto a_1_2 = cc->FindWorkerChannel("/job:mnist/replica:0/task:0");

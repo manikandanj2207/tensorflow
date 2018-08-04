@@ -87,7 +87,7 @@ Status VerbsServer::Init(ServiceInitFunction service_func,
     // set rdma_mgr for verbs_service and rdma_rendezvous_mgr
     verbs_service_->SetRdmaMgr(rdma_mgr_);
     // hardcoded to default session (legacy_session_)
-    // TODO: use WorkerSessionForSession
+    // TODO: use WorkerSessionForSession id:788
     // need to pass in session handle
     dynamic_cast<RdmaRendezvousMgr*>(
         worker_env()->session_mgr->LegacySession()->rendezvous_mgr.get())

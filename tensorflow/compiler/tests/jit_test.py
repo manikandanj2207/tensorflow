@@ -69,7 +69,7 @@ def InLabels(labels, substr):
 def MetadataHasXlaLaunch(run_metadata):
   """Returns true if there is a _XlaLaunch kernel in run_metadata's timeline."""
 
-  # TODO(phawkins): find a less hacky way to test whether a kernel ran.
+  # TODO (phawkins): find a less hacky way to test whether a kernel ran. id:105
   return InLabels(RunMetadataLabels(run_metadata), "_XlaLaunch")
 
 
@@ -161,7 +161,7 @@ class JitLaunchTest(test.TestCase):
     # Foo, it needs to symbolic execute Bar correctly regardless whether
     # Bar is inlined or not.
 
-    # TODO(b/36139787): Re-enable this test when noinline works again.
+    # TODO (b/36139787): Re-enable this test when noinline works again. id:31
     # Tests compiled=True and noinline=True.
     # self._compare(
     #     AddOnceReturnTwice, [np.array(
@@ -263,7 +263,7 @@ class JitLaunchTest(test.TestCase):
                           options=config_pb2.RunOptions(
                               trace_level=config_pb2.RunOptions.FULL_TRACE))
 
-        # TODO(phawkins): really we would like to test that there were exactly
+        # TODO (phawkins): really we would like to test that there were exactly id:169
         # two kernel launches. However, we have no reliable way to determine
         # that.
         self.assert_(MetadataHasXlaLaunch(run_metadata))

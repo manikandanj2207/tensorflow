@@ -967,7 +967,7 @@ class RNNCellTest(test.TestCase):
 
 class LayerNormBasicLSTMCellTest(test.TestCase):
 
-  # NOTE: all the values in the current test case have been calculated.
+  # NOTE: all the values in the current test case have been calculated. id:723
 
   def testBasicLSTMCell(self):
     with self.test_session() as sess:
@@ -1167,7 +1167,7 @@ def _create_multi_lstm_cell_ops(batch_size, num_units, input_depth,
 class CompiledWrapperTest(test.TestCase):
 
   def testMultiRNNCellWithLSTMCellAndXLA(self):
-    # TODO(b/34735319): Don't run this test if XLA is not available.
+    # TODO (b/34735319): Don't run this test if XLA is not available. id:773
     batch_size = 16
     num_units = 32
     input_depth = 12

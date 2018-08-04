@@ -169,7 +169,7 @@ linspace = gen_math_ops.lin_space
 
 
 # pylint: disable=redefined-builtin
-# TODO(aselle): deprecate arg_max
+# TODO (aselle): deprecate arg_max id:2269
 def argmax(input, axis=None, name=None, dimension=None):
   if dimension is not None:
     if axis is not None:
@@ -185,7 +185,7 @@ argmax.__doc__ = (gen_math_ops.arg_max.__doc__.replace("dimensions",
                                                            "dimension", "axis"))
 
 
-# TODO(aselle:deprecate arg_min)
+# TODO ( arg_min) aselle:deprecate id:1911
 def argmin(input, axis=None, name=None, dimension=None):
   if dimension is not None:
     if axis is not None:
@@ -289,7 +289,7 @@ def multiply(x, y, name=None):
 multiply.__doc__ = gen_math_ops._mul.__doc__.replace("Mul", "`tf.multiply`")
 
 
-# TODO(aselle): put deprecation in after another round of global code changes
+# TODO (aselle): put deprecation in after another round of global code changes id:2277
 @deprecated(
     "2016-12-30",
     "`tf.mul(x, y)` is deprecated, please use `tf.multiply(x, y)` or `x * y`")
@@ -308,7 +308,7 @@ def subtract(x, y, name=None):
 subtract.__doc__ = gen_math_ops._sub.__doc__.replace("`Sub`", "`tf.subtract`")
 
 
-# TODO(aselle): put deprecation in after another round of global code changes
+# TODO (aselle): put deprecation in after another round of global code changes id:2157
 @deprecated(
     "2016-12-30",
     "`tf.sub(x, y)` is deprecated, please use `tf.subtract(x, y)` or `x - y`")
@@ -678,7 +678,7 @@ def cast(x, dtype, name=None):
       values_cast = cast(x.values, base_type, name=name)
       return sparse_tensor.SparseTensor(x.indices, values_cast, x.dense_shape)
     else:
-      # TODO(touts): Handle what Josh said.
+      # TODO (touts): Handle what Josh said. id:1958
       #
       # Could return ops.convert_to_tensor(x, dtype=dtype, ...)  here, but that
       # allows some conversions that cast() can't do, e.g.  casting numbers to
@@ -889,7 +889,7 @@ _TRUEDIV_TABLE = {
 }
 
 
-# NOTE: the support of "sparse (true)div dense" is currently not baked in into
+# NOTE: the support of "sparse (true)div dense" is currently not baked in into id:2270
 # "tf.(true_)div()".  Until such an API decision is made, the supported usage is
 # to explicitly use the "/" operator to invoke either truediv or div.
 def _sparse_dense_truediv(sp_indices, sp_values, sp_shape, y, name=None):
@@ -1010,11 +1010,11 @@ def div(x, y, name=None):
   return _div_python2(x, y, name)
 
 
-# TODO(aselle): This should be removed
+# TODO (aselle): This should be removed id:1912
 mod = gen_math_ops._floor_mod
 
 
-# TODO(aselle): Deprecate this once all internal functionality uses
+# TODO (aselle): Deprecate this once all internal functionality uses id:2278
 # tf.truncatediv
 def floordiv(x, y, name=None):
   """Divides `x / y` elementwise, rounding toward the most negative integer.
@@ -1048,7 +1048,7 @@ def floordiv(x, y, name=None):
 
 realdiv = gen_math_ops._real_div
 truncatediv = gen_math_ops._truncate_div
-# TODO(aselle): Rename this to floordiv when we can.
+# TODO (aselle): Rename this to floordiv when we can. id:2158
 floor_div = gen_math_ops._floor_div
 truncatemod = gen_math_ops._truncate_mod
 floormod = gen_math_ops._floor_mod
@@ -1066,7 +1066,7 @@ def _mul_dispatch(x, y, name=None):
     return sparse_tensor.SparseTensor(y.indices, new_vals, y.dense_shape)
 
 
-# NOTE(aselle): When integer division is added for sparse_dense_cwise,
+# NOTE (aselle): When integer division is added for sparse_dense_cwise, id:1959
 # div, truediv, and floordiv should be delegated appropriately for
 # Python sematnics, analogous to dense cwise tensor operations.
 _OverrideBinaryOperatorHelper(gen_sparse_ops.sparse_dense_cwise_div, "div",
@@ -1082,7 +1082,7 @@ _OverrideBinaryOperatorHelper(_mul_dispatch, "mul")
 _OverrideBinaryOperatorHelper(_div_python2, "div")
 _OverrideBinaryOperatorHelper(_truediv_python3, "truediv")
 _OverrideBinaryOperatorHelper(floordiv, "floordiv")
-# TODO(aselle): Switch mod to floor_mod when ready
+# TODO (aselle): Switch mod to floor_mod when ready id:2271
 # _OverrideBinaryOperatorHelper(gen_math_ops.floor_mod, "mod")
 _OverrideBinaryOperatorHelper(gen_math_ops._floor_mod, "mod")
 _OverrideBinaryOperatorHelper(pow, "pow")
@@ -1090,7 +1090,7 @@ _OverrideBinaryOperatorHelper(pow, "pow")
 
 def logical_xor(x, y, name="LogicalXor"):
   """x ^ y = (x | y) & ~(x & y)."""
-  # TODO(alemi) Make this a cwise op if people end up relying on it.
+  # TODO (alemi) Make this a cwise op if people end up relying on it. id:1913
   return gen_math_ops.logical_and(
       gen_math_ops.logical_or(x, y),
       gen_math_ops.logical_not(gen_math_ops.logical_and(x, y)),
@@ -1183,7 +1183,7 @@ def range(start, limit=None, delta=1, dtype=None, name="range"):
 # Reduction operations
 def _ReductionDims(x, axis, reduction_indices):
   """Returns range(0, rank(x)) if reduction_indices is None."""
-  # TODO(aselle): Remove this after deprecation
+  # TODO (aselle): Remove this after deprecation id:2279
   if reduction_indices is not None:
     if axis is not None:
       raise ValueError("Can't specify both axis' and 'reduction_indices'.")
@@ -1854,7 +1854,7 @@ def _as_indexed_slices(x, optimize=True):
   Raises:
     TypeError: If 'x' is not a Tensor or an IndexedSlices object.
   """
-  # TODO(touts): op_scope
+  # TODO (touts): op_scope id:2159
   if not isinstance(x, (ops.Tensor, ops.IndexedSlices)):
     raise TypeError("Not a Tensor or IndexedSlices: %s" % type(x))
   if isinstance(x, ops.IndexedSlices):

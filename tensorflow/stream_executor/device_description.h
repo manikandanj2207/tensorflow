@@ -164,7 +164,7 @@ class DeviceDescription {
   // Returns the maximum amount of shared memory available for a single block.
   uint64 shared_memory_per_block() const { return shared_memory_per_block_; }
 
-  // TODO(leary): resident blocks per core will be useful.
+  // TODO (leary): resident blocks per core will be useful. id:2217
 
   // Convenience typedef for the string-based DeviceDescription mapping.
   typedef std::map<string, string> Map;

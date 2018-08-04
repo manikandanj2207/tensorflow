@@ -112,7 +112,7 @@ class MatrixSolveLsOpTest(test.TestCase):
         if fast or a.shape[-2] >= a.shape[-1]:
           # We skip this test for the underdetermined case when using the
           # slow path, because Eigen does not return a minimum norm solution.
-          # TODO(rmlarsen): Enable this check for all paths if/when we fix
+          # TODO (rmlarsen): Enable this check for all paths if/when we fix id:2142
           # Eigen's solver.
           self.assertAllClose(np_ans, tf_ans, atol=1e-5, rtol=1e-5)
 

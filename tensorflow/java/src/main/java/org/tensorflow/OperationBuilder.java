@@ -249,7 +249,7 @@ public final class OperationBuilder {
   // The names of all the setAttr* family functions below correspond to the C library types, not the
   // Java library types. Roughly, setAttrFoo calls the TensorFlow C library function: TF_SetAttrFoo.
   //
-  // TODO(ashankar):
+  // TODO (ashankar): id:1523
   // - setAttrStringList: Which would take in an array of byte[] (java Strings will need to be UTF-8
   //   encoded?)
   // - setAttrShapeList: Which would take in a long[][]

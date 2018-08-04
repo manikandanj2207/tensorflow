@@ -206,7 +206,7 @@ Status GraphTransferer::LoadGraphFromProtoFile(
 }
 
 void GraphTransferer::SortParams(const std::vector<string>& output_node_names) {
-  // TODO(satok): optimize complexity
+  // TODO (satok): optimize complexity id:1460
   std::unordered_map<int, GraphTransferInfo::NodeInputInfo*> input_map;
   for (GraphTransferInfo::NodeInputInfo& input :
        *graph_transfer_info_.mutable_node_input_info()) {
@@ -268,7 +268,7 @@ GraphTransferInfo& GraphTransferer::GetMutableGraphTransferInfo() {
 int GraphTransferer::CacheNode(const Node& node) {
   if (node_name_to_id_cache_map_.count(node.name()) > 0) {
     VLOG(1) << "Emplace node to cache failed";
-    // TODO(satok): check here?
+    // TODO (satok): check here? id:1260
     return -1;
   }
   VLOG(1) << "Cache node: " << node.name() << ", " << node.op_def().name();
@@ -327,7 +327,7 @@ void GraphTransferer::RegisterConstantNode(const ShapeRefiner& shape_refiner,
   const int id = node_name_to_id_cache_map_[node.name()];
   const int output_node_size = node.num_outputs();
   CHECK_EQ(output_node_size, 1);
-  // TODO(satok): support multiple outputs?
+  // TODO (satok): support multiple outputs? id:1470
   const int output_index = 0;
   const DataType dt = node.output_type(output_index);
   const size_t max_bytes_per_data = DataTypeSize(dt);
@@ -351,7 +351,7 @@ void GraphTransferer::RegisterConstantNode(const ShapeRefiner& shape_refiner,
       *graph_transfer_info_.add_const_node_info();
   const_node_info.set_name(node.name());
   const_node_info.set_node_id(id);
-  // TODO(satok): Make this generic. Never assume rank is 4.
+  // TODO (satok): Make this generic. Never assume rank is 4. id:1158
   CHECK_EQ(4, SHAPE_ARRAY_SIZE);
   const_node_info.add_shape(shape_array[0]);
   const_node_info.add_shape(shape_array[1]);
@@ -360,7 +360,7 @@ void GraphTransferer::RegisterConstantNode(const ShapeRefiner& shape_refiner,
   const TensorProto* proto = nullptr;
   TF_CHECK_OK(GetNodeAttr(node.def(), "value", &proto));
   Tensor const_tensor;
-  // TODO(b/32704451): Don't just ignore this status!
+  // TODO (b/32704451): Don't just ignore this status! id:1366
   MakeTensorFromProto(*proto, &const_tensor).IgnoreError();
 
   const_node_info.set_dtype(const_tensor.dtype());
@@ -371,7 +371,7 @@ void GraphTransferer::RegisterConstantNode(const ShapeRefiner& shape_refiner,
 
 int GraphTransferer::RegisterConstantShape(const std::vector<int>& shape) {
   VLOG(1) << "Cache constant shape.";
-  // TODO(satok): Handle non-4dim strides
+  // TODO (satok): Handle non-4dim strides id:1461
   CHECK_EQ(shape.size(), 4);
   const string shape_name = CONST_SHAPE_PREFIX + ToString(shape.at(0)) + 'x' +
                             ToString(shape.at(1)) + 'x' +
@@ -384,7 +384,7 @@ int GraphTransferer::RegisterConstantShape(const std::vector<int>& shape) {
         *graph_transfer_info_.add_const_node_info();
     const_node_info.set_name(shape_name);
     const_node_info.set_node_id(id);
-    // TODO(satok): Make this generic. Never assume rank is 5.
+    // TODO (satok): Make this generic. Never assume rank is 5. id:1261
     const_node_info.add_shape(static_cast<int64>(shape[0]));
     const_node_info.add_shape(static_cast<int64>(shape[1]));
     const_node_info.add_shape(static_cast<int64>(shape[2]));
@@ -444,7 +444,7 @@ void GraphTransferer::RegisterNodeWithPaddingAndStrides(
   const int id = node_name_to_id_cache_map_[node.name()];
   shape_inference::InferenceContext* context = shape_refiner.GetContext(&node);
   CHECK_GT(node.def().attr().count(PADDING_ATTR_NAME), 0);
-  // TODO(satok): Use context->GetAttr(...) instead?
+  // TODO (satok): Use context->GetAttr(...) instead? id:1471
   Padding padding;
   TF_CHECK_OK(context->GetAttr(PADDING_ATTR_NAME, &padding));
   CHECK_GT(node.def().attr().count(STRIDES_ATTR_NAME), 0);
@@ -518,8 +518,8 @@ void GraphTransferer::RegisterGenericNode(
       true /* append_input */, true /* append_output */);
 }
 
-// TODO(satok): Remove this function.
-// TODO(satok): Remove only_register_const_node.
+// TODO (satok): Remove this function. id:1159
+// TODO (satok): Remove only_register_const_node. id:1367
 Status GraphTransferer::RegisterNodeIfAllInputsAreCached(
     const IGraphTransferOpsDefinitions& ops_definitions,
     const ShapeRefiner& shape_refiner, const Node& node,
@@ -662,7 +662,7 @@ GraphTransferer::BuildShapeArray(
            context->Value(context->Dim(shape_handle, 2)),
            context->Value(context->Dim(shape_handle, 3))}};
     default:
-      // TODO(satok): Support more ranks?
+      // TODO (satok): Support more ranks? id:1462
       CHECK(false);
       return std::array<int64, SHAPE_ARRAY_SIZE>();
   }
@@ -686,7 +686,7 @@ GraphTransferer::ToTensorShapeArray(const TensorShape& shape) {
           {shape.dim_size(0), shape.dim_size(1), shape.dim_size(2),
            shape.dim_size(3)}};
     default:
-      // TODO(satok): Support more ranks?
+      // TODO (satok): Support more ranks? id:1262
       CHECK(false);
       return std::array<int64, SHAPE_ARRAY_SIZE>();
   }
@@ -795,7 +795,7 @@ void GraphTransferer::DumpNodeTransferParams() const {
   LOG(INFO) << "*** Const Nodes ***";
   for (const GraphTransferInfo::ConstNodeInfo& params :
        graph_transfer_info_.const_node_info()) {
-    // TODO(satok): Stop assuming shape size is 4.
+    // TODO (satok): Stop assuming shape size is 4. id:1472
     CHECK_EQ(params.shape_size(), 4);
     LOG(INFO) << "[ " << params.node_id() << " \"" << params.name()
               << "\" (Const)";
@@ -849,7 +849,7 @@ void GraphTransferer::DumpVerificationStringOfNodeTransferParams() const {
   for (const GraphTransferInfo::ConstNodeInfo& params :
        graph_transfer_info_.const_node_info()) {
     std::stringstream sstream;
-    // TODO(satok): Stop assuming shape size is 4.
+    // TODO (satok): Stop assuming shape size is 4. id:1160
     CHECK_EQ(params.shape_size(), 4);
     sstream << "---(CONST) [" << std::hex << params.node_id() << std::dec << ","
             << params.shape(0) << "," << params.shape(1) << ","

@@ -28,7 +28,7 @@ from tensorflow.python.platform import test
 
 class RegressionTargetColumnTest(test.TestCase):
 
-  # TODO(zakaria): test multilabel regresssion.
+  # TODO (zakaria): test multilabel regresssion. id:451
   def testRegression(self):
     target_column = target_column_lib.regression_target()
     with ops.Graph().as_default(), session.Session() as sess:
@@ -88,7 +88,7 @@ class MultiClassTargetColumnTest(test.TestCase):
       logits = constant_op.constant([[1.], [1.], [-1.]])
       labels = constant_op.constant([[1.], [0.], [1.]])
       eval_dict = target_column.get_eval_ops({}, logits, labels)
-      # TODO(zakaria): test all metrics
+      # TODO (zakaria): test all metrics id:393
       accuracy_op, update_op = eval_dict["accuracy/threshold_0.500000_mean"]
       sess.run(variables.global_variables_initializer())
       sess.run(variables.local_variables_initializer())

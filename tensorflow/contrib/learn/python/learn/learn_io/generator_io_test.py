@@ -20,7 +20,7 @@ from __future__ import print_function
 
 import sys
 
-# TODO: #6568 Remove this hack that makes dlopen() not crash.
+# TODO: #6568 Remove this hack that makes dlopen() not crash. id:472
 if hasattr(sys, 'getdlopenflags') and hasattr(sys, 'setdlopenflags'):
   import ctypes
 

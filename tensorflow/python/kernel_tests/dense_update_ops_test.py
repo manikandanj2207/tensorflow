@@ -113,7 +113,7 @@ class AssignOpTest(test.TestCase):
       with self.assertRaisesOpError("use uninitialized"):
         a.op.run()
 
-  # NOTE(mrry): See also
+  # NOTE (mrry): See also id:1739
   #   dense_update_ops_no_tsan_test.AssignOpTest, which contains a benign
   #   data race and must run without TSAN.
   def testParallelUpdateWithLocking(self):
@@ -143,7 +143,7 @@ class AssignOpTest(test.TestCase):
       ones = np.ones((1024, 1024)).astype(np.float32)
       self.assertAllEqual(vals, ones * 20)
 
-  # NOTE(mrry): See also
+  # NOTE (mrry): See also id:2136
   #   dense_update_ops_no_tsan_test.[...].testParallelAssignWithoutLocking,
   #   which contains a benign data race and must run without TSAN.
   def testParallelAssignWithLocking(self):

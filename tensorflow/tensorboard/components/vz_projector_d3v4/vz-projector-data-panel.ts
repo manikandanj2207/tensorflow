@@ -147,7 +147,7 @@ export class DataPanel extends DataPanelPolymer {
     // Color by options.
     const standardColorOption: ColorOption[] = [
       {name: 'No color map'},
-      // TODO(smilkov): Implement this.
+      // TODO (smilkov): Implement this. id:2365
       // {name: 'Distance of neighbors',
       //    desc: 'How far is each point from its neighbors'}
     ];

@@ -173,7 +173,7 @@ class StringCrosser {
     for (int i = 0; i < permutation.size(); i++) {
       cross_vec[i] = columns_[i]->Feature(batch_index, permutation[i]);
     }
-    // TODO(zakaria): this will copy the string twice, might effect
+    // TODO (zakaria): this will copy the string twice, might effect id:532
     // performance.
     return str_util::Join(cross_vec, k_feature_separator);
   }
@@ -376,7 +376,7 @@ class SparseFeatureCrossOp : public OpKernel {
     };
 
     auto* worker_threads = context->device()->tensorflow_cpu_worker_threads();
-    // TODO(zakaria): optimize kCostPerUnit
+    // TODO (zakaria): optimize kCostPerUnit id:558
     const int kCostPerUnit = 5000 * indices_list_in.size();
     Shard(worker_threads->num_threads, worker_threads->workers, batch_size,
           kCostPerUnit, do_work);

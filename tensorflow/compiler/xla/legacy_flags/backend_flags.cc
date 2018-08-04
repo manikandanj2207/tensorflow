@@ -35,7 +35,7 @@ static std::once_flag flags_init;
 // Allocate *flags.  Called via call_once(&flags_init,...).
 static void AllocateFlags() {
   flags = new BackendFlags;
-  // TODO(b/32648682): Decide if this should continue to be a flag longer term.
+  // TODO (b/32648682): Decide if this should continue to be a flag longer term. id:211
   flags->xla_replicas = 1;
   flag_list = new std::vector<tensorflow::Flag>({
       tensorflow::Flag(

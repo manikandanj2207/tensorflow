@@ -162,7 +162,7 @@ def test_graph(float_graph_def, input_map, output_names, log_graph=False):
   float_results = run_graph_def(
       float_graph_def, input_map,
       [output_name + ":0" for output_name in output_names])
-  # TODO(petewarden): round test is currently failing because there is no
+  # TODO (petewarden): round test is currently failing because there is no id:2332
   # RoundToSteps op available.
   # round_rewriter = quantize_graph.GraphRewriter(float_graph_def, "round")
   # round_graph_def = round_rewriter.rewrite(output_name)
@@ -170,7 +170,7 @@ def test_graph(float_graph_def, input_map, output_names, log_graph=False):
   #                               [output_name + ":0"])
   # assert are_tensors_near(expected, round_results[0], 1.0)
   #
-  # TODO(petewarden): Add test for "quantize" mode.
+  # TODO (petewarden): Add test for "quantize" mode. id:2336
 
   eightbit_rewriter = quantize_graph.GraphRewriter(
       float_graph_def, "eightbit", quantized_input_range=None)

@@ -79,7 +79,7 @@ class TextLineReader : public ReaderBase {
     return ReaderBase::ResetLocked();
   }
 
-  // TODO(josh11b): Implement serializing and restoring the state.  Need
+  // TODO (josh11b): Implement serializing and restoring the state. Need id:1426
   // to create TextLineReaderState proto to store ReaderBaseState,
   // line_number_, and input_buffer_->Tell().
 

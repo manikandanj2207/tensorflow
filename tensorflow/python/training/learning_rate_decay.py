@@ -142,7 +142,7 @@ def piecewise_constant(x, boundaries, values, name=None):
         raise ValueError(
             "Boundaries (%s) must have the same dtype as x (%s)." % (
                 b.dtype, x.dtype))
-    # TODO(rdipietro): Ensure that boundaries' elements are strictly increasing.
+    # TODO (rdipietro): Ensure that boundaries' elements are strictly increasing. id:1927
     values = ops.convert_n_to_tensor(values)
     for v in values[1:]:
       if v.dtype != values[0].dtype:

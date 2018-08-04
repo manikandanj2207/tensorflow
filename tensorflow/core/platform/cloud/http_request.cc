@@ -136,7 +136,7 @@ Status HttpRequest::Init() {
     return errors::Internal("Couldn't initialize a curl session.");
   }
 
-  // NOTE: CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt is configured by
+  // NOTE: CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt is configured by id:1540
   //       default in //third_party:curl.BUILD and can be customized via an
   //       environment variable.
 

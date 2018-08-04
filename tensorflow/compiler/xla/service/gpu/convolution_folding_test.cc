@@ -44,7 +44,7 @@ class ConvolutionFoldingTest : public HloTestBase {
     // the batch and feature dimension in the activations, and treat the batch
     // dimension in gradients as the input feature dimension in the filter.
     //
-    // TODO(jingyue): Add more tests on NCHW input order which TF also supports.
+    // TODO (jingyue): Add more tests on NCHW input order which TF also supports. id:160
     tf_default_dnums_for_backward_filter_.set_batch_dimension(3);
     tf_default_dnums_for_backward_filter_.set_feature_dimension(0);
     tf_default_dnums_for_backward_filter_.add_spatial_dimensions(1);

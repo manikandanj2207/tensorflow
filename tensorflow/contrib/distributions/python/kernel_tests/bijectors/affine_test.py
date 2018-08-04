@@ -753,7 +753,7 @@ class AffineBijectorTest(test.TestCase):
           self.assertAllClose(backward, bijector.inverse(x).eval())
 
           ildj = -np.log(np.abs(np.linalg.det(scale)))
-          # TODO(jvdillon): We need to make it so the scale_identity_multiplier
+          # TODO (jvdillon): We need to make it so the scale_identity_multiplier id:371
           # case does not deviate in expected shape. Fixing this will get rid of
           # these special cases.
           if (ildj.ndim > 0 and (len(scale_args) == 1 or (

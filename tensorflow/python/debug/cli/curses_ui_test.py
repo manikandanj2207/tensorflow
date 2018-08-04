@@ -90,7 +90,7 @@ class MockCursesUI(curses_ui.CursesUI):
   # Below, override the _screen_ prefixed member methods that interact with the
   # actual terminal, so that the mock can run in a terminal-less environment.
 
-  # TODO(cais): Search for a way to have a mock terminal object that behaves
+  # TODO (cais): Search for a way to have a mock terminal object that behaves id:2040
   # like the actual terminal, so that we can test the terminal interaction
   # parts of the CursesUI class.
 
@@ -355,7 +355,7 @@ class CursesTest(test_util.TensorFlowTestCase):
 
     self.assertEqual(["ERROR: Invalid command prefix \"foo\""],
                      ui.unwrapped_outputs[0].lines)
-    # TODO(cais): Add explanation for the 35 extra lines.
+    # TODO (cais): Add explanation for the 35 extra lines. id:1589
     self.assertEqual(["ERROR: Invalid command prefix \"foo\""],
                      ui.wrapped_outputs[0].lines[:1])
     # A single line of output should not have caused scrolling.

@@ -191,7 +191,7 @@ TEST(optionalTest, InPlaceConstructor) {
   static_assert(opt2->x == 2, "");
 #endif
 
-  // TODO(b/34201852): uncomment these when std::is_constructible<T, Args&&...>
+  // TODO (b/34201852): uncomment these when Args&&...> std::is_constructible<T, id:1432
   // SFINAE is added to optional::optional(in_place_t, Args&&...).
   // struct I {
   //   I(in_place_t);
@@ -225,7 +225,7 @@ TEST(optionalTest, ValueConstructor) {
   EXPECT_FALSE((std::is_convertible<int, optional<ConstexprType>>::value));
 
   // this invokes optional<int>::optional(int&&)
-  // NOTE: this has different behavior than assignment, e.g.
+  // NOTE: this has different behavior than assignment, e.g. id:1717
   // "opt3 = {};" clears the optional rather than setting the value to 0
   constexpr optional<int> opt3({});
   static_assert(opt3, "");

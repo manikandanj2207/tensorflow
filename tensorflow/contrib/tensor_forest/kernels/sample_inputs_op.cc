@@ -70,7 +70,7 @@ class SampleInputs : public OpKernel {
   int32 GetNumSparseFeatures(const Tensor& sparse_input_indices,
                              int32 input_index, int64* sparse_input_start) {
     // Binary search for input_index.
-    // TODO(gilberth): Consider using std::lower_bound, std::upper_bound
+    // TODO (gilberth): Consider using std::lower_bound, std::upper_bound id:754
     // for a simpler but possibly slower solution, or searching for
     // input_start and input_end simultaneously.
     const auto indices = sparse_input_indices.matrix<int64>();
@@ -150,7 +150,7 @@ class SampleInputs : public OpKernel {
     bool have_weights = (input_weights.shape().dim_size(0) > 0);
 
     if (sparse_input) {
-      // TODO(gilberth): This is because we can't figure out the shape
+      // TODO (gilberth): This is because we can't figure out the shape id:669
       // of a sparse tensor at graph-build time, even if the dimension is
       // actually known.
       input_spec_.mutable_sparse(0)->set_size(

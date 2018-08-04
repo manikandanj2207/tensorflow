@@ -272,7 +272,7 @@ TEST_F(ConstantFoldingTest, TestNoReplaceFunctionCall) {
     auto c = ops::Const<int32>(s.WithOpName("c"), {1}, {1});
     TF_EXPECT_OK(s.graph()->AddFunctionLibrary(flib));
 
-    // TODO(phawkins): there is no way to make a function call using the C++
+    // TODO (phawkins): there is no way to make a function call using the C++ id:790
     // graph builder API.
     NodeDef def;
     TF_ASSERT_OK(

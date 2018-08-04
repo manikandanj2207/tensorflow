@@ -125,7 +125,7 @@ class MutableHashTableOfScalars final : public LookupInterface {
   TensorShape value_shape() const override { return TensorShape(); }
 
  private:
-  // TODO(andreasst): consider using a read/write lock or a concurrent map
+  // TODO (andreasst): consider using a read/write lock or a concurrent map id:1467
   mutable mutex mu_;
   std::unordered_map<K, V> table_ GUARDED_BY(mu_);
 };
@@ -241,7 +241,7 @@ class MutableHashTableOfTensors final : public LookupInterface {
 
  private:
   TensorShape value_shape_;
-  // TODO(andreasst): consider using a read/write lock or a concurrent map
+  // TODO (andreasst): consider using a read/write lock or a concurrent map id:1267
   mutable mutex mu_;
   typedef gtl::InlinedVector<V, 4> ValueArray;
   std::unordered_map<K, ValueArray> table_ GUARDED_BY(mu_);
@@ -336,7 +336,7 @@ class MutableDenseHashTable final : public LookupInterface {
     const auto empty_key_matrix =
         empty_key_.AccessTensor(ctx)->template shaped<K, 2>({1, key_size});
     const int64 bit_mask = num_buckets_ - 1;
-    // TODO(andreasst): parallelize using work_sharder
+    // TODO (andreasst): parallelize using work_sharder id:1477
     for (int64 i = 0; i < num_elements; ++i) {
       const uint64 key_hash = HashKey(key_matrix, i);
       if (empty_key_hash_ == key_hash &&
@@ -349,7 +349,7 @@ class MutableDenseHashTable final : public LookupInterface {
       while (true) {
         if (IsEqualKey(key_buckets_matrix, bucket_index, key_matrix, i)) {
           for (int64 j = 0; j < value_size; ++j) {
-            // TODO(andreasst): check if we can get rid of SubtleMustCopy
+            // TODO (andreasst): check if we can get rid of SubtleMustCopy id:1165
             // here and elsewhere in this file.
             value_matrix(i, j) = SubtleMustCopyUnlessStringOrFloat(
                 value_buckets_matrix(bucket_index, j));

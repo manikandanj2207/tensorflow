@@ -81,7 +81,7 @@ class _FeedingQueueRunner(qr.QueueRunner):
         for stop conditions.
 
     """
-    # TODO(jamieas): Reduce code duplication with `QueueRunner`.
+    # TODO (jamieas): Reduce code duplication with `QueueRunner`. id:1597
     if coord:
       coord.register_thread(threading.current_thread())
     decremented = False

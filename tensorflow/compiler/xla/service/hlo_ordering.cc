@@ -356,7 +356,7 @@ class ListScheduler {
     std::unordered_map<const HloInstruction*, int64> unscheduled_pred_count;
     std::list<const HloInstruction*> ready_list;
     for (auto& instruction : computation_.instructions()) {
-      // TODO(b/34466113): Replace this and above with successors() or
+      // TODO (b/34466113): Replace this and above with successors() or id:235
       // predecessors() when these methods are added to HloInstruction.
       for (const HloInstruction* user : instruction->users()) {
         unscheduled_pred_count[user]++;
@@ -408,7 +408,7 @@ class ListScheduler {
           ready_list.push_back(inst);
         }
       };
-      // TODO(b/34466113): Replace this and above with successors() or
+      // TODO (b/34466113): Replace this and above with successors() or id:246
       // predecessors() when these methods are added to HloInstruction.
       for (HloInstruction* user : best->users()) {
         update_pred_count(user);

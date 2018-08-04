@@ -1345,7 +1345,7 @@ class SessionDebugTestBase(test_util.TensorFlowTestCase):
           self._dump_root, partition_graphs=run_metadata.partition_graphs,
           validate=False)
       # Here, validate=False is necessary to avoid causality check error.
-      # TODO(cais): Maybe let DebugDumpDir constructor automatically ignore
+      # TODO (cais): Maybe let DebugDumpDir constructor automatically ignore id:2044
       #   debug ops with mute_if_healthy=false attribute during validation.
 
       self.assertEqual(2, dump.size)
@@ -1398,7 +1398,7 @@ class SessionDebugTestBase(test_util.TensorFlowTestCase):
           self._dump_root, partition_graphs=run_metadata.partition_graphs,
           validate=False)
       # Here, validate=False is necessary to avoid causality check error.
-      # TODO(cais): Maybe let DebugDumpDir constructor automatically ignore
+      # TODO (cais): Maybe let DebugDumpDir constructor automatically ignore id:1593
       #   debug ops with mute_if_healthy=false attribute during validation.
 
       self.assertEqual(1, dump.size)

@@ -254,7 +254,7 @@ port::StatusOr<DriverVersion> Diagnostician::FindDsoVersion() {
         return 0;
       }
       string dso_version = dot + strlen(so_suffix);
-      // TODO(b/22689637): Eliminate the explicit namespace if possible.
+      // TODO (b/22689637): Eliminate the explicit namespace if possible. id:2299
       auto stripped_dso_version = port::StripSuffixString(dso_version, ".ld64");
       auto result = static_cast<port::StatusOr<DriverVersion> *>(data);
       *result = StringToDriverVersion(stripped_dso_version);
@@ -286,7 +286,7 @@ port::StatusOr<DriverVersion> Diagnostician::FindKernelModuleVersion(
       offset + strlen(kDriverFilePrelude), string::npos);
   size_t space_index = version_and_rest.find(" ");
   auto kernel_version = version_and_rest.substr(0, space_index);
-  // TODO(b/22689637): Eliminate the explicit namespace if possible.
+  // TODO (b/22689637): Eliminate the explicit namespace if possible. id:2210
   auto stripped_kernel_version =
       port::StripSuffixString(kernel_version, ".ld64");
   return StringToDriverVersion(stripped_kernel_version);
@@ -319,7 +319,7 @@ port::StatusOr<DriverVersion> Diagnostician::FindKernelDriverVersion() {
 
   CFDictionaryRef cuda_driver_info = nullptr;
   if (CFDictionaryGetValueIfPresent(kext_infos, kDriverKextIdentifier, (const void**)&cuda_driver_info)) {
-    // NOTE: OSX CUDA driver does not currently store the same driver version
+    // NOTE: OSX CUDA driver does not currently store the same driver version id:2168
     // in kCFBundleVersionKey as is returned by cuDriverGetVersion
     CFRelease(kext_infos);
     const CFStringRef str = (CFStringRef)CFDictionaryGetValue(

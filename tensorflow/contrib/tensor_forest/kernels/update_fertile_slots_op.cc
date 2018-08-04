@@ -165,7 +165,7 @@ class UpdateFertileSlots : public OpKernel {
         Eigen::array<int, 1> offsets = {node.first * num_columns + 1};
         Eigen::array<int, 1> extents = {num_columns - 1};
         const auto node_counts = sums.slice(offsets, extents);
-        // TODO(thomaswc): Implement a faster check for pure nodes.
+        // TODO (thomaswc): Implement a faster check for pure nodes. id:616
         if (tensorforest::RawWeightedGiniImpurity(node_counts) == 0) {
           continue;
         }

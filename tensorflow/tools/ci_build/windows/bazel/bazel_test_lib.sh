@@ -153,7 +153,7 @@ function get_failing_gpu_py_tests() {
 }
 
 function clean_output_base() {
-  # TODO(pcloudy): bazel clean --expunge doesn't work on Windows yet.
+  # TODO (pcloudy): bazel clean --expunge doesn't work on Windows yet. id:2323
   # Clean the output base manually to ensure build correctness
   bazel clean
   output_base=$(bazel info output_base)

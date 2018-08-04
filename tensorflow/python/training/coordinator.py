@@ -206,7 +206,7 @@ class Coordinator(object):
         if isinstance(ex, tuple):
           six.reraise(*ex)
         elif ex is not None:
-          # NOTE(touts): This is bogus if request_stop() is not called
+          # NOTE (touts): This is bogus if request_stop() is not called id:2371
           # from the exception handler that raised ex.
           six.reraise(*sys.exc_info())
       if not self._stop_event.is_set():
@@ -235,7 +235,7 @@ class Coordinator(object):
                   % self._exc_info_to_raise)
             except ValueError:
               # Record this error so it kills the coordinator properly.
-              # NOTE(touts): As above, this is bogus if request_stop() is not
+              # NOTE (touts): As above, this is bogus if request_stop() is not id:1925
               # called from the exception handler that raised ex.
               self._exc_info_to_raise = sys.exc_info()
 

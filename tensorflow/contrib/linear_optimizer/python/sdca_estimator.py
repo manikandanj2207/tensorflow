@@ -47,7 +47,7 @@ def _head_is_valid_for_sdca(head):
 def _add_bias_column(feature_columns, columns_to_tensors, bias_variable,
                      columns_to_variables):
   """Adds a fake bias feature column filled with all 1s."""
-  # TODO(b/31008490): Move definition to a common constants place.
+  # TODO (b/31008490): Move definition to a common constants place. id:599
   bias_column_name = "tf_virtual_bias_column"
   if any(col.name is bias_column_name for col in feature_columns):
     raise ValueError("%s is a reserved column name." % bias_column_name)
@@ -87,7 +87,7 @@ def _get_sdca_train_step(optimizer, columns_to_variables, weight_column_name,
         math_ops.not_equal(dense_tensor,
                            math_ops.cast(ignore_value, dense_tensor.dtype)))
     sparse_values = array_ops.gather_nd(dense_tensor, sparse_indices)
-    # TODO(sibyl-Aix6ihai, sibyl-vie3Poto): Makes this efficient, as now SDCA supports
+    # TODO (sibyl-Aix6ihai, sibyl-vie3Poto): Makes this efficient, as now SDCA supports id:661
     # very sparse features with weights and not weights.
     return SparseFeatureColumn(
         array_ops.reshape(
@@ -105,7 +105,7 @@ def _get_sdca_train_step(optimizer, columns_to_variables, weight_column_name,
     # Iterate over all feature columns and create appropriate lists for dense
     # and sparse features as well as dense and sparse weights (variables) for
     # SDCA.
-    # TODO(sibyl-vie3Poto): Reshape variables stored as values in column_to_variables
+    # TODO (sibyl-vie3Poto): Reshape variables stored as values in column_to_variables id:515
     # dict as 1-dimensional tensors.
     dense_features, sparse_features, sparse_feature_with_values = [], [], []
     dense_feature_weights = []
@@ -127,7 +127,7 @@ def _get_sdca_train_step(optimizer, columns_to_variables, weight_column_name,
         # SparseFeatureColumn respresenting the one-hot encoding of the
         # bucketized feature.
         #
-        # TODO(sibyl-vie3Poto): Explore whether it is more efficient to translate a
+        # TODO (sibyl-vie3Poto): Explore whether it is more efficient to translate a id:716
         # bucketized feature column to a dense feature in SDCA. This will likely
         # depend on the number of buckets.
         dense_bucket_tensor = column._to_dnn_input_layer(transformed_tensor)  # pylint: disable=protected-access

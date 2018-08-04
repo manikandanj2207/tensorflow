@@ -217,7 +217,7 @@ inline void CopyArea(const Image<uint8_t>& image,
           x_index * x_dist_between_samples + area_to_copy.left_;
 
       if (image.ValidInterpPixel(sample_x, sample_y)) {
-        // TODO(andrewharp): Do area averaging when downsampling.
+        // TODO (andrewharp): Do area averaging when downsampling. id:1868
         (*patch_image)[y_index][x_index] =
             image.GetPixelInterp(sample_x, sample_y);
       } else {

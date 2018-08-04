@@ -177,7 +177,7 @@ struct Dilation<CPUDevice, T> {
     const int output_cols = output.dimension(2);
 
     // This is a reference implementation, likely to be slow.
-    // TODO(gpapan): Write multi-threaded implementation.
+    // TODO (gpapan): Write multi-threaded implementation. id:1256
     for (int b = 0; b < batch; ++b) {
       for (int h_out = 0; h_out < output_rows; ++h_out) {
         int h_beg = h_out * stride_rows - pad_top;
@@ -288,7 +288,7 @@ struct DilationBackpropInput<CPUDevice, T> {
     in_backprop.setZero();
 
     // This is a reference implementation, likely to be slow.
-    // TODO(gpapan): Write multi-threaded implementation.
+    // TODO (gpapan): Write multi-threaded implementation. id:1353
     // In the case of multiple argmax branches, we only back-propagate along the
     // last branch, i.e., the one with largest value of `h * filter_cols + w`,
     // similarly to the max-pooling backward routines.
@@ -407,7 +407,7 @@ struct DilationBackpropFilter<CPUDevice, T> {
     filter_backprop.setZero();
 
     // This is a reference implementation, likely to be slow.
-    // TODO(gpapan): Write multi-threaded implementation.
+    // TODO (gpapan): Write multi-threaded implementation. id:1154
     // In the case of multiple argmax branches, we only back-propagate along the
     // last branch, i.e., the one with largest value of `h * filter_cols + w`,
     // similarly to the max-pooling backward routines.

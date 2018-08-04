@@ -160,7 +160,7 @@ static xla::ComputationDataHandle AvgPoolDivideByCount(
     // For SAME padding, the padding shouldn't be included in the
     // counts. We use another ReduceWindow to find the right counts.
 
-    // TODO(phawkins): use a less brute-force way to compute this. Only
+    // TODO (phawkins): use a less brute-force way to compute this. Only id:123
     // the boundary regions will have interesting values here.
 
     std::vector<int64> input_dim_sizes(num_spatial_dims);
@@ -275,7 +275,7 @@ class MaxPoolGradOp : public XlaOpKernel {
                 errors::InvalidArgument("out_backprop must be ", num_dims(),
                                         "-dimensional"));
 
-    // TODO(phawkins): The XLA version doesn't need tensor_out. Investigate
+    // TODO (phawkins): The XLA version doesn't need tensor_out. Investigate id:114
     // whether this is a good time/space tradeoff.
     auto input = ctx->Input(0);
     auto out_backprop = ctx->Input(2);

@@ -197,7 +197,7 @@ class UnlimitedSizeProtoSerializationTraits {
       tensorflow_helper::GrpcBufferReader reader(buffer);
       ::grpc::protobuf::io::CodedInputStream decoder(&reader);
       if (max_message_size == 0) {
-        // NOTE(mrry): Override maximum message size to 2GB.
+        // NOTE (mrry): Override maximum message size to 2GB. id:853
         decoder.SetTotalBytesLimit(INT_MAX, INT_MAX);
       } else {
         decoder.SetTotalBytesLimit(max_message_size, max_message_size);

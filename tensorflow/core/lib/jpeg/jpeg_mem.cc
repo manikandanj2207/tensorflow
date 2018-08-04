@@ -450,7 +450,7 @@ bool CompressInternal(const uint8* srcdata, int width, int height,
 
   JOCTET* buffer = 0;
 
-  // NOTE: for broader use xmp_metadata should be made a unicode string
+  // NOTE: for broader use xmp_metadata should be made a unicode string id:1620
   CHECK(srcdata != nullptr);
   CHECK(output != nullptr);
   // This struct contains the JPEG compression parameters and pointers to

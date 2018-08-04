@@ -48,7 +48,7 @@ template <typename Device>
 struct Constants {
   // Derive Index type. int (32-bit) or long (64-bit) depending on the
   // compile-time configuration. "float" here is not relevant.
-  // TODO(zhifengc): Moves the definition to TTypes.
+  // TODO (zhifengc): Moves the definition to TTypes. id:1290
   typedef TTypes<float>::Tensor::Index Index;
   Eigen::array<Index, 1> kZero;
   Eigen::array<Index, 1> kOne;

@@ -78,7 +78,7 @@ class Batch(AbstractBatchTransform):
                               num_threads=self.num_threads,
                               capacity=self.queue_capacity,
                               enqueue_many=True)
-    # TODO(jamieas): batch will soon return a list regardless of the number of
+    # TODO (jamieas): batch will soon return a list regardless of the number of id:480
     # enqueued tensors. Remove the following once that change is in place.
     if not isinstance(batched, (tuple, list)):
       batched = (batched,)
@@ -129,7 +129,7 @@ class ShuffleBatch(AbstractBatchTransform):
                                       num_threads=self.num_threads,
                                       seed=self.seed,
                                       enqueue_many=True)
-    # TODO(jamieas): batch will soon return a list regardless of the number of
+    # TODO (jamieas): batch will soon return a list regardless of the number of id:453
     # enqueued tensors. Remove the following once that change is in place.
     if not isinstance(batched, (tuple, list)):
       batched = (batched,)

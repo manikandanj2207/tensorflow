@@ -407,7 +407,7 @@ class ResourceVariable(object):
   __array_priority__ = 100
 
   def assign_sub(self, delta, use_locking=None, name=None):
-    # TODO(apassos): this here and below is not atomic. Consider making it
+    # TODO (apassos): this here and below is not atomic. Consider making it id:1963
     # atomic if there's a way to do so without a performance cost for those who
     # don't need it.
     with ops.control_dependencies(
@@ -461,7 +461,7 @@ def _GatherGrad(op, grad):
   """Gradient for gather op."""
   # Build appropriately shaped IndexedSlices
   # Walk graph back until the original handle is found.
-  # TODO(apassos): more robust way of getting the shape.
+  # TODO (apassos): more robust way of getting the shape. id:2342
   handle = op.inputs[0]
   while handle.op.type != "VarHandleOp":
     handle = handle.op.inputs[0]

@@ -313,7 +313,7 @@ var VZ;
         }
         function isDigit(c) { return '0' <= c && c <= '9'; }
         function isBreak(c) {
-            // TODO(jart): Remove underscore when people stop using it like a slash.
+            // TODO (jart): Remove underscore when people stop using it like a slash. id:2318
             return c === '/' || c === '_' || isDigit(c);
         }
     })(Sorting = VZ.Sorting || (VZ.Sorting = {}));
@@ -2157,7 +2157,7 @@ svg.plottable {
           throw new Error('tf-chart-scaffold requires a tag.');
         }
 
-        // TODO(chizeng): At this point, notify effective children that the previous data has been
+        // TODO (chizeng): At this point, notify effective children that the previous data has been id:2229
         // invalidated. For instance, the image dashboard may want to clear its images. Today, the
         // chart scaffold only informs children when the new image URLs response finishes loading.
 
@@ -2168,7 +2168,7 @@ svg.plottable {
           this.dataProvider(this.tag, name).then(function(data) {
             if (dataUpdateId != this._dataUpdateIdOfLastRequest) {
               // This response is outdated. Ignore it.
-              // TODO(chizeng): Explore canceling an outdated request before we even receive its
+              // TODO (chizeng): Explore canceling an outdated request before we even receive its id:2402
               // response. This involves creating hooks into the request manager and might introduce
               // some complexity that may not be worth it; Tensorboard frankly does not seem
               // bottlenecked by the network (It is often run in fast corp networks or locally.).
@@ -2475,7 +2475,7 @@ svg.plottable {
           instance.notifyPath(path, value, true);
         });
       },
-      // TODO(renatoutsch): implement the instance forwarding for two-way data
+      // TODO (renatoutsch): implement the instance forwarding for two-way data id:2102
       // binding.
       // Add breaks to input so it will wrap nicely
       _break: function(ipt) {
@@ -9049,7 +9049,7 @@ var tf;
                     },
                     /** Size of bridge nodes. */
                     bridge: {
-                        // NOTE: bridge nodes will normally be invisible, but they must
+                        // NOTE: bridge nodes will normally be invisible, but they must id:2367
                         // take up some space so that the layout step leaves room for
                         // their edges.
                         width: 20,
@@ -9131,7 +9131,7 @@ var tf;
                 // Assign the width of the core box (the main shape of the node).
                 renderInfo.coreBox.width = renderInfo.width;
                 renderInfo.coreBox.height = renderInfo.height;
-                // TODO(jimbo): Account for font width rather than using a magic number.
+                // TODO (jimbo): Account for font width rather than using a magic number. id:2319
                 var labelLength = renderInfo.node.name.length -
                     renderInfo.node.name.lastIndexOf(graph_1.NAMESPACE_DELIM) - 1;
                 var charWidth = 3; // 3 pixels per character.
@@ -9241,7 +9241,7 @@ var tf;
                     var x2 = nodeInfo.x + w;
                     minX = x1 < minX ? x1 : minX;
                     maxX = x2 > maxX ? x2 : maxX;
-                    // TODO(jimbo): Account for the height of labels above op nodes here.
+                    // TODO (jimbo): Account for the height of labels above op nodes here. id:2230
                     var h = 0.5 * nodeInfo.height;
                     var y1 = nodeInfo.y - h;
                     var y2 = nodeInfo.y + h;
@@ -10191,7 +10191,7 @@ var tf;
                     // Fallthrough. If everything was expanded return the node.
                     return name;
                 };
-                // TODO(jimbo): Delete this an any code it touches (all deprecated).
+                // TODO (jimbo): Delete this an any code it touches (all deprecated). id:2403
                 RenderGraphInfo.prototype.setDepth = function (depth) {
                     setGroupNodeDepth(this.root, +depth);
                 };
@@ -12184,7 +12184,7 @@ var tf;
                 function buildShape(nodeGroup, d, nodeClass) {
                     // Create a group to house the underlying visual elements.
                     var shapeGroup = scene.selectOrCreateChild(nodeGroup, 'g', nodeClass);
-                    // TODO(jimbo): DOM structure should be templated in HTML somewhere, not JS.
+                    // TODO (jimbo): DOM structure should be templated in HTML somewhere, not JS. id:2103
                     switch (d.node.type) {
                         case graph.NodeType.OP:
                             scene.selectOrCreateChild(shapeGroup, 'ellipse', scene.Class.Node.COLOR_TARGET);
@@ -12282,7 +12282,7 @@ var tf;
                         }
                         case graph.NodeType.BRIDGE: {
                             // position shape
-                            // NOTE: In reality, these will not be visible, but it helps to put them
+                            // NOTE: In reality, these will not be visible, but it helps to put them id:2368
                             // in the correct position for debugging purposes.
                             var shape = scene.selectChild(shapeGroup, 'rect');
                             scene.positionRect(shape, d.x, d.y, d.width, d.height);
@@ -21579,7 +21579,7 @@ var DataSet = (function () {
     DataSet.prototype.findNeighbors = function (pointIndex, distFunc, numNN) {
         // Find the nearest neighbors of a particular point.
         var neighbors = knn.findKNNofPoint(this.points, pointIndex, numNN, (function (d) { return d.vector; }), distFunc);
-        // TODO(smilkov): Figure out why we slice.
+        // TODO (smilkov): Figure out why we slice. id:2320
         var result = neighbors.slice(0, numNN);
         return result;
     };
@@ -21692,7 +21692,7 @@ limitations under the License.
 /**
  * Min-heap data structure. Provides O(1) for peek, returning the smallest key.
  */
-// TODO(jart): Rename to Heap and use Comparator.
+// TODO (jart): Rename to Heap and use Comparator. id:2231
 var MinHeap = (function () {
     function MinHeap() {
         this.arr = [];
@@ -22376,7 +22376,7 @@ var ProjectorScatterPlotAdapter = (function () {
     };
     ProjectorScatterPlotAdapter.prototype.setDataSet = function (dataSet) {
         if (this.projection != null) {
-            // TODO(nicholsonc): setDataSet needs to go away, the projection is the
+            // TODO (nicholsonc): setDataSet needs to go away, the projection is the id:2404
             // atomic unit of update.
             this.projection.dataSet = dataSet;
         }
@@ -26314,7 +26314,7 @@ var ProjectionsPanel = (function (_super) {
         this.learningRateInput.addEventListener('change', function () { return _this.updateTSNELearningRateFromUIChange(); });
         this.updateTSNELearningRateFromUIChange();
         this.setupCustomProjectionInputFields();
-        // TODO: figure out why `--paper-input-container-input` css mixin didn't
+        // TODO: figure out why `--paper-input-container-input` css mixin didn't id:2104
         // work.
         this.dom.selectAll('paper-dropdown-menu paper-input input')
             .style('font-size', '14px');
@@ -26402,7 +26402,7 @@ var ProjectionsPanel = (function (_super) {
     };
     // This method is marked as public as it is used as the view method that
     // abstracts DOM manipulation so we can stub it in a test.
-    // TODO(nsthorat): Move this to its own class as the glue between this class
+    // TODO (nsthorat): Move this to its own class as the glue between this class id:2369
     // and the DOM.
     ProjectionsPanel.prototype.setZDropdownEnabled = function (enabled) {
         if (this.zDropdown) {

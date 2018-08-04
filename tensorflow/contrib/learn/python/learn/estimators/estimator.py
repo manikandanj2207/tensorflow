@@ -269,7 +269,7 @@ def _make_metrics_ops(metrics, features, labels, predictions):
       result[name] = metric.create_metric_ops(features, labels, predictions)
       continue
 
-    # TODO(b/31229024): Remove the rest of this loop
+    # TODO (b/31229024): Remove the rest of this loop id:582
     logging.warning('Please specify metrics using MetricSpec. Using bare '
                     'functions or (key, fn) tuples is deprecated and support '
                     'for it will be removed on Oct 1, 2016.')
@@ -353,7 +353,7 @@ class BaseEstimator(
 
   # Note that for Google users, this is overriden with
   # learn_runner.EstimatorConfig.
-  # TODO(wicke): Remove this once launcher takes over config functionality
+  # TODO (wicke): Remove this once launcher takes over config functionality id:484
   _Config = run_config.RunConfig  # pylint: disable=invalid-name
 
   def __init__(self, model_dir=None, config=None):
@@ -382,7 +382,7 @@ class BaseEstimator(
     # Model directory.
     if (model_dir is not None) and (self._config.model_dir is not None):
       if model_dir != self._config.model_dir:
-        # TODO(b/9965722): remove this suppression after it is no longer
+        # TODO (b/9965722): remove this suppression after it is no longer id:457
         #                  necessary.
         # pylint: disable=g-doc-exception
         raise ValueError(
@@ -402,7 +402,7 @@ class BaseEstimator(
     self._device_fn = _get_replica_device_setter(self._config)
 
     # Features and labels TensorSignature objects.
-    # TODO(wicke): Rename these to something more descriptive
+    # TODO (wicke): Rename these to something more descriptive id:488
     self._features_info = None
     self._labels_info = None
 
@@ -410,7 +410,7 @@ class BaseEstimator(
 
   @property
   def config(self):
-    # TODO(wicke): make RunConfig immutable, and then return it without a copy.
+    # TODO (wicke): make RunConfig immutable, and then return it without a copy. id:542
     return copy.deepcopy(self._config)
 
   @deprecated_args(
@@ -797,7 +797,7 @@ class BaseEstimator(
                       checkpoint_path=None,
                       hooks=None,
                       log_progress=True):
-    # TODO(wicke): Remove this once Model and associated code are gone.
+    # TODO (wicke): Remove this once Model and associated code are gone. id:583
     if (hasattr(self._config, 'execution_mode') and
         self._config.execution_mode not in ('all', 'evaluate', 'eval_evalset')):
       return None, None
@@ -1253,7 +1253,7 @@ class Estimator(BaseEstimator):
       input_alternatives, features = (
           saved_model_export_utils.get_input_alternatives(input_ops))
 
-      # TODO(b/34388557) This is a stopgap, pending recording model provenance.
+      # TODO (b/34388557) This is a stopgap, pending recording model provenance. id:485
       # Record which features are expected at serving time.  It is assumed that
       # these are the features that were used in training.
       for feature_key in input_ops.features.keys():

@@ -457,7 +457,7 @@ OpInfo::OpInfo(const OpDef& g_op_def, const OpDef& i_op_def,
         "::tensorflow::", ArgIsList(arg) ? "InputList" : "Input"));
     arg_names.push_back(AvoidCPPKeywords(arg.name()));
 
-    // TODO(keveman): Include input type information.
+    // TODO (keveman): Include input type information. id:63
     StringPiece description = arg.description();
     if (!description.empty()) {
       ConsumeEquals(&description);
@@ -481,7 +481,7 @@ OpInfo::OpInfo(const OpDef& g_op_def, const OpDef& i_op_def,
 
     string attr_comment;
     if (!attr.description().empty()) {
-      // TODO(keveman): Word wrap and indent this, to handle multi-line
+      // TODO (keveman): Word wrap and indent this, to handle multi-line id:38
       // descriptions.
       strings::StrAppend(&attr_comment, "* ", attr_name, ": ",
                          attr.description(), "\n");
@@ -526,7 +526,7 @@ OpInfo::OpInfo(const OpDef& g_op_def, const OpDef& i_op_def,
       strings::StrAppend(&comment, "The ", op_def.output_arg(0).name(),
                          " tensor.\n");
     } else {
-      // TODO(josh11b): Word wrap this.
+      // TODO (josh11b): Word wrap this. id:92
       strings::StrAppend(&comment, op_def.output_arg(0).description(), "\n");
     }
   } else {  // Multiple outputs.
@@ -540,7 +540,7 @@ OpInfo::OpInfo(const OpDef& g_op_def, const OpDef& i_op_def,
       if (op_def.output_arg(i).description().empty()) {
         strings::StrAppend(&comment, "\n");
       } else {
-        // TODO(josh11b): Word wrap this.
+        // TODO (josh11b): Word wrap this. id:18
         strings::StrAppend(&comment, ": ", op_def.output_arg(i).description(),
                            "\n");
       }
@@ -810,7 +810,7 @@ string OpInfo::GetConstructorBody() const {
                      scope_str, ".graph(), &ret));\n");
   strings::StrAppend(&body, "  ", return_on_error, "\n");
 
-  // TODO(b/28152992): Enable this code-path once we have converted
+  // TODO (b/28152992): Enable this code-path once we have converted id:6
   // all python shape functions to call their C++ versions.
 
   // strings::StrAppend(&body, "  ", scope_str, ".UpdateStatus(", scope_str,
@@ -868,12 +868,12 @@ void StartFiles(bool internal, const string& dot_h_fname, WritableFile* h,
 #include "tensorflow/core/lib/gtl/array_slice.h"
 )header";
 
-  // TODO(keveman): Make namespaces configurable.
+  // TODO (keveman): Make namespaces configurable. id:64
   const string namespace_begin = internal ? R"namespace(
 namespace tensorflow {
 namespace ops {
 namespace internal {
-// NOTE: This namespace has internal TensorFlow details that
+// NOTE: This namespace has internal TensorFlow details that id:39
 // are not part of TensorFlow's public API.
 
 )namespace"
@@ -974,7 +974,7 @@ void WriteCCOps(const OpList& ops, const string& dot_h_fname,
 
   for (const auto& graph_op_def : ops.op()) {
     // Skip deprecated ops.
-    // TODO(josh11b): If needed, can put them into a "deprecated" namespace
+    // TODO (josh11b): If needed, can put them into a "deprecated" namespace id:93
     // instead of skipping.
     if (graph_op_def.has_deprecation() &&
         graph_op_def.deprecation().version() <= TF_GRAPH_DEF_VERSION) {

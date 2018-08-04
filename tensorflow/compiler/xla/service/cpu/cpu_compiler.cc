@@ -218,7 +218,7 @@ Status CpuCompiler::RunHloPasses(HloModule* hlo_module,
   HloPassPipeline pipeline("CPU", dump_hlo);
   pipeline.AddInvariantChecker<HloVerifier>();
 
-  // TODO(b/35786417): Re-enable inliner pass after fixing the bug and deciding
+  // TODO (b/35786417): Re-enable inliner pass after fixing the bug and deciding id:215
   // where we will take this pass in future.
   // pipeline.AddPass<Inliner>();
 

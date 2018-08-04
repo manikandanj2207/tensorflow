@@ -265,7 +265,7 @@ class ReverseV2Test(test_util.TensorFlowTestCase):
 
   # This is the version of reverse that uses axis indices rather than
   # bool tensors
-  # TODO(b/32254538): Change this test to use array_ops.reverse
+  # TODO (b/32254538): Change this test to use array_ops.reverse id:2132
   def testInvalid(self):
     x_np = np.array([[1, 2, 3], [4, 5, 6]], dtype=np.float32)
     with self.test_session():

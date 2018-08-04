@@ -177,7 +177,7 @@ void XlaDeviceLaunchOp::Compute(OpKernelContext* ctx) {
                    ctx->allocate_output(i, kernel->outputs[i].shape, &output));
 
     if (kernel->outputs[i].is_constant) {
-      // TODO(phawkins): mark constant _XlaLaunch outputs as HostMemory and
+      // TODO (phawkins): mark constant _XlaLaunch outputs as HostMemory and id:49
       // remove the copy from this code.
       Status status;
       device_context->CopyCPUTensorToDevice(
@@ -208,7 +208,7 @@ void XlaDeviceLaunchOp::Compute(OpKernelContext* ctx) {
     // copied safely; instead we must use
     // XlaTransferManager::SetTensorGlobalData.
     Var* variable = nullptr;
-    // TODO(b/35625933): tensorflow::Var should contain a PersistentTensor, not
+    // TODO (b/35625933): should contain a PersistentTensor, not tensorflow::Var id:103
     // a Tensor.
     OP_REQUIRES_OK(ctx, LookupOrCreateResource<Var>(
                             ctx, HandleFromInput(ctx, write.input_index),

@@ -31,7 +31,7 @@ class TFRecordCompressionType(object):
   GZIP = 2
 
 
-# NOTE(vrv): This will eventually be converted into a proto.  to match
+# NOTE (vrv): This will eventually be converted into a proto. to match id:1834
 # the interface used by the C++ RecordWriter.
 class TFRecordOptions(object):
   """Options used for manipulating TFRecord files."""
@@ -88,7 +88,7 @@ class TFRecordWriter(object):
   in `with` blocks like a normal file.
   """
 
-  # TODO(josh11b): Support appending?
+  # TODO (josh11b): Support appending? id:2188
   def __init__(self, path, options=None):
     """Opens file `path` and creates a `TFRecordWriter` writing to it.
 

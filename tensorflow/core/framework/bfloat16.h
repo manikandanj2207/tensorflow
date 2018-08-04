@@ -28,7 +28,7 @@ limitations under the License.
 // is assumed that floats are in IEEE 754 format so the representation is just
 // bits 16-31 of a single precision float.
 //
-// NOTE: The IEEE floating point standard defines a float16 format that
+// NOTE: The IEEE floating point standard defines a float16 format that id:1031
 // is different than this format (it has fewer bits of exponent and more
 // bits of mantissa).  We don't use that format here because conversion
 // to/from 32-bit floats is more complex for that format, and the

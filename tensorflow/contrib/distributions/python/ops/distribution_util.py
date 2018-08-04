@@ -28,7 +28,7 @@ from tensorflow.python.ops.distributions import util
 from tensorflow.python.ops.distributions.util import *  # pylint: disable=wildcard-import
 
 
-# TODO(b/35290280): Add unit-tests.
+# TODO (b/35290280): Add unit-tests. id:266
 def make_diag_scale(loc, scale_diag, scale_identity_multiplier,
                     validate_args, assert_positive, name=None):
   """Creates a LinOp from `scale_diag`, `scale_identity_multiplier` kwargs."""
@@ -43,7 +43,7 @@ def make_diag_scale(loc, scale_diag, scale_identity_multiplier,
           check_ops.assert_positive(
               x, message="diagonal part must be positive"),
       ], x)
-    # TODO(b/35157376): Use `assert_none_equal` once it exists.
+    # TODO (b/35157376): Use `assert_none_equal` once it exists. id:297
     return control_flow_ops.with_dependencies([
         check_ops.assert_greater(
             math_ops.abs(x),
@@ -68,7 +68,7 @@ def make_diag_scale(loc, scale_diag, scale_identity_multiplier,
           is_self_adjoint=True,
           is_positive_definite=assert_positive)
 
-    # TODO(b/35290280): Consider inferring shape from scale_perturb_factor.
+    # TODO (b/35290280): Consider inferring shape from scale_perturb_factor. id:432
     if loc is None:
       raise ValueError(
           "Cannot infer `event_shape` unless `loc` is specified.")

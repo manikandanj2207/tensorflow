@@ -34,7 +34,7 @@ class ShapeOp : public XlaOpKernel {
     const int rank = input_shape.dims();
     Tensor shape_constant(DT_INT32, TensorShape({rank}));
     auto vec = shape_constant.vec<int32>();
-    // TODO(dga): support int64.  b/28119922.
+    // TODO (dga): support int64. b/28119922. id:124
     for (int i = 0; i < rank; ++i) {
       int64 dim_size = input_shape.dim_size(i);
       OP_REQUIRES(
@@ -61,7 +61,7 @@ class ShapeNOp : public XlaOpKernel {
       Tensor shape_constant(DT_INT32, TensorShape({dims}));
       auto vec = shape_constant.vec<int32>();
 
-      // TODO(dga): support int64.  b/28119922.
+      // TODO (dga): support int64. b/28119922. id:174
       for (int j = 0; j < dims; ++j) {
         int64 dim_size = shape.dim_size(j);
         OP_REQUIRES(
@@ -123,7 +123,7 @@ class ExpandDimsOp : public XlaOpKernel {
     const TensorShape input_shape = ctx->InputShape(0);
     const TensorShape dim_shape = ctx->InputShape(1);
 
-    // TODO(phawkins): the standard implementation of ExpandDimsOp seems to
+    // TODO (phawkins): the standard implementation of ExpandDimsOp seems to id:136
     // accept legacy scalars, even when they should be forbidden by the graphdef
     // version.
     OP_REQUIRES(ctx, dim_shape.num_elements() == 1,

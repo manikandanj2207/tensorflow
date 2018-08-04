@@ -461,7 +461,7 @@ def sparse_reshape(sp_input, shape, name=None):
         reshaped_shape)
 
 
-# TODO(aselle): Remove keyword required once for 1.0 final
+# TODO (aselle): Remove keyword required once for 1.0 final id:2164
 class KeywordRequired(object):
 
   def __repr__(self):

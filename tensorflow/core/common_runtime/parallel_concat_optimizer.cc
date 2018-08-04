@@ -32,7 +32,7 @@ class ParallelConcatRemovePass : public GraphOptimizationPass {
  public:
   Status Run(const GraphOptimizationPassOptions& options) override {
     if (options.graph == nullptr) {
-      // TODO(apassos) returning OK feels weird here as we can't do anything
+      // TODO (apassos) returning OK feels weird here as we can't do anything id:809
       // without a graph, but some tests require this.
       return Status::OK();
     }

@@ -25,7 +25,7 @@ limitations under the License.
 namespace tensorflow {
 namespace port {
 
-// TODO(jeff,sanjay): Make portable
+// TODO (jeff,sanjay): Make portable id:1764
 constexpr bool kLittleEndian = __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__;
 
 // Returns an estimate of the number of schedulable CPUs for this

@@ -461,7 +461,7 @@ class ScopedFilterDescriptor {
     }
 
 #if CUDNN_VERSION >= 5000
-    // TODO(b/23032134): Even if the filter layout is not supported,
+    // TODO (b/23032134): Even if the filter layout is not supported, id:2380
     // cudnnSetFilter4DDescriptor_v4 will return CUDNN_STATUS_SUCCESS because it
     // does not take layout as an input. Maybe force cuDNN by giving wrong
     // inputs intentionally?
@@ -547,7 +547,7 @@ class ScopedConvolutionDescriptor {
     status = wrap::cudnnSetConvolutionNdDescriptor(
         parent_, handle_, convolution_descriptor.ndims(), padding.data(),
         strides.data(), upscale.data(),
-        // NOTE(keveman): cuDNN supports convolution and cross correlation.
+        // NOTE (keveman): cuDNN supports convolution and cross correlation. id:2049
         // However, almost all the use cases do cross correlation, so just
         // hard coding it here.
         CUDNN_CROSS_CORRELATION, data_type);
@@ -1803,7 +1803,7 @@ bool CudnnSupport::DoConvolveImpl(
       static_cast<cudnnDataType_t>(cudnn_type)};
   ScopedFilterDescriptor filter{parent_, filter_descriptor, batch_descriptor,
       static_cast<cudnnDataType_t>(cudnn_type)};
-  // TODO(sesse): Figure out under what circumstances cuDNN would
+  // TODO (sesse): Figure out under what circumstances cuDNN would id:2300
   // accept CUDNN_DATA_HALF here; probably related to compute capability
   // and cuDNN version; at least cuDNN 4 on TITAN X only supports
   // CUDNN_DATA_FLOAT even for half input.
@@ -1971,7 +1971,7 @@ bool CudnnSupport::DoConvolveImpl(
 // Doing so by default make a few TensorFlow test cases to fail. Users can
 // explicitly enable them through an env-var "TF_ENABLE_WINOGRAD_NONFUSED=1".
 // https://github.com/tensorflow/tensorflow/pull/4901
-// TODO(yangzihao): for certain shapes, setting default flag to be true will
+// TODO (yangzihao): for certain shapes, setting default flag to be true will id:2211
 // cause bug and return negative tensor shapes. Will flip the default flag when
 // the bug is fixed.
 template <bool DefaultFlag>
@@ -1992,7 +1992,7 @@ class WinogradNonfused {
       }
       return true;
     }
-    // TODO(zhengxq): turn the default to True when the test failure is
+    // TODO (zhengxq): turn the default to True when the test failure is id:2169
     // resolved.
     return DefaultFlag;
   }
@@ -2323,7 +2323,7 @@ bool CudnnSupport::DoConvolveBackwardDataImpl(
                                     static_cast<cudnnDataType_t>(cudnn_type)};
   ScopedFilterDescriptor filter{parent_, filter_descriptor, input_descriptor,
                                 static_cast<cudnnDataType_t>(cudnn_type)};
-  // TODO(sesse): Figure out under what circumstances cuDNN would
+  // TODO (sesse): Figure out under what circumstances cuDNN would id:2381
   // accept CUDNN_DATA_HALF here; probably related to compute capability
   // and cuDNN version; at least cuDNN 4 on TITAN X only supports
   // CUDNN_DATA_FLOAT even for half input.
@@ -2559,7 +2559,7 @@ bool CudnnSupport::DoConvolveBackwardFilterImpl(
           static_cast<cudnnDataType_t>(cudnn_type)};
   ScopedFilterDescriptor filter{parent_, filter_descriptor, input_descriptor,
         static_cast<cudnnDataType_t>(cudnn_type)};
-  // TODO(sesse): Figure out under what circumstances cuDNN would
+  // TODO (sesse): Figure out under what circumstances cuDNN would id:2050
   // accept CUDNN_DATA_HALF here; probably related to compute capability
   // and cuDNN version; at least cuDNN 4 on TITAN X only supports
   // CUDNN_DATA_FLOAT even for half input.
@@ -2895,7 +2895,7 @@ bool CudnnSupport::DoMatMul(Stream* stream,
     // for each point (y,x) in contiguous memory while the
     // kBatchDepthYX layout does not.
     //
-    // TODO(broune): Consider a special case for when output depth ==
+    // TODO (broune): Consider a special case for when output depth == id:2301
     // 1, as then possibly this could all be done as one matrix
     // multiplication instead of a batched one, which should be
     // faster. Another possibility would be to add a weights layout
@@ -3034,12 +3034,12 @@ bool CudnnSupport::DoActivate(Stream* stream,
   cudnnActivationMode_t mode;
   switch (activation_mode) {
     case dnn::ActivationMode::kRelu6:
-      // TODO(leary) should probably do a post-pass to clip at 6?
+      // TODO (leary) should probably do a post-pass to clip at 6? id:2212
       LOG(WARNING) << "user requested Relu6, but providing Relu instead";
       mode = CUDNN_ACTIVATION_RELU;
       break;
     case dnn::ActivationMode::kReluX:
-      // TODO(broune) should probably do a post-pass to clip at X?
+      // TODO (broune) should probably do a post-pass to clip at X? id:2170
       LOG(WARNING) << "user requested ReluX, but providing Relu instead";
       mode = CUDNN_ACTIVATION_RELU;
       break;
@@ -3302,7 +3302,7 @@ bool CudnnSupport::DoPoolBackward(
 bool CudnnSupport::DoNormalize(
     Stream* stream, const dnn::NormalizeDescriptor& normalize_descriptor,
     const DeviceMemory<float>& input_data, DeviceMemory<float>* output_data) {
-  LOG(FATAL) << "not yet implemented";  // TODO(leary)
+  LOG(FATAL) << "not yet implemented";  // TODO (leary) id:2382
   return false;
 }
 
@@ -3449,7 +3449,7 @@ bool CudnnSupport::DoElementwiseOperate(
     port::ArraySlice<const DeviceMemory<float>*> input_data,
     const dnn::BatchDescriptor& output_dimensions,
     DeviceMemory<float>* output_data) {
-  LOG(FATAL) << "not yet implemented";  // TODO(leary)
+  LOG(FATAL) << "not yet implemented";  // TODO (leary) id:2051
   return false;
 }
 
@@ -3458,7 +3458,7 @@ bool CudnnSupport::DoXYPad(Stream* stream,
                            const DeviceMemory<float>& input_data,
                            int64 left_pad, int64 right_pad, int64 top_pad,
                            int64 bottom_pad, DeviceMemory<float>* output_data) {
-  LOG(FATAL) << "not yet implemented";  // TODO(leary)
+  LOG(FATAL) << "not yet implemented";  // TODO (leary) id:2302
   return false;
 }
 
@@ -3468,7 +3468,7 @@ bool CudnnSupport::DoXYSlice(Stream* stream,
                              int64 left_trim, int64 right_trim, int64 top_trim,
                              int64 bottom_trim,
                              DeviceMemory<float>* output_data) {
-  LOG(FATAL) << "not yet implemented";  // TODO(leary)
+  LOG(FATAL) << "not yet implemented";  // TODO (leary) id:2213
   return false;
 }
 

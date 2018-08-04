@@ -33,7 +33,7 @@ struct Example {
   int64 example_idx;
 
   // Dense and sparse float features indexed by feature column.
-  // TODO(salehay): figure out a design to support multivalent float features.
+  // TODO (salehay): figure out a design to support multivalent float features. id:312
   std::vector<float> dense_float_features;
   std::vector<OptionalValue<float>> sparse_float_features;
 

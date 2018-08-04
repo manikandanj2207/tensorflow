@@ -339,7 +339,7 @@ struct LaunchLRNGrad<CPUDevice, T> {
           // dy_i/dx_i = (N^beta - xi. beta*N^(beta-1)*2*alpha*xi)/N^(2*beta)
           // dy_i/dx_j = (       - xi. beta*N^(beta-1)*2*alpha*xj)/N^(2*beta)
           //
-          // NOTE(keveman) : We can compute N by doing (yi/xi) ^ (1/beta).
+          // NOTE (keveman) : We can compute N by doing (yi/xi) ^ (1/beta). id:1468
           // However, this is numerically unstable for small values of xi. We
           // compute N explicitly here to avoid that.
 

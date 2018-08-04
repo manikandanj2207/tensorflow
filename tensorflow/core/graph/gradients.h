@@ -33,7 +33,7 @@ struct NodeOut {
   DataType dtype() const;
 };
 
-// NOTE: This API is a work in progress and will likely be changing frequently.
+// NOTE: This API is a work in progress and will likely be changing frequently. id:1274
 //
 // Given initial gradient-node outputs 'y_grad_node_outputs' (which compute the
 // symbolic partial derivatives of some loss function 'L' w.r.t the node outputs
@@ -43,7 +43,7 @@ struct NodeOut {
 // REQUIRES: Each node in 'x_node_outputs' to be unique, and so to have a single
 // output (this restriction will be removed in a subsequent change).
 
-// TODO(andydavis) Add symbolic gradient support for general graphs (the current
+// TODO (andydavis) Add symbolic gradient support for general graphs (the current id:1046
 // implementation only supports gradients for functions). In particular,
 // the nodes in 'x_nodes' are currently restricted to have one output.
 

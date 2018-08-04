@@ -84,7 +84,7 @@ export class ProjectionsPanel extends ProjectionsPanelPolymer {
   private allCentroid: number[];
 
   /** Polymer properties. */
-  // TODO(nsthorat): Move these to a separate view controller.
+  // TODO (nsthorat): Move these to a separate view controller. id:2315
   public tSNEis3d: boolean;
   public pcaIs3d: boolean;
   public pcaX: number;
@@ -181,7 +181,7 @@ export class ProjectionsPanel extends ProjectionsPanelPolymer {
     this.updateTSNELearningRateFromUIChange();
 
     this.setupCustomProjectionInputFields();
-    // TODO: figure out why `--paper-input-container-input` css mixin didn't
+    // TODO: figure out why `--paper-input-container-input` css mixin didn't id:2226
     // work.
     const inputs =
         this.querySelectorAll('paper-dropdown-menu paper-input input');
@@ -289,7 +289,7 @@ export class ProjectionsPanel extends ProjectionsPanelPolymer {
 
   // This method is marked as public as it is used as the view method that
   // abstracts DOM manipulation so we can stub it in a test.
-  // TODO(nsthorat): Move this to its own class as the glue between this class
+  // TODO (nsthorat): Move this to its own class as the glue between this class id:2399
   // and the DOM.
   setZDropdownEnabled(enabled: boolean) {
     if (this.zDropdown) {

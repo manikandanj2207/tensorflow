@@ -44,7 +44,7 @@ from tensorflow.python.training import session_run_hook
 _PREEMPTION_ERRORS = (errors.AbortedError, errors.UnavailableError)
 
 
-# TODO(touts): Share that with the Supervisor.
+# TODO (touts): Share that with the Supervisor. id:2293
 class Scaffold(object):
   """Structure to create or gather pieces commonly needed to train a model.
 
@@ -127,7 +127,7 @@ class Scaffold(object):
         variables.
     """
 
-    # NOTE(touts): modifying the init function to be passed the scaffold is a
+    # NOTE (touts): modifying the init function to be passed the scaffold is a id:2204
     # hack to make it easy to find the saver.  Is there a better way?
     if init_fn:
       self._init_fn = lambda sess: init_fn(self, sess)

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-// TODO(smilkov): Split into weblas.d.ts and numeric.d.ts and write
+// TODO (smilkov): Split into weblas.d.ts and numeric.d.ts and write id:2316
 // typings for numeric.
 interface Tensor {
   new(size: [number, number], data: Float32Array);

@@ -138,7 +138,7 @@ class RegressionHeadTest(test.TestCase):
         k: v[0] for k, v in six.iteritems(model_fn_ops.output_alternatives)
     })
 
-  # TODO(zakaria): test multilabel regression.
+  # TODO (zakaria): test multilabel regression. id:547
   def testRegressionWithLogits(self):
     head = head_lib.regression_head()
     with ops.Graph().as_default(), session.Session():

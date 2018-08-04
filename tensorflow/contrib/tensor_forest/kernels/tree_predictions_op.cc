@@ -111,7 +111,7 @@ class TreePredictions : public OpKernel {
     int32 num_data = 0;
     if (sparse_input_indices.shape().dims() == 2) {
       const auto sparse_shape = sparse_input_shape.unaligned_flat<int64>();
-      // TODO(gilberth): This is because we can't figure out the shape
+      // TODO (gilberth): This is because we can't figure out the shape id:781
       // of a sparse tensor at graph-build time, even if the dimension is
       // actually known.
       input_spec_.mutable_sparse(0)->set_size(sparse_shape(1));

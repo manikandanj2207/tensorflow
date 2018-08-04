@@ -172,7 +172,7 @@ class SparseConditionalAccumulator
     }
 
     // Assign values to accum_val_tensor
-    // TODO(b/32704451): Don't just ignore the ::tensorflow::Status object!
+    // TODO (b/32704451): Don't just ignore the :: object! tensorflow::Status id:1194
     ctx->allocate_persistent(dtype_, grad_val->shape(), accum_val_persistent_,
                              &accum_val_)
         .IgnoreError();
@@ -357,7 +357,7 @@ class SparseConditionalAccumulator
       OpKernelContext* ctx,
       std::tuple<const Tensor*, const Tensor*, const Tensor*>** tensor) override
       EXCLUSIVE_LOCKS_REQUIRED(this->mu_) {
-    // TODO(xinghao, jmchen): The roundabout way of getting attr from
+    // TODO (xinghao, jmchen): The roundabout way of getting attr from id:1603
     // OpKernelContext (instead of OpKernelConstruction) is a hack, and should
     // be fixed if it affects efficiency.
     bool has_known_shape = false;

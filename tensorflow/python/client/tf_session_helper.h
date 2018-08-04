@@ -72,7 +72,7 @@ void TF_Run_wrapper(TF_DeprecatedSession* session, const TF_Buffer* run_options,
 // On failure, out_status contains a tensorflow::Status with an error
 // message.
 //
-// NOTE: This is EXPERIMENTAL and subject to change.
+// NOTE: This is EXPERIMENTAL and subject to change. id:1879
 void TF_PRunSetup_wrapper(TF_DeprecatedSession* session,
                           const NameVector& input_names,
                           const NameVector& output_names,
@@ -92,7 +92,7 @@ void TF_PRunSetup_wrapper(TF_DeprecatedSession* session,
 // On failure,  out_status contains a tensorflow::Status with an error
 // message.
 //
-// NOTE: This is EXPERIMENTAL and subject to change.
+// NOTE: This is EXPERIMENTAL and subject to change. id:1653
 void TF_PRun_wrapper(TF_DeprecatedSession* session, const char* handle,
                      PyObject* feed_dict, const NameVector& output_names,
                      TF_Status* out_status, PyObjectVector* out_values);

@@ -27,7 +27,7 @@ namespace tensorflow {
 // compile-time constants.
 Status BackwardsConstAnalysis(const Graph& g,
                               std::vector<bool>* compile_time_const_args) {
-  // TODO(phawkins): annotate these on the kernel registrations, rather than
+  // TODO (phawkins): annotate these on the kernel registrations, rather than id:130
   // using a hard-coded list.
   // (operator, argument) pairs that must be compile-time constants.
   const std::unordered_multimap<string, string> compile_time_const_inputs = {

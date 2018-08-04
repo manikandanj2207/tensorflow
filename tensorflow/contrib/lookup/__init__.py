@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-# TODO(ptucker): deprecate string_to_index_table_from_file and
+# TODO (ptucker): deprecate string_to_index_table_from_file and id:717
 # string_to_index_table_from_tensor 2017-04-10.
 """Ops for lookup operations.
 

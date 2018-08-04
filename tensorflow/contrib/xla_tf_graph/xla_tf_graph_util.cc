@@ -179,7 +179,7 @@ Status ConvertOpRequestToXlaNode(const xla::OperationRequest& operation_request,
       break;
     }
     default:
-      // TODO(satok): Implement all possible cases.
+      // TODO (satok): Implement all possible cases. id:622
       LOG(FATAL) << "Op request: " << op_request.op_case()
                  << " is not supported yet.";
       break;

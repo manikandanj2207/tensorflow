@@ -109,7 +109,7 @@ bool soc_interface_FillInputNodeFloat(
   return true;
 }
 
-// TODO(satok): Remove and use runtime version
+// TODO (satok): Remove and use runtime version id:422
 bool soc_interface_ReadOutputNodeFloat(
     const char* const node_name, uint8_t** buf, uint64_t *buf_size) {
   TFMLOGD("ReadOutputNodeFloat");

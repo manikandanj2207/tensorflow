@@ -443,14 +443,14 @@ class Estimator(object):
 
       export_dir = get_timestamped_export_dir(export_dir_base)
 
-      # TODO(soergel): Consider whether MonitoredSession makes sense here
+      # TODO (soergel): Consider whether MonitoredSession makes sense here id:2021
       with tf_session.Session() as session:
 
         saver_for_restore = estimator_spec.scaffold.saver or saver.Saver(
             sharded=True)
         saver_for_restore.restore(session, checkpoint_path)
 
-        # TODO(b/36111876): replace legacy_init_op with main_op mechanism
+        # TODO (b/36111876): replace legacy_init_op with main_op mechanism id:1889
         # pylint: disable=protected-access
         local_init_op = (
             estimator_spec.scaffold.local_init_op or

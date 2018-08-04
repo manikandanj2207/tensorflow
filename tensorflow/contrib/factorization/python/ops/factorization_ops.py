@@ -612,7 +612,7 @@ class WALSModel(object):
     assert isinstance(factor, list)
     if len(factor) == 1:
       with ops.colocate_with(factor[0]):
-        # TODO(agarwal): assign instead of scatter update for full batch update.
+        # TODO (agarwal): assign instead of scatter update for full batch update. id:405
         return state_ops.scatter_update(factor[0], indices, values,
                                         name=name).op
     else:
@@ -837,14 +837,14 @@ class WALSModel(object):
       total_rhs = (self._unobserved_weight *
                    sparse_ops.sparse_tensor_dense_matmul(
                        new_sp_input, right, adjoint_a=transpose_input))
-      # TODO(rmlarsen): handle transposing in tf.matrix_solve instead of
+      # TODO (rmlarsen): handle transposing in tf.matrix_solve instead of id:323
       # transposing explicitly.
-      # TODO(rmlarsen): multi-thread tf.matrix_solve.
+      # TODO (rmlarsen): multi-thread tf.matrix_solve. id:348
       new_left_values = array_ops.transpose(
           linalg_ops.matrix_solve(total_lhs, array_ops.transpose(total_rhs)))
     else:
       if row_weights is None:
-        # TODO(yifanchen): Add special handling for single shard without using
+        # TODO (yifanchen): Add special handling for single shard without using id:303
         # embedding_lookup and perform benchmarks for those cases. Same for
         # col_weights lookup below.
         row_weights_slice = embedding_ops.embedding_lookup(

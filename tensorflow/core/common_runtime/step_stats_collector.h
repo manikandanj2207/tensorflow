@@ -48,7 +48,7 @@ class StepStatsCollector {
   void Swap(StepStats* ss);
 
  private:
-  // TODO(suharshs): Make this configurable if its not possible to find a value
+  // TODO (suharshs): Make this configurable if its not possible to find a value id:817
   //                 that works for all cases.
   const uint64 kMaxCollectedNodes = 1 << 20;
   mutex mu_;

@@ -37,7 +37,7 @@ limitations under the License.
 namespace xla {
 namespace {
 
-// TODO(b/34468543): use GUnit typed tests when we can do all tests on all
+// TODO (b/34468543): use GUnit typed tests when we can do all tests on all id:254
 // backends.
 class DotOperationTest : public ClientLibraryTestBase {
  public:

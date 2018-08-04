@@ -158,7 +158,7 @@ public class MultiBoxTracker {
   }
 
   public synchronized void draw(final Canvas canvas) {
-    // TODO(andrewharp): This may not work for non-90 deg rotations.
+    // TODO (andrewharp): This may not work for non-90 deg rotations. id:1858
     final float multiplier =
         Math.min(canvas.getWidth() / (float) frameHeight, canvas.getHeight() / (float) frameWidth);
     frameToCanvasMatrix =

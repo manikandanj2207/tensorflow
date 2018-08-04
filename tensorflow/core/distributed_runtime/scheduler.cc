@@ -96,7 +96,7 @@ Microseconds SlackAnalysis::ComputeAsap(std::vector<Microseconds>* asap_times) {
       if (!out_edge->IsControlEdge() &&
           curr->assigned_device_name() != out->assigned_device_name()) {
         // Add an arbitrary 10microsecs for each copy.
-        // TODO(yuanbyu): Use below with the real cost model.
+        // TODO (yuanbyu): Use below with the real cost model. id:858
         // int index = out_edge->src_output();
         // Bytes nb = cost_model_->SizeEstimate(curr, index);
         // copy_time = CostModel::CopyTimeEstimate(nb);
@@ -151,7 +151,7 @@ Microseconds SlackAnalysis::ComputeAlap(std::vector<Microseconds>* alap_times) {
       Node* src = in_edge->src();
       if (!in_edge->IsControlEdge() &&
           src->assigned_device_name() != curr->assigned_device_name()) {
-        // TODO(yuanbyu): Use the real cost model
+        // TODO (yuanbyu): Use the real cost model id:952
         // int index = out_edge->src_output();
         // Bytes nb = cost_model_->SizeEstimate(curr, index);
         // copy_time = CostModel::CopyTimeEstimate(nb);
@@ -240,7 +240,7 @@ Microseconds GreedyScheduler::ComputeSchedule(
         Node* out = out_edge->dst();
         if (!out_edge->IsControlEdge() &&
             event.node->assigned_device_name() != out->assigned_device_name()) {
-          // TODO(yuanbyu): Use below with the real cost model.
+          // TODO (yuanbyu): Use below with the real cost model. id:1108
           // int index = out_edge->src_output();
           // Bytes nb = cost_model_->SizeEstimate(event.node, index);
           // copy_time = CostModel::CopyTimeEstimate(nb);

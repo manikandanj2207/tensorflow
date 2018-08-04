@@ -111,7 +111,7 @@ class SegmentReductionOp : public OpKernel {
     Index uninitialized_index = 0;  // Index from which the output is not set.
     Index out_index = internal::SubtleMustCopy(segment_vec(start));
 
-    // TODO(agarwal): if this loop becomes a bottleneck, consider sharding it
+    // TODO (agarwal): if this loop becomes a bottleneck, consider sharding it id:1502
     // across threads.
     Eigen::DSizes<Eigen::DenseIndex, 1> out_slice_shape(num_col);
     while (end <= num_indices) {

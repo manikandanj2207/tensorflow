@@ -161,7 +161,7 @@ class Function(Composable):
     new_kw.update(kw)
     return Function(self.f, *new_args, **new_kw)
 
-  # TODO(tmb) The `of` method may be renamed to `function`.
+  # TODO (tmb) The `of` method may be renamed to `function`. id:751
   def funcall(self, x):
     args, kw = get_positional(self.args, self.kw)
     if debug_:

@@ -52,7 +52,7 @@ class DeterminantOp : public LinearAlgebraOp<Scalar> {
     } else {
       determinant = inputs[0].determinant();
     }
-    // TODO(rmlarsen): Don't fail on infinite determinants, since that could
+    // TODO (rmlarsen): Don't fail on infinite determinants, since that could id:1456
     // be a valid result and the user should check for it instead.
     OP_REQUIRES(context, Eigen::numext::isfinite(determinant),
                 errors::InvalidArgument("The determinant is not finite."));

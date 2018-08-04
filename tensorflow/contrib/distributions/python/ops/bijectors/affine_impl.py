@@ -44,7 +44,7 @@ def _as_tensor(x, name):
   return None if x is None else ops.convert_to_tensor(x, name=name)
 
 
-# TODO(srvasude): Deprecate this class with a dedicated Linear Operator
+# TODO (srvasude): Deprecate this class with a dedicated Linear Operator id:296
 # corresponding to TriL + V D V.T.
 class _TriLPlusVDVTLightweightOperatorPD(object):
   """Helper/hidden class fake an OperatorPD for TriL+VDV.T."""
@@ -494,7 +494,7 @@ class Affine(bijector.Bijector):
     # Pad the matrix so that matmul works in the case of a matrix and vector
     # input. Keep track if the matrix was padded, to distinguish between a
     # rank 3 tensor and a padded rank 2 tensor.
-    # TODO(srvasude): Remove side-effects from functions. Its currently unbroken
+    # TODO (srvasude): Remove side-effects from functions. Its currently unbroken id:372
     # but error-prone since the function call order may change in the future.
     self._rank_two_event_ndims_one = math_ops.logical_and(
         math_ops.equal(array_ops.rank(matrix), min_rank),
@@ -524,7 +524,7 @@ class Affine(bijector.Bijector):
   @property
   def scale(self):
     """The `scale` `LinearOperator` in `Y = scale @ X + shift`."""
-    # TODO(srvasude): Remove this exception once TriLPlusVDVT is properly
+    # TODO (srvasude): Remove this exception once TriLPlusVDVT is properly id:399
     # implemented.
     if isinstance(self._scale, _TriLPlusVDVTLightweightOperatorPD):
       raise NotImplementedError("Cannot access scale when Tril+VDV.T.")
@@ -560,7 +560,7 @@ class Affine(bijector.Bijector):
 
   def _forward_log_det_jacobian(self, x):
     if self._is_only_identity_multiplier:
-      # TODO(jvdillon): We don't pad in this case and instead let the fldj be
+      # TODO (jvdillon): We don't pad in this case and instead let the fldj be id:317
       # applied via broadcast.
       d = math_ops.cast(array_ops.shape(x)[-1], dtype=self._scale.dtype)
       return math_ops.log(math_ops.abs(self._scale)) * array_ops.where(

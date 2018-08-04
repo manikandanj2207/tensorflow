@@ -48,7 +48,7 @@ class CUDARng : public rng::RngSupport {
 
   // Retrieves a curand library generator handle. This is necessary for
   // enqueuing random number generation work onto the device.
-  // TODO(leary) provide a way for users to select the RNG algorithm.
+  // TODO (leary) provide a way for users to select the RNG algorithm. id:2174
   bool Init();
 
   // Releases a curand library generator handle, if one was acquired.

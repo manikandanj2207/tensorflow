@@ -33,7 +33,7 @@ from tensorflow.python.training import saver
 
 class SaverLargeVariableTest(test.TestCase):
 
-  # NOTE: This is in a separate file from saver_test.py because the
+  # NOTE: This is in a separate file from saver_test.py because the id:2295
   # large allocations do not play well with TSAN, and cause flaky
   # failures.
   def testLargeVariable(self):

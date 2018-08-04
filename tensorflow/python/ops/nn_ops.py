@@ -1553,7 +1553,7 @@ def softmax_cross_entropy_with_logits(_sentinel=None,  # pylint: disable=invalid
   _ensure_xent_args("softmax_cross_entropy_with_logits", _sentinel,
                     labels, logits)
 
-  # TODO(pcmurray) Raise an error when the labels do not sum to 1. Note: This
+  # TODO (pcmurray) Raise an error when the labels do not sum to 1. Note: This id:2341
   # could break users who call this with bad labels, but disregard the bad
   # results.
 
@@ -1659,7 +1659,7 @@ def sparse_softmax_cross_entropy_with_logits(_sentinel=None,  # pylint: disable=
   _ensure_xent_args("sparse_softmax_cross_entropy_with_logits", _sentinel,
                     labels, logits)
 
-  # TODO(pcmurray) Raise an error when the label is not an index in
+  # TODO (pcmurray) Raise an error when the label is not an index in id:1916
   # [0, num_classes). Note: This could break users who call this with bad
   # labels, but disregard the bad results.
 

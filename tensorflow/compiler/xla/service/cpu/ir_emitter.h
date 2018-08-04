@@ -242,7 +242,7 @@ class IrEmitter : public DfsHloVisitorWithDefault {
   // shape). The body of the inner-most loop is provided by the body_emitter
   // function.
   //
-  // TODO(jingyue): target_op should be a `const HloInstruction*`.
+  // TODO (jingyue): target_op should be a `const HloInstruction*`. id:267
   Status EmitTargetElementLoop(
       HloInstruction* target_op,
       const llvm_ir::ElementGenerator& element_generator);

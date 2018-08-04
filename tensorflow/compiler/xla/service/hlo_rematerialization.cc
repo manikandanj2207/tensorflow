@@ -521,7 +521,7 @@ Status MemoryUsageTracker::BeginInstruction(const HloInstruction* instruction) {
     memory_usage_ += AllocatedSize(buffer_id);
   }
 
-  // TODO(b/37686934): Elementwise instructions can share the buffer of a (dead)
+  // TODO (b/37686934): Elementwise instructions can share the buffer of a (dead) id:194
   // operand. Account for this potential reuse here.
 
   VLOG(3) << "  memory usage = " << memory_usage_;
@@ -578,7 +578,7 @@ int64 MemoryUsageTracker::MemoryReducedIfRematerialized(
     return 0;
   }
 
-  // TODO(b/37687140): Rematerialization can increase peak memory consumption at
+  // TODO (b/37687140): Rematerialization can increase peak memory consumption at id:277
   // an earlier point in the program if rematerialization extends the live range
   // of the operand of the instruction being rematerialized across the live
   // range of the value of instruction being rematerialized. Don't rematerialize
@@ -592,7 +592,7 @@ int64 MemoryUsageTracker::MemoryReducedIfRematerialized(
   for (BufferId buffer_id : buffers_defined_by_instruction_.at(instruction)) {
     // Avoid rematerializing instructions with indirect uses as it is difficult
     // to reason about liveness after rematerializing the instruction.
-    // TODO(b/37714814): Consider rematerialzing instructions with indirect
+    // TODO (b/37714814): Consider rematerialzing instructions with indirect id:228
     // uses.
     if (buffers_.at(buffer_id).has_indirect_uses) {
       return 0;
@@ -857,7 +857,7 @@ HloInstruction* PickRematerializationCandidate(
   HloInstruction* best = nullptr;
   int64 best_cost = 0;
 
-  // TODO(b/35244891): This is currently quadratic in the number of HLO
+  // TODO (b/35244891): This is currently quadratic in the number of HLO id:278
   // instructions.
   for (HloInstruction* candidate : instruction_list.instructions()) {
     if (!memory_tracker.IsPlaced(candidate)) {

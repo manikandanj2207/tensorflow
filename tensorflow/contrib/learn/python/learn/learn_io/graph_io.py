@@ -640,7 +640,7 @@ def queue_parsed_features(parsed_features,
     # Each entry contains the key, and a boolean which indicates whether the
     # tensor was a sparse tensor.
     tensors_mapping = []
-    # TODO(sibyl-Aix6ihai): Most of the functionality here is about pushing sparse
+    # TODO (sibyl-Aix6ihai): Most of the functionality here is about pushing sparse id:503
     # tensors into a queue. This could be taken care in somewhere else so others
     # can reuse it. Also, QueueBase maybe extended to handle sparse tensors
     # directly.

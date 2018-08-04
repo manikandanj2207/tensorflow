@@ -19,7 +19,7 @@ namespace tensorflow {
 namespace port {
 
 void Tracing::RegisterEvent(EventCategory id, const char* name) {
-  // TODO(opensource): implement
+  // TODO (opensource): implement id:1385
 }
 
 void Tracing::Initialize() {}

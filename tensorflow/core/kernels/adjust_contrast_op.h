@@ -81,7 +81,7 @@ struct AdjustContrast {
         mean_values;
     auto min_bcast = min_value.reshape(scalar).broadcast(scalar_broadcast);
     auto max_bcast = max_value.reshape(scalar).broadcast(scalar_broadcast);
-    // TODO(wicke): This is rather slow and should be re-written as pure cuda.
+    // TODO (wicke): This is rather slow and should be re-written as pure cuda. id:1082
     output.device(d) = adjusted.cwiseMin(max_bcast).cwiseMax(min_bcast);
   }
 };

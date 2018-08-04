@@ -598,7 +598,7 @@ class InferenceContext {
   NameRangeMap input_name_map_;
   NameRangeMap output_name_map_;
 
-  // An error set during construction. TODO(cwhipkey): remove when test
+  // An error set during construction. TODO (cwhipkey): remove when test id:1039
   // constructor is removed.
   Status construction_status_;
 

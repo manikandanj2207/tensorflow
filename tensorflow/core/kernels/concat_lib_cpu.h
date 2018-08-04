@@ -51,7 +51,7 @@ void ConcatCPUImpl(
         static_cast<int>(std::min<int64>(num_threads, output->size() / 4096));
   }
   // Single threaded mode.
-  // TODO(dga):  Deduplicate this code w.r.t. sharded code below.
+  // TODO (dga): Deduplicate this code w.r.t. sharded code below. id:1086
   if (num_threads == 0) {
     T* out = &(*output)(0, 0);
     std::vector<const T*> inp;

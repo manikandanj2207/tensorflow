@@ -194,7 +194,7 @@ class ScatterNdTest(test.TestCase):
   def testVariableRankSub(self):
     self._VariableRankTests(_NumpySub, state_ops.scatter_nd_sub)
 
-  # TODO(simister): Re-enable once binary size increase due to
+  # TODO (simister): Re-enable once binary size increase due to id:2181
   # scatter_nd ops is under control.
   # def testVariableRankMul(self):
   #   self._VariableRankTests(_NumpyMul, tf.scatter_nd_mul)
@@ -212,12 +212,12 @@ class ScatterNdTest(test.TestCase):
     """This tests scatter_add using indices that repeat."""
     self._ScatterRepeatIndicesTest(_NumpyAdd, state_ops.scatter_nd_add)
     self._ScatterRepeatIndicesTest(_NumpySub, state_ops.scatter_nd_sub)
-    # TODO(simister): Re-enable once binary size increase due to
+    # TODO (simister): Re-enable once binary size increase due to id:1996
     # extra templating is back under control.
     # self._ScatterRepeatIndicesTest(_NumpyMul, tf.scatter_nd_mul)
     # self._ScatterRepeatIndicesTest(_NumpyDiv, tf.scatter_nd_div)
 
-  # TODO(simister): Re-enable once binary size increase due to
+  # TODO (simister): Re-enable once binary size increase due to id:1935
   # extra templating is back under control and this op is re-enabled
   # def testBooleanScatterUpdate(self):
   #   with self.test_session(use_gpu=False) as session:
@@ -231,7 +231,7 @@ class ScatterNdTest(test.TestCase):
   #     self.assertAllEqual([False, True], var.eval())
 
   def testScatterOutOfRangeCpu(self):
-    # TODO(simister): Re-enable once binary size increase due to
+    # TODO (simister): Re-enable once binary size increase due to id:2247
     # scatter_nd ops is under control.
     #  tf.scatter_nd_mul, tf.scatter_nd_div,
     for op in (state_ops.scatter_nd_add, state_ops.scatter_nd_sub,
@@ -421,11 +421,11 @@ class ScatterNdTest(test.TestCase):
       result = sess.run(scatter)
       assert np.allclose(result, expected_result)
 
-  # TODO(fpmc): Re-enable this test when gpu_pip test actually runs on a GPU.
+  # TODO (fpmc): Re-enable this test when gpu_pip test actually runs on a GPU. id:1828
   def _disabledTestScatterOutOfRangeGpu(self):
     if not test.IsBuiltWithCuda():
       return
-    # TODO(simister): Re-enable once binary size increase due to
+    # TODO (simister): Re-enable once binary size increase due to id:2182
     # scatter_nd ops is under control.
     # tf.scatter_nd_mul, tf.scatter_nd_div,
     for op in (state_ops.scatter_nd_add, state_ops.scatter_nd_sub,

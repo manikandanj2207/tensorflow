@@ -180,7 +180,7 @@ class CensusDataSource(object):
   def input_test_fn(self):
     return self._input_fn(self._df_test)
 
-  # TODO(cais): Turn into minibatch feeder
+  # TODO (cais): Turn into minibatch feeder id:2109
   def _input_fn(self, df):
     """Input data function.
 

@@ -931,7 +931,7 @@ class LinearClassifierTest(test.TestCase):
     classifier.fit(input_fn=input_fn, steps=100)
     classifier.evaluate(input_fn=input_fn, steps=1)
 
-    # TODO(ispir): Enable accuracy check after resolving the randomness issue.
+    # TODO (ispir): Enable accuracy check after resolving the randomness issue. id:548
     # self.assertLess(evaluated_values['loss/mean'], 0.3)
     # self.assertGreater(evaluated_values['accuracy/mean'], .95)
 
@@ -1412,7 +1412,7 @@ class LinearRegressorTest(test.TestCase):
     regressor_weights = regressor.get_variable_value('linear//weight')
     # Have to flatten weights since they come in (x, 1) shape.
     self.assertAllClose(weights, regressor_weights.flatten(), rtol=1)
-    # TODO(ispir): Disable centered_bias.
+    # TODO (ispir): Disable centered_bias. id:589
     # assert abs(bias - regressor.bias_) < 0.1
 
   def testSdcaOptimizerRealValuedLinearFeatures(self):
@@ -1640,7 +1640,7 @@ class LinearRegressorTest(test.TestCase):
     self.assertIn('linear/bias_weight', variable_names)
     self.assertIn('linear/a/weight', variable_names)
     self.assertIn('linear/b/weight', variable_names)
-    # TODO(b/29339026): Change the expected results to expect a centered bias.
+    # TODO (b/29339026): Change the expected results to expect a centered bias. id:568
     self.assertNear(
         regressor.get_variable_value('linear/bias_weight')[0], 0.2, err=0.05)
     self.assertNear(

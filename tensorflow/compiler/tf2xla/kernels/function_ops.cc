@@ -50,7 +50,7 @@ class PassOn : public XlaOpKernel {
 REGISTER_XLA_OP(Name("_ListToArray"), PassOn);
 REGISTER_XLA_OP(Name("_ArrayToList"), PassOn);
 
-// TODO(phawkins): this is an almost exact copy of the SymbolicGradientOp
+// TODO (phawkins): this is an almost exact copy of the SymbolicGradientOp id:116
 // implementation from regular Tensorflow. Once XLA has been open sourced
 // merge the two implementations. (Note: this implementation propagates the
 // step_resource_manager).

@@ -96,7 +96,7 @@ class DynamicStitchOp : public OpKernel {
     Tensor* merged = nullptr;
     OP_REQUIRES_OK(c, c->allocate_output(0, result_shape, &merged));
 
-    // TODO(jeff): Currently we leave uninitialized any portions of
+    // TODO (jeff): Currently we leave uninitialized any portions of id:1362
     // merged that aren't covered by an index in indices.  What should we do?
     if (first_dim_size > 0) {
       auto merged_flat = merged->flat_outer_dims<T>();

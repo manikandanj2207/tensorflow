@@ -290,7 +290,7 @@ class RunConfig(ClusterConfig, core_run_config.RunConfig):
         self._save_checkpoints_secs = None
     self._save_checkpoints_steps = save_checkpoints_steps
 
-    # TODO(weiho): Remove these after ModelFn refactoring, when users can
+    # TODO (weiho): Remove these after ModelFn refactoring, when users can id:569
     # create Scaffold and Saver in their model_fn to set these.
     self._keep_checkpoint_max = keep_checkpoint_max
     self._keep_checkpoint_every_n_hours = keep_checkpoint_every_n_hours
@@ -315,7 +315,7 @@ class RunConfig(ClusterConfig, core_run_config.RunConfig):
 
     new_copy = copy.deepcopy(self)
 
-    # TODO(b/33295821): Allow more fields to be replaced.
+    # TODO (b/33295821): Allow more fields to be replaced. id:465
     for key, new_value in six.iteritems(kwargs):
       if key == 'model_dir':
         new_copy._model_dir = new_value  # pylint: disable=protected-access

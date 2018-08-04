@@ -154,7 +154,7 @@ Allocator* ProcessState::GetGPUAllocator(const GPUOptions& options, int gpu_id,
 Allocator* ProcessState::GetCPUAllocator(int numa_node) {
   // Although we're temporarily ignoring numa_node, check for legality.
   CHECK_GE(numa_node, 0);
-  // TODO(tucker): actually maintain separate CPUAllocators for
+  // TODO (tucker): actually maintain separate CPUAllocators for id:924
   // different numa_nodes.  For now, just one.
   numa_node = 0;
   mutex_lock lock(mu_);
@@ -178,7 +178,7 @@ Allocator* ProcessState::GetCUDAHostAllocator(int numa_node) {
   }
   // Although we're temporarily ignoring numa_node, check for legality.
   CHECK_GE(numa_node, 0);
-  // TODO(tucker): actually maintain separate CPUAllocators for
+  // TODO (tucker): actually maintain separate CPUAllocators for id:983
   // different numa_nodes.  For now, just one.
   numa_node = 0;
   mutex_lock lock(mu_);
@@ -201,7 +201,7 @@ Allocator* ProcessState::GetCUDAHostAllocator(int numa_node) {
   CHECK_NE(nullptr, se);
 
   while (static_cast<int>(cuda_host_allocators_.size()) <= numa_node) {
-    // TODO(zheng-xq): evaluate whether 64GB by default is the best choice.
+    // TODO (zheng-xq): evaluate whether 64GB by default is the best choice. id:808
     int64 cuda_host_mem_limit_in_mb = -1;
     Status status = ReadInt64FromEnvVar("TF_CUDA_HOST_MEM_LIMIT_IN_MB",
                                         1LL << 16 /*64GB max by default*/,

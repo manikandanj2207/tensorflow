@@ -26,7 +26,7 @@ from tensorflow.python.ops.gradients_impl import hessians
 from tensorflow.python.util.all_util import remove_undocumented
 
 _allowed_symbols = [
-    # TODO(drpng): find a good place to reference this.
+    # TODO (drpng): find a good place to reference this. id:2010
     "AggregationMethod",
     "gradients",  # tf.gradients.gradients.
     "hessians",  # tf.gradients.hessians

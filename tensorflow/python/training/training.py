@@ -181,7 +181,7 @@ from tensorflow.core.example.example_pb2 import *
 from tensorflow.core.example.feature_pb2 import *
 from tensorflow.core.protobuf.saver_pb2 import *
 
-# Utility op.  Open Source. TODO(touts): move to nn?
+# Utility op.  Open Source. TODO (touts): move to nn? id:2298
 from tensorflow.python.training.learning_rate_decay import *
 # pylint: enable=wildcard-import
 
@@ -194,7 +194,7 @@ from tensorflow.python.training.server_lib import Server
 
 # Symbols whitelisted for export without documentation.
 _allowed_symbols = [
-    # TODO(cwhipkey): review these and move to contrib or expose through
+    # TODO (cwhipkey): review these and move to contrib or expose through id:2209
     # documentation.
     "generate_checkpoint_state_proto",  # Used internally by saver.
     "checkpoint_exists",  # Only used in test?
@@ -206,7 +206,7 @@ _allowed_symbols = [
     "queue_runner",  # Use tf.train.start_queue_runner etc directly.
     # This is also imported internally.
 
-    # TODO(drpng): document these. The reference in howtos/distributed does
+    # TODO (drpng): document these. The reference in howtos/distributed does id:2131
     # not link.
     "SyncReplicasOptimizer",
     # Protobufs:

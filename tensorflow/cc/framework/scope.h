@@ -135,7 +135,7 @@ class Scope {
 
   /// Return a new scope. All ops created within the returned scope will be
   /// co-located on the device where op is placed.
-  /// NOTE: This function is intended to be use internal libraries only for
+  /// NOTE: This function is intended to be use internal libraries only for id:67
   /// controlling placement of ops on to devices. Public use is not encouraged
   /// because the implementation of device placement is subject to change.
   Scope ColocateWith(const Operation& op) const;
@@ -168,7 +168,7 @@ class Scope {
   // START_SKIP_DOXYGEN
 
   /// Update the builder with properties accumulated in this scope.
-  // TODO(skyewm): NodeBuilder is not part of public API
+  // TODO (skyewm): NodeBuilder is not part of public API id:42
   void UpdateBuilder(NodeBuilder* builder) const;
   // END_SKIP_DOXYGEN
 
@@ -176,10 +176,10 @@ class Scope {
 
   bool ok() const;
 
-  // TODO(skyewm): Graph is not part of public API
+  // TODO (skyewm): Graph is not part of public API id:96
   Graph* graph() const;
 
-  // TODO(skyewm): Graph is not part of public API
+  // TODO (skyewm): Graph is not part of public API id:22
   std::shared_ptr<Graph> graph_as_shared_ptr() const;
 
   Status status() const;
@@ -194,7 +194,7 @@ class Scope {
   /// If status() is Status::OK(), construct a Graph object using the default
   /// GraphConstructorOptions, and return Status::OK if graph construction was
   /// successful. Otherwise, return the error status.
-  // TODO(josh11b, keveman): Make this faster; right now it converts
+  // TODO (josh11b, keveman): Make this faster; right now it converts id:10
   // Graph->GraphDef->Graph.  This cleans up the graph (e.g. adds
   // edges from the source and to the sink node, resolves back edges
   // by name), and makes sure the resulting graph is valid.

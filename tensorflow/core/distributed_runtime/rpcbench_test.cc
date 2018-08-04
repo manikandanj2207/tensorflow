@@ -164,7 +164,7 @@ string DebugString(const Tensor& x, const Tensor& y, int tensor_size) {
                          x_flat(1), y_flat(0), y_flat(1));
 }
 
-// TODO: Support sharding and depth.
+// TODO: Support sharding and depth. id:1026
 static void BM_Helper(int iters, int width, int num_stages, int tensor_size,
                       bool use_multiple_devices) {
   testing::StopTiming();

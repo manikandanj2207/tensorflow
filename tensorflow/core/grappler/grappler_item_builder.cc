@@ -176,7 +176,7 @@ std::unique_ptr<GrapplerItem> GrapplerItemFromMetaGraphDef(
         // Tables are initialized from files, which can take a long time. Add 30
         // minutes to the initialization time for each table to avoid timing
         // out.
-        // TODO(bsteiner): adjust the timeout based on the file size.
+        // TODO (bsteiner): adjust the timeout based on the file size. id:895
         new_item->expected_init_time += 30 * 60;
       }
     }

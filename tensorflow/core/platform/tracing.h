@@ -207,7 +207,7 @@ class Tracing::ScopedAnnotation {
   std::unique_ptr<Engine::Annotation> annotation_;
 };
 
-// TODO(opensource): clean up the scoped classes for GPU tracing.
+// TODO (opensource): clean up the scoped classes for GPU tracing. id:1772
 // This class permits user-specified (CPU) tracing activities. A trace
 // activity is started when an object of this class is created and stopped
 // when the object is destroyed.

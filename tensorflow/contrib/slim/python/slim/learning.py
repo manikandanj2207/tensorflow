@@ -505,7 +505,7 @@ def train_step(sess, train_op, global_step, train_step_kwargs):
       logging.info('global step %d: loss = %.4f (%.3f sec/step)',
                    np_global_step, total_loss, time_elapsed)
 
-  # TODO(nsilberman): figure out why we can't put this into sess.run. The
+  # TODO (nsilberman): figure out why we can't put this into sess.run. The id:749
   # issue right now is that the stop check depends on the global step. The
   # increment of global step often happens via the train op, which used
   # created using optimizer.apply_gradients.

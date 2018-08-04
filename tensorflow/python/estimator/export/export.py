@@ -50,7 +50,7 @@ class ServingInputReceiver(collections.namedtuple('ServingInputReceiver',
       input nodes where this receiver expects to be fed.  Typically, this is a
       single placeholder expecting serialized `tf.Example` protos.
   """
-  # TODO(soergel): add receiver_alternatives when supported in serving.
+  # TODO (soergel): add receiver_alternatives when supported in serving. id:2022
 
   def __new__(cls, features, receiver_tensors):
     if features is None:
@@ -137,7 +137,7 @@ def build_raw_serving_input_receiver_fn(features, default_batch_size=None):
       receiver_tensors[name] = array_ops.placeholder(dtype=t.dtype,
                                                      shape=shape,
                                                      name=placeholder_name)
-    # TODO(b/34885899): remove the unnecessary copy
+    # TODO (b/34885899): remove the unnecessary copy id:1890
     # The features provided are simply the placeholders, but we defensively copy
     # the dict because it may be mutated.
     return ServingInputReceiver(receiver_tensors, receiver_tensors.copy())

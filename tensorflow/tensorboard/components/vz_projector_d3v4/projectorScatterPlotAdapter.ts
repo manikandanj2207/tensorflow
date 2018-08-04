@@ -130,7 +130,7 @@ export class ProjectorScatterPlotAdapter {
 
   setDataSet(dataSet: DataSet) {
     if (this.projection != null) {
-      // TODO(nicholsonc): setDataSet needs to go away, the projection is the
+      // TODO (nicholsonc): setDataSet needs to go away, the projection is the id:2400
       // atomic unit of update.
       this.projection.dataSet = dataSet;
     }

@@ -34,7 +34,7 @@ _cudnn_rnn_ops_so = loader.load_op_library(
     resource_loader.get_path_to_datafile("_cudnn_rnn_ops.so"))
 
 
-# TODO(yaozhang): make sure we only save the canonical version of params and
+# TODO (yaozhang): make sure we only save the canonical version of params and id:295
 # don't save the platform-specific version to avoid potential race
 # conditions where params is updated by both versions when being restored.
 # Currently, checkpointing will function properly, despite that we save both

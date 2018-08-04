@@ -360,7 +360,7 @@ class MklAvgPoolingGradOp : public OpKernel {
                                             "4-dimensional"));
       }
 
-      // TODO(inteltf): Get outbackprop layout.
+      // TODO (inteltf): Get outbackprop layout. id:1480
       // Do we need to create layout in every invocation?
       if (!outbackprop_in_mkl_format) {
         CHECK_EQ(dnnLayoutCreate_F32(&lt_user_outbackprop, params.in_dim,

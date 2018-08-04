@@ -51,7 +51,7 @@ Rendezvous::ParsedKey& Rendezvous::ParsedKey::operator=(const ParsedKey& b) {
 string Rendezvous::CreateKey(const string& src_device, uint64 src_incarnation,
                              const string& dst_device, const string& name,
                              const FrameAndIter& frame_iter) {
-  // NOTE: ';' is not used in the device name's job name.
+  // NOTE: ';' is not used in the device name's job name. id:874
   //
   // We include both sender and receiver in the key to facilitate
   // debugging. For correctness, we only need to encode the receiver.
@@ -335,7 +335,7 @@ class LocalRendezvousImpl : public Rendezvous {
 
   typedef gtl::FlatMap<uint64, Item*> Table;
 
-  // TODO(zhifengc): shard table_.
+  // TODO (zhifengc): shard table_. id:968
   mutex mu_;
   Table table_ GUARDED_BY(mu_);
   Status status_;

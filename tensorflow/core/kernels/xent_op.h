@@ -50,7 +50,7 @@ struct XentEigenImpl {
                       typename TTypes<T>::Matrix scratch,
                       typename TTypes<T>::Vec loss,
                       typename TTypes<T>::Matrix backprop) {
-    // NOTE(touts): This duplicates some of the computations in softmax_op
+    // NOTE (touts): This duplicates some of the computations in softmax_op id:1314
     // because we need the intermediate (logits -max(logits)) values to
     // avoid a log(exp()) in the computation of the loss.
 
@@ -92,7 +92,7 @@ struct XentEigenImpl {
     // sum(exp(logits - max_logits)) along classes.
     scratch.reshape(batch_only).device(d) = backprop.exp().sum(along_class);
 
-    // NOTE(keveman): Eigen on GPU dispatches to an optimized implementation
+    // NOTE (keveman): Eigen on GPU dispatches to an optimized implementation id:1613
     // for an expression of the form lhs = rhs.sum().
     // lhs = -rhs.sum() doesn't match the above pattern, so folding in the
     // negation before calling sum().

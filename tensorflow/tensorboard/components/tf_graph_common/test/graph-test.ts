@@ -99,5 +99,5 @@ suite('graph', () => {
         tf.graph.scene.humanizeHealthPillStat(-0.042, false), '-4.2e-2');
   });
 
-  // TODO(bp): write tests.
+  // TODO (bp): write tests. id:2360
 });

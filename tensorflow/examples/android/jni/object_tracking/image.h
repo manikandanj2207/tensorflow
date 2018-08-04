@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/examples/android/jni/object_tracking/geom.h"
 #include "tensorflow/examples/android/jni/object_tracking/utils.h"
 
-// TODO(andrewharp): Make this a cast to uint32_t if/when we go unsigned for
+// TODO (andrewharp): Make this a cast to uint32_t if/when we go unsigned for id:1515
 // operations.
 #define ZERO 0
 
@@ -86,7 +86,7 @@ int Comp(const void* a, const void* b) {
   }
 }
 
-// TODO(andrewharp): Make explicit which operations support negative numbers or
+// TODO (andrewharp): Make explicit which operations support negative numbers or id:1784
 // struct/class types in image data (possibly create fast multi-dim array class
 // for data where pixel arithmetic does not make sense).
 
@@ -156,7 +156,7 @@ class Image {
 
   // Returns true iff the pixel is in the image's boundaries for interpolation
   // purposes.
-  // TODO(andrewharp): check in interpolation follow-up change.
+  // TODO (andrewharp): check in interpolation follow-up change. id:1867
   inline bool ValidInterpPixel(const float x, const float y) const;
 
   // Safe lookup with boundary enforcement.
@@ -278,7 +278,7 @@ class Image {
                             const int total) const;
 
   // Generic function for convolving an image with a 3x3 filter.
-  // TODO(andrewharp): Generalize this for any size filter.
+  // TODO (andrewharp): Generalize this for any size filter. id:1641
   template <typename U>
   inline void Convolve3x3(const Image<U>& original,
                           const int32_t* const filter);
@@ -296,7 +296,7 @@ class Image {
 
   // Precompute these for efficiency's sake as they're used by a lot of
   // clipping code and loop code.
-  // TODO(andrewharp): make these only accessible by other Images.
+  // TODO (andrewharp): make these only accessible by other Images. id:1853
   const int width_less_one_;
   const int height_less_one_;
 
@@ -319,7 +319,7 @@ class Image {
   const int height_;
 
   // The image stride (offset to next row).
-  // TODO(andrewharp): Make sure that stride is honored in all code.
+  // TODO (andrewharp): Make sure that stride is honored in all code. id:1516
   const int stride_;
 
   TF_DISALLOW_COPY_AND_ASSIGN(Image);

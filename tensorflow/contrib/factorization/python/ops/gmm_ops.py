@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 """Gaussian mixture models Operations."""
-# TODO(xavigonzalvo): Factor out covariance matrix operations to make
+# TODO (xavigonzalvo): Factor out covariance matrix operations to make id:438
 # code reusable for different types (e.g. diag).
 
 from __future__ import absolute_import
@@ -275,7 +275,7 @@ class GmmAlgorithm(object):
     Returns a matrix num_examples * num_classes.
     """
     # num_classes X 1
-    # TODO(xavigonzalvo): look into alternatives to log for
+    # TODO (xavigonzalvo): look into alternatives to log for id:406
     # reparametrization of variance parameters.
     det_expanded = math_ops.reduce_sum(
         math_ops.log(self._covs + 1e-3), 1, keep_dims=True)
@@ -298,7 +298,7 @@ class GmmAlgorithm(object):
       shard_id: id of the current shard.
       shard: current data shard, 1 X num_examples X dimensions.
     """
-    # TODO(xavigonzalvo): Use the pdf defined in
+    # TODO (xavigonzalvo): Use the pdf defined in id:324
     # third_party/tensorflow/contrib/distributions/python/ops/gaussian.py
     if self._covariance_type == FULL_COVARIANCE:
       self._define_full_covariance_probs(shard_id, shard)
@@ -358,7 +358,7 @@ class GmmAlgorithm(object):
 
   def _define_maximization_operation(self, num_batches):
     """Maximization operations."""
-    # TODO(xavigonzalvo): some of these operations could be moved to C++.
+    # TODO (xavigonzalvo): some of these operations could be moved to C++. id:349
     # Compute the effective number of data points assigned to component k.
     with ops.control_dependencies(self._w):
       points_in_k = array_ops.squeeze(
@@ -408,7 +408,7 @@ class GmmAlgorithm(object):
 
   def _define_distance_to_clusters(self, data):
     """Defines the Mahalanobis distance to the assigned Gaussian."""
-    # TODO(xavigonzalvo): reuse (input - mean) * cov^-1 * (input -
+    # TODO (xavigonzalvo): reuse (input - mean) * cov^-1 * (input - id:304
     # mean) from log probability function.
     self._all_scores = []
     for shard in data:

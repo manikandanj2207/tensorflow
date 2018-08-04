@@ -22,7 +22,7 @@ from tensorflow.python.summary.writer import writer
 from tensorflow.python.summary.writer import writer_cache
 
 
-# TODO(ptucker): Replace with mock framework.
+# TODO (ptucker): Replace with mock framework. id:758
 class FakeSummaryWriter(object):
   """Fake summary writer."""
 
@@ -102,7 +102,7 @@ class FakeSummaryWriter(object):
       self._summaries[current_global_step] = step_summaries
     step_summaries.append(summ)
 
-  # NOTE: Ignore global_step since its value is non-deterministic.
+  # NOTE: Ignore global_step since its value is non-deterministic. id:673
   def add_graph(self, graph, global_step=None, graph_def=None):
     """Add graph."""
     if (global_step is not None) and (global_step < 0):
@@ -117,7 +117,7 @@ class FakeSummaryWriter(object):
       raise ValueError('Invalid global_step %s.' % global_step)
     self._added_meta_graphs.append(meta_graph_def)
 
-  # NOTE: Ignore global_step since its value is non-deterministic.
+  # NOTE: Ignore global_step since its value is non-deterministic. id:735
   def add_session_log(self, session_log, global_step=None):
     # pylint: disable=unused-argument
     self._added_session_logs.append(session_log)

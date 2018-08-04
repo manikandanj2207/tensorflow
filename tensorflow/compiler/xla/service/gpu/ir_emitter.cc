@@ -110,7 +110,7 @@ Status IrEmitter::HandleGetTupleElement(HloInstruction* get_tuple_element,
       *get_tuple_element,
       llvm_ir::EmitGetTupleElement(
           get_tuple_element->shape(), get_tuple_element->tuple_index(),
-          // TODO(b/26344050): tighten the alignment here
+          // TODO (b/26344050): tighten the alignment here id:270
           // based on the real element type.
           /*alignment=*/1, GetBasePointer(*operand), &ir_builder_));
   return Status::OK();
@@ -118,7 +118,7 @@ Status IrEmitter::HandleGetTupleElement(HloInstruction* get_tuple_element,
 
 Status IrEmitter::HandleSort(HloInstruction* sort,
                              HloInstruction* operand_instruction) {
-  // TODO(b/26783907): Implement sort on GPU.
+  // TODO (b/26783907): Implement sort on GPU. id:221
   return Unimplemented("sort");
 }
 
@@ -223,7 +223,7 @@ Status IrEmitter::EmitAtomicOperationForNestedComputation(
     const HloComputation& computation, llvm::Value* output_address,
     llvm::Value* source_address) {
   if (computation.num_parameters() != 2) {
-    // TODO(b/30258929): We only accept binary computations so far.
+    // TODO (b/30258929): We only accept binary computations so far. id:148
     return Unimplemented(
         "We only support atomic functions with exactly two parameters, but "
         "computation %s has %lld.",
@@ -252,7 +252,7 @@ Status IrEmitter::EmitAtomicOperationForNestedComputation(
   // atomic_op_loop_exit:
   //   ...
   //
-  // TODO(jingyue): Consider encapsulate the logic of emitting control flow to
+  // TODO (jingyue): Consider encapsulate the logic of emitting control flow to id:240
   // something similar to llvm_ir::ForLoop.
   //
   // Emit preparation code to the preheader.
@@ -462,13 +462,13 @@ Status IrEmitter::HandleConvolution(HloInstruction* convolution,
     // Emit no code for an empty output.
     return Status::OK();
   }
-  // TODO(b/31409998): Support convolution with dilation.
+  // TODO (b/31409998): Support convolution with dilation. id:188
   return Unimplemented(
       "Hit a case for convolution that is not implemented on GPU.");
 }
 
 Status IrEmitter::HandleCrossReplicaSum(HloInstruction* crs) {
-  // TODO(b/33011107): Support cross replica sum on GPU.
+  // TODO (b/33011107): Support cross replica sum on GPU. id:271
   return Unimplemented(
       "Cross replica sum not implemented on GPU. See b/33011107.");
 }

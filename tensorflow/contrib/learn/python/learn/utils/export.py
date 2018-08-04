@@ -324,7 +324,7 @@ def _export_estimator(estimator,
     else:
       try:
         # Some estimators provide a signature function.
-        # TODO(zakaria): check if the estimator has this function,
+        # TODO (zakaria): check if the estimator has this function, id:646
         #   raise helpful error if not
         signature_fn = estimator._create_signature_fn()
 

@@ -136,7 +136,7 @@ class DeviceMemory final : public DeviceMemoryBase {
   // Resets the DeviceMemory data, in MakeFromByteSize fashion.
   // This simply clobbers the prior values.
   void ResetFromByteSize(void *opaque, uint64 bytes) {
-    // TODO(leary) when NVCC is eliminated we can add this check (and the
+    // TODO (leary) when NVCC is eliminated we can add this check (and the id:2175
     // logging include it requires).
     // CHECK_EQ(0, bytes % sizeof(ElemT));
     DeviceMemoryBase::Reset(opaque, bytes);

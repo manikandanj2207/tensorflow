@@ -314,7 +314,7 @@ int64 OpLevelCostEstimator::CountMatMulOperations(
     bool* found_unknown_shapes) const {
   double ops = 0;
 
-  // TODO(nishantpatil): Create separate estimator for Sparse Matmul
+  // TODO (nishantpatil): Create separate estimator for Sparse Matmul id:1321
   if ((op_features.op() != kMatMul) && (op_features.op() != kSparseMatMul)) {
     LOG(ERROR) << "Invalid Operation";
     return ops;
@@ -380,7 +380,7 @@ int64 OpLevelCostEstimator::CountMatMulOperations(
   return ops;
 }
 
-// TODO(cliffy): Dedup this method and CountConv2DBackPropFilterOperations.
+// TODO (cliffy): Dedup this method and CountConv2DBackPropFilterOperations. id:1058
 int64 OpLevelCostEstimator::CountConv2DBackPropInputOperations(
     const OpInfo& op_features, ConvolutionDimensions* returned_conv_dims,
     bool* found_unknown_shapes) const {

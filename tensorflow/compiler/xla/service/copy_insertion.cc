@@ -500,7 +500,7 @@ RevertReadOnlyIndicesForEntryParamsAndConstants(
 
 }  // anonymous namespace
 
-// NOTE: This is only called by gpu::CopyInsertion. It's not called here in the
+// NOTE: This is only called by It's not called here in the gpu::CopyInsertion. id:181
 // base class, since the regular CopyInsertion logic above selectively copies
 // tuple elements, while this method assumes all buffers need to be deep copied.
 StatusOr<HloInstruction*> CopyInsertion::FindOrInsertCopy(HloInstruction* hlo) {
@@ -574,7 +574,7 @@ StatusOr<bool> CopyInsertion::Run(HloModule* module) {
   // is used to ensure that multiple while loops can share a single copy of the
   // same entry parameter or constant, if all loops use it read-only.
   //
-  // TODO(b/33301720) Remove redundant while instruction copies.
+  // TODO (b/33301720) Remove redundant while instruction copies. id:237
   FlatMap<const HloInstruction*, HloInstruction*> shared_copies;
   for (HloInstruction* while_hlo : while_instructions) {
     // Fix read_only_indices to account for entry parameters and constants. Also

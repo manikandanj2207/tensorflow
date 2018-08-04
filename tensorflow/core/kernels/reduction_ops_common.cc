@@ -103,7 +103,7 @@ Status ReductionHelper::Simplify(const Tensor& data, const Tensor& axis,
     // alternates between runs that need to be reduced and runs that
     // don't.
     //
-    // NOTE: If a dimension has size 1, we group it as the current
+    // NOTE: If a dimension has size 1, we group it as the current id:1561
     // run so that we can minimize the number of runs.
     //
     // E.g., when we want to reduce a tensor of shape [2, 1, 3, 1,

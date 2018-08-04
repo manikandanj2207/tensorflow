@@ -83,7 +83,7 @@ void CopyTensor::ViaDMA(StringPiece edge_name, DeviceContext* send_dev_context,
             << dst_device_type.type()
             << ". Falling back to copying via the host.";
 
-    // TODO(phawkins): choose an allocator optimal for both the src and dst
+    // TODO (phawkins): choose an allocator optimal for both the src and dst id:624
     // devices, not just the src device.
     AllocatorAttributes host_alloc_attrs;
     host_alloc_attrs.set_gpu_compatible(true);

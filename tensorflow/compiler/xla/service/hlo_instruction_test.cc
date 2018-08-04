@@ -325,7 +325,7 @@ TEST_F(HloInstructionTest, TrivialMap) {
   EXPECT_EQ(0, visitor.NumUsers(map.get()));
   EXPECT_EQ(1, visitor.NumOperands(map.get()));
 
-  // TODO(dehnert):  Add walking and counters for the wrapped computation.
+  // TODO (dehnert): Add walking and counters for the wrapped computation. id:245
 }
 
 TEST_F(HloInstructionTest, TrivialReduce) {

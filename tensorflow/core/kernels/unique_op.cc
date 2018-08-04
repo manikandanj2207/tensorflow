@@ -35,7 +35,7 @@ class UniqueOp : public OpKernel {
     const Tensor& input = context->input(0);
     OP_REQUIRES(context, TensorShapeUtils::IsVector(input.shape()),
                 errors::InvalidArgument("unique expects a 1D vector."));
-    // TODO(dga):  Make unique polymorphic for returning int32 and int64
+    // TODO (dga): Make unique polymorphic for returning int32 and int64 id:1313
     // vectors to support large tensors.
     OP_REQUIRES(context,
                 input.NumElements() <= std::numeric_limits<int32>::max(),

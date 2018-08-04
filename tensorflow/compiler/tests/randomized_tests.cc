@@ -31,7 +31,7 @@ limitations under the License.
 //   --tf_xla_test_use_jit=true --tf_xla_test_device=CPU:0 \
 //   --tf_xla_test_repetitions=20
 
-// TODO(phawkins): add tests for:
+// TODO (phawkins): add tests for: id:106
 // * ArgMax
 // * DepthwiseConv2DNative
 // * Gather
@@ -40,7 +40,7 @@ limitations under the License.
 // * Select
 // * Unpack
 //
-// TODO(phawkins): improve tests for:
+// TODO (phawkins): improve tests for: id:32
 // * StridedSliceGrad (need to use shape function to compute sensible inputs)
 
 #include <random>
@@ -234,13 +234,13 @@ class OpTest : public ::testing::Test {
       std::vector<int64> dims);
 
   // Builds a random pair of broadcastable dims.
-  // TODO(phawkins): currently the maximum rank is 3, because broadcasting > 3
+  // TODO (phawkins): currently the maximum rank is 3, because broadcasting > 3 id:170
   // dimensions is unimplemented by the Tensorflow Eigen code (b/29268487)
   std::pair<std::vector<int64>, std::vector<int64>> BroadcastableDims();
 
   // Returns a tensor filled with random but "reasonable" values from the middle
   // of the type's range. If the shape is omitted, a random shape is used.
-  // TODO(phawkins): generalize this code to a caller-supplied distribution.
+  // TODO (phawkins): generalize this code to a caller-supplied distribution. id:78
   Tensor RandomTensor(DataType dtype, gtl::ArraySlice<int64> shape);
   Tensor RandomTensor(DataType dtype);
 
@@ -774,7 +774,7 @@ TEST_F(OpTest, AvgPool) {
             .Attr("padding", padding)
             .Attr("data_format", "NHWC"));
   });
-  // TODO(phawkins): the CPU device only implements spatial pooling. Add tests
+  // TODO (phawkins): the CPU device only implements spatial pooling. Add tests id:53
   // for batch pooling when supported.
 }
 
@@ -799,7 +799,7 @@ TEST_F(OpTest, AvgPool3D) {
             .Attr("padding", padding)
             .Attr("data_format", "NHWC"));
   });
-  // TODO(phawkins): test NCHW format (not supported by CPU)
+  // TODO (phawkins): test NCHW format (not supported by CPU) id:107
 }
 
 TEST_F(OpTest, AvgPoolGrad) {
@@ -956,7 +956,7 @@ TEST_F(OpTest, BiasAdd) {
   Repeatedly([this]() {
     auto x = RandomTensor(DT_FLOAT, RandomDims(2, kDefaultMaxRank));
     auto y = RandomTensor(DT_FLOAT, {x.dim_size(x.dims() - 1)});
-    // TODO(phawkins): test both data formats.
+    // TODO (phawkins): test both data formats. id:117
     ExpectTfAndXlaOutputsAreClose(
         OpTestBuilder("BiasAdd").Input(x).Input(y).Attr("T", DT_FLOAT));
   });
@@ -965,7 +965,7 @@ TEST_F(OpTest, BiasAdd) {
 TEST_F(OpTest, BiasAddGrad) {
   Repeatedly([this]() {
     auto x = RandomTensor(DT_FLOAT);
-    // TODO(phawkins): test both data formats.
+    // TODO (phawkins): test both data formats. id:171
     ExpectTfAndXlaOutputsAreClose(
         OpTestBuilder("BiasAddGrad").Input(x).Attr("T", DT_FLOAT));
   });
@@ -982,7 +982,7 @@ TEST_F(OpTest, BiasAddV1) {
 
 TEST_F(OpTest, BroadcastGradientArgs) {
   Repeatedly([this]() {
-    // TODO(phawkins): only int32 seems to be implemented in Tensorflow.
+    // TODO (phawkins): only int32 seems to be implemented in Tensorflow. id:79
     // DataType type = Choose<DataType>({DT_INT32, DT_INT64});
     DataType type = DT_INT32;
     auto dims = BroadcastableDims();
@@ -1246,7 +1246,7 @@ TEST_F(OpTest, DynamicStitch) {
     builder.Attr("N", n);
     std::vector<std::vector<int64>> index_dims;
     int size = 0;
-    // TODO(phawkins): the XLA implementation of DynamicStitch does not
+    // TODO (phawkins): the XLA implementation of DynamicStitch does not id:54
     // accept an empty set of indices.
     do {
       size = 0;
@@ -1259,7 +1259,7 @@ TEST_F(OpTest, DynamicStitch) {
     } while (size == 0);
 
     // Shuffle the range of indices that cover the output.
-    // TODO(phawkins): The documentation for DynamicStitch doesn't require that
+    // TODO (phawkins): The documentation for DynamicStitch doesn't require that id:108
     // the indices cover all positions of the output. The XLA implementation
     // does so require. However, the native TF implementation leaves undefined
     // values if we don't cover everything, so we can't really test that case
@@ -1412,7 +1412,7 @@ TEST_F(OpTest, Reciprocal) {
 TEST_F(OpTest, L2Loss) {
   Repeatedly([this]() {
     DataType type = Choose<DataType>({DT_INT32, DT_FLOAT});
-    // TODO(b/31644876): scalars currently crash.
+    // TODO (b/31644876): scalars currently crash. id:118
     ExpectTfAndXlaOutputsAreClose(OpTestBuilder("L2Loss")
                                       .Input(RandomTensor(type, RandomDims(1)))
                                       .Attr("T", type));
@@ -1505,7 +1505,7 @@ TEST_F(OpTest, LogSoftmax) {
 TEST_F(OpTest, LRN) {
   Repeatedly([this]() {
     Tensor data;
-    // TODO(b/31362467): Crashes with 0 dims on GPU. Re-enable when fixed.
+    // TODO (b/31362467): Crashes with 0 dims on GPU. Re-enable when fixed. id:172
     data = RandomTensor(DT_FLOAT, RandomDims(4, 4, 1, 8));
     // CuDNN requires depth_radius > 0.
     std::uniform_int_distribution<int> radius(1, data.dim_size(3));
@@ -1522,7 +1522,7 @@ TEST_F(OpTest, LRN) {
 
 TEST_F(OpTest, LRNGrad) {
   Repeatedly([this]() {
-    // TODO(b/31362467): Crashes with 0 dims on GPU. Re-enable when fixed.
+    // TODO (b/31362467): Crashes with 0 dims on GPU. Re-enable when fixed. id:80
     std::vector<int64> dims = RandomDims(4, 4, 1, 8);
     Tensor input_grads = RandomTensor(DT_FLOAT, dims);
     Tensor input_image = RandomTensor(DT_FLOAT, dims);
@@ -1634,7 +1634,7 @@ TEST_F(OpTest, MaxPool) {
             .Attr("padding", padding)
             .Attr("data_format", "NHWC"));
   });
-  // TODO(phawkins): test NCHW format (not supported by CPU)
+  // TODO (phawkins): test NCHW format (not supported by CPU) id:55
 }
 
 TEST_F(OpTest, MaxPool3D) {
@@ -1663,13 +1663,13 @@ TEST_F(OpTest, MaxPool3D) {
                                       .Attr("padding", padding)
                                       .Attr("data_format", "NHWC"));
   });
-  // TODO(phawkins): test NCHW format (not supported by CPU)
+  // TODO (phawkins): test NCHW format (not supported by CPU) id:109
 }
 
 TEST_F(OpTest, Mean) {
   Repeatedly([this]() {
     DataType type = Choose<DataType>({DT_INT32, DT_FLOAT});
-    // TODO(phawkins): CPU and XLA differ output for reducing across a
+    // TODO (phawkins): CPU and XLA differ output for reducing across a id:119
     // size-0 dimension (nan vs 0). For now, require size >= 1.
     Tensor data = RandomTensor(type, RandomDims(0, kDefaultMaxRank, 1));
     Tensor indices = RandomReductionIndices(data.dims());
@@ -1795,13 +1795,13 @@ TEST_F(OpTest, Pack) {
   });
 }
 
-// TODO(b/31741898): crashes on GPU.
+// TODO (b/31741898): crashes on GPU. id:173
 TEST_F(OpTest, Pad) {
   Repeatedly([this]() {
     DataType type = Choose<DataType>(kAllXlaTypes);
     Tensor t = RandomTensor(type);
 
-    // TODO(b/31741996): re-enable DT_INT64 when bug is fixed.
+    // TODO (b/31741996): re-enable DT_INT64 when bug is fixed. id:81
     // DataType tpaddings = Choose<DataType>({DT_INT32, DT_INT64});
     DataType tpaddings = DT_INT32;
     std::vector<int64> paddings_vec;
@@ -1820,7 +1820,7 @@ TEST_F(OpTest, Pad) {
 }
 
 TEST_F(OpTest, Pow) {
-  // TODO(phawkins): Feeding large DT_INT32 values to Pow() leads to
+  // TODO (phawkins): Feeding large DT_INT32 values to Pow() leads to id:56
   // nontermination.
   Repeatedly([this]() {
     auto dims = BroadcastableDims();
@@ -2348,7 +2348,7 @@ TEST_F(OpTest, StridedSlice) {
           -2 * data.dim_size(i), 2 * data.dim_size(i))(generator());
       end[i] = std::uniform_int_distribution<int32>(
           -2 * data.dim_size(i), 2 * data.dim_size(i))(generator());
-      // TODO(b/31360685): support strides other than 1 or -1
+      // TODO (b/31360685): support strides other than 1 or -1 id:110
       strides[i] = std::bernoulli_distribution()(generator()) ? 1 : -1;
     }
     int64 max_bitmask = (1LL << data.dims()) - 1;
@@ -2415,7 +2415,7 @@ TEST_F(OpTest, StridedSliceGrad) {
     int64 new_axis_mask = bitmask_distribution(generator());
     int64 shrink_axis_mask = bitmask_distribution(generator());
 
-    // TODO(phawkins): use shape inference for the forward op to compute the
+    // TODO (phawkins): use shape inference for the forward op to compute the id:129
     // gradient shape for the backward op. At present, there is a low
     // probability of the golden op succeeding.
     ExpectTfAndXlaOutputsAreClose(
@@ -2530,7 +2530,7 @@ int main(int argc, char** argv) {
           "tf_xla_random_seed", &tensorflow::tf_xla_random_seed,
           "Random seed to use for XLA tests. <= 0 means choose a seed "
           "nondetermistically."),
-      // TODO(phawkins): it might make more sense to run each test up to a
+      // TODO (phawkins): it might make more sense to run each test up to a id:203
       // configurable time bound.
       tensorflow::Flag("tf_xla_test_repetitions",
                        &tensorflow::tf_xla_test_repetitions,

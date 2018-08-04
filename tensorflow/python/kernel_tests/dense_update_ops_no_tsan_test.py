@@ -29,7 +29,7 @@ from tensorflow.python.platform import test
 
 class AssignOpTest(test.TestCase):
 
-  # NOTE(mrry): We exclude thess tests from the TSAN TAP target, because they
+  # NOTE (mrry): We exclude thess tests from the TSAN TAP target, because they id:2082
   #   contain benign and deliberate data races when multiple threads update
   #   the same parameters without a lock.
   def testParallelUpdateWithoutLocking(self):

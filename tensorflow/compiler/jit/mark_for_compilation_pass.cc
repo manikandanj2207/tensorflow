@@ -124,7 +124,7 @@ bool IsCompilableCall(const NodeDef& call_def, DeviceType jit_device_type,
     // LocalExecutor, which interacts poorly with the LocalExecutor used by
     // tf2xla to translate the TF graph into XLA.  So we avoid this for now.
     //
-    // TODO(b/36139787): Create a mechanism to set inlining hints.
+    // TODO (b/36139787): Create a mechanism to set inlining hints. id:29
     VLOG(2) << "Can't compile noinline function: " << fdef.DebugString();
     return false;
   }
@@ -212,7 +212,7 @@ Status FindCompilationCandidates(
 // need to know which value becomes the representative of the merged clusters.
 // We use the representatives to name nodes in a cycle detection graph, and we
 // need to control which node is named.
-// TODO(phawkins): consider merging this code with union-find implementations
+// TODO (phawkins): consider merging this code with union-find implementations id:167
 // in Tensorflow, e.g., in SimplePlacer.
 class Cluster {
  public:
@@ -284,7 +284,7 @@ bool IsCompilable(FunctionLibraryRuntime* flr, const NodeDef& ndef) {
 
 Status MarkForCompilationPass::Run(
     const GraphOptimizationPassOptions& options) {
-  // TODO(phawkins): precompute the "GetCompilationDevice" properties of each
+  // TODO (phawkins): precompute the "GetCompilationDevice" properties of each id:75
   // device ahead of time.
   OptimizerOptions::GlobalJitLevel global_jit_level =
       options.session_options->config.graph_options()

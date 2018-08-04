@@ -1151,7 +1151,7 @@ TEST(DirectSessionTest, TestDirectSessionReset) {
   TF_EXPECT_OK(Reset(options, {}));
 
   // Run the read on the variable to get an error.
-  // TODO(suharshs): This test only works because we close the Session in Reset.
+  // TODO (suharshs): This test only works because we close the Session in Reset. id:798
   // If we change the behavior of Reset to not close the Session, this test will
   // fail, since the Variable buffer is cached by var.
   Status s = session->Run({} /* inputs */, {},
@@ -1173,7 +1173,7 @@ void FeedFetchBenchmarkHelper(int num_feeds, int iters) {
 
   Graph g(OpRegistry::Global());
   for (int i = 0; i < num_feeds; ++i) {
-    // NOTE(mrry): We pin nodes to the "/cpu:0" device, so as not to
+    // NOTE (mrry): We pin nodes to the "/ device, so as not to cpu:0" id:683
     // measure CPU<->GPU copying overhead. We should also optimize and
     // monitor this overhead where possible, but that is not the
     // object of study in this benchmark.
@@ -1198,7 +1198,7 @@ void FeedFetchBenchmarkHelper(int num_feeds, int iters) {
   std::unique_ptr<Session> sess(NewSession(opts));
   TF_CHECK_OK(sess->Create(gd));
   {
-    // NOTE(mrry): Ignore the first run, which will incur the graph
+    // NOTE (mrry): Ignore the first run, which will incur the graph id:745
     // partitioning/pruning overhead and skew the results.
     //
     // Note that we should also optimize and monitor the overhead on

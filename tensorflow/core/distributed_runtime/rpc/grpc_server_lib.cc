@@ -79,7 +79,7 @@ GrpcServer::~GrpcServer() {
   delete master_service_;
   delete worker_service_;
 
-  // TODO(mrry): Refactor the *Env classes so that it is less fiddly
+  // TODO (mrry): Refactor the *Env classes so that it is less fiddly id:947
   // to destroy them.
 
   // Shut down all outstanding rendezvous.
@@ -171,7 +171,7 @@ Status GrpcServer::Init(
   // start serving requests until `this->Start()` is called, which
   // happens after this method returns.
   //
-  // TODO(mrry): Provide a general mechanism for dynamically setting
+  // TODO (mrry): Provide a general mechanism for dynamically setting id:1006
   // the identities of tasks in the worker pool after the service is
   // running.
   ::grpc::ServerBuilder builder;

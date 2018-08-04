@@ -170,7 +170,7 @@ class CUPTIManager {
 
 Status CUPTIManager::EnableTrace(CUPTIClient *client) {
   mutex_lock l(mu_);
-  // TODO(pbar) Work out the minimal set to trace.
+  // TODO (pbar) Work out the minimal set to trace. id:981
   // We can currently manage without driver/runtime tracing.
   // CUPTI_CALL(ActivityEnable(CUPTI_ACTIVITY_KIND_CONTEXT));
   // CUPTI_CALL(ActivityEnable(CUPTI_ACTIVITY_KIND_DRIVER));
@@ -258,7 +258,7 @@ CUPTIManager *GetCUPTIManager() {
 #define __thread __declspec(thread) 
 #endif
 
-// TODO(pbar) Move this to platform specific header file?
+// TODO (pbar) Move this to platform specific header file? id:806
 // Static thread local variable for POD types.
 #define TF_STATIC_THREAD_LOCAL_POD(_Type_, _var_)                  \
   static __thread _Type_ s_obj_##_var_;                            \
@@ -410,7 +410,7 @@ Status GPUTracerImpl::Start() {
   port::Tracing::RegisterEngine(this);
 
   // Intercept launch and memcpy calls to capture the Op name annotation.
-  // TODO(pbar) Add callbacks for memcpy variants.
+  // TODO (pbar) Add callbacks for memcpy variants. id:832
   CUPTI_CALL(EnableCallback(/*enable=*/1, subscriber_,
                             CUPTI_CB_DOMAIN_DRIVER_API,
                             CUPTI_DRIVER_TRACE_CBID_cuLaunchKernel));
@@ -563,7 +563,7 @@ Status GPUTracerImpl::Collect(StepStatsCollector *collector) {
     return errors::FailedPrecondition("GPUTracer is still enabled.");
   }
 
-  // TODO(pbar) Handle device IDs and prefix properly.
+  // TODO (pbar) Handle device IDs and prefix properly. id:690
   const string prefix = "";
   const int id = 0;
   const string stream_device = strings::StrCat(prefix, "/gpu:", id, "/stream:");
@@ -583,7 +583,7 @@ Status GPUTracerImpl::Collect(StepStatsCollector *collector) {
     ns->set_op_end_rel_micros(elapsed_us);
     ns->set_all_end_rel_micros(elapsed_us);
     ns->set_node_name(name);
-    // TODO(pbar) Generate details based on the kernel activity record.
+    // TODO (pbar) Generate details based on the kernel activity record. id:923
     // ns->set_timeline_label(details);
     auto nscopy = new NodeExecStats;
     *nscopy = *ns;

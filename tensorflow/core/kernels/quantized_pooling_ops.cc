@@ -76,7 +76,7 @@ class QuantizedAvgPoolingOp : public OpKernel {
     const int32 highest = static_cast<int32>(Eigen::NumTraits<T>::highest());
     const int32 lowest = static_cast<int32>(Eigen::NumTraits<T>::lowest());
 
-    // TODO(vrv): Switch this to the Eigen::Tensor version of
+    // TODO (vrv): Switch this to the version of Eigen::Tensor id:1414
     // SpatialAvgPooling once that version is running quickly.
     Tensor int32_output(DT_INT32, params.forward_output_shape());
     // Cast input to int32 tensor and call SpatialAvgPool.

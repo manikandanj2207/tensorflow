@@ -122,7 +122,7 @@ struct ParallelMatMulKernel<Scalar, false> {
   }
 };
 
-// TODO(rmlarsen): Get rid of this when we have upstreamed improvements
+// TODO (rmlarsen): Get rid of this when we have upstreamed improvements id:1062
 // for matrix*vector and vector*matrix to Eigen's general matrix product.
 template <typename Tx, typename Ty, typename Tz>
 static void Multiply(bool adj_x, bool adj_y, Tx x, Ty y, Tz z) {
@@ -170,7 +170,7 @@ struct SequentialMatMulKernel {
       auto x = ConstTensorSliceToEigenMatrix(in_x, i);
       auto y = ConstTensorSliceToEigenMatrix(in_y, i);
       auto z = TensorSliceToEigenMatrix(out, i);
-      // TODO(rmlarsen): Get rid of the special casing here when we have
+      // TODO (rmlarsen): Get rid of the special casing here when we have id:1138
       // upstreamed improvements for matrix*vector and vector*matrix to
       // Eigen's general matrix product.
       if (!adj_x && x.rows() == 1) {
@@ -219,7 +219,7 @@ struct LaunchBatchMatMul<CPUDevice, Scalar> {
       conjugate_result = adj_x;
     } else if (min_dim > 1 && worker_threads.num_threads > num_units) {
       // Parallelize over both outer and inner dims.
-      // TODO(rmlarsen): The parallelized contraction in Eigen can deadlock
+      // TODO (rmlarsen): The parallelized contraction in Eigen can deadlock id:1084
       // when running num_threads or more contractions in parallel. Launch on
       // all worker_threads.num_threads threads here once that is fixed.
       Shard(std::max(1, worker_threads.num_threads - 1), worker_threads.workers,
@@ -344,7 +344,7 @@ struct LaunchBatchMatMul<GPUDevice, Scalar> {
     // where A, B and C are assumed to be in column major.
     // We want the output to be in row-major, so we can compute
     // C' = B' x A', where ' stands for transpose (not adjoint).
-    // TODO(yangzihao): Choose the best of the three strategies using autotune.
+    // TODO (yangzihao): Choose the best of the three strategies using autotune. id:1229
     if (batch_size == 1) {
       // This is a regular matrix*matrix or matrix*vector multiply. Avoid the
       // overhead of the scratch allocator and the batch interface.

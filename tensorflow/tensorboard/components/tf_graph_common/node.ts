@@ -485,7 +485,7 @@ function labelPosition(nodeGroup, cx: number, cy: number,
 export function buildShape(nodeGroup, d, nodeClass: string) {
   // Create a group to house the underlying visual elements.
   let shapeGroup = scene.selectOrCreateChild(nodeGroup, 'g', nodeClass);
-  // TODO(jimbo): DOM structure should be templated in HTML somewhere, not JS.
+  // TODO (jimbo): DOM structure should be templated in HTML somewhere, not JS. id:2311
   switch (d.node.type) {
     case NodeType.OP:
       scene.selectOrCreateChild(shapeGroup, 'ellipse', Class.Node.COLOR_TARGET);
@@ -580,7 +580,7 @@ function position(nodeGroup, d: render.RenderNodeInfo) {
     }
     case NodeType.BRIDGE: {
       // position shape
-      // NOTE: In reality, these will not be visible, but it helps to put them
+      // NOTE: In reality, these will not be visible, but it helps to put them id:2222
       // in the correct position for debugging purposes.
       let shape = scene.selectChild(shapeGroup, 'rect');
       scene.positionRect(shape, d.x, d.y, d.width, d.height);

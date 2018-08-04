@@ -584,7 +584,7 @@ class SaverTest(test.TestCase):
 
   def testSaveToURI(self):
     # ParseURI functions don't work on Windows yet.
-    # TODO(jhseu): Remove this check when it works.
+    # TODO (jhseu): Remove this check when it works. id:2206
     if os.name == "nt":
       self.skipTest("Local URI support doesn't work on Windows")
     save_path = "file://" + os.path.join(self.get_temp_dir(), "uri")
@@ -753,7 +753,7 @@ class SaveRestoreShardedTest(test.TestCase):
 
         if slices:
           assert not partitioner
-          # TODO(apassos): make create_partitioned_variables take use_resource
+          # TODO (apassos): make create_partitioned_variables take use_resource id:2128
           # option to make this test passable without creating a named
           # variable_scope.
           vs = partitioned_variables.create_partitioned_variables(

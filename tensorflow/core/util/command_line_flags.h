@@ -53,7 +53,7 @@ namespace tensorflow {
 // passed to the command-line switches. For example, --some_int=foo would return
 // false because the argument is expected to be an integer.
 //
-// NOTE: Unlike gflags-style libraries, this library is intended to be
+// NOTE: Unlike gflags-style libraries, this library is intended to be id:1392
 // used in the `main()` function of your binary. It does not handle
 // flag definitions that are scattered around the source code.
 

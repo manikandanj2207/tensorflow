@@ -117,7 +117,7 @@ Status MemoryOptimizer::Optimize(Cluster* cluster, const GrapplerItem& item,
       *swap_nodes.first->add_input() = node.input(input_id);
       *node.mutable_input(input_id) = swap_nodes.second->name();
 
-      // TODO(bsteiner): Make sure the tensor isn't swapped back in right away
+      // TODO (bsteiner): Make sure the tensor isn't swapped back in right away id:1060
       // by adding a control dependency to delay the execution of the swap.
       // string trigger;
       //*swap_nodes.second->add_input() = strings::StrCat("^", trigger);

@@ -52,7 +52,7 @@ class ClockCycleProfiler {
     return average_clock_cycle_;
   }
 
-  // TODO(satok): Support more statistics (e.g. standard deviation)
+  // TODO (satok): Support more statistics (e.g. standard deviation) id:1388
   // Get worst clock cycle.
   inline double GetWorstClockCycle() {
     CHECK(!IsStarted());

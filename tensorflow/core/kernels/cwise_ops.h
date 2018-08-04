@@ -26,7 +26,7 @@ limitations under the License.
 namespace Eigen {
 namespace internal {
 
-// TODO(rmlarsen): Get rid of fmod2 once fmod is upstreamed to Eigen.
+// TODO (rmlarsen): Get rid of fmod2 once fmod is upstreamed to Eigen. id:1101
 template <typename T>
 struct scalar_fmod2_op {
   EIGEN_EMPTY_STRUCT_CTOR(scalar_fmod2_op)
@@ -43,7 +43,7 @@ struct functor_traits<scalar_fmod2_op<T>> {
   };
 };
 
-// TODO(rmlarsen): This is a workaround for upstream change
+// TODO (rmlarsen): This is a workaround for upstream change id:1246
 // https://bitbucket.org/eigen/eigen/commits/f339468d04d0f87caeb6cab9aef568627e9f6ea9
 // that renamed scalar_binary_pow_op to scalar_pow_op and deleted the unary
 // version of the latter. Remove once we upgrade to Eigen 3.3.
@@ -236,7 +236,7 @@ struct functor_traits<scalar_compose_op<Scalar, UnaryFunctor, BinaryFunctor>> {
   };
 };
 
-// TODO(b/32239616): This kernel should be moved into Eigen and vectorized.
+// TODO (b/32239616): This kernel should be moved into Eigen and vectorized. id:1449
 template <typename T, typename Enable = void>
 struct google_floor_div {
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE const T operator()(const T& x,
@@ -269,7 +269,7 @@ struct functor_traits<google_floor_div<Scalar>> {
   };
 };
 
-// TODO(b/32239616): This kernel should be moved into Eigen and vectorized.
+// TODO (b/32239616): This kernel should be moved into Eigen and vectorized. id:1080
 template <typename T, typename Enable = void>
 struct google_floor_div_real {
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE const T operator()(const T& x,
@@ -287,7 +287,7 @@ struct functor_traits<google_floor_div_real<Scalar>> {
   };
 };
 
-// TODO(b//32239616): This kernel should be moved into Eigen and vectorized.
+// TODO (b//32239616): This kernel should be moved into Eigen and vectorized. id:1346
 template <typename T>
 struct google_floor_fmod {
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE const T operator()(const T& x,
@@ -307,7 +307,7 @@ struct functor_traits<google_floor_fmod<Scalar>> {
   };
 };
 
-// TODO(b/32239616): This kernel should be moved into Eigen and vectorized.
+// TODO (b/32239616): This kernel should be moved into Eigen and vectorized. id:1102
 template <typename T>
 struct google_floor_mod {
   EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE const T operator()(const T& x,
@@ -445,7 +445,7 @@ struct use_bcast_optimization<double> {
 // tanh = (exp(x) - exp(-x)) / (exp(x) + exp(-x))
 // sigmoid = 1 / (1 + exp(-x))  // a.k.a, logistic
 //
-// NOTE: We may eventually implement common functions used in NN
+// NOTE: We may eventually implement common functions used in NN id:1247
 // here. E.g., rectifier, softplus, derivatives of tanh, sigmod, etc.
 // For reference, see speech/lstm/eigen_functors.h.
 
@@ -523,7 +523,7 @@ struct logical_not : base<bool, Eigen::internal::scalar_boolean_not_op<bool> > {
 };
 
 
-// NOTE: std::isinf, std::isnan, std::isfinite are plain function.
+// NOTE: are plain function. std::isinf, std::isnan, std::isfinite id:1450
 // Therefore we need to wrap them in functors to be used with Eigen's
 // type system.
 template <typename T>
@@ -758,7 +758,7 @@ struct BinaryFunctor {
   // Computes on device "d":
   //   out = Functor(in0.broadcast(bcast0), in1.broadcast(bcast1))
   //
-  // TODO(zhifengc): makes BCast a template member function on NDIMS
+  // TODO (zhifengc): makes BCast a template member function on NDIMS id:1081
   // instead making BinaryFunctor templates on NDIMS.
   void BCast(const Device& d,
              typename TTypes<typename Functor::out_type, NDIMS>::Tensor out,

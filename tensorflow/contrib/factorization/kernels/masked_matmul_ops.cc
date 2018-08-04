@@ -149,8 +149,8 @@ class MaskedMatmulOp : public OpKernel {
 
     std::vector<int64> perm(num_nonzero_elements);
     std::iota(perm.begin(), perm.end(), 0);
-    // TODO(walidk): improve performance in the case adj_a and not adj_b
-    // TODO(walidk): benchmark smaller inputs, and potentially skip the sort
+    // TODO (walidk): improve performance in the case adj_a and not adj_b id:435
+    // TODO (walidk): benchmark smaller inputs, and potentially skip the sort id:403
     // when the input fits in L3 cache.
     // Compute a permutation to sort either the a or b matrix, to take advantage
     // of CPU caching. Since row access is efficient (given the RowMajor

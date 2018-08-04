@@ -48,7 +48,7 @@ struct MemCpyFunctor {
     if (DataTypeCanUseMemcpy(DataTypeToEnum<T>::v())) {
       auto in = input.tensor<T, 2>();
       auto output = result->tensor<T, 2>();
-      // TODO(agarwal): Consider multi-threading if size[0] is large
+      // TODO (agarwal): Consider multi-threading if size[0] is large id:1580
       for (int row_in = begin[0], row_out = 0; row_in < end[0];
            ++row_in, ++row_out) {
         if (row_in + 1 < end[0]) {
@@ -135,7 +135,7 @@ class StridedSliceOp : public OpKernel {
     if (processing_shape.num_elements() > 0) {
       // Optimization #3, slice has stride 1 in all dimensions
       // Optimization #3A, slice has only two dimensions
-      // TODO(aselle): Here we are restricting to processing_shape and
+      // TODO (aselle): Here we are restricting to processing_shape and id:1424
       // final_shape being 2D. This isn't strictly necessary, but I don't
       // want to blow up code gen size, because to shape<> you need static
       // NDIM and T
@@ -312,7 +312,7 @@ class StridedSliceAssignOp : public OpKernel {
       const Tensor& input = context->input(4);
       TensorShape input_shape = input.shape();
       TensorShape original_shape = old_lhs.shape();
-      // TODO(aselle): This check is too strong, we only should need
+      // TODO (aselle): This check is too strong, we only should need id:1511
       // input_shape to be broadcastable to final_shape
       OP_REQUIRES(
           context, final_shape == input_shape,
@@ -417,7 +417,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1309
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("StridedSlice")
                             .Device(DEVICE_GPU)
@@ -485,7 +485,7 @@ REGISTER_SYCL(float);
 REGISTER_SYCL(double);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1608
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("StridedSlice")
                             .Device(DEVICE_SYCL)

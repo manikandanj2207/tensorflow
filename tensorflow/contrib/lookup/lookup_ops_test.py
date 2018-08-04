@@ -1840,7 +1840,7 @@ class InitializeTableFromFileOpTest(test.TestCase):
           default_value)
 
       # Initialize with non existing file (old_file.txt) should fail.
-      # TODO(yleon): Update message, which might change per FileSystem.
+      # TODO (yleon): Update message, which might change per FileSystem. id:654
       with self.assertRaisesOpError("old_file.txt"):
         table.init.run()
 

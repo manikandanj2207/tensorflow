@@ -237,7 +237,7 @@ void RandomShuffleQueue::TryDequeue(OpKernelContext* ctx,
     already_cancelled = !cm->RegisterCallback(
         token, [this, cm, token]() { Cancel(kDequeue, cm, token); });
     if (!already_cancelled) {
-      // TODO(josh11b): This makes two copies of callback, avoid this if possible.
+      // TODO (josh11b): This makes two copies of callback, avoid this if possible. id:1416
       dequeue_attempts_.emplace_back(
           1, [callback]() { callback(Tuple()); }, ctx, cm, token,
           [callback, this](Attempt* attempt) EXCLUSIVE_LOCKS_REQUIRED(mu_) {
@@ -283,7 +283,7 @@ void RandomShuffleQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
     Tuple tuple;
     tuple.reserve(num_components());
     for (int i = 0; i < num_components(); ++i) {
-      // TODO(josh11b,misard): Switch to allocate_output().  Problem is
+      // TODO (josh11b,misard): Switch to allocate_output(). Problem is id:1560
       // this breaks the abstraction boundary since we don't *really*
       // know if and how the Tensors in the tuple we pass to callback
       // correspond to the outputs of *ctx.  For example, the
@@ -329,7 +329,7 @@ void RandomShuffleQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
     already_cancelled = !cm->RegisterCallback(
         token, [this, cm, token]() { Cancel(kDequeue, cm, token); });
     if (!already_cancelled) {
-      // TODO(josh11b): This makes two copies of callback, avoid this if possible.
+      // TODO (josh11b): This makes two copies of callback, avoid this if possible. id:1289
       dequeue_attempts_.emplace_back(
           num_elements, [callback]() { callback(Tuple()); }, ctx, cm, token,
           [callback, allow_small_batch, this](Attempt* attempt)

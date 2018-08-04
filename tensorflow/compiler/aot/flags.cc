@@ -39,7 +39,7 @@ void AppendMainFlags(std::vector<Flag>* flag_list, MainFlags* flags) {
       // Flags controlling the XLA ahead-of-time compilation, that correspond to
       // the fields of xla::cpu::CpuAotCompilationOptions.
       //
-      // TODO(toddw): The following flags also need to be supported:
+      // TODO (toddw): The following flags also need to be supported: id:164
       //   --xla_cpu_llvm_opt_level
       //   --xla_cpu_llvm_cl_opts
       {"target_triple", &flags->target_triple,

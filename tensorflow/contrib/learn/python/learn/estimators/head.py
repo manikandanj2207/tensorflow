@@ -25,7 +25,7 @@ import six
 from tensorflow.contrib import framework as framework_lib
 from tensorflow.contrib import layers as layers_lib
 from tensorflow.contrib import lookup as lookup_lib
-# TODO(ptucker): Use tf.losses and tf.metrics.
+# TODO (ptucker): Use tf.losses and tf.metrics. id:584
 from tensorflow.contrib import losses as losses_lib
 from tensorflow.contrib import metrics as metrics_lib
 from tensorflow.contrib.learn.python.learn.estimators import constants
@@ -250,7 +250,7 @@ def poisson_regression_head(label_name=None,
       loss_fn=_poisson_loss,
       link_fn=math_ops.exp)
 
-# TODO(zakaria): Consider adding a _RegressionHead for logistic_regression
+# TODO (zakaria): Consider adding a _RegressionHead for logistic_regression id:486
 
 
 def multi_class_head(n_classes,
@@ -520,7 +520,7 @@ class _SingleHead(Head):
     return {self._head_name: (self._problem_type, predictions)}
 
 
-# TODO(zakaria): use contrib losses.
+# TODO (zakaria): use contrib losses. id:459
 def _mean_squared_loss(labels, logits, weights=None):
   with ops.name_scope(None, "mean_squared_loss", (logits, labels)) as name:
     logits = ops.convert_to_tensor(logits)
@@ -528,7 +528,7 @@ def _mean_squared_loss(labels, logits, weights=None):
     # To prevent broadcasting inside "-".
     if len(labels.get_shape()) == 1:
       labels = array_ops.expand_dims(labels, dim=(1,))
-    # TODO(zakaria): make sure it does not recreate the broadcast bug.
+    # TODO (zakaria): make sure it does not recreate the broadcast bug. id:490
     if len(logits.get_shape()) == 1:
       logits = array_ops.expand_dims(logits, dim=(1,))
     logits.get_shape().assert_is_compatible_with(labels.get_shape())
@@ -544,7 +544,7 @@ def _poisson_loss(labels, logits, weights=None):
     # To prevent broadcasting inside "-".
     if len(labels.get_shape()) == 1:
       labels = array_ops.expand_dims(labels, dim=(1,))
-    # TODO(zakaria): make sure it does not recreate the broadcast bug.
+    # TODO (zakaria): make sure it does not recreate the broadcast bug. id:544
     if len(logits.get_shape()) == 1:
       logits = array_ops.expand_dims(logits, dim=(1,))
     logits.get_shape().assert_is_compatible_with(labels.get_shape())
@@ -751,7 +751,7 @@ def _log_loss_with_two_classes(labels, logits, weights=None):
                       (logits, labels)) as name:
     logits = ops.convert_to_tensor(logits)
     labels = math_ops.to_float(labels)
-    # TODO(ptucker): This will break for dynamic shapes.
+    # TODO (ptucker): This will break for dynamic shapes. id:585
     # sigmoid_cross_entropy_with_logits requires [batch_size, 1] labels.
     if len(labels.get_shape()) == 1:
       labels = array_ops.expand_dims(labels, dim=(1,))
@@ -881,7 +881,7 @@ class _BinaryLogisticHead(_SingleHead):
 
       metrics = {_summary_key(self.head_name, mkey.LOSS):
                  metrics_lib.streaming_mean(eval_loss)}
-      # TODO(b/29366811): This currently results in both an "accuracy" and an
+      # TODO (b/29366811): This currently results in both an "accuracy" and an id:564
       # "accuracy/threshold_0.500000_mean" metric for binary classification.
       metrics[_summary_key(self.head_name, mkey.ACCURACY)] = (
           metrics_lib.streaming_accuracy(classes, labels, weights))
@@ -929,7 +929,7 @@ def _softmax_cross_entropy_loss(labels, logits, weights=None):
 
     # sparse_softmax_cross_entropy_with_logits requires [batch_size] labels.
     is_squeezed_labels = False
-    # TODO(ptucker): This will break for dynamic shapes.
+    # TODO (ptucker): This will break for dynamic shapes. id:460
     if len(labels.get_shape()) == 2:
       labels = array_ops.squeeze(labels, squeeze_dims=(1,))
       is_squeezed_labels = True
@@ -1110,7 +1110,7 @@ class _MultiClassHead(_SingleHead):
 
       metrics = {_summary_key(self.head_name, mkey.LOSS):
                  metrics_lib.streaming_mean(eval_loss)}
-      # TODO(b/29366811): This currently results in both an "accuracy" and an
+      # TODO (b/29366811): This currently results in both an "accuracy" and an id:491
       # "accuracy/threshold_0.500000_mean" metric for binary classification.
       metrics[_summary_key(self.head_name, mkey.ACCURACY)] = (
           metrics_lib.streaming_accuracy(
@@ -1122,7 +1122,7 @@ class _MultiClassHead(_SingleHead):
           metrics[_summary_key(
               self.head_name, mkey.CLASS_PREDICTION_MEAN % class_id)] = (
                   _class_predictions_streaming_mean(classes, weights, class_id))
-          # TODO(ptucker): Add per-class accuracy, precision, recall.
+          # TODO (ptucker): Add per-class accuracy, precision, recall. id:545
           metrics[_summary_key(
               self.head_name, mkey.CLASS_LABEL_MEAN % class_id)] = (
                   _class_labels_streaming_mean(
@@ -1230,7 +1230,7 @@ class _BinarySvmHead(_SingleHead):
           loss_fn=self._loss_fn,
           logits_to_predictions_fn=self._logits_to_predictions,
           metrics_fn=self._metrics,
-          # TODO(zakaria): Handle labels for export.
+          # TODO (zakaria): Handle labels for export. id:586
           create_output_alternatives_fn=self._create_output_alternatives,
           labels=labels,
           train_op_fn=train_op_fn,
@@ -1268,12 +1268,12 @@ class _BinarySvmHead(_SingleHead):
       metrics = {_summary_key(self.head_name, mkey.LOSS):
                  metrics_lib.streaming_mean(eval_loss)}
 
-      # TODO(b/29366811): This currently results in both an "accuracy" and an
+      # TODO (b/29366811): This currently results in both an "accuracy" and an id:565
       # "accuracy/threshold_0.500000_mean" metric for binary classification.
       classes = predictions[prediction_key.PredictionKey.CLASSES]
       metrics[_summary_key(self.head_name, mkey.ACCURACY)] = (
           metrics_lib.streaming_accuracy(classes, labels, weights))
-      # TODO(sibyl-vie3Poto): add more metrics relevant for svms.
+      # TODO (sibyl-vie3Poto): add more metrics relevant for svms. id:461
 
     return metrics
 
@@ -1281,7 +1281,7 @@ class _BinarySvmHead(_SingleHead):
 class _MultiLabelHead(_SingleHead):
   """`Head` for multi-label classification."""
 
-  # TODO(zakaria): add signature and metric for multilabel.
+  # TODO (zakaria): add signature and metric for multilabel. id:492
   def __init__(self,
                n_classes,
                label_name,
@@ -1374,7 +1374,7 @@ class _MultiLabelHead(_SingleHead):
 
       metrics = {_summary_key(self.head_name, mkey.LOSS):
                  metrics_lib.streaming_mean(eval_loss)}
-      # TODO(b/29366811): This currently results in both an "accuracy" and an
+      # TODO (b/29366811): This currently results in both an "accuracy" and an id:546
       # "accuracy/threshold_0.500000_mean" metric for binary classification.
       metrics[_summary_key(self.head_name, mkey.ACCURACY)] = (
           metrics_lib.streaming_accuracy(classes, labels, weights))
@@ -1384,7 +1384,7 @@ class _MultiLabelHead(_SingleHead):
           probabilities, labels, weights, curve="PR")
 
       for class_id in self._metric_class_ids:
-        # TODO(ptucker): Add per-class accuracy, precision, recall.
+        # TODO (ptucker): Add per-class accuracy, precision, recall. id:587
         metrics[_summary_key(
             self.head_name, mkey.CLASS_PREDICTION_MEAN % class_id)] = (
                 _predictions_streaming_mean(classes, weights, class_id))
@@ -1654,7 +1654,7 @@ def _weight_tensor(features, weight_column_name):
     return math_ops.to_float(features[weight_column_name])
 
 
-# TODO(zakaria): This function is needed for backward compatibility and should
+# TODO (zakaria): This function is needed for backward compatibility and should id:566
 #   be removed when we migrate to core.
 def _compute_weighted_loss(loss_unweighted, weight, name="loss"):
   """Returns a tuple of (loss_train, loss_report).
@@ -1845,7 +1845,7 @@ def _predictions_streaming_mean(predictions,
   return metrics_lib.streaming_mean(predictions, weights=weights)
 
 
-# TODO(ptucker): Add support for SparseTensor labels.
+# TODO (ptucker): Add support for SparseTensor labels. id:462
 def _class_id_labels_to_indicator(labels, num_classes):
   if (num_classes is None) or (num_classes < 2):
     raise ValueError("Invalid num_classes %s." % num_classes)
@@ -1990,7 +1990,7 @@ def _classification_output_alternatives(head_name, problem_type,
   return _create_output_alternatives
 
 # Aliases
-# TODO(zakaria): Remove these aliases, See b/34751732
+# TODO (zakaria): Remove these aliases, See b/34751732 id:493
 _regression_head = regression_head
 _poisson_regression_head = poisson_regression_head
 _multi_class_head = multi_class_head

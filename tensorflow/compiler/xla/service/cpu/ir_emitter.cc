@@ -406,12 +406,12 @@ Status IrEmitter::HandleInfeed(HloInstruction* infeed) {
 }
 
 Status IrEmitter::HandleOutfeed(HloInstruction* outfeed) {
-  // TODO(b/34359662): Implement outfeed on CPU.
+  // TODO (b/34359662): Implement outfeed on CPU. id:157
   return Unimplemented("Outfeed is not supported on CPU (b/34359662).");
 }
 
 Status IrEmitter::HandleSort(HloInstruction* sort, HloInstruction* operand) {
-  // TODO(b/26783907): Implement sort on CPU.
+  // TODO (b/26783907): Implement sort on CPU. id:183
   return Unimplemented("Sort is not supported on GPU (b/26783907).");
 }
 
@@ -458,7 +458,7 @@ Status IrEmitter::HandleReduceWindow(HloInstruction* reduce_window,
       /*instruction=*/*reduce_window, /*operands=*/{operand},
       /*supported_types=*/{F32}));
 
-  // TODO(b/31410564): Implement dilation for reduce-window.
+  // TODO (b/31410564): Implement dilation for reduce-window. id:239
   if (window_util::HasDilation(window)) {
     return Unimplemented(
         "Dilation for reduce-window not implemented on CPU. See b/31410564.");
@@ -560,7 +560,7 @@ Status IrEmitter::HandleSelectAndScatter(HloInstruction* select_and_scatter) {
   CHECK_EQ(rank, ShapeUtil::Rank(source->shape()));
   CHECK_EQ(rank, window.dimensions_size());
 
-  // TODO(b/31410564): Implement dilation for select-and-scatter.
+  // TODO (b/31410564): Implement dilation for select-and-scatter. id:217
   if (window_util::HasDilation(window)) {
     return Unimplemented(
         "Dilation for select-and-scatter not implemented on CPU. "
@@ -1032,7 +1032,7 @@ Status IrEmitter::HandleConvolution(HloInstruction* convolution,
 }
 
 Status IrEmitter::HandleCrossReplicaSum(HloInstruction* crs) {
-  // TODO(b/33011107): Support cross replica sum on CPU.
+  // TODO (b/33011107): Support cross replica sum on CPU. id:140
   return Unimplemented(
       "Cross replica sum not implemented on CPU. See b/33011107.");
 }
@@ -1133,12 +1133,12 @@ Status IrEmitter::HandleReduce(HloInstruction* reduce, HloInstruction* arg,
 }
 
 Status IrEmitter::HandleSend(HloInstruction* send) {
-  // TODO(b/33942983): Support Send/Recv on CPU.
+  // TODO (b/33942983): Support Send/Recv on CPU. id:158
   return Unimplemented("Send is not implemented on CPU. See b/33942983.");
 }
 
 Status IrEmitter::HandleRecv(HloInstruction* recv) {
-  // TODO(b/33942983): Support Send/Recv on CPU.
+  // TODO (b/33942983): Support Send/Recv on CPU. id:184
   return Unimplemented("Recv is not implemented on CPU. See b/33942983.");
 }
 

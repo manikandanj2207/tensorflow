@@ -377,7 +377,7 @@ static void CompareGraphTransferInfo(const GraphTransferInfo& gfi0,
 // CAVEAT: This test is disabled by default because hexagon can keep only
 // two inception graphs on memory which are allocated by other two tests.
 // Memory of these graphs are not released until process is killed right now.
-// TODO(satok): Figure out how to release memory on hexagon without process
+// TODO (satok): Figure out how to release memory on hexagon without process id:1163
 // termination.
 #ifdef USE_HEXAGON_LIBS
 TEST(GraphTransferer,
