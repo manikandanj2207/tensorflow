@@ -31,7 +31,7 @@ from tensorflow.python.ops import math_ops
 __all__ = ["LinearOperator"]
 
 
-# TODO(langmore) Use matrix_solve_ls for singular or non-square matrices.
+# TODO (langmore) Use matrix_solve_ls for singular or non-square matrices. id:648
 class LinearOperator(object):
   """Base class defining a [batch of] linear operator[s].
 
@@ -713,7 +713,7 @@ class LinearOperator(object):
       return self._add_to_tensor(x)
 
   def _can_use_cholesky(self):
-    # TODO(langmore) Add complex types when tf.cholesky can use them.
+    # TODO (langmore) Add complex types when tf.cholesky can use them. id:595
     return (not self.dtype.is_complex and self.is_self_adjoint and
             self.is_positive_definite)
 

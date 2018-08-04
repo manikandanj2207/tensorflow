@@ -32,7 +32,7 @@ TRAINING_OPS_FILE = '_training_ops.so'
 _training_ops = None
 _ops_lock = threading.Lock()
 
-# TODO(b/31222613): Some of these ops are probably differentiable, and
+# TODO (b/31222613): Some of these ops are probably differentiable, and id:780
 # there may be latent bugs here.
 ops.NotDifferentiable('HardRoutingFunction')
 ops.NotDifferentiable('RoutingGradient')

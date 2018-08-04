@@ -71,7 +71,7 @@ static void IsSingleFloatValue(const Tensor& val, float expected_val) {
 
 static SessionOptions Options(const string& target, int placement_period) {
   SessionOptions options;
-  // NOTE(mrry): GrpcSession requires a grpc:// scheme prefix in the target
+  // NOTE (mrry): GrpcSession requires a grpc:// scheme prefix in the target id:854
   // string.
   options.target = strings::StrCat("grpc://", target);
   options.config.set_placement_period(placement_period);
@@ -269,7 +269,7 @@ void SetDevice(GraphDef* graph, const string& name, const string& dev) {
   LOG(FATAL) << "Name '" << name << "' not found.";
 }
 
-// TODO(b/32636929): This test fails 1/1000 times. Disable it while we
+// TODO (b/32636929): This test fails 1/1000 times. Disable it while we id:948
 // figure out why.
 TEST(GrpcSessionTest, DISABLED_MultiDevices) {
   std::unique_ptr<test::TestCluster> cluster;
@@ -319,7 +319,7 @@ TEST(GrpcSessionTest, DISABLED_MultiDevices) {
           IsSingleFloatValue(outputs[0], 6.0 * kSize);
 
           const StepStats& ss = metadata.step_stats();
-          // NOTE(mrry): We only assert that `c` is placed correctly,
+          // NOTE (mrry): We only assert that `c` is placed correctly, id:1007
           // because the current placement algorithm will move its
           // inputs to be colocated with it, when it is the sole
           // consumer.
@@ -751,7 +751,7 @@ TEST(SessionTest, ExtendValidation) {
     }
   )",
                                                        &graph);
-  // NOTE(mrry): CHECK not done inline to avoid a compilation error in
+  // NOTE (mrry): CHECK not done inline to avoid a compilation error in id:906
   // open-source (due to a multi-line string in a macro argument).
   ASSERT_TRUE(success);
 
@@ -871,7 +871,7 @@ TEST(SessionTest, RunTimeoutWithSessionOptions) {
   // Verifies that Run() times out, and the error code is DEADLINE_EXCEEDED.
   std::vector<std::pair<string, Tensor>> inputs;
   Status status = session->Run(inputs, {}, {b_delay->name()}, nullptr);
-  // TODO(sherrym): Due to potentially a GRPC bug, we sometimes get
+  // TODO (sherrym): Due to potentially a GRPC bug, we sometimes get id:1023
   // GRPC_CHTTP2_INTERNAL_ERROR which is mapped to error::INTERNAL.
   EXPECT_TRUE(error::DEADLINE_EXCEEDED == status.code() ||
               error::INTERNAL == status.code());
@@ -898,7 +898,7 @@ TEST(SessionTest, RunTimeoutWithRunOptions) {
   run_options.set_timeout_in_ms(100);
   Status status = session->Run(run_options, inputs, {}, {b_delay->name()},
                                nullptr, nullptr);
-  // TODO(sherrym): Due to potentially a GRPC bug, we sometimes get
+  // TODO (sherrym): Due to potentially a GRPC bug, we sometimes get id:855
   // GRPC_CHTTP2_INTERNAL_ERROR which is mapped to error::INTERNAL.
   EXPECT_TRUE(error::DEADLINE_EXCEEDED == status.code() ||
               error::INTERNAL == status.code());

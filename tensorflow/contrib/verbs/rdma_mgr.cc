@@ -30,7 +30,7 @@ RdmaMgr::RdmaMgr(const WorkerEnv* const worker_env,
     : worker_env_(worker_env), channel_cache_(channel_cache) {
   rdma_adapter_ = new RdmaAdapter(worker_env_);
   // hardcoded to default session (legacy_session_)
-  // TODO: use WorkerSessionForSession
+  // TODO: use WorkerSessionForSession id:738
   // need to pass in session handle
   local_worker_ = worker_env_->session_mgr->LegacySession()->worker_name;
   std::vector<string> workers;

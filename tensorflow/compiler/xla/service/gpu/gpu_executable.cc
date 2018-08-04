@@ -166,7 +166,7 @@ Status GpuExecutable::ExecuteThunks(
 
   main_stream->ThenWaitFor(&sub_streams);
   // Make sure kernels are completed before deallocating temporary buffers.
-  // TODO(b/30100571): we could potentially postpone deallocating the temp
+  // TODO (b/30100571): we could potentially postpone deallocating the temp id:220
   // buffers until a different computation is executed.
   if (block_host_until_done && !main_stream->BlockHostUntilDone()) {
     return InternalError("Failed to complete all kernels launched on stream %p",
@@ -346,7 +346,7 @@ StatusOr<std::unique_ptr<ShapedBuffer>> GpuExecutable::ExecuteOnStream(
 StatusOr<se::DeviceMemoryBase> GpuExecutable::ExecuteAsyncOnStream(
     const ServiceExecutableRunOptions* run_options,
     tensorflow::gtl::ArraySlice<se::DeviceMemoryBase> arguments) {
-  // TODO(b/30671675): Implement asynchronous execution mode.
+  // TODO (b/30671675): Implement asynchronous execution mode. id:147
   return Unimplemented(
       "Asynchronous execution on stream is not yet supported on GPU.");
 }

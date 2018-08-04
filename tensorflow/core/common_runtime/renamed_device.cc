@@ -17,7 +17,7 @@ limitations under the License.
 
 namespace tensorflow {
 
-// TODO(saeta): Convert to returning a std::unique_ptr?
+// TODO (saeta): Convert to returning a std::unique_ptr? id:693
 /* static */
 Device* RenamedDevice::NewRenamedDevice(const string& new_base,
                                         Device* underlying,

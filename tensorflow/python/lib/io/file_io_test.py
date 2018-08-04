@@ -395,7 +395,7 @@ class FileIoTest(test.TestCase):
     with self.assertRaises(TypeError):
       f.seek()
 
-    # TODO(jhseu): Delete after position deprecation.
+    # TODO (jhseu): Delete after position deprecation. id:2002
     with self.assertRaises(TypeError):
       f.seek(offset=0, position=0)
     f.seek(position=9)

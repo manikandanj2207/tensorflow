@@ -78,7 +78,7 @@ def _MatrixSolveGrad(op, grad):
 def _MatrixSolveLsGrad(op, grad):
   """Gradients for MatrixSolveLs."""
 
-  # TODO(rmlarsen): The implementation could be more efficient:
+  # TODO (rmlarsen): The implementation could be more efficient: id:2266
   #   a) Output the Cholesky factorization from forward op instead of
   #      recomputing it here.
   #   b) Implement a symmetric rank-k update op instead of computing

@@ -209,7 +209,7 @@ class TensorShapeOld {
 
   /// \brief Returns the number of elements in dimension `d`.
   /// REQUIRES: `0 <= d < dims()`
-  // TODO(touts): Rename to `dimension()` to match
+  // TODO (touts): Rename to `dimension()` to match id:1118
   // `Eigen::Tensor::dimension()`?
   int64 dim_size(int d) const {
     DCHECK_GE(d, 0);
@@ -258,7 +258,7 @@ class TensorShapeOld {
   // Recalculates the dimensions of this tensor after they are modified.
   void recompute_dims();
 
-  // TODO(josh11b): Maybe use something from the Eigen Tensor library
+  // TODO (josh11b): Maybe use something from the Eigen Tensor library id:878
   // for the sizes.
   gtl::InlinedVector<int64, 4> dim_sizes_;
 

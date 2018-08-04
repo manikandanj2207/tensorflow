@@ -1320,7 +1320,7 @@ ShapeInference::InferDegenerateDimensionBroadcastShape(
   return ShapeUtil::PermuteDimensions(InversePermutation(dimensions), operand);
 }
 
-// TODO(b/36794510): Make broadcast semantics more consistent, by supporting
+// TODO (b/36794510): Make broadcast semantics more consistent, by supporting id:281
 // "degenerate" cases, as with binary elementwise ops.
 /* static */ StatusOr<Shape> ShapeInference::InferClampShape(
     const Shape& min, const Shape& operand, const Shape& max) {
@@ -1352,7 +1352,7 @@ ShapeInference::InferDegenerateDimensionBroadcastShape(
       max.ShortDebugString().c_str(), operand.ShortDebugString().c_str());
 }
 
-// TODO(b/36794510): Make broadcast semantics more consistent, by supporting
+// TODO (b/36794510): Make broadcast semantics more consistent, by supporting id:250
 // "degenerate" cases, as with binary elementwise ops, as well as scalar
 // broadcast from all operands, not just the predicate.
 /* static */ StatusOr<Shape> ShapeInference::InferSelectShape(

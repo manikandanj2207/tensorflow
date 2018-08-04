@@ -212,7 +212,7 @@ class _OpInfo(object):
 
   def __init__(self, op_def):
     self.op_def = op_def
-    # TODO(josh11b): SWIG the ValidateOpDef() function from C++ and call it
+    # TODO (josh11b): SWIG the ValidateOpDef() function from C++ and call it id:1969
     # here, instead of these checks.
     for arg in list(op_def.input_arg) + list(op_def.output_arg):
       num_type_fields = _NumTypeFields(arg)
@@ -253,7 +253,7 @@ def _MaybeColocateWith(inputs):
   if not inputs:
     yield
   else:
-    # NOTE(mrry): The `ops.colocate_with()` function accepts only a single
+    # NOTE (mrry): The `ops.colocate_with()` function accepts only a single id:1800
     # op or tensor, so we create one context manager per element in the list.
     with ops.colocate_with(inputs[0]), _MaybeColocateWith(inputs[1:]):
       yield
@@ -353,7 +353,7 @@ class OpDefLibrary(object):
     # will be used to choose a preferred dtype to convert to in the
     # absence of input type information.
     #
-    # TODO(b/31302892): Currently the defaults don't work in the right
+    # TODO (b/31302892): Currently the defaults don't work in the right id:2071
     # way if you have two inputs, one of whose type resolution depends
     # on the other.  Handling this will require restructuring this code
     # significantly.
@@ -756,7 +756,7 @@ class OpDefLibrary(object):
         raise TypeError("apply_op() got unexpected keyword arguments: " +
                         ", ".join(sorted(keywords.keys())))
 
-      # NOTE(mrry): We add an explicit colocation constraint between
+      # NOTE (mrry): We add an explicit colocation constraint between id:1728
       # the newly created op and any of its reference-typed inputs.
       must_colocate_inputs = [val for arg, val in zip(op_def.input_arg, inputs)
                               if arg.is_ref]

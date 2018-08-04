@@ -572,7 +572,7 @@ class TensorFlowTestCase(googletest.TestCase):
     if not np.allclose(a, b, rtol=rtol, atol=atol):
       # Prints more details than np.testing.assert_allclose.
       #
-      # NOTE: numpy.allclose (and numpy.testing.assert_allclose)
+      # NOTE: numpy.allclose (and numpy.testing.assert_allclose) id:1735
       # checks whether two arrays are element-wise equal within a
       # tolerance. The relative difference (rtol * abs(b)) and the
       # absolute difference atol are added together to compare against

@@ -241,8 +241,8 @@ Status RestoreTensorsV2(OpKernelContext* context, const Tensor& prefix,
   BundleReader reader(Env::Default(), prefix_string);
   TF_RETURN_IF_ERROR(reader.status());
 
-  // TODO(zongheng): potential optimization: one Seek() in first lookup.
-  // TODO(zongheng): consider measuring speed and issuing concurrent lookups
+  // TODO (zongheng): potential optimization: one Seek() in first lookup. id:1296
+  // TODO (zongheng): consider measuring speed and issuing concurrent lookups id:1498
   // within a fixed memory budget.
   TensorShape restored_full_shape;
   Tensor* restored_tensor = nullptr;

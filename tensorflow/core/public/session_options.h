@@ -43,7 +43,7 @@ struct SessionOptions {
   ///   host:port
   ///   ... other system-specific formats to identify tasks and jobs ...
   ///
-  /// NOTE: at the moment 'local' maps to an in-process service-based
+  /// NOTE: at the moment 'local' maps to an in-process service-based id:1702
   /// runtime.
   ///
   /// Upon creation, a single session affines itself to one of the

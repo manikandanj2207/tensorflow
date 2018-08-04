@@ -51,7 +51,7 @@ const char* const kXlaNumResourceArgsAttr = "_XlaNumResourceArgs";
 namespace {
 
 // A node/slot pair.
-// TODO(phawkins): is there a common definition of this?
+// TODO (phawkins): is there a common definition of this? id:47
 struct NodeSlot {
   NodeSlot() : node(nullptr), slot(-1) {}
   NodeSlot(const Node* node, int slot) : node(node), slot(slot) {}
@@ -153,7 +153,7 @@ class Encapsulator {
   TF_DISALLOW_COPY_AND_ASSIGN(Encapsulator);
 };
 
-// TODO(phawkins) add a canonical copy of these operator names and refactor
+// TODO (phawkins) add a canonical copy of these operator names and refactor id:101
 // everything to use it.
 static const char* const kArgOp = "_Arg";
 static const char* const kRetValOp = "_Retval";
@@ -401,7 +401,7 @@ Status Encapsulator::BuildParallelCheckOp(
   if (!s.ok()) return s;
   check_op->set_assigned_device_name(device);
 
-  // TODO(phawkins): it seems redundant to call AddEdge as well as
+  // TODO (phawkins): it seems redundant to call AddEdge as well as id:27
   // pass Inputs to the NodeDefBuilder, but I have been unable to find a
   // way to avoid it.
   for (int i = 0; i < num_results; ++i) {
@@ -663,7 +663,7 @@ Status EncapsulateSubgraphsPass::Run(
     // Renumber argument nodes in the graph.
     TF_RETURN_IF_ERROR(RenumberArguments(subgraph->get(), *input_permutation));
 
-    // TODO(phawkins): add a forward is-constant analysis, similarly split
+    // TODO (phawkins): add a forward is-constant analysis, similarly split id:165
     // outputs into host-memory constants and device-memory non-constants.
 
     AddNodeAttr(kXlaCompiledKernelAttr, true, node);

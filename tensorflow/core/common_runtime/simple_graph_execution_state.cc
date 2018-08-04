@@ -50,11 +50,11 @@ SimpleGraphExecutionState::SimpleGraphExecutionState(
       flib_def_(new FunctionLibraryDefinition(OpRegistry::Global(),
                                               graph_def->library())),
       graph_(nullptr) {
-  // NOTE(mrry): GraphDef does not have a move constructor, so we pass
+  // NOTE (mrry): GraphDef does not have a move constructor, so we pass id:695
   // a non-const pointer and use `Swap()` to transfer the contents
   // without copying.
   original_graph_def_.Swap(graph_def);
-  // TODO(mrry): Publish placement visualizations or handle the log
+  // TODO (mrry): Publish placement visualizations or handle the log id:928
   // placement option.
 }
 
@@ -71,7 +71,7 @@ SimpleGraphExecutionState::~SimpleGraphExecutionState() {
 
   TF_RETURN_IF_ERROR(AddDefaultAttrsToGraphDef(&ret->original_graph_def_,
                                                *ret->flib_def_.get(), 0));
-  // TODO(mrry): Refactor InitBaseGraph() so that we don't have to
+  // TODO (mrry): Refactor InitBaseGraph() so that we don't have to id:987
   // pass an empty BuildGraphOptions (that isn't going to be used when
   // place_pruned_graph is false).
   if (!ret->session_options_->config.graph_options().place_pruned_graph()) {
@@ -88,7 +88,7 @@ SimpleGraphExecutionState::~SimpleGraphExecutionState() {
     std::unique_ptr<SimpleGraphExecutionState>* out_state,
     std::unique_ptr<SimpleClientGraph>* out_client_graph) {
   DCHECK(options.session_options->config.graph_options().place_pruned_graph());
-  // NOTE(mrry): This makes a copy of `graph_def`, which is
+  // NOTE (mrry): This makes a copy of `graph_def`, which is id:812
   // regrettable. We could make `GraphDef` objects sharable between
   // execution states to optimize pruned graph execution, but since
   // this case is primarily used for interactive sessions, we make the
@@ -167,7 +167,7 @@ Status SimpleGraphExecutionState::Extend(
   }
 
   // 4. Copy the function library from this execution state.
-  // NOTE(mrry): To match the previous behavior, the first GraphDef
+  // NOTE (mrry): To match the previous behavior, the first GraphDef id:838
   // passed to a session will contain the function library that is
   // used for all subsequent execution states.
   *gdef.mutable_library() = flib_def_->ToProto();
@@ -185,7 +185,7 @@ Status SimpleGraphExecutionState::Extend(
   combined_options.session_options = session_options_;
   combined_options.stateful_placements = stateful_placements_;
 
-  // NOTE(mrry): `gdef` is no longer valid after the constructor
+  // NOTE (mrry): `gdef` is no longer valid after the constructor id:696
   // executes.
   std::unique_ptr<SimpleGraphExecutionState> new_execution_state(
       new SimpleGraphExecutionState(&gdef, combined_options));
@@ -193,14 +193,14 @@ Status SimpleGraphExecutionState::Extend(
   TF_RETURN_IF_ERROR(AddDefaultAttrsToGraphDef(
       &new_execution_state->original_graph_def_, *flib_def_.get(), 0));
   if (!session_options_->config.graph_options().place_pruned_graph()) {
-    // TODO(mrry): Refactor InitBaseGraph() so that we don't have to
+    // TODO (mrry): Refactor InitBaseGraph() so that we don't have to id:929
     // pass an empty BuildGraphOptions (that isn't going to be used
     // when place_pruned_graph is false).
     TF_RETURN_IF_ERROR(new_execution_state->InitBaseGraph(BuildGraphOptions()));
   }
   *out = std::move(new_execution_state);
 
-  // TODO(mrry): This is likely to be used for non-throughput-sensitive
+  // TODO (mrry): This is likely to be used for non-throughput-sensitive id:988
   // interactive workloads, but in future we may want to transfer other
   // parts of the placement and/or cost model.
   return Status::OK();
@@ -312,7 +312,7 @@ Status SimpleGraphExecutionState::InitBaseGraph(
       OptimizationPassRegistry::PRE_PLACEMENT, optimization_options));
 
   SimplePlacer placer(new_graph.get(), device_set_, session_options_);
-  // TODO(mrry): Consider making the SimplePlacer cancelable.
+  // TODO (mrry): Consider making the SimplePlacer cancelable. id:813
   TF_RETURN_IF_ERROR(placer.Run());
 
   TF_RETURN_IF_ERROR(OptimizationPassRegistry::Global()->RunGrouping(
@@ -359,7 +359,7 @@ Status SimpleGraphExecutionState::BuildGraph(
   std::unique_ptr<FunctionLibraryDefinition> flib(
       new FunctionLibraryDefinition(*flib_def_));
 
-  // TODO(andydavis): Clarify optimization pass requirements around CostModel.
+  // TODO (andydavis): Clarify optimization pass requirements around CostModel. id:839
   CostModel costs(true /*is_global*/);
   costs.MergeFromGlobal(costs_);
   GraphOptimizationPassOptions optimization_options;
@@ -380,7 +380,7 @@ Status SimpleGraphExecutionState::BuildGraph(
                             rewrite_metadata.fetch_types));
   CopyGraph(*ng, &dense_copy->graph);
 
-  // TODO(vrv): We should check invariants of the graph here.
+  // TODO (vrv): We should check invariants of the graph here. id:697
 
   *out = std::move(dense_copy);
   return Status::OK();

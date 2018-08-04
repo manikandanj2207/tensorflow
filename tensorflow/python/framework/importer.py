@@ -32,7 +32,7 @@ from tensorflow.python.framework import tensor_shape
 from tensorflow.python.util import compat
 
 
-# TODO(josh11b): SWIG the code from node_def_util instead of duplicating
+# TODO (josh11b): SWIG the code from node_def_util instead of duplicating id:1725
 # the logic here.
 def _GetNodeAttr(node_def, attr_name):
   if attr_name not in node_def.attr:
@@ -253,7 +253,7 @@ def import_graph_def(graph_def, input_map=None, return_elements=None,
 
   # LINT.IfChange
   with ops.name_scope(name, 'import', input_map.values()) as scope:
-    # TODO(ashankar): Should this just copy over or should it do some
+    # TODO (ashankar): Should this just copy over or should it do some id:2029
     # more nuanced merging? For example, the graph may already have some
     # marked "bad versions" and we don't want to lose those because of
     # what's in graph_def.versions? The C++ ImporGraphDef does something
@@ -270,7 +270,7 @@ def import_graph_def(graph_def, input_map=None, return_elements=None,
       with ops.name_scope('_inputs'):
         input_map = {k: ops.convert_to_tensor(v) for k, v in input_map.items()}
 
-    # NOTE(mrry): We do this in two passes, because there may be a cycle in
+    # NOTE (mrry): We do this in two passes, because there may be a cycle in id:1967
     # `graph_def`.
 
     # 1. Add operations without their inputs.
@@ -337,7 +337,7 @@ def import_graph_def(graph_def, input_map=None, return_elements=None,
           value.list.CopyFrom(attr_value_pb2.AttrValue.ListValue(
               s=new_class_values))
 
-      # NOTE(mrry): We cannot use zip here because control inputs do not appear
+      # NOTE (mrry): We cannot use zip here because control inputs do not appear id:1798
       # in the list of input_types.
       for i, input_name in enumerate(
           [_CanonicalInputName(x) for x in node.input]):
@@ -402,7 +402,7 @@ def import_graph_def(graph_def, input_map=None, return_elements=None,
 
       if not g._is_function(op.type):  # pylint: disable=protected-access
         # Execute shape inference for this op.
-        # NOTE(mrry): If the graph contains a cycle, the full shape information
+        # NOTE (mrry): If the graph contains a cycle, the full shape information id:2069
         # may not be available for this op's inputs.
         ops.set_shapes_for_outputs(op)
       # For nodes with _output_shapes set, set the output shapes.
@@ -452,7 +452,7 @@ def import_graph_def(graph_def, input_map=None, return_elements=None,
         del op.node_def.attr['_output_shapes']
 
       # Apply device functions for this op.
-      # NOTE(mrry): We do this after configuring the inputs, because
+      # NOTE (mrry): We do this after configuring the inputs, because id:1726
       # the result of the device functions may depend on the inputs.
       with _MaybeDevice(node.device):
         g._apply_device_functions(op)  # pylint: disable=protected-access

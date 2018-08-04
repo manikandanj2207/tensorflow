@@ -1179,7 +1179,7 @@ class ControlFlowTest(test.TestCase):
       r = control_flow_ops.while_loop(c, b, [n])
       self.assertAllEqual(10, r.eval())
 
-  # NOTE: It is ok to have parallel_iterations > 1
+  # NOTE: It is ok to have parallel_iterations > 1 id:1737
   def testWhileUpdateVariable_1(self):
     with self.test_session():
       select = variables.Variable([3.0, 4.0, 5.0])

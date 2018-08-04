@@ -562,7 +562,7 @@ def categorical_column_with_vocabulary_file(
   if not vocabulary_file:
     raise ValueError('Missing vocabulary_file in {}.'.format(key))
   # `vocabulary_size` isn't required for lookup, but it is for `_num_buckets`.
-  # TODO(ptucker): Should we fail for vocabulary_size==1?
+  # TODO (ptucker): Should we fail for vocabulary_size==1? id:2023
   if (vocabulary_size is None) or (vocabulary_size < 1):
     raise ValueError('Invalid vocabulary_size in {}.'.format(key))
   if num_oov_buckets:
@@ -980,7 +980,7 @@ class _LazyBuilder(object):
     return transformed
 
 
-# TODO(ptucker): Move to third_party/tensorflow/python/ops/sparse_ops.py
+# TODO (ptucker): Move to third_party/tensorflow/python/ops/sparse_ops.py id:1891
 def _shape_offsets(shape):
   """Returns moving offset for each dimension given shape."""
   offsets = []
@@ -993,7 +993,7 @@ def _shape_offsets(shape):
   return offsets
 
 
-# TODO(ptucker): Move to third_party/tensorflow/python/ops/sparse_ops.py
+# TODO (ptucker): Move to third_party/tensorflow/python/ops/sparse_ops.py id:1665
 def _to_sparse_input(input_tensor, ignore_value=None):
   """Converts a `Tensor` to a `SparseTensor`, dropping ignore_value cells.
 
@@ -1018,7 +1018,7 @@ def _to_sparse_input(input_tensor, ignore_value=None):
   with ops.name_scope(None, 'to_sparse_input', (input_tensor, ignore_value,)):
     input_rank = input_tensor.get_shape().ndims
     if input_rank is None:
-      # TODO(b/32318825): Implement dense_to_sparse_tensor for undefined rank.
+      # TODO (b/32318825): Implement dense_to_sparse_tensor for undefined rank. id:2063
       raise ValueError('Undefined input_tensor shape.')
     if ignore_value is None:
       ignore_value = '' if input_tensor.dtype == dtypes.string else -1
@@ -1486,7 +1486,7 @@ class _IdentityCategoricalColumn(
     return _CategoricalColumn.IdWeightPair(inputs.get(self), None)
 
 
-# TODO(zakaria): Move this to embedding_ops and make it public.
+# TODO (zakaria): Move this to embedding_ops and make it public. id:1598
 def _safe_embedding_lookup_sparse(embedding_weights,
                                   sparse_ids,
                                   sparse_weights=None,

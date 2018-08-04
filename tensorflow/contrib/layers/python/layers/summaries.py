@@ -37,7 +37,7 @@ __all__ = [
     'summarize_activations',
 ]
 
-# TODO(wicke): add more unit tests for summarization functions.
+# TODO (wicke): add more unit tests for summarization functions. id:450
 
 
 def _add_scalar_summary(tensor, tag=None):

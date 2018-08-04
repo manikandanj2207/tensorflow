@@ -29,7 +29,7 @@ class SameVariablesClearContainerTest(test.TestCase):
 
   # Verifies behavior of tf.Session.reset() with multiple containers using
   # default container names as defined by the target name.
-  # TODO(b/34465411): Starting multiple servers with different configurations
+  # TODO (b/34465411): Starting multiple servers with different configurations id:2296
   # in the same test is flaky. Move this test case back into
   # "server_lib_test.py" when this is no longer the case.
   def testSameVariablesClearContainer(self):

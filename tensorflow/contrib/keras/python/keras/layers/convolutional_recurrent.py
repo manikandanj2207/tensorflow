@@ -347,7 +347,7 @@ class ConvLSTM2D(ConvRecurrent2D):
 
   def build(self, input_shape):
     input_shape = tensor_shape.TensorShape(input_shape).as_list()
-    # TODO(fchollet): better handling of input spec
+    # TODO (fchollet): better handling of input spec id:447
     self.input_spec = InputSpec(shape=input_shape)
 
     if self.stateful:

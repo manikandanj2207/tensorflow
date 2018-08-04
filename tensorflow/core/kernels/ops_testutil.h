@@ -106,7 +106,7 @@ class OpsTestBase : public ::testing::Test {
   // 'input_mapping' maps an index (0...NumElements(shape)) to a
   // value.
   //
-  // TODO(vrv): Replace with something like a BrainClient Feed.
+  // TODO (vrv): Replace with something like a BrainClient Feed. id:1483
   template <typename T>
   void AddInput(const TensorShape& shape, std::function<T(int)> input_mapping) {
     CHECK_GT(input_types_.size(), inputs_.size())

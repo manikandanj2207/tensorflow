@@ -21,7 +21,7 @@ from __future__ import print_function
 from tensorflow.python.ops import nn
 
 
-# TODO(b/33392402): Formally deprecate this API.
+# TODO (b/33392402): Formally deprecate this API. id:605
 # After LSC (see b/33392402#comment1), this API will be deprecated and callers
 # will be suggested to use the (updated version of)
 # tf.nn.softmax_cross_entropy_with_logits.
@@ -68,7 +68,7 @@ def deprecated_flipped_softmax_cross_entropy_with_logits(logits,
       labels=labels, logits=logits, dim=dim, name=name)
 
 
-# TODO(b/33392402): Formally deprecate this API.
+# TODO (b/33392402): Formally deprecate this API. id:667
 # After LSC (see b/33392402#comment1), this API will be deprecated and callers
 # will be suggested to use the (updated version of)
 # tf.nn.sparse_softmax_cross_entropy_with_logits.
@@ -122,7 +122,7 @@ def deprecated_flipped_sparse_softmax_cross_entropy_with_logits(logits,
       labels=labels, logits=logits, name=name)
 
 
-# TODO(b/33392402): Formally deprecate this API.
+# TODO (b/33392402): Formally deprecate this API. id:521
 # After LSC (see b/33392402#comment1), this API will be deprecated and callers
 # will be suggested to use the (updated version of)
 # tf.nn.sigmoid_cross_entropy_with_logits.

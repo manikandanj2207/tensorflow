@@ -107,14 +107,14 @@ Status ValidateSignatureWithAttrs(const OpDef& sig,
     }
   }
 
-// TODO(josh11b): Enable this code once it works with function gradients.
+// TODO (josh11b): Enable this code once it works with function gradients. id:865
 // Right now the C++ function gradient code assumes it can pass
 // all the attrs of the function to the gradient, and any attrs that
 // the gradient doesn't care about will be ignored.
 #if 0
   if (attr_values.size() != sig.attr_size()) {
     for (const auto& a : attr_values) {
-      // TODO(josh11b): Possibly should ignore attrs that start with "_" here?
+      // TODO (josh11b): Possibly should ignore attrs that start with "_" here? id:959
       bool found = false;
       for (const auto& s : sig.attr()) {
         if (a.first == s.name()) {
@@ -452,7 +452,7 @@ string Print(const OpDef::ArgDef& arg) {
   return out;
 }
 
-// TODO(josh11b): Merge this with SummarizeAttrValue().
+// TODO (josh11b): Merge this with SummarizeAttrValue(). id:1199
 string Print(const AttrValue& attr_value) {
   if (attr_value.value_case() == AttrValue::kType) {
     return DataTypeString(attr_value.type());
@@ -480,7 +480,7 @@ string Print(const AttrValue& attr_value) {
   return SummarizeAttrValue(attr_value);
 }
 
-// TODO(josh11b): Merge this with SummarizeNodeDef().
+// TODO (josh11b): Merge this with SummarizeNodeDef(). id:1008
 string Print(const NodeDef& n) {
   string out;
   strings::StrAppend(&out, n.name(), " = ", n.op());
@@ -717,7 +717,7 @@ string DebugStringWhole(const GraphDef& gdef) {
 }
 
 bool FunctionDefsEqual(const FunctionDef& f1, const FunctionDef& f2) {
-  // NOTE(skyewm): Using MessageDifferencer would be better here, but that is
+  // NOTE (skyewm): Using MessageDifferencer would be better here, but that is id:1034
   // currently not included in tensorflow/core/platform/default/protobuf.h, so
   // play fast and loose here.  I don't see anything in OpDef that should allow
   // multiple equivalent string serializations, with the exception of

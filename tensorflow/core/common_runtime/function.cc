@@ -40,7 +40,7 @@ namespace tensorflow {
 
 // A few string constant used throughout this module.
 //
-// TODO(zhifengc): Dedup some of these constants into
+// TODO (zhifengc): Dedup some of these constants into id:801
 // framework/function.h
 static constexpr const char* const kArgOp = "_Arg";
 static constexpr const char* const kRetOp = "_Retval";
@@ -329,7 +329,7 @@ Status FunctionLibraryRuntimeImpl::CreateKernel(const NodeDef& ndef,
   const FunctionBody* fbody = GetFunctionBody(handle);
   CHECK_NOTNULL(fbody);
 
-  // TODO(zhifengc): For now, we assume int32 is always on host memory
+  // TODO (zhifengc): For now, we assume int32 is always on host memory id:686
   // and other types are always on device memory. We should do type
   // inference over function body to derive the correct input/output
   // memory types.
@@ -387,7 +387,7 @@ Status FunctionLibraryRuntimeImpl::InstantiateSymbolicGradient(
                                      func.name());
     }
     FunctionDef grad_fdef;
-    // TODO(josh11b): Should filter out the attrs from func that aren't used
+    // TODO (josh11b): Should filter out the attrs from func that aren't used id:919
     // by the gradient function.
     TF_RETURN_IF_ERROR(creator(AttrSlice(&func.attr()), &grad_fdef));
     TF_RETURN_IF_ERROR(FunctionDefToBody(grad_fdef, func.attr(), g_body));
@@ -454,7 +454,7 @@ Status FunctionLibraryRuntimeImpl::Instantiate(
 }
 
 void DumpGraph(StringPiece label, const Graph* g) {
-  // TODO(zhifengc): Change Graph to record #nodes.
+  // TODO (zhifengc): Change Graph to record #nodes. id:978
   VLOG(1) << "Graph " << label << " #nodes " << g->num_nodes() << " #edges "
           << g->num_edges();
   if (VLOG_IS_ON(2)) {
@@ -515,7 +515,7 @@ Status FunctionLibraryRuntimeImpl::GetOrCreateItem(Handle handle, Item** item) {
       return Status::OK();
     }
   }
-  // NOTE: We need to call CreateItem out of mu_ because creating an
+  // NOTE: We need to call CreateItem out of mu_ because creating an id:632
   // executor needs to call CreateKernel.
   TF_RETURN_IF_ERROR(CreateItem(handle, item));
 
@@ -560,7 +560,7 @@ void FunctionLibraryRuntimeImpl::Run(const Options& opts, Handle handle,
   exec_args.call_frame = frame;
   exec_args.cancellation_manager = opts.cancellation_manager;
   exec_args.runner = *opts.runner;
-  // TODO(zhifengc): we can avoid creating rendez here if we know
+  // TODO (zhifengc): we can avoid creating rendez here if we know id:802
   // there is no send/recv nodes in the graph.
   auto* rendez = new IntraProcessRendezvous(device_mgr_);
   exec_args.rendezvous = rendez;
@@ -995,7 +995,7 @@ string NewName(const Node* n, bool pretty) {
   }
 }
 
-// TODO(zhifengc): Maybe this should be the default Graph::AsGraphDef.
+// TODO (zhifengc): Maybe this should be the default Graph::AsGraphDef. id:687
 // and stash the original NodeDef name as an attr for documentation
 // purpose.
 void ToGraphDef(const Graph* g, GraphDef* gdef, bool pretty) {

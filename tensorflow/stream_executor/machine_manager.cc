@@ -31,7 +31,7 @@ mutex MachineManager::mu_{LINKER_INITIALIZED};
 MachineManager *MachineManager::singleton_ = nullptr;
 
 PlatformKind MachineManager::DetectPreferredPlatform() {
-// TODO(leary) for KNC card experiments, figure out a legitimate way to
+// TODO (leary) for KNC card experiments, figure out a legitimate way to id:2389
 // determine this. For now, we use a compile-time hint so we can compile tests
 // for both.
 #if defined TENSORFLOW_STREAM_EXECUTOR_MACHINE_MANAGER_PREFER_OPENCL

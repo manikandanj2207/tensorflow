@@ -721,7 +721,7 @@ XLA_TEST_F(ArrayElementwiseOpTest, SquareIn4DZeroElements) {
 // * fmax(NaN, x) = x
 // so we only test NAN on CPU.
 //
-// TODO(b/28180546): Make this compile in a way that is consistent
+// TODO (b/28180546): Make this compile in a way that is consistent id:284
 // among backends.
 TEST_F(ArrayElementwiseOpTest, MinF32s) {
   ComputationBuilder builder(client_, TestName());
@@ -752,7 +752,7 @@ XLA_TEST_F(ArrayElementwiseOpTest, MinZeroElementF32s) {
   ComputeAndCompareR1<float>(&builder, {}, {}, error_spec_);
 }
 
-// TODO(b/28180546): Make this compile in a way that is consistent
+// TODO (b/28180546): Make this compile in a way that is consistent id:253
 // among backends. See comment on MinF32s test above.
 XLA_TEST_F(ArrayElementwiseOpTest, MinF64s) {
   ComputationBuilder builder(client_, TestName());
@@ -775,7 +775,7 @@ XLA_TEST_F(ArrayElementwiseOpTest, MinF64s) {
                               {}, error_spec_);
 }
 
-// TODO(b/28180546): Make this compile in a way that is consistent
+// TODO (b/28180546): Make this compile in a way that is consistent id:201
 // among backends. See comment on MinF32s test above.
 TEST_F(ArrayElementwiseOpTest, MaxF32s) {
   ComputationBuilder builder(client_, TestName());
@@ -806,7 +806,7 @@ XLA_TEST_F(ArrayElementwiseOpTest, MaxZeroElementF32s) {
   ComputeAndCompareR1<float>(&builder, {}, {}, error_spec_);
 }
 
-// TODO(b/28180546): Make this compile in a way that is consistent
+// TODO (b/28180546): Make this compile in a way that is consistent id:333
 // among backends. See comment on MinF32s test above.
 XLA_TEST_F(ArrayElementwiseOpTest, MaxF64s) {
   ComputationBuilder builder(client_, TestName());

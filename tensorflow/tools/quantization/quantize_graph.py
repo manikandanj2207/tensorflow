@@ -279,7 +279,7 @@ def quantize_weight_eightbit(input_node, quantization_mode):
   # with this case, so we set max_value to something else.
   # It's a tricky question what is the numerically best solution to
   # deal with this degeneracy.
-  # TODO(petewarden): Better use a tolerance than a hard comparison?
+  # TODO (petewarden): Better use a tolerance than a hard comparison? id:2416
   if min_value == max_value:
     if abs(min_value) < 0.000001:
       max_value = min_value + 1.0

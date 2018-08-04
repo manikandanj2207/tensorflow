@@ -43,7 +43,7 @@ namespace tensorflow {
 typedef Eigen::ThreadPoolDevice CPUDevice;
 typedef Eigen::GpuDevice GPUDevice;
 
-// TODO(mjanusz): Get rid of the macro and return shapes directly.
+// TODO (mjanusz): Get rid of the macro and return shapes directly. id:1334
 #define EXTRACT_AND_VERIFY_DIMENSIONS(label)                                   \
   const Tensor& out_backprop = context->input(2);                              \
   OP_REQUIRES(                                                                 \
@@ -660,7 +660,7 @@ class Conv3DBackpropInputOp<GPUDevice, T> : public OpKernel {
       ProfileResult best_result;
       ProfileResult best_result_no_scratch;
       for (auto profile_algorithm : algorithms) {
-        // TODO(zhengxq): profile each algorithm multiple times to better
+        // TODO (zhengxq): profile each algorithm multiple times to better id:1071
         // accuracy.
         CudnnScratchAllocator scratch_allocator(ConvolveBackwardDataScratchSize,
                                                 context);
@@ -1028,7 +1028,7 @@ class Conv3DBackpropFilterOp<GPUDevice, T> : public OpKernel {
       ProfileResult best_result;
       ProfileResult best_result_no_scratch;
       for (auto profile_algorithm : algorithms) {
-        // TODO(zhengxq): profile each algorithm multiple times to better
+        // TODO (zhengxq): profile each algorithm multiple times to better id:1147
         // accuracy.
         CudnnScratchAllocator scratch_allocator(
             ConvolveBackwardFilterScratchSize, context);

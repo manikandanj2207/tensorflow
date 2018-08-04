@@ -33,7 +33,7 @@ from tensorflow.python.ops import math_ops
 from tensorflow.python.platform import tf_logging as logging
 
 
-# TODO(b/27419586) Change docstring for required dtype of x once int allowed
+# TODO (b/27419586) Change docstring for required dtype of x once int allowed id:1965
 def lbeta(x, name='lbeta'):
   r"""Computes \\(ln(|Beta(x)|)\\), reducing along the last dimension.
 

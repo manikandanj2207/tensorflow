@@ -26,7 +26,7 @@
 ########################################################
 
 # 1. Resolve the installed version of Python (for Python.h and python).
-# TODO(mrry): Parameterize the build script to enable Python 3 building.
+# TODO (mrry): Parameterize the build script to enable Python 3 building. id:261
 if(NOT PYTHON_INCLUDE_DIR)
   set(PYTHON_NOT_FOUND false)
   exec_program("${PYTHON_EXECUTABLE}"
@@ -58,7 +58,7 @@ endif(NOT NUMPY_INCLUDE_DIR)
 # Build the Python directory structure.
 ########################################################
 
-# TODO(mrry): Configure this to build in a directory other than tf_python/
+# TODO (mrry): Configure this to build in a directory other than tf_python/ id:292
 
 # Generates the Python protobuf wrappers.
 # ROOT_DIR must be absolute; subsequent arguments are interpreted as
@@ -132,7 +132,7 @@ RELATIVE_PROTOBUF_GENERATE_PYTHON(
     ${tensorflow_source_dir} PYTHON_PROTO_GENFILES ${tf_protos_python_srcs}
 )
 
-# NOTE(mrry): Avoid regenerating the tensorflow/core protos because this
+# NOTE (mrry): Avoid regenerating the tensorflow/core protos because this id:368
 # can cause benign-but-failing-on-Windows-due-to-file-locking conflicts
 # when two rules attempt to generate the same file.
 file(GLOB_RECURSE tf_python_protos_cc_srcs RELATIVE ${tensorflow_source_dir}
@@ -655,7 +655,7 @@ add_dependencies(tf_python_ops tf_python_op_gen_main)
 
 find_package(SWIG REQUIRED)
 # Generate the C++ and Python source code for the SWIG wrapper.
-# NOTE(mrry): We always regenerate the SWIG wrapper, which means that we must
+# NOTE (mrry): We always regenerate the SWIG wrapper, which means that we must id:376
 # always re-link the Python extension, but we don't have to track the
 # individual headers on which the SWIG wrapper depends.
 add_custom_command(

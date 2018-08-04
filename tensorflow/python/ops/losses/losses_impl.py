@@ -412,7 +412,7 @@ def log_loss(labels, predictions, weights=1.0, epsilon=1e-7, scope=None,
         losses, weights, scope, loss_collection, reduction=reduction)
 
 
-# TODO(b/37208492): Add reduction arg.
+# TODO (b/37208492): Add reduction arg. id:2154
 def mean_pairwise_squared_error(
     labels, predictions, weights=1.0, scope=None,
     loss_collection=ops.GraphKeys.LOSSES):
@@ -648,7 +648,7 @@ def softmax_cross_entropy(
         losses, weights, scope, loss_collection, reduction=reduction)
 
 
-# TODO(ptucker): Merge this with similar method in metrics_impl.
+# TODO (ptucker): Merge this with similar method in metrics_impl. id:1955
 def _remove_squeezable_dimensions(
     labels, predictions, weights=None, expected_rank_diff=0):
   """Internal version of _remove_squeezable_dimensions which handles weights.

@@ -76,7 +76,7 @@ class MatrixSolveOp : public LinearAlgebraOp<Scalar> {
     }
     Eigen::PartialPivLU<Matrix> lu_decomposition(matrix.rows());
     if (adjoint_) {
-      // TODO(rmlarsen): For Eigen 3.2, this creates a temporary copy.
+      // TODO (rmlarsen): For Eigen 3.2, this creates a temporary copy. id:1469
       // Make sure to backport: https://bitbucket.org/eigen/eigen/commits/
       // bd2219a74c96dfe3f6bc2c23588749e36d2d8173
       lu_decomposition.compute(matrix.adjoint());
@@ -95,7 +95,7 @@ class MatrixSolveOp : public LinearAlgebraOp<Scalar> {
     OP_REQUIRES(context, min_abs_pivot > RealScalar(0),
                 errors::InvalidArgument("Input matrix is not invertible."));
 
-    // TODO(rmlarsen): Add check based on condition number estimation.
+    // TODO (rmlarsen): Add check based on condition number estimation. id:1269
     // The necessary changes to Eigen are in
     // https://bitbucket.org/eigen/eigen/pull-requests/174/
     // add-matrix-condition-number-estimation/diff

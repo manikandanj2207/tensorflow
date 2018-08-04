@@ -122,7 +122,7 @@ class Bernoulli(distribution.Distribution):
 
   def _log_prob(self, event):
     event = self._maybe_assert_valid_sample(event)
-    # TODO(jaana): The current sigmoid_cross_entropy_with_logits has
+    # TODO (jaana): The current sigmoid_cross_entropy_with_logits has id:2193
     # inconsistent  behavior for logits = inf/-inf.
     event = math_ops.cast(event, self.logits.dtype)
     logits = self.logits

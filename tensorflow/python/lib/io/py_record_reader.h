@@ -34,7 +34,7 @@ class RecordReader;
 // by multiple threads.
 class PyRecordReader {
  public:
-  // TODO(vrv): make this take a shared proto to configure
+  // TODO (vrv): make this take a shared proto to configure id:1941
   // the compression options.
   static PyRecordReader* New(const string& filename, uint64 start_offset,
                              const string& compression_type_string,

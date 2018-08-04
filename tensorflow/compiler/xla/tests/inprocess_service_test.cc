@@ -91,7 +91,7 @@ XLA_TEST_F(InProcessServiceTest, TransferToServer) {
                              {data_handle.get()}, error_spec_);
 }
 
-// TODO(b/28506710): This test case seems not to test inprocess
+// TODO (b/28506710): This test case seems not to test inprocess id:255
 // methods.
 TEST_F(InProcessServiceTest, GetShape) {
   ComputationBuilder builder(client_, TestName());

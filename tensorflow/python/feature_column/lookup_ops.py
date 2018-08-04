@@ -793,7 +793,7 @@ class IdTableWithHashBuckets(LookupInterface):
     if self._num_oov_buckets == 0:
       ids = self._table.lookup(values, name=name)
     else:
-      # TODO(yleon): Consider moving this functionality to its own kernel.
+      # TODO (yleon): Consider moving this functionality to its own kernel. id:2024
       with ops.name_scope(name, "%s_Lookup" % self.name) as scope:
         str_to_hash_bucket = self._get_string_to_hash_bucket_fn(
             self._hasher_spec)
@@ -1164,7 +1164,7 @@ def index_to_string_table_from_file(vocabulary_file,
     init = TextFileStringTableInitializer(
         vocabulary_file, vocab_size=vocab_size, name="table_init")
 
-    # TODO(yleon): Use a more effienct structure.
+    # TODO (yleon): Use a more effienct structure. id:1892
     return HashTable(init, default_value, shared_name=shared_name, name=scope)
 
 
@@ -1224,7 +1224,7 @@ def index_to_string_table_from_tensor(mapping, default_value="UNK", name=None):
     shared_name = ""
     init = KeyValueTensorInitializer(
         keys, values, dtypes.int64, dtypes.string, name="table_init")
-    # TODO(yleon): Use a more effienct structure.
+    # TODO (yleon): Use a more effienct structure. id:1666
     return HashTable(init, default_value, shared_name=shared_name, name=scope)
 
 
@@ -1486,7 +1486,7 @@ class MutableDenseHashTable(LookupInterface):
   ```
   """
 
-  # TODO(andreasst): consider extracting common code with MutableHashTable into
+  # TODO (andreasst): consider extracting common code with MutableHashTable into id:2064
   # a common superclass.
   def __init__(self,
                key_dtype,

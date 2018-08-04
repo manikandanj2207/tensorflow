@@ -193,7 +193,7 @@ class ScatterNdOp : public OpKernel {
         functor(c->eigen_device<Device>(), slice_size, output_shape_prefix,   \
                 output_matrix, indices_flat, updates_flat, output_matrix);    \
   } break
-        // TODO(simister): Re-enable this once binary size is under control.
+        // TODO (simister): Re-enable this once binary size is under control. id:1568
         //      PARAMS_CASE(0);
         PARAMS_CASE(1);
         PARAMS_CASE(2);
@@ -281,7 +281,7 @@ class ScatterNdUpdateOp : public OpKernel {
         functor(c->eigen_device<Device>(), slice_size, output_shape_prefix, \
                 params_matrix, indices_flat, updates_flat, params_matrix);  \
   } break
-      // TODO(simister): Re-enable this once binary size is under control.
+      // TODO (simister): Re-enable this once binary size is under control. id:1297
       //      PARAMS_CASE(0);
       PARAMS_CASE(1);
       PARAMS_CASE(2);
@@ -338,7 +338,7 @@ class ScatterNdUpdateOp : public OpKernel {
                                     scatter_nd_op::UpdateOp::ADD); \
   REGISTER_SCATTER_ND_UPDATE_KERNEL(type, dev, "ScatterNdSub",     \
                                     scatter_nd_op::UpdateOp::SUB);
-// TODO(simister): Find a way to reduce amount of templated generated code
+// TODO (simister): Find a way to reduce amount of templated generated code id:1499
 // to reduce build size, then re-enable these additional operations.
 // REGISTER_SCATTER_ND_UPDATE_KERNEL(type, dev, "ScatterNdMul",
 //                                   scatter_nd_op::UpdateOp::MUL);
@@ -363,7 +363,7 @@ class ScatterNdUpdateOp : public OpKernel {
 #define REGISTER_SCATTER_ND_GPU(type) REGISTER_SCATTER_ND(type, GPU);
 
 TF_CALL_NUMBER_TYPES(REGISTER_SCATTER_ND_ADD_SUB_CPU);
-// TODO(simister): Re-enable all types after binary size is under control.
+// TODO (simister): Re-enable all types after binary size is under control. id:1187
 TF_CALL_NUMBER_TYPES(REGISTER_SCATTER_ND_UPDATE_CPU);
 TF_CALL_NUMBER_TYPES(REGISTER_SCATTER_ND_CPU);
 

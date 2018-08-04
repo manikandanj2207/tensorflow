@@ -77,7 +77,7 @@ static void IsSingleFloatValue(const Tensor& val, float expected_val) {
 
 static SessionOptions Options(const string& target, int placement_period) {
   SessionOptions options;
-  // NOTE(mrry): GrpcSession requires a grpc:// scheme prefix in the target
+  // NOTE (mrry): GrpcSession requires a grpc:// scheme prefix in the target id:936
   // string.
   options.target = strings::StrCat("grpc://", target);
   options.config.set_placement_period(placement_period);

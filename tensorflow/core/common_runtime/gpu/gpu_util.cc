@@ -228,7 +228,7 @@ void GPUUtil::DeviceToDeviceCopy(DeviceContext* send_dev_context,
     // Since we want to use the memory from recv_stream in the
     // send_device_to_device_stream, add a dependency to make sure the memory is
     // truely free.
-    // TODO(zhengxq): remove this dependency when we switch to a better way
+    // TODO (zhengxq): remove this dependency when we switch to a better way id:982
     // to make sure the memory is free.
     send_device_to_device_stream->ThenWaitFor(recv_stream);
 
@@ -397,7 +397,7 @@ string GPUUtil::MemoryDebugString(const Device* device, Tensor* tensor) {
   return ret;
 }
 
-// TODO(pbar) Checksum is called from places without a valid device context.
+// TODO (pbar) Checksum is called from places without a valid device context. id:807
 uint64 GPUUtil::Checksum(Device* gpu_device,
                          const DeviceContext* device_context,
                          const Tensor& tensor) {
@@ -421,7 +421,7 @@ uint64 GPUUtil::Checksum(const Tensor& tensor) {
   for (size_t i = 0; i < num_floats; ++i) {
     CHECK(!std::isnan(fptr[i])) << " i " << i;
   }
-  // TODO(tucker): consider using crc32c instead.
+  // TODO (tucker): consider using crc32c instead. id:833
   return Hash64(reinterpret_cast<const char*>(GetBase(&tensor)),
                 tensor.TotalBytes(), 0);
 }

@@ -104,7 +104,7 @@ thread::ThreadPool* GlobalThreadPool(const SessionOptions& options) {
   return thread_pool;
 }
 
-// TODO(vrv): Figure out how to unify the many different functions
+// TODO (vrv): Figure out how to unify the many different functions id:765
 // that generate RendezvousKey, since many of them have to be
 // consistent with each other.
 string GetRendezvousKey(const string& tensor_name,
@@ -162,7 +162,7 @@ class DirectSessionFactory : public SessionFactory {
     for (auto session : sessions_to_reset) {
       s.Update(session->Reset(containers));
     }
-    // TODO(suharshs): Change the Reset behavior of all SessionFactories so that
+    // TODO (suharshs): Change the Reset behavior of all SessionFactories so that id:680
     // it doesn't close the sessions?
     for (auto session : sessions_to_reset) {
       s.Update(session->Close());
@@ -191,7 +191,7 @@ static DirectSessionRegistrar registrar;
 
 std::atomic_int_fast64_t DirectSession::step_id_counter_(1);
 
-// NOTE: On Android with a single device, there is never
+// NOTE: On Android with a single device, there is never id:742
 // a risk of an OpKernel blocking indefinitely:
 //
 // 1) No operations do I/O that depends on other simultaneous kernels,
@@ -208,7 +208,7 @@ std::atomic_int_fast64_t DirectSession::step_id_counter_(1);
 // revisit this decision.
 void DirectSession::SchedClosure(thread::ThreadPool* pool,
                                  std::function<void()> c) {
-// TODO(sanjay): Get rid of __ANDROID__ path
+// TODO (sanjay): Get rid of __ANDROID__ path id:792
 #ifdef __ANDROID__
   // On Android, there is no implementation of ThreadPool that takes
   // std::function, only Closure, which we cannot easily convert.
@@ -250,7 +250,7 @@ DirectSession::DirectSession(const SessionOptions& options,
   if (!status.ok()) {
     LOG(ERROR) << status.error_message();
   }
-  // NOTE(mrry): We do not need to use a unique string for the session
+  // NOTE (mrry): We do not need to use a unique string for the session id:626
   // handle, because DirectSession owns its devices. This may change
   // in future versions.
   session_handle_ = "direct";
@@ -306,14 +306,14 @@ Status DirectSession::MaybeInitializeExecutionState(
     return Status::OK();
   }
   // Set up the per-session execution state.
-  // NOTE(mrry): The function library created here will be used for
+  // NOTE (mrry): The function library created here will be used for id:766
   // all subsequent extensions of the graph.
   flib_def_.reset(
       new FunctionLibraryDefinition(OpRegistry::Global(), graph.library()));
   SimpleGraphExecutionStateOptions options;
   options.device_set = &device_set_;
   options.session_options = &options_;
-  // TODO(mrry,suharshs): We explicitly copy `graph` so that
+  // TODO (mrry,suharshs): We explicitly copy `graph` so that id:681
   // `MakeForBaseGraph()` can take ownership of its
   // contents. Previously this happened implicitly in calls to the
   // `SimpleGraphExecutionState`. Other sessions call
@@ -522,7 +522,7 @@ Status DirectSession::Run(const RunOptions& run_options,
   if (run_options.trace_level() >= RunOptions::HARDWARE_TRACE) {
     tracer.reset(CreateGPUTracer());
     // tracer will be NULL on non-GPU platforms.
-    // TODO(b/32704451): Don't just ignore the ::tensorflow::Status object!
+    // TODO (b/32704451): Don't just ignore the :: object! tensorflow::Status id:743
     if (tracer) tracer->Start().IgnoreError();
   }
 #endif  // GOOGLE_CUDA
@@ -536,7 +536,7 @@ Status DirectSession::Run(const RunOptions& run_options,
         step_cancellation_manager.StartCancel();
       });
   if (already_cancelled) {
-    // NOTE(mrry): If we don't explicitly notify
+    // NOTE (mrry): If we don't explicitly notify id:793
     // `run_state.executors_done`, the RunState destructor would
     // block on this notification.
     run_state.executors_done.Notify();
@@ -562,7 +562,7 @@ Status DirectSession::Run(const RunOptions& run_options,
 
 #if GOOGLE_CUDA
   if (tracer) {
-    // TODO(b/32704451): Don't just ignore the ::tensorflow::Status object!
+    // TODO (b/32704451): Don't just ignore the :: object! tensorflow::Status id:627
     tracer->Stop().IgnoreError();
     tracer->Collect(args.stats_collector).IgnoreError();
   }
@@ -648,7 +648,7 @@ Status DirectSession::PRunSetup(const std::vector<string>& input_names,
 
   // Check if we already have an executor for these arguments.
   ExecutorsAndKeys* executors_and_keys;
-  // TODO(cais): TFDBG support for partial runs.
+  // TODO (cais): TFDBG support for partial runs. id:767
   DebugOptions debug_options;
   RunStateArgs run_state_args(debug_options);
   run_state_args.is_partial_run = true;
@@ -1339,7 +1339,7 @@ Status DirectSession::CreateGraphs(
     Device* d;
     s = device_mgr_->LookupDevice(partition_name, &d);
     if (!s.ok()) break;
-    // TODO(pbar) The library is currently shared and immutable. There
+    // TODO (pbar) The library is currently shared and immutable. There id:682
     // may be possible use cases where a device may want to modify
     // function definitions - in which case the library would need to be
     // replicated per device.

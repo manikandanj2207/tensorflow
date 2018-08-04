@@ -26,7 +26,7 @@ from tensorflow.core.framework import tensor_shape_pb2
 from tensorflow.python.framework import tensor_shape
 from tensorflow.python.util import compat
 
-# TODO(opensource): Add support for pyx_library in the open-source build.
+# TODO (opensource): Add support for pyx_library in the open-source build. id:2077
 # For now, we use the slow versions that fast_tensor_util replaces.
 # pylint: disable=g-import-not-at-top
 try:
@@ -50,7 +50,7 @@ def SlowAppendFloat16ArrayToTensorProto(tensor_proto, proto_values):
 
 if _FAST_TENSOR_UTIL_AVAILABLE:
   _NP_TO_APPEND_FN = {
-      # TODO(sesse): We should have a
+      # TODO (sesse): We should have a id:1734
       # fast_tensor_util.AppendFloat16ArrayToTensorProto,
       # but it seems np.float16_t doesn't exist?
       np.float16: SlowAppendFloat16ArrayToTensorProto,
@@ -76,7 +76,7 @@ if _FAST_TENSOR_UTIL_AVAILABLE:
           fast_tensor_util.AppendUInt8ArrayToTensorProto,
       dtypes.qint32.as_numpy_dtype:
           fast_tensor_util.AppendInt32ArrayToTensorProto,
-      # NOTE(touts): Intentionally no way to feed a DT_BFLOAT16.
+      # NOTE (touts): Intentionally no way to feed a DT_BFLOAT16. id:2038
   }
 else:
 
@@ -130,12 +130,12 @@ else:
       dtypes.qint16.as_numpy_dtype: SlowAppendQIntArrayToTensorProto,
       dtypes.quint16.as_numpy_dtype: SlowAppendQIntArrayToTensorProto,
       dtypes.qint32.as_numpy_dtype: SlowAppendQIntArrayToTensorProto,
-      # NOTE(touts): Intentionally no way to feed a DT_BFLOAT16.
+      # NOTE (touts): Intentionally no way to feed a DT_BFLOAT16. id:1976
   }
 
 
 def GetFromNumpyDTypeDict(dtype_dict, dtype):
-  # NOTE: dtype_dict.get(dtype) always returns None.
+  # NOTE: dtype_dict.get(dtype) always returns None. id:1807
   for key, val in six.iteritems(dtype_dict):
     if key == dtype:
       return val
@@ -594,7 +594,7 @@ def ShapeEquals(tensor_proto, shape):
 
 
 def _ConstantValue(tensor):
-  # TODO(touts): Support Variables?
+  # TODO (touts): Support Variables? id:2078
   if not isinstance(tensor, ops.Tensor):
     raise TypeError("tensor is not a Tensor")
   if tensor.op.type == "Const":

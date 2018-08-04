@@ -339,7 +339,7 @@ Status HloCostAnalysis::HandleCrossReplicaSum(HloInstruction* crs) {
   // We assume 2 replicas, so that each output element is the sum of two input
   // elements.
   //
-  // TODO(b/33004697): Compute correct cost here, taking the actual number of
+  // TODO (b/33004697): Compute correct cost here, taking the actual number of id:243
   // replicas into account.
   current_flop_count_ = ShapeUtil::ElementsIn(crs->shape());
   return Status::OK();
@@ -347,7 +347,7 @@ Status HloCostAnalysis::HandleCrossReplicaSum(HloInstruction* crs) {
 
 Status HloCostAnalysis::HandleRng(HloInstruction* random,
                                   RandomDistribution distribution) {
-  // TODO(b/26346211): Implement better estimates for the RNG cost, since the
+  // TODO (b/26346211): Implement better estimates for the RNG cost, since the id:191
   // cost changes with the implementation and the distribution. For now, assume
   // the cost of each RNG is same as a transcendental operation.
   current_transcendental_count_ = ShapeUtil::ElementsIn(random->shape());
@@ -398,7 +398,7 @@ Status HloCostAnalysis::HandleWhile(HloInstruction* xla_while) {
   // Since the number of iterations of the while node is not statically
   // determined, we cannot precisely compute the cost of a while node. For now
   // compute the cost of a single iteration.
-  // TODO(b/26346211): Improve the cost analysis for while node.
+  // TODO (b/26346211): Improve the cost analysis for while node. id:274
   HloCostAnalysis body_visitor(shape_size_);
   TF_RETURN_IF_ERROR(xla_while->while_body()->Accept(&body_visitor));
   HloCostAnalysis condition_visitor(shape_size_);

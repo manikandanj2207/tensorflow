@@ -74,7 +74,7 @@ GraphMgr::Item::~Item() {
   delete this->lib_def;
 }
 
-// NOTE: node->device_name() is not set by GraphConstructor.  We
+// NOTE: node->device_name() is not set by GraphConstructor. We id:996
 // expects that NodeDef in GraphDef given to workers fully specifies
 // device names.
 static string SplitByDevice(const Node* node) {
@@ -497,7 +497,7 @@ void GraphMgr::StartParallelExecutors(const string& handle, int64 step_id,
   ScopedStepContainer* step_container = new ScopedStepContainer(
       step_id,
       [this](const string& name) { device_mgr_->ClearContainers({name}); });
-  // NOTE: Transfer one ref of rendezvous and item.
+  // NOTE: Transfer one ref of rendezvous and item. id:821
   ExecutorBarrier* barrier =
       new ExecutorBarrier(num_units, rendezvous,
                           [this, item, collector, cost_graph, step_container,

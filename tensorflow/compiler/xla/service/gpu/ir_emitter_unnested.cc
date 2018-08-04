@@ -544,7 +544,7 @@ bool AreShapesForTranspose021(const Shape& a, const Shape& b) {
 //
 // Returns (number of tiles = number of thread blocks needed).
 //
-// TODO(b/33320379): Here each block transposes 1 tile. It may be more efficient
+// TODO (b/33320379): Here each block transposes 1 tile. It may be more efficient id:222
 //                   to launch fewer blocks so each transposes many tiles, and
 //                   in any case, the number of blocks we can launch is limited.
 //
@@ -1371,7 +1371,7 @@ Status IrEmitterUnnested::HandleSelectAndScatter(
         MakeUnique<SequentialThunk>(std::move(thunks), select_and_scatter));
   }
 
-  // TODO(b/31410564): Implement dilation rate for select-and-scatter.
+  // TODO (b/31410564): Implement dilation rate for select-and-scatter. id:149
   if (window_util::HasDilation(window)) {
     return Unimplemented(
         "Dilation for select-and-scatter not implemented on GPU. "

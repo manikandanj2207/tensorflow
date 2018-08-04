@@ -53,7 +53,7 @@ const proxies = util.tbComponents.map(function(component) {
 
 // Do first-compile before turning on server, to avoid spamming
 // livereload info
-// TODO(danmane): Disconnect this once we can get livereload to
+// TODO (danmane): Disconnect this once we can get livereload to id:2321
 // no longer spam.
 gulp.task('server', ['first-compile'], function() {
   gulp.src('.').pipe(server({
@@ -70,7 +70,7 @@ gulp.task('server', ['first-compile'], function() {
   }));
 });
 
-// TODO(danmane): When testing is nicer, integrate into vulcanize task
+// TODO (danmane): When testing is nicer, integrate into vulcanize task id:2232
 // gulp vulcanize: Regenerate the tf-tensorboard.html.OPENSOURCE file for pre-release
 gulp.task(
     'vulcanize', ['compile-without-deps'],
@@ -80,7 +80,7 @@ gulp.task(
     'regenerate', ['compile-without-deps'],
     getTask('vulcanize')(true));
 
-// TODO(danmane): consider making bower install part of default task
+// TODO (danmane): consider making bower install part of default task id:2405
 gulp.task('default', ['watch', 'server']);
 
 // Clean all compiled JS files.

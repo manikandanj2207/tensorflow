@@ -255,7 +255,7 @@ TEST_F(FunctionLibraryRuntimeTest, XTimesN) {
 }
 
 // Adds a function call to 'scope.
-// TODO(phawkins): replace with C++ API for calling functions, when that exists.
+// TODO (phawkins): replace with C++ API for calling functions, when that exists. id:804
 Output Call(Scope* scope, const string& op_name, const string& fn_name,
             gtl::ArraySlice<Input> inputs) {
   NodeDef def;
@@ -477,7 +477,7 @@ TEST_F(FunctionLibraryRuntimeTest, ControlDeps) {
   ASSERT_TRUE(g != nullptr);
   OptimizeGraph(lib_.get(), &g);
 
-  // NOTE: We can remove func0, func1, func2, func9 with a control edge n8->n5.
+  // NOTE: We can remove func0, func1, func2, func9 with a control edge n8->n5. id:803
   // But we don't have a pass doing that.
   {
     Scope s = Scope::NewRootScope();
@@ -903,7 +903,7 @@ TEST(OptimizationTest, RemoveDeadNodes) {
   }
   TF_EXPECT_GRAPH_EQ(expected, Optimize(DoNothing, func));
 
-  // TODO(zhifengc): Comes up another test case.
+  // TODO (zhifengc): Comes up another test case. id:688
   TF_EXPECT_GRAPH_EQ(expected, Optimize(::tensorflow::RemoveDeadNodes, func));
 }
 
@@ -1159,7 +1159,7 @@ TEST(OptimizationTest, RemoveListArrayConverter_WithContolDeps) {
   auto remove_listarray_and_identity = [](Graph* g) {
     return RemoveListArrayConverter(g) && RemoveIdentityNodes(g);
   };
-  // NOTE: We are not removing Identity nodes with any control
+  // NOTE: We are not removing Identity nodes with any control id:921
   // dependencies yet.
   TF_EXPECT_GRAPH_EQ(expected, Optimize(remove_listarray_and_identity, func));
 }

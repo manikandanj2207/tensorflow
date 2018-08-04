@@ -85,7 +85,7 @@ def ndlstm_base_dynamic(inputs, noutput, scope=None, reverse=False):
     Output sequence (length, batch_size, noutput)
   """
   with variable_scope.variable_scope(scope, "SeqLstm", [inputs]):
-    # TODO(tmb) make batch size, sequence_length dynamic
+    # TODO (tmb) make batch size, sequence_length dynamic id:604
     # example: sequence_length = tf.shape(inputs)[0]
     _, batch_size, _ = _shape(inputs)
     lstm_cell = core_rnn_cell_impl.BasicLSTMCell(noutput, state_is_tuple=False)
@@ -122,7 +122,7 @@ def ndlstm_base(inputs, noutput, scope=None, reverse=False, dynamic=True):
     Output sequence (length, batch_size, noutput)
 
   """
-  # TODO(tmb) maybe add option for other LSTM implementations, like
+  # TODO (tmb) maybe add option for other LSTM implementations, like id:666
   # slim.rnn.basic_lstm_cell
   if dynamic:
     return ndlstm_base_dynamic(inputs, noutput, scope=scope, reverse=reverse)
@@ -183,7 +183,7 @@ def sequence_softmax(inputs, noutput, scope=None, name=None, linear_name=None):
     for i in xrange(length):
       with variable_scope.variable_scope(scope, "SequenceSoftmaxStep",
                                          [inputs_u[i]]):
-        # TODO(tmb) consider using slim.fully_connected(...,
+        # TODO (tmb) consider using slim.fully_connected(..., id:520
         # activation_fn=tf.nn.softmax)
         linear = nn_ops.xw_plus_b(inputs_u[i], w, b, name=linear_name)
         output = nn_ops.softmax(linear)

@@ -1085,7 +1085,7 @@ class MeanPairwiseSquaredErrorTest(test.TestCase):
         [[8, 1, 3], [7, 8, 9], [10, 11, 12]],
     ])
     self._test_valid_weights(
-        # TODO(ptucker): This doesn't look right.
+        # TODO (ptucker): This doesn't look right. id:2088
         labels, predictions, expected_loss=9 * 122.22222,
         weights=np.ones((2, 3, 3)))
 

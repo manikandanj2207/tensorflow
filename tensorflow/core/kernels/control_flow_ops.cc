@@ -80,7 +80,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_GPU_REF_SWITCH);
 #undef REGISTER_GPU_REF_SWITCH
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1233
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_GPU_HOST_KERNEL(type)                    \
   REGISTER_KERNEL_BUILDER(Name("Switch")                  \
@@ -256,7 +256,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_SYCL_REF_KERNEL);
 #endif // TENSORFLOW_USE_SYCL
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1330
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_GPU_HOST_KERNEL(type)                    \
   REGISTER_KERNEL_BUILDER(Name("Merge")                   \
@@ -348,7 +348,7 @@ REGISTER_SYCL_HOST_KERNEL(ResourceHandle);
 #endif
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1067
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_GPU_HOST_KERNEL(type)                    \
   REGISTER_KERNEL_BUILDER(Name("Enter")                   \
@@ -416,7 +416,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_SYCL_REF_KERNEL);
 #undef REGISTER_SYCL_REF_KERNEL
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1143
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_SYCL_HOST_KERNEL(type)                   \
   REGISTER_KERNEL_BUILDER(Name("Exit")                    \
@@ -438,7 +438,7 @@ REGISTER_SYCL_HOST_KERNEL(string);
 #endif // TENSORFLOW_USE_SYCL
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1089
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_GPU_HOST_KERNEL(type)                    \
   REGISTER_KERNEL_BUILDER(Name("Exit")                    \
@@ -486,7 +486,7 @@ REGISTER_GPU_KERNEL(bool);
 #undef REGISTER_GPU_KERNEL
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1234
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_GPU_HOST_KERNEL(type)                    \
   REGISTER_KERNEL_BUILDER(Name("NextIteration")           \
@@ -530,7 +530,7 @@ REGISTER_GPU_HOST_KERNEL(string);
 #undef REGISTER_SYCL_REF_KERNEL
 
 // Special GPU kernels for int32 and string.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1331
 // registration requires all int32 inputs and outputs to be in host memory.
 #define REGISTER_SYCL_HOST_KERNEL(type)                   \
   REGISTER_KERNEL_BUILDER(Name("NextIteration")           \

@@ -368,7 +368,7 @@ std::string StatSummarizer::GetStatsByMetric(const string& title,
       break;
     }
 
-    // TODO(andrewharp): Make this keep track of the particular metric for cdf.
+    // TODO (andrewharp): Make this keep track of the particular metric for cdf. id:1706
     cumulative_stat_on_node += detail->rel_end_us.sum();
     stream << ColumnString(*detail, cumulative_stat_on_node, run_total_us_)
            << std::endl;

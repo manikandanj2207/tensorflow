@@ -103,7 +103,7 @@ TEST_F(SliceTest, SliceLastFourOf1024) {
   ComputeAndCompareR1<float>(&builder, expected, {}, ErrorSpec(0.000001));
 }
 
-// TODO(b/28491443): Fix wrong result on CPU and GPU. Failed on
+// TODO (b/28491443): Fix wrong result on CPU and GPU. Failed on id:288
 // 2016-05-01. Also b/28508652
 TEST_F(SliceTest, DISABLED_SliceUnaligned1024In4096Values) {
   std::vector<float> values(4096);

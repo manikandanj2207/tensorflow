@@ -157,7 +157,7 @@ bool Snappy_Uncompress(const char* input, size_t length, char* output) {
 string Demangle(const char* mangled) { return mangled; }
 
 double NominalCPUFrequency() {
-  // TODO(yuefengz): implement it for this platform.
+  // TODO (yuefengz): implement it for this platform. id:1839
   return 1.0;
 }
 

@@ -335,7 +335,7 @@ class UniformUnitScalingInitializationTest(test.TestCase):
         dtype=dtypes.string)
 
 
-# TODO(vrv): move to sequence_ops_test?
+# TODO (vrv): move to sequence_ops_test? id:2087
 class RangeTest(test.TestCase):
 
   def _Range(self, start, limit, delta):
@@ -418,7 +418,7 @@ class RangeTest(test.TestCase):
             0, 0, 1, dtype=dtypes.float64).dtype, dtypes.float64)
 
 
-# TODO(vrv): move to sequence_ops_test?
+# TODO (vrv): move to sequence_ops_test? id:1744
 class LinSpaceTest(test.TestCase):
 
   def _gpu_modes(self):
@@ -428,7 +428,7 @@ class LinSpaceTest(test.TestCase):
       return [False]
 
   def _LinSpace(self, start, stop, num):
-    # NOTE(touts): Needs to pass a graph to get a new session each time.
+    # NOTE (touts): Needs to pass a graph to get a new session each time. id:2141
     with ops.Graph().as_default() as graph:
       with self.test_session(graph=graph, force_gpu=self.force_gpu):
         tf_ans = math_ops.linspace(start, stop, num, name="linspace")

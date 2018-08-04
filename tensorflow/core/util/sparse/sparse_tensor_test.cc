@@ -560,7 +560,7 @@ TEST(SparseTensorTest, Concat) {
   EXPECT_EQ(conc_ooo.num_entries(), 4 * N);
 }
 
-// TODO(ebrevdo): ReduceToDense(R={dim1,dim2,...}, reduce_fn, &output)
+// TODO (ebrevdo): ReduceToDense(R={dim1,dim2,...}, reduce_fn, &output) id:1778
 // reduce_fn sees slices of resorted values based on generator (dim: DDIMS), and
 // slices of resorted indices on generator.
 

@@ -107,7 +107,7 @@ static bool GetQuantized() {
 }
 
 TEST(TypesTest, QuantizedTypes) {
-  // NOTE: GUnit cannot parse is::quantized<TYPE>::value() within the
+  // NOTE: GUnit cannot parse within the is::quantized<TYPE>::value() id:1119
   // EXPECT_TRUE() clause, so we delegate through a template function.
   EXPECT_TRUE(GetQuantized<qint8>());
   EXPECT_TRUE(GetQuantized<quint8>());

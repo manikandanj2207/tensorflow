@@ -497,7 +497,7 @@ Service::ExecuteParallelAndRegisterResult(
     Backend* backend,
     tensorflow::gtl::ArraySlice<perftools::gputools::StreamExecutor*> executors,
     tensorflow::gtl::ArraySlice<string> result_tags) {
-  // TODO(b/33943292): Support for replication when using multiple computations.
+  // TODO (b/33943292): Support for replication when using multiple computations. id:230
   TF_RET_CHECK(backend->Replicas().size() == 1);
 
   // Set up streams.
@@ -924,7 +924,7 @@ tensorflow::Status Service::TransferToServer(const TransferToServerRequest* arg,
   const Shape& shape = literal.shape();
 
   if (ShapeUtil::IsTuple(shape) && execute_backend_->Replicas().size() > 1) {
-    // TODO(b/32990684): Tuple transfers to host end up allocating further
+    // TODO (b/32990684): Tuple transfers to host end up allocating further id:280
     // buffers - implement that correctly.
     return Unimplemented(
         "Tuple transfers to the device not supported with replication.");
@@ -1042,7 +1042,7 @@ tensorflow::Status Service::TransferToServerInProcess(
   const Shape& shape = arg->shape();
 
   if (ShapeUtil::IsTuple(shape) && execute_backend_->Replicas().size() > 1) {
-    // TODO(b/32990684): Tuple transfers to host end up allocating further
+    // TODO (b/32990684): Tuple transfers to host end up allocating further id:249
     // buffers - implement that correctly.
     return Unimplemented(
         "Tuple transfers to the device not supported with replication.");

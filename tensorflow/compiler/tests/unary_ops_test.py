@@ -136,7 +136,7 @@ class UnaryOpsTest(XLATestCase):
       self._assertOpOutputMatchesExpected(
           nn_ops.l2_loss, np.array([[[]]], dtype=dtype), expected=dtype(0))
 
-      # TODO(b/31644876): enable this test case when fixed.
+      # TODO (b/31644876): enable this test case when fixed. id:57
       # self._assertOpOutputMatchesExpected(tf.nn.l2_loss, dtype(4), dtype(10))
 
       self._assertOpOutputMatchesExpected(
@@ -152,7 +152,7 @@ class UnaryOpsTest(XLATestCase):
           np.array([[1, 2]], dtype=dtype),
           expected=np.array([[0, 0.69314718]], dtype=dtype))
 
-      # TODO(b/34703906): improve log1p implementation and make tolerance
+      # TODO (b/34703906): improve log1p implementation and make tolerance id:111
       # tighter.
       self._assertOpOutputMatchesExpected(
           math_ops.log1p,

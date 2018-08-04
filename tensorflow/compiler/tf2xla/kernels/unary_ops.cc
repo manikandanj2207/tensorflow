@@ -53,7 +53,7 @@ XLAJIT_MAKE_UNARY(Inv, b->Div(XlaHelpers::One(b, input_type(0)), x));
 XLAJIT_MAKE_UNARY(Reciprocal, b->Div(XlaHelpers::One(b, input_type(0)), x));
 XLAJIT_MAKE_UNARY(Log, b->Log(x));
 
-// TODO(b/34703906): use a more accurate implementation of log1p.
+// TODO (b/34703906): use a more accurate implementation of log1p. id:121
 XLAJIT_MAKE_UNARY(Log1p, b->Log(b->Add(XlaHelpers::One(b, input_type(0)), x)));
 
 XLAJIT_MAKE_UNARY(LogicalNot, b->LogicalNot(x));

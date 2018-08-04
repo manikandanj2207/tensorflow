@@ -377,7 +377,7 @@ class Conv2DTest(test.TestCase):
         padding="VALID",
         expected=[50, 60])
 
-    # TODO this currently fails.
+    # TODO this currently fails. id:2134
     #self._VerifyValues(tensor_in_sizes=[1, 8, 8, 1],
     #                   filter_in_sizes=[2, 2, 1, 1],
     #                   strides=[4, 4], padding="SAME",
@@ -683,7 +683,7 @@ class Conv2DTest(test.TestCase):
                                use_gpu):
     input_shape = [batch, input_rows, input_cols, in_depth]
     filter_shape = [filter_rows, filter_cols, in_depth, out_depth]
-    # TODO(yangke): re-factor the computation of output shape.
+    # TODO (yangke): re-factor the computation of output shape. id:1979
     if padding == "VALID":
       output_rows = (input_rows - filter_rows + stride_rows) // stride_rows
       output_cols = (input_cols - filter_cols + stride_cols) // stride_cols

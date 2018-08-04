@@ -143,7 +143,7 @@ class CudnnRNNTest(TensorFlowTestCase):
                         input_mode="auto_select",
                         direction="unidirection"):
     if direction != "unidirection":
-      # TODO(zhengxq): support bidirection in parameter size estimate.
+      # TODO (zhengxq): support bidirection in parameter size estimate. id:264
       raise ValueError("Only unidirection in parameter size estimate")
     first_layer_weights = 4 * num_units * (num_units + input_size)
     higher_layer_weights = 8 * (num_layers - 1) * num_units * num_units

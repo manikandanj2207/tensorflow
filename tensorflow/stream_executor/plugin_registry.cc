@@ -226,7 +226,7 @@ bool PluginRegistry::HasFactory(Platform::Id platform_id,
                               generic_factories_.FACTORY_VAR);                \
   }                                                                           \
                                                                               \
-  /* TODO(b/22689637): Also temporary WRT MultiPlatformManager */             \
+  /* TODO (b/22689637): Also temporary WRT MultiPlatformManager id:2178*/             \
   template <>                                                                 \
   port::StatusOr<PluginRegistry::FACTORY_TYPE> PluginRegistry::GetFactory(    \
       PlatformKind platform_kind, PluginId plugin_id) {                       \

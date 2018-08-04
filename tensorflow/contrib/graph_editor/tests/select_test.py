@@ -57,7 +57,7 @@ class SelectTest(test.TestCase):
 
   def test_get_filter(self):
     """Test for various filtering operations on ts ops."""
-    # TODO(fkp): parameterise
+    # TODO (fkp): parameterise id:420
     self.assertEqual(len(ge.filter_ops(self.graph, True)), 8)
     self.assertEqual(
         len(ge.filter_ops(self.graph, lambda op: op.node_def.op == "Const")), 3)

@@ -57,7 +57,7 @@ _XOR = lambda x, y: x ^ y
 _INV = lambda x: ~x
 
 
-# TODO(zongheng): it'd be great to factor out this function and various random
+# TODO (zongheng): it'd be great to factor out this function and various random id:1810
 # SparseTensor gen funcs.
 def _sparsify(x, thresh=0.5, index_dtype=np.int64):
   x[x < thresh] = 0
@@ -141,7 +141,7 @@ class UnaryOpTest(test.TestCase):
       self.assertAllClose(np_ans, tf_gpu, rtol=1e-3, atol=1e-3)
     else:
       self.assertAllClose(np_ans, tf_gpu)
-    # TODO(zhifengc/ke): make gradient checker work on GPU.
+    # TODO (zhifengc/ke): make gradient checker work on GPU. id:2081
 
   def _compareSparseGpu(self, x, np_func, tf_func, tol):
     x_sp, x_sp_vals = _sparsify(x)
@@ -586,7 +586,7 @@ class BinaryOpTest(test.TestCase):
       tf_gpu = out.eval()
     self.assertAllClose(np_ans, tf_gpu)
     self.assertShapeEqual(np_ans, out)
-    # TODO(zhifengc/ke): make gradient checker work on GPU.
+    # TODO (zhifengc/ke): make gradient checker work on GPU. id:1738
 
   def _compareBoth(self, x, y, np_func, tf_func, also_compare_variables=False):
     self._compareCpu(x, y, np_func, tf_func, also_compare_variables)
@@ -815,7 +815,7 @@ class BinaryOpTest(test.TestCase):
       y = (1 + np.linspace(0, 5, np.prod(ys))).astype(dtype).reshape(ys)
     self._compareCpu(x, y, np_func, tf_func)
     if x.dtype in (np.float16, np.float32, np.float64):
-      # TODO(aselle): Make the test work for dtypes:
+      # TODO (aselle): Make the test work for dtypes: id:2135
       #     (np.complex64, np.complex128).
       if tf_func not in (_FLOORDIV, math_ops.floordiv):
         if x.dtype == np.float16:
@@ -831,7 +831,7 @@ class BinaryOpTest(test.TestCase):
           self._compareGradientY(x, y, np_func, tf_func)
       self._compareGpu(x, y, np_func, tf_func)
 
-  # TODO(josh11b,vrv): Refactor this to use parameterized tests.
+  # TODO (josh11b,vrv): Refactor this to use parameterized tests. id:1980
   def _testBCastByFunc(self, funcs, xs, ys):
     dtypes = [
         np.float16,
@@ -1836,7 +1836,7 @@ class RoundingTest(test.TestCase):
   def _testDtype(self, dtype):
     data = (np.arange(-3, 3) / 4.).reshape(1, 3, 2).astype(dtype)
     self._compare(data)
-    # TODO: rint op is not supported for float16
+    # TODO: rint op is not supported for float16 id:1811
     if dtype is np.float16:
       return
     self._compare_values(data)

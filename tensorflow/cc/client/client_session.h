@@ -87,7 +87,7 @@ class ClientSession {
              const std::vector<Operation>& run_outputs,
              std::vector<Tensor>* outputs, RunMetadata* run_metadata) const;
 
-  // TODO(keveman): Add support for partial run.
+  // TODO (keveman): Add support for partial run. id:5
 
  private:
   class Impl;

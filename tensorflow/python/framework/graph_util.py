@@ -31,7 +31,7 @@ from tensorflow.python.framework.graph_util_impl import tensor_shape_from_node_d
 from tensorflow.python.util.all_util import remove_undocumented
 
 _allowed_symbols = [
-    # TODO(drpng): find a good place to reference this.
+    # TODO (drpng): find a good place to reference this. id:2068
     "convert_variables_to_constants",
     "extract_sub_graph",
     "must_run_on_cpu",

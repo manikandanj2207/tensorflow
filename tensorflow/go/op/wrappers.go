@@ -10820,7 +10820,7 @@ func ReciprocalGrad(scope *Scope, x tf.Output, y tf.Output) (z tf.Output) {
 
 // Reverses specific dimensions of a tensor.
 //
-// NOTE `tf.reverse` has now changed behavior in preparation for 1.0.
+// NOTE `tf.reverse` has now changed behavior in preparation for 1.0. id:1873
 // `tf.reverse_v2` is currently an alias that will be deprecated before TF 1.0.
 //
 // Given a `tensor`, and a `int32` tensor `axis` representing the set of

@@ -173,7 +173,7 @@ struct ScatterNdFunctor<CPUDevice, T, Index, OP, IXDIM> {
 #define REGISTER_SCATTER_ND_MATH(type)                           \
   REGISTER_SCATTER_ND_INDEX(type, scatter_nd_op::UpdateOp::ADD); \
   REGISTER_SCATTER_ND_INDEX(type, scatter_nd_op::UpdateOp::SUB);
-// TODO(simister): Re-enable after identifying a way to reduce the binary size
+// TODO (simister): Re-enable after identifying a way to reduce the binary size id:1529
 // due to too many template instantiations.
 //  REGISTER_SCATTER_ND_INDEX(type, scatter_nd_op::UpdateOp::MUL);
 //  REGISTER_SCATTER_ND_INDEX(type, scatter_nd_op::UpdateOp::DIV);

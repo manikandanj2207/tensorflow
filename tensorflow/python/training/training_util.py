@@ -29,7 +29,7 @@ from tensorflow.python.ops import variables
 from tensorflow.python.platform import tf_logging as logging
 
 
-# TODO(drpng): remove this after legacy uses are resolved.
+# TODO (drpng): remove this after legacy uses are resolved. id:2379
 write_graph = graph_io.write_graph
 
 

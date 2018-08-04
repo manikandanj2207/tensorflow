@@ -177,7 +177,7 @@ class SimplePlacerTest : public ::testing::Test {
  protected:
   SimplePlacerTest() {
     // Build a set of 10 GPU and 10 CPU devices.
-    // NOTE: this->local_devices_ owns the device objects;
+    // NOTE: this->local_devices_ owns the device objects; id:700
     // this->devices_ contains borrowed pointers to the device
     // objects.
     for (int i = 0; i < 10; ++i) {

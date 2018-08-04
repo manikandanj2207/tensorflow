@@ -43,7 +43,7 @@ class GatherOp : public OpKernel {
     OP_REQUIRES_OK(c, c->MatchSignature({dt, index_t}, {dt}));
     // We used to grab the validate_indices attribute here, but now we
     // always validate indices since the speed difference was only 1.5%.
-    // TODO(irving): Remove the validate_indices attribute once we have
+    // TODO (irving): Remove the validate_indices attribute once we have id:1365
     // support for removing attrs in a backwards compatible way.
   }
 

@@ -200,7 +200,7 @@ class MixtureTest(test.TestCase):
     with self.assertRaisesWithPredicateMatch(ValueError, "non-empty list"):
       distributions_py.Mixture(distributions_py.Categorical([0.3, 0.2]), None)
 
-    # TODO(ebrevdo): once distribution Domains have been added, add a
+    # TODO (ebrevdo): once distribution Domains have been added, add a id:316
     # test to ensure that the domains of the distributions in a
     # mixture are checked for equivalence.
 

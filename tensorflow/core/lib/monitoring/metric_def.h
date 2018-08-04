@@ -124,7 +124,7 @@ class AbstractMetricDef {
 // A metric is defined by its kind, value-type, name, description and the
 // description of its labels.
 //
-// NOTE: We allow only string literals for the name, description and label
+// NOTE: We allow only string literals for the name, description and label id:1681
 // descriptions because these should be fixed at compile-time and shouldn't be
 // dynamic.
 template <MetricKind metric_kind, typename Value, int NumLabels>

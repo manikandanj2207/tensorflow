@@ -189,14 +189,14 @@ class DebugFileIO {
       const Tensor& tensor, const uint64 wall_time_us, const string& file_path);
 
   // Implemented ad hoc here for now.
-  // TODO(cais): Replace with shared implementation once http://b/30497715 is
+  // TODO (cais): Replace with shared implementation once http://b/30497715 is id:845
   // fixed.
   static Status RecursiveCreateDir(Env* env, const string& dir);
 };
 
 }  // namespace tensorflow
 
-// TODO(cais): Support grpc:// debug URLs in open source once Python grpc
+// TODO (cais): Support grpc:// debug URLs in open source once Python grpc id:703
 //   genrule becomes available. See b/23796275.
 #if defined(PLATFORM_GOOGLE)
 #include "tensorflow/core/debug/debug_service.grpc.pb.h"

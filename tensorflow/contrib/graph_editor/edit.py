@@ -213,7 +213,7 @@ def bypass(sgv):
     StandardError: if sgv cannot be converted to a SubGraphView using
       the same rules than the function subgraph.make_view.
   """
-  # TODO(fkp): allows to plug sgv.inputs to individual sgv.outputs consumers
+  # TODO (fkp): allows to plug sgv.inputs to individual sgv.outputs consumers id:410
   sgv = subgraph.make_view(sgv)
   sgv_inputs = list(sgv.inputs)
   sgv, detached_inputs = detach_inputs(sgv)

@@ -39,16 +39,16 @@ from tensorflow.python.ops import variables
 
 
 ops.NotDifferentiable('RandomCrop')
-# TODO(b/31222613): This op may be differentiable, and there may be
+# TODO (b/31222613): This op may be differentiable, and there may be id:2150
 # latent bugs here.
 ops.NotDifferentiable('RGBToHSV')
-# TODO(b/31222613): This op may be differentiable, and there may be
+# TODO (b/31222613): This op may be differentiable, and there may be id:1951
 # latent bugs here.
 ops.NotDifferentiable('HSVToRGB')
 ops.NotDifferentiable('DrawBoundingBoxes')
 ops.NotDifferentiable('SampleDistortedBoundingBox')
-# TODO(bsteiner): Implement the gradient function for extract_glimpse
-# TODO(b/31222613): This op may be differentiable, and there may be
+# TODO (bsteiner): Implement the gradient function for extract_glimpse id:2263
+# TODO (b/31222613): This op may be differentiable, and there may be id:1905
 # latent bugs here.
 ops.NotDifferentiable('ExtractGlimpse')
 ops.NotDifferentiable('NonMaxSuppression')
@@ -727,7 +727,7 @@ def resize_images(images,
   images = ops.convert_to_tensor(images, name='images')
   if images.get_shape().ndims is None:
     raise ValueError('\'images\' contains no shape.')
-  # TODO(shlens): Migrate this functionality to the underlying Op's.
+  # TODO (shlens): Migrate this functionality to the underlying Op's. id:2198
   is_batch = True
   if images.get_shape().ndims == 3:
     is_batch = False
@@ -776,7 +776,7 @@ def resize_images(images,
   else:
     raise ValueError('Resize method is not implemented.')
 
-  # NOTE(mrry): The shape functions for the resize ops cannot unpack
+  # NOTE (mrry): The shape functions for the resize ops cannot unpack id:2151
   # the packed values in `new_size`, so set the shape here.
   images.set_shape([None, new_height_const, new_width_const, None])
 
@@ -1195,7 +1195,7 @@ def adjust_hue(image, delta, name=None):
     orig_dtype = image.dtype
     flt_image = convert_image_dtype(image, dtypes.float32)
 
-    # TODO(zhengxq): we will switch to the fused version after we add a GPU
+    # TODO (zhengxq): we will switch to the fused version after we add a GPU id:1952
     # kernel for that.
     fused = os.environ.get('TF_ADJUST_HUE_FUSED', '')
     fused = fused.lower() in ('true', 't', '1')
@@ -1278,7 +1278,7 @@ def adjust_saturation(image, saturation_factor, name=None):
     orig_dtype = image.dtype
     flt_image = convert_image_dtype(image, dtypes.float32)
 
-    # TODO(zhengxq): we will switch to the fused version after we add a GPU
+    # TODO (zhengxq): we will switch to the fused version after we add a GPU id:2264
     # kernel for that.
     fused = os.environ.get('TF_ADJUST_SATURATION_FUSED', '')
     fused = fused.lower() in ('true', 't', '1')

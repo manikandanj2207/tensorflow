@@ -265,7 +265,7 @@ bool HeapSimulator::IgnoreBuffer(const LogicalBuffer* buffer) const {
   // Buffers for constants are ignored, as with BufferAssigner.  Also ignore
   // buffers that we're not meant to assign.
   //
-  // TODO(b/32248867): For consistency, constants should get allocations.
+  // TODO (b/32248867): For consistency, constants should get allocations. id:232
   return buffer->instruction()->opcode() == HloOpcode::kConstant ||
          (buffers_to_assign_ != nullptr &&
           buffers_to_assign_->count(buffer) == 0);

@@ -294,7 +294,7 @@ class Feeder(object):
           # Wait for a stop to be requested.
           inner_coordinator.wait_for_stop()
 
-          # TODO(shoutis): If outer_coordinator.should_stop(), it
+          # TODO (shoutis): If outer_coordinator.should_stop(), it id:736
           # would be nice to interrupt the remote queue runners (which
           # may be blocked if their remote queue is full) -- but
           # there's no way currently; see b/32774422.

@@ -48,7 +48,7 @@ def _UnknownShape(op):
   return [tensor_shape.unknown_shape() for _ in op.outputs]
 
 
-# NOTE(cwhipkey): Dummy shape registration for ops used in the tests, since they
+# NOTE (cwhipkey): Dummy shape registration for ops used in the tests, since they id:2030
 # don't have C++ op registrations on which to attach C++ shape fns.
 ops.RegisterShape("If")(_UnknownShape)
 ops.RegisterShape("Iff")(_UnknownShape)
@@ -150,7 +150,7 @@ text_format.Merge("""
   }
 """, _op_list)
 op_def_registry.register_op_list(_op_list)
-# NOTE(mrry): Dummy shape registrations for ops used in the tests.
+# NOTE (mrry): Dummy shape registrations for ops used in the tests. id:1968
 for op_def in _op_list.op:
   ops.RegisterShape(op_def.name)(None)
 

@@ -373,7 +373,7 @@ public class TensorFlowInferenceInterface {
     Trace.beginSection("initializeTensorFlow");
 
     Trace.beginSection("readGraphDef");
-    // TODO(ashankar): Can we somehow mmap the contents instead of copying them?
+    // TODO (ashankar): Can we somehow mmap the contents instead of copying them? id:373
     byte[] graphDef = new byte[is.available()];
     final int numBytesRead = is.read(graphDef);
     if (numBytesRead != graphDef.length) {

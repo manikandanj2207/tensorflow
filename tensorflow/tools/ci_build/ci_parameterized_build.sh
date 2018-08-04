@@ -65,7 +65,7 @@
 #   TF_GPU_COUNT:
 #                      Run this many parallel tests for serial builds.
 #                      For now, only can be edited for PIP builds.
-#                      TODO(gunan): Find a way to pass this environment variable
+#                      TODO (gunan): Find a way to pass this environment variable id:2233
 #                      to the script bazel runs (using --run_under).
 #   TF_BUILD_TEST_TUTORIALS:
 #                      If set to any non-empty and non-0 value, will perform

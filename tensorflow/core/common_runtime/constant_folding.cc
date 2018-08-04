@@ -57,7 +57,7 @@ bool IsConstantFoldable(const Node* n,
   if (n->IsControlFlow() || n->IsSend() || n->IsRecv()) {
     return false;
   }
-  // TODO(yuanbyu): For now disable these session handle operations.
+  // TODO (yuanbyu): For now disable these session handle operations. id:763
   if (n->IsGetSessionHandle() || n->IsGetSessionTensor() ||
       n->IsDeleteSessionTensor()) {
     return false;
@@ -71,7 +71,7 @@ bool IsConstantFoldable(const Node* n,
   // Since constant-folding runs on the CPU, do not attempt to constant-fold
   // operators that have no CPU kernel. Also implies that we will not
   // constant-fold functions.
-  // TODO(phawkins): allow constant-folding for functions; functions may
+  // TODO (phawkins): allow constant-folding for functions; functions may id:678
   // be arbitrarily expensive to execute.
   if (!FindKernelDef(DeviceType(DEVICE_CPU), n->def(), /*def=*/nullptr,
                      /*kernel_class_name=*/nullptr)
@@ -206,7 +206,7 @@ bool ReplaceTensorWithConstant(Graph* graph, Device* partition_device,
   // for the device, do not use it.
   // 4) If the size of the constant in bytes is too large (> 10M), do not
   // replace it. This prevents the size of the Graph from growing too large.
-  // TODO(keveman): Consider adding a new constant op that has a kernel
+  // TODO (keveman): Consider adding a new constant op that has a kernel id:740
   // implementation for all types, but with HostMemory constraint on it's
   // output.
   // 5) Do not replace another constant.

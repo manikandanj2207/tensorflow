@@ -56,7 +56,7 @@ def dense_to_sparse_tensor(dense_tensor, ignore_value=None):
   with ops.name_scope("DenseToSparseTensor"):
     dense_t = ops.convert_to_tensor(dense_tensor)
     if dense_t.get_shape().ndims is None:
-      # TODO(b/32318825): Implement dense_to_sparse_tensor for undefined rank.
+      # TODO (b/32318825): Implement dense_to_sparse_tensor for undefined rank. id:536
       raise ValueError("dense_tensor.get_shape() should be defined, got None.")
     if ignore_value is None:
       if dense_t.dtype == dtypes.string:

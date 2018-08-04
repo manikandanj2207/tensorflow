@@ -206,7 +206,7 @@ class Feature {
   StringPiece GetSerialized() const { return serialized_; }
 
  private:
-  // TODO(lew): Pair of uint8* would be more natural.
+  // TODO (lew): Pair of uint8* would be more natural. id:1393
   StringPiece serialized_;
 };
 
@@ -484,7 +484,7 @@ Status FastParseSerializedExample(
 
     {
       // Testing for PresizedCuckooMap collision.
-      // TODO(lew): Use dense_hash_map and avoid this and hasher creation.
+      // TODO (lew): Use dense_hash_map and avoid this and hasher creation. id:1776
       const string& config_feature_name = is_dense
                                               ? config.dense[d].feature_name
                                               : config.sparse[d].feature_name;
@@ -915,7 +915,7 @@ Status FastParseExample(const Config& config,
     return (serialized.size() * minibatch) / num_minibatches;
   };
 
-  // TODO(lew): A big performance low-hanging fruit here is to improve
+  // TODO (lew): A big performance low-hanging fruit here is to improve id:1704
   //   num_minibatches calculation to take into account actual amount of work
   //   needed, as the size in bytes is not perfect. Linear combination of
   //   size in bytes and average number of features per example is promising.

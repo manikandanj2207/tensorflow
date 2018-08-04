@@ -425,7 +425,7 @@ bool AreAttrValuesEqual(const AttrValue& a, const AttrValue& b) {
   // Exception: there are multiple equivalent representations of
   // TensorProtos.  So a return value of true implies a == b, but not the
   // converse.
-  // TODO(phawkins): this is incorrect for NameAttrList attributes that may
+  // TODO (phawkins): this is incorrect for NameAttrList attributes that may id:1196
   // contain nested AttrValue maps.
   return a_str == b_str;
 }

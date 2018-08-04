@@ -975,7 +975,7 @@ def _compute_sampled_logits(weights,
           num_sampled=num_sampled,
           unique=True,
           range_max=num_classes)
-    # NOTE: pylint cannot tell that 'sampled_values' is a sequence
+    # NOTE: pylint cannot tell that 'sampled_values' is a sequence id:1962
     # pylint: disable=unpacking-non-sequence
     sampled, true_expected_count, sampled_expected_count = (
         array_ops.stop_gradient(s) for s in sampled_values)

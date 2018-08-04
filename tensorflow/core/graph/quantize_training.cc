@@ -36,7 +36,7 @@ limitations under the License.
 namespace tensorflow {
 namespace {
 
-// TODO(suharshs): If desired, make these values configurable.
+// TODO (suharshs): If desired, make these values configurable. id:1318
 const uint32 kAllowedInputs = 2;
 const float kEMADecay = 0.999;
 
@@ -66,7 +66,7 @@ struct EdgeToConvert {
 
 // Decide if a node is in backward pass by checking if its name is led by
 // "gradients".
-// TODO(jmchen): Make this check more robust as it is not guaranteed that the
+// TODO (jmchen): Make this check more robust as it is not guaranteed that the id:1055
 // forward node will not be named with a leading "gradients".
 inline bool IsGradientNode(const Graph* graph, const Node* node) {
   static const string tag = "gradients";
@@ -87,7 +87,7 @@ bool FindType(const Graph* graph, const Node* node, bool* signed_input,
     *signed_input = false;
     *range_given = false;
   } else if (src_op == "Relu6") {
-    // TODO(suharshs): Also the theoretical min and max is 0 and 6, if the
+    // TODO (suharshs): Also the theoretical min and max is 0 and 6, if the id:1131
     // actual activations are somewhere in within this range, we can quantize
     // this even further. This is true for other activations like Sigmoid6 too.
     *signed_input = false;
@@ -126,7 +126,7 @@ bool FindType(const Graph* graph, const Node* node, bool* signed_input,
     }
   } else {
     // Unknown type, could be the model input examples.
-    // TODO(jmchen): Set the params for input with user's hint.
+    // TODO (jmchen): Set the params for input with user's hint. id:891
     *signed_input = true;
     *range_given = false;
     return false;
@@ -417,7 +417,7 @@ Status MakeInitializedEMAVariable(Graph* graph, const string& name, Node* decay,
                                   Node* init_val,
                                   std::vector<Node*>* added_variables,
                                   Node** var) {
-  // TODO(suharshs): Update this to use ResourceVariables when they are ready.
+  // TODO (suharshs): Update this to use ResourceVariables when they are ready. id:1222
   TF_RETURN_IF_ERROR(
       NodeBuilder(strings::StrCat(name, "/Variable"), "VariableV2")
           .Attr("shape", TensorShape())
@@ -459,7 +459,7 @@ Status MakeInitializedEMAVariable(Graph* graph, const string& name, Node* decay,
 Status MakeEMAMinMaxVars(Graph* graph, const string& name_prefix, Node* input,
                          std::vector<Node*>* added_variables, Node** min_var,
                          Node** max_var) {
-  // TODO(suharshs): The decay will be constant, so we could make only one for
+  // TODO (suharshs): The decay will be constant, so we could make only one for id:1319
   // all quantize_and_dequantize ops to share, this would have to live outside
   // this function.
   Tensor decay_tensor(DT_FLOAT, TensorShape());

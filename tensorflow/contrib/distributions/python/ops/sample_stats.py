@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 
-# TODO(langmore) To make equivalent to numpy.percentile:
+# TODO (langmore) To make equivalent to numpy.percentile: id:344
 #  Make work with a sequence of floats or single float for 'q'.
 #  Make work with "linear", "midpoint" interpolation. (linear should be default)
 def percentile(x,

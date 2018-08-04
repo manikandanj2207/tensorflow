@@ -115,7 +115,7 @@ class TestUpgrade(test_util.TensorFlowTestCase):
   def testExpandAndSqueeze(self):
     with self.test_session():
 
-      # TODO(aselle): sparse_split, sparse_reduce_sum,
+      # TODO (aselle): sparse_split, sparse_reduce_sum, id:2235
       #  sparse_reduce_sum_sparse, reduce_join
       a = [[1, 2, 3]]
       self.assertAllEqual(tf.expand_dims(tf.squeeze(a, [0]), 0).eval(),
@@ -160,7 +160,7 @@ class TestUpgrade(test_util.TensorFlowTestCase):
       self.assertAllEqual(
           tf.complex_abs(tf.constant(3 + 4.j)).eval(),
           5)
-      #     # TODO(aselle): (tf.batch_*)
+      #     # TODO (aselle): (tf.batch_*) id:2422
       # ]
 
   def testBatchAndSvd(self):
@@ -175,7 +175,7 @@ class TestUpgrade(test_util.TensorFlowTestCase):
           tf.svd(mat, compute_uv=False, full_matrices=True).eval())
 
   def testCrossEntropy(self):
-    # TODO(aselle): Test sparse_softmax_...
+    # TODO (aselle): Test sparse_softmax_... id:2108
     with self.test_session():
       labels = [.8, .5, .2, .1]
       logits = [.9, .1, .3, .1]

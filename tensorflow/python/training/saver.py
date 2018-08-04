@@ -400,7 +400,7 @@ class BaseSaverBuilder(object):
       restore_control_inputs = assign_ops[-1:] if restore_sequentially else []
       # Load and optionally reshape on the CPU, as string tensors are not
       # available on the GPU.
-      # TODO(touts): Re-enable restore on GPU when we can support annotating
+      # TODO (touts): Re-enable restore on GPU when we can support annotating id:1929
       # string tensors as "HostMemory" inputs.
       with ops.device(_set_cpu0(saveable.device) if saveable.device else None):
         with ops.control_dependencies(restore_control_inputs):

@@ -319,7 +319,7 @@ TF_CAPI_EXPORT extern void TF_SetConfig(TF_SessionOptions* options,
 // Destroy an options object.
 TF_CAPI_EXPORT extern void TF_DeleteSessionOptions(TF_SessionOptions*);
 
-// TODO(jeff,sanjay):
+// TODO (jeff,sanjay): id:61
 // - export functions to set Config fields
 
 // --------------------------------------------------------------------------
@@ -997,12 +997,12 @@ void TF_AbortWhile(const TF_WhileParams* params);
 void TF_AddGradients(TF_Graph* g, TF_Output* y, int ny, TF_Output* x, int nx,
                      TF_Output* dx, TF_Status* status, TF_Output* dy);
 
-// TODO(josh11b): Register OpDef, available to all operations added
+// TODO (josh11b): Register OpDef, available to all operations added id:36
 // to this graph.
 
 // The following two may both benefit from a subgraph-definition API
 // that re-uses most of the graph-definition API.
-// TODO(andydavis): Add functions to a graph.
+// TODO (andydavis): Add functions to a graph. id:90
 
 // --------------------------------------------------------------------------
 // API for driving Graph execution.
@@ -1099,7 +1099,7 @@ TF_CAPI_EXPORT extern void TF_SessionRun(
 //
 // On failure, out_status contains a tensorflow::Status with an error
 // message.
-// NOTE: This is EXPERIMENTAL and subject to change.
+// NOTE: This is EXPERIMENTAL and subject to change. id:16
 TF_CAPI_EXPORT extern void TF_SessionPRunSetup(
     TF_Session*,
     // Input names
@@ -1115,7 +1115,7 @@ TF_CAPI_EXPORT extern void TF_SessionPRunSetup(
 
 // Continue to run the graph with additional feeds and fetches. The
 // execution state is uniquely identified by the handle.
-// NOTE: This is EXPERIMENTAL and subject to change.
+// NOTE: This is EXPERIMENTAL and subject to change. id:4
 TF_CAPI_EXPORT extern void TF_SessionPRun(
     TF_Session*, const char* handle,
     // Input tensors

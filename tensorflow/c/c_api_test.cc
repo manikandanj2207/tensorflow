@@ -1267,7 +1267,7 @@ class CApiWhileLoopTest : public ::testing::Test {
     TF_FinishWhile(params_.get(), s_, &outputs_[0]);
     EXPECT_EQ(expected_code, TF_GetCode(s_));
     EXPECT_EQ(expected_msg, TF_Message(s_));
-    // TODO(skyewm): this assert is currently broken. Fix or remove guarantee.
+    // TODO (skyewm): this assert is currently broken. Fix or remove guarantee. id:62
     // ASSERT_EQ(original_graph_description_, GraphDebugString()) <<
     //     "TF_FinishWhile() altered graph on error";
   }
@@ -1505,7 +1505,7 @@ TEST_F(CApiWhileLoopTest, WrongGraph) {
   CreateCondGraph();
   // Set body output to output from outer graph
   params_->body_outputs[0] = inputs_[0];
-  // TODO(skyewm): improve error message
+  // TODO (skyewm): improve error message id:37
   ExpectError(TF_INVALID_ARGUMENT,
               "Requested return node 'p0' not found in graph def");
 }
@@ -1873,7 +1873,7 @@ class CApiAttributesTest : public ::testing::Test {
 };
 
 // Helper macros for the TF_OperationGetAttr* tests.
-// TODO(ashankar): Use gmock matchers instead?
+// TODO (ashankar): Use gmock matchers instead? id:91
 // (https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#writing-new-parameterized-matchers-quickly)
 // That will require setting up the tensorflow build with gmock.
 #define EXPECT_TF_META(attr_name, expected_list_size, expected_type, \
@@ -2265,7 +2265,7 @@ TEST_F(CApiAttributesTest, Errors) {
 }
 #undef EXPECT_TF_META
 
-// TODO(josh11b): Test:
+// TODO (josh11b): Test: id:17
 // * TF_SetDevice(desc, "/job:worker");
 // * control inputs / outputs
 // * targets

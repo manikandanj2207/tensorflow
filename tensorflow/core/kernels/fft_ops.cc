@@ -33,7 +33,7 @@ limitations under the License.
 namespace tensorflow {
 
 namespace {
-// TODO(vrv/zhifengc): Refactor AsDeviceMemory() into GPUUtil.
+// TODO (vrv/zhifengc): Refactor AsDeviceMemory() into GPUUtil. id:1155
 template <typename T>
 perftools::gputools::DeviceMemory<T> AsDeviceMemory(const T* cuda_memory) {
   perftools::gputools::DeviceMemoryBase wrapped(const_cast<T*>(cuda_memory));

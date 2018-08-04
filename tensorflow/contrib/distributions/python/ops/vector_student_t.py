@@ -29,7 +29,7 @@ from tensorflow.python.ops.distributions import transformed_distribution
 from tensorflow.python.ops.distributions import util as distribution_util
 
 
-# TODO(jvdillon): Add unittests for this once we know where will put this code
+# TODO (jvdillon): Add unittests for this once we know where will put this code id:402
 # and how it will generally be used. In the interim this code is tested via the
 # _VectorStudentT tests.
 def _infer_shapes(scale_oppd, shift):

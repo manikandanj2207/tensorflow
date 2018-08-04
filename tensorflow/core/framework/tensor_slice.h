@@ -189,7 +189,7 @@ class TensorSlice {
   // dimension. It's defined in tensor_slice.cc.
   static const int64 kFullExtent;
 
-  // TODO(yangke): switch to Eigen once it supports variable size arrays.
+  // TODO (yangke): switch to Eigen once it supports variable size arrays. id:972
   // A value of
   gtl::InlinedVector<int64, 4> starts_;
   gtl::InlinedVector<int64, 4> lengths_;

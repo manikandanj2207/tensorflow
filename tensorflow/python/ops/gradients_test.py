@@ -575,7 +575,7 @@ class IndexedSlicesToTensorTest(test_util.TensorFlowTestCase):
       self.assertAllClose(np_val, c_dense.eval())
 
   def testWarnings(self):
-    # TODO(gunan) Reenable after this issue is fixed:
+    # TODO (gunan) Reenable after this issue is fixed: id:2262
     # https://github.com/google/protobuf/issues/2812
     if sys.version_info >= (3, 6):
       self.skipTest("Skipped test for Python 3.6+")

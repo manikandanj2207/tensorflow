@@ -151,7 +151,7 @@ def _GetSelfAdjointEigGradTest(dtype_, shape_):
 
 if __name__ == '__main__':
   for dtype in np.float32, np.float64:
-    # TODO(rmlarsen): Re-enable for np.complex64, np.complex128
+    # TODO (rmlarsen): Re-enable for np.complex64, np.complex128 id:1829
     # when we have a fix for the crash in numpy.linalg.eig.
     for size in 1, 2, 5, 10:
       for batch_dims in [(), (3,)] + [(3, 2)] * (max(size, size) < 10):

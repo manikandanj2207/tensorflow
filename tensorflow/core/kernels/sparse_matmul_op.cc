@@ -58,7 +58,7 @@ typedef Eigen::TensorMap<Eigen::Tensor<float, 2, Eigen::RowMajor>,
 typedef Eigen::ThreadPoolDevice CPUDevice;
 
 // Blocksizes
-// TODO(agarwal): compute these sizes based on cache sizes.
+// TODO (agarwal): compute these sizes based on cache sizes. id:1507
 static const int K = 64;
 static const int M = 64;
 static const int N = 128;
@@ -987,7 +987,7 @@ class SparseMatMulOp : public OpKernel {
     if (!a_is_sparse_ && !b_is_sparse_) {
       auto left = &a;
       auto right = &b;
-      // TODO(agarwal): multi-thread the conversions from bfloat16 to float.
+      // TODO (agarwal): multi-thread the conversions from bfloat16 to float. id:1305
       if (std::is_same<TL, bfloat16>::value) {
         a_float.reset(new Tensor(DT_FLOAT, a.shape()));
         BFloat16ToFloat(a.flat<bfloat16>().data(),
@@ -1026,7 +1026,7 @@ class SparseMatMulOp : public OpKernel {
 
     std::unique_ptr<Tensor> right_tr;
     if (transpose_b) {
-      // TODO(agarwal): avoid transposing the matrix here and directly handle
+      // TODO (agarwal): avoid transposing the matrix here and directly handle id:1604
       // transpose in CreateDenseSlices.
       right_tr.reset(
           new Tensor(right->dtype(),

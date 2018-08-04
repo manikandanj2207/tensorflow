@@ -541,7 +541,7 @@ class ComputationBuilder {
   // (float32 is specified as there is an implicit float32 -1.0f constant
   // exponent).
   //
-  // TODO(b/34468990) axe F32 suffix, can be determined by reflecting on the
+  // TODO (b/34468990) axe F32 suffix, can be determined by reflecting on the id:126
   // shape of the operand.
   ComputationDataHandle ReciprocalF32(const ComputationDataHandle& operand);
 

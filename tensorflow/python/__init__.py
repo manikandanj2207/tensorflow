@@ -29,7 +29,7 @@ import importlib
 import sys
 import traceback
 
-# TODO(drpng): write up instructions for editing this file in a doc and point to
+# TODO (drpng): write up instructions for editing this file in a doc and point to id:1649
 # the doc instead.
 # If you want to edit this file to expose modules in public tensorflow API, you
 # need to follow these steps:
@@ -126,7 +126,7 @@ from tensorflow.python.ops import string_ops
 from tensorflow.python.ops import tensor_array_ops
 
 # Symbols whitelisted for export without documentation.
-# TODO(cwhipkey): review these and move to contrib, expose through
+# TODO (cwhipkey): review these and move to contrib, expose through id:1861
 # documentation, or remove.
 _allowed_symbols = [
     'AttrValue',
@@ -179,7 +179,7 @@ _allowed_symbols.extend([
 ])
 
 # Dtypes exported by framework/dtypes.py.
-# TODO(cwhipkey): expose these through documentation.
+# TODO (cwhipkey): expose these through documentation. id:1582
 _allowed_symbols.extend([
     'QUANTIZED_DTYPES',
     'bfloat16',

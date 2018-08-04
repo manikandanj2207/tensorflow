@@ -26,8 +26,8 @@ using namespace ops;  // NOLINT(build/namespaces)
 
 namespace {
 
-// TODO(andydavis) Test gradient function against numeric gradients output.
-// TODO(andydavis) As more gradients are added move common test functions
+// TODO (andydavis) Test gradient function against numeric gradients output. id:23
+// TODO (andydavis) As more gradients are added move common test functions id:11
 // to a testutil library.
 
 class CWiseUnaryGradTest : public ::testing::Test {

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-// TODO(opensource): Use a more generic sounding preprocessor name than
+// TODO (opensource): Use a more generic sounding preprocessor name than id:980
 // GOOGLE_CUDA
 #if GOOGLE_CUDA
 
@@ -318,12 +318,12 @@ Status BaseGPUDevice::FillContextMap(const Graph* graph,
 void BaseGPUDevice::Compute(OpKernel* op_kernel, OpKernelContext* context) {
   // ScopedActivity is cheap when tracing is not active, but we
   // can avoid computing the Hash64.
-  // TODO(pbar) This would no longer be needed if Ops have a unique id.
+  // TODO (pbar) This would no longer be needed if Ops have a unique id. id:805
   const uint64 id = port::Tracing::IsActive() ? Hash64(op_kernel->name()) : 0;
   port::Tracing::ScopedActivity region(port::Tracing::EventCategory::kCompute,
                                        id);
 
-  // NOTE(tucker): We need to discriminate between Eigen GPU
+  // NOTE (tucker): We need to discriminate between Eigen GPU id:831
   // operations and all others.  If an operation is Eigen
   // implemented (or otherwise tries to launch a cuda kernel
   // directly), we need to establish a stacked-scoped environment

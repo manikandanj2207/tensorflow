@@ -122,7 +122,7 @@ class ConstantTest(test.TestCase):
 
     with self.test_session():
       val = ops.convert_to_tensor(nested).eval()
-    # NOTE(mrry): Do not use assertAllEqual, because it converts nested to a
+    # NOTE (mrry): Do not use assertAllEqual, because it converts nested to a id:2133
     #   numpy array, which loses the null terminators.
     self.assertEqual(val.tolist(), nested)
 
@@ -174,7 +174,7 @@ class ConstantTest(test.TestCase):
         constant_op.constant([1, 2, 3, 4, 5, 6, 7], shape=[5])
 
   # pylint: enable=g-long-lambda
-  # TODO(b/35396543): Temporarily disable: suspicion that
+  # TODO (b/35396543): Temporarily disable: suspicion that id:1978
   # this is causing test timeouts.
   def _testTooLargeConstant(self):
     with ops.Graph().as_default():
@@ -184,7 +184,7 @@ class ConstantTest(test.TestCase):
           "Cannot create a tensor proto whose content is larger than 2GB."):
         c = constant_op.constant(large_array)
 
-  # TODO(b/35396543): Temporarily disable: suspicion that
+  # TODO (b/35396543): Temporarily disable: suspicion that id:1809
   # this is causing test timeouts.
   def _testTooLargeGraph(self):
     with ops.Graph().as_default() as g:
@@ -376,7 +376,7 @@ class ZerosLikeTest(test.TestCase):
   def _compareZeros(self, dtype, fully_defined_shape, use_gpu):
     with self.test_session(use_gpu=use_gpu):
       # Creates a tensor of non-zero values with shape 2 x 3.
-      # NOTE(kearnes): The default numpy dtype associated with tf.string is
+      # NOTE (kearnes): The default numpy dtype associated with tf.string is id:2080
       # np.object (and can't be changed without breaking a lot things), which
       # causes a TypeError in constant_op.constant below. Here we catch the
       # special case of tf.string and set the numpy dtype appropriately.

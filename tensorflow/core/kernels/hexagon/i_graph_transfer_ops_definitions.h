@@ -24,7 +24,7 @@ namespace tensorflow {
 
 // IGraphTransferOpsDefinitions is an interface class which provides interfaces
 // about ops supported by SOC.
-// TODO(satok): Provide ways to transfer graph definitions into SOC
+// TODO (satok): Provide ways to transfer graph definitions into SOC id:1266
 class IGraphTransferOpsDefinitions {
  public:
   // op id which is not supported by SOC

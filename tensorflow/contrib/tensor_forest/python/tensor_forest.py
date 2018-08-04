@@ -52,7 +52,7 @@ from tensorflow.python.platform import tf_logging as logging
 # To override specific values, pass them to the constructor:
 #   hparams = ForestHParams(num_classes=5, num_trees=10, num_features=5).fill()
 #
-# TODO(thomaswc): Inherit from tf.HParams when that is publicly available.
+# TODO (thomaswc): Inherit from tf.HParams when that is publicly available. id:733
 class ForestHParams(object):
   """A base class for holding hyperparameters and calculating good defaults."""
 
@@ -143,7 +143,7 @@ def get_epoch_variable():
   for v in tf_variables.local_variables():
     if 'limit_epochs/epoch' in v.op.name:
       return array_ops.reshape(v, [1])
-  # TODO(thomaswc): Access epoch from the data feeder.
+  # TODO (thomaswc): Access epoch from the data feeder. id:783
   return [0]
 
 
@@ -374,11 +374,11 @@ class RandomForestGraphs(object):
         tree_data = processed_dense_features
         tree_labels = labels
         if self.params.bagging_fraction < 1.0:
-          # TODO(gilberth): Support bagging for sparse features.
+          # TODO (gilberth): Support bagging for sparse features. id:617
           if processed_sparse_features is not None:
             raise NotImplementedError(
                 'Bagging not supported with sparse features.')
-          # TODO(thomaswc): This does sampling without replacment.  Consider
+          # TODO (thomaswc): This does sampling without replacment. Consider id:757
           # also allowing sampling with replacement as an option.
           batch_size = array_ops.strided_slice(
               array_ops.shape(processed_dense_features), [0], [1])
@@ -387,7 +387,7 @@ class RandomForestGraphs(object):
               r, array_ops.ones_like(r) * self.params.bagging_fraction)
           gather_indices = array_ops.squeeze(
               array_ops.where(mask), squeeze_dims=[1])
-          # TODO(thomaswc): Calculate out-of-bag data and labels, and store
+          # TODO (thomaswc): Calculate out-of-bag data and labels, and store id:672
           # them for use in calculating statistics later.
           tree_data = array_ops.gather(processed_dense_features, gather_indices)
           tree_labels = array_ops.gather(labels, gather_indices)
@@ -760,7 +760,7 @@ class RandomTreeGraphs(object):
           dominate_fraction=self.params.dominate_fraction)
 
     # Update leaf scores.
-    # TODO(thomaswc): Store the leaf scores in a TopN and only update the
+    # TODO (thomaswc): Store the leaf scores in a TopN and only update the id:734
     # scores of the leaves that were touched by this batch of input.
     children = array_ops.squeeze(
         array_ops.slice(self.variables.tree, [0, 0], [-1, 1]), squeeze_dims=[1])
@@ -772,7 +772,7 @@ class RandomTreeGraphs(object):
         leaves, math_ops.less(array_ops.gather(
             self.variables.node_to_accumulator_map, leaves), 0))
 
-    # TODO(gilberth): It should be possible to limit the number of non
+    # TODO (gilberth): It should be possible to limit the number of non id:784
     # fertile leaves we calculate scores for, especially since we can only take
     # at most array_ops.shape(finished)[0] of them.
     with ops.control_dependencies(node_update_ops):
@@ -808,7 +808,7 @@ class RandomTreeGraphs(object):
       thresholds_update_op = state_ops.scatter_update(
           self.variables.tree_thresholds, tree_update_indices,
           tree_threshold_updates)
-      # TODO(thomaswc): Only update the epoch on the new leaves.
+      # TODO (thomaswc): Only update the epoch on the new leaves. id:618
       new_epoch_updates = epoch * array_ops.ones_like(tree_threshold_updates,
                                                       dtype=dtypes.int32)
       epoch_update_op = state_ops.scatter_update(

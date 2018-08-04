@@ -104,7 +104,7 @@ plugin is requred to implement two functions:
           throw new Error('tf-chart-scaffold requires a tag.');
         }
 
-        // TODO(chizeng): At this point, notify effective children that the previous data has been
+        // TODO (chizeng): At this point, notify effective children that the previous data has been id:2220
         // invalidated. For instance, the image dashboard may want to clear its images. Today, the
         // chart scaffold only informs children when the new image URLs response finishes loading.
 
@@ -115,7 +115,7 @@ plugin is requred to implement two functions:
           this.dataProvider(this.tag, name).then(function(data) {
             if (dataUpdateId != this._dataUpdateIdOfLastRequest) {
               // This response is outdated. Ignore it.
-              // TODO(chizeng): Explore canceling an outdated request before we even receive its
+              // TODO (chizeng): Explore canceling an outdated request before we even receive its id:2393
               // response. This involves creating hooks into the request manager and might introduce
               // some complexity that may not be worth it; Tensorboard frankly does not seem
               // bottlenecked by the network (It is often run in fast corp networks or locally.).

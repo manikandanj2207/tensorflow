@@ -18,7 +18,7 @@ USE_OSS = True
 
 # Per-dependency switches determining whether each dependency is ready
 # to be replaced by its OSS equivalence.
-# TODO(danmane,mrry,opensource): Flip these switches, then remove them
+# TODO (danmane,mrry,opensource): Flip these switches, then remove them id:2200
 OSS_APP = True
 OSS_FLAGS = True
 OSS_GFILE = True

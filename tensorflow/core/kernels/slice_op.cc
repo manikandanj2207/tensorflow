@@ -155,7 +155,7 @@ class SliceOp : public OpKernel {
           DataTypeCanUseMemcpy(DataTypeToEnum<T>::v())) {
         auto input = context->input(0).tensor<T, 2>();
         auto output = result->tensor<T, 2>();
-        // TODO(agarwal): Consider multi-threading this loop for cases where
+        // TODO (agarwal): Consider multi-threading this loop for cases where id:1193
         // size[0] is very large.
         for (int i = 0; i < size[0]; ++i) {
           const int64 row = begin[0] + i;
@@ -291,7 +291,7 @@ TF_CALL_complex64(REGISTER_GPU);
 TF_CALL_complex128(REGISTER_GPU);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1602
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Slice")
                             .Device(DEVICE_GPU)
@@ -347,7 +347,7 @@ DECLARE_FOR_N(int32);
 TF_CALL_GPU_NUMBER_TYPES(REGISTER_SYCL);
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1575
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Slice")
                             .Device(DEVICE_SYCL)

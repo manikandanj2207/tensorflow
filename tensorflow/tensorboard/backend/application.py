@@ -124,7 +124,7 @@ class TensorBoardWSGIApp(object):
   # How many samples to include in sampling API calls by default.
   DEFAULT_SAMPLE_COUNT = 10
 
-  # NOTE TO MAINTAINERS: An accurate Content-Length MUST be specified on all
+  # NOTE TO MAINTAINERS: An accurate Content-Length MUST be specified on all id:2308
   #                      responses using send_header.
   protocol_version = 'HTTP/1.1'
 
@@ -177,7 +177,7 @@ class TensorBoardWSGIApp(object):
             self._serve_image,
         DATA_PREFIX + LOGDIR_ROUTE:
             self._serve_logdir,
-        # TODO(chizeng): Delete this RPC once we have skylark rules that obviate
+        # TODO (chizeng): Delete this RPC once we have skylark rules that obviate id:2219
         # the need for the frontend to determine which plugins are active.
         DATA_PREFIX + PLUGINS_LISTING_ROUTE:
             self._serve_plugins_listing,
@@ -286,7 +286,7 @@ class TensorBoardWSGIApp(object):
   @wrappers.Request.application
   def _serve_scalars(self, request):
     """Given a tag and single run, return array of ScalarEvents."""
-    # TODO(cassandrax): return HTTP status code for malformed requests
+    # TODO (cassandrax): return HTTP status code for malformed requests id:2392
     tag = request.args.get('tag')
     run = request.args.get('run')
     values = self._multiplexer.Scalars(run, tag)

@@ -412,7 +412,7 @@ class OperatorPDSqrtVDVTUpdate(operator_pd.OperatorPDBase):
     # = M^{-1} - M^{-1} V (D^{-1} + V^T M^{-1} V)^{-1} V^T M^{-1}
     # = M^{-1} - M^{-1} V C^{-1} V^T M^{-1}
     # where C is the capacitance matrix.
-    # TODO(jvdillon) Determine if recursively applying rank-1 updates is more
+    # TODO (jvdillon) Determine if recursively applying rank-1 updates is more id:319
     # efficient.  May not be possible because a general n x n matrix can be
     # represeneted as n rank-1 updates, and solving with this matrix is always
     # done in O(n^3) time.

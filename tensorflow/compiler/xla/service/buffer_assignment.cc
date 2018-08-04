@@ -646,7 +646,7 @@ Status BufferAssigner::AssignBuffersForComputation(
     const HloInstruction* instruction = buffer->instruction();
     if (instruction->opcode() == HloOpcode::kConstant) {
       // No BufferAllocations for constants.
-      // TODO(b/32248867): For consistency, constants should get allocations.
+      // TODO (b/32248867): For consistency, constants should get allocations. id:153
       VLOG(3) << "Skipping constant: " << *buffer;
       continue;
     }
@@ -687,7 +687,7 @@ Status BufferAssigner::AssignBuffersForComputation(
     }
 
     if (ShapeUtil::IsTuple(buffer->shape())) {
-      // TODO(b/34669761): Don't reuse tuple buffers because the GPU backend
+      // TODO (b/34669761): Don't reuse tuple buffers because the GPU backend id:179
       // assumes longer buffer liveness than indicated by the analysis.
       BufferAllocation* allocation = assignment->NewAllocation(
           *buffer, buffer_size, is_thread_local, /*is_reusable=*/false);
@@ -708,7 +708,7 @@ Status BufferAssigner::AssignBuffersForComputation(
           BufferAllocation* allocation =
               assignment->GetMutableAllocation(operand_slice.index());
           if (colocated_allocations.count(allocation->index()) == 0) {
-            // TODO(b/32491382) Colocated buffers are currently assigned in an
+            // TODO (b/32491382) Colocated buffers are currently assigned in an id:146
             // earlier pass, and so can break the "increasing allocation size"
             // invariant in this function (causing this CHECK to fail). However,
             // the call to MaybeAssignBuffer is safe as it returns false if
@@ -739,7 +739,7 @@ Status BufferAssigner::AssignBuffersForComputation(
         // previously create allocation must be large enough to hold this
         // instruction's output (with the exception of colocated buffers).
         if (colocated_allocations.count(allocation->index()) == 0) {
-          // TODO(b/32491382) Colocated buffers are currently assigned in an
+          // TODO (b/32491382) Colocated buffers are currently assigned in an id:213
           // earlier pass, and so can break the "increasing allocation size"
           // invariant in this function (causing this CHECK to fail). However,
           // the call to MaybeAssignBuffer is safe as it returns false if
@@ -925,7 +925,7 @@ void BufferAssigner::AddSetToColocatedBufferSets(
 // buffers are disjoint in liveness, by using the colocation mechanism to force
 // buffer sharing. This often reduces memory for multi-layer RNNs.
 //
-// TODO(b/32491382): We should be able to remove this heuristic after we
+// TODO (b/32491382): We should be able to remove this heuristic after we id:132
 // implement module-level liveness analysis, which would let us directly detect
 // buffer sharing opportunities between the while instruction buffer and the
 // buffers from the predicate and body computation, as well as sharing across
@@ -1119,7 +1119,7 @@ void BufferAssigner::AssignColocatedBufferSets(
     BufferAllocation* allocation = nullptr;
     for (const LogicalBuffer* buffer : colocated_buffer_set) {
       if (allocation == nullptr) {
-        // TODO(b/32491382) Avoid current trivial solution of using new
+        // TODO (b/32491382) Avoid current trivial solution of using new id:154
         // allocations for each colocated buffer set. When liveness has
         // module-level scope, we can allow buffers to be shared across
         // computations (in some cases).

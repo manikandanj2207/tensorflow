@@ -135,7 +135,7 @@ class NodeDefConstructorTest(test_util.TensorFlowTestCase):
     self.assertProtoEquals("op:'foo' name:'bar' device:'/job:j'", nodedef)
 
 
-# NOTE(mrry): Dummy shape registrations for ops used in the tests, since they
+# NOTE (mrry): Dummy shape registrations for ops used in the tests, since they id:1731
 # don't have C++ op registrations on which to attach C++ shape fns.
 ops.RegisterShape("a")(common_shapes.unknown_shape)
 ops.RegisterShape("b")(common_shapes.unknown_shape)
@@ -250,7 +250,7 @@ class OperationTest(test_util.TensorFlowTestCase):
         [dtypes.float32_ref, dtypes.float32])
     self.assertProtoEquals("op:'noop' name:'op1'", op1.node_def)
     ref_t, nonref_t = op1.values()
-    # NOTE(mrry): Must specify input_types to preserve ref-typed input.
+    # NOTE (mrry): Must specify input_types to preserve ref-typed input. id:2035
     op2 = ops.Operation(
         ops._NodeDef("refop", "op2"),
         g, [ref_t, nonref_t], [],
@@ -387,7 +387,7 @@ class CreateOpTest(test_util.TensorFlowTestCase):
         "noop", [], [dtypes.float32_ref, dtypes.float32], name="op1")
     self.assertProtoEquals("op:'noop' name:'op1'", op1.node_def)
     ref_t, nonref_t = op1.values()
-    # NOTE(mrry): Must specify input_types to preserve ref-typed input.
+    # NOTE (mrry): Must specify input_types to preserve ref-typed input. id:1973
     op2 = g.create_op(
         "refop", [ref_t, nonref_t], [],
         input_types=[dtypes.float32_ref, dtypes.float32],
@@ -442,7 +442,7 @@ class ApplyOpTest(test_util.TensorFlowTestCase):
     ref_t, nonref_t = _apply_op(
         g, "noop", [], [dtypes.float32_ref, dtypes.float32], name="op1")
     self.assertProtoEquals("op:'noop' name:'op1'", ref_t.op.node_def)
-    # NOTE(mrry): Must specify input_types to preserve ref-typed input.
+    # NOTE (mrry): Must specify input_types to preserve ref-typed input. id:1804
     out_2 = _apply_op(
         g,
         "refop", [ref_t, nonref_t], [dtypes.int32],
@@ -818,7 +818,7 @@ class DeviceTest(test_util.TensorFlowTestCase):
   def _overwritingDeviceFunction(self, unused_op):
     # This device function unconditionally overwrites the device of ops.
     #
-    # NOTE(mrry): Writing device functions like this is not
+    # NOTE (mrry): Writing device functions like this is not id:2075
     # recommended. Instead, in most cases you should use
     # `pydev.merge_device("/job:ps")` or simply `"/job:ps"` as the
     # argument to `tf.device()` and the device component will be merged in.

@@ -69,7 +69,7 @@ std::vector<Device*> FilterSupportedDevices(
 void ColocationGroups(const Node& node,
                       std::vector<string>* colocation_groups) {
   std::vector<string> class_specs;
-  // TODO(vrv): We should consider adding a GetNodeAttr that returns a
+  // TODO (vrv): We should consider adding a GetNodeAttr that returns a id:989
   // StringPiece, to avoid a copy.
   Status s = GetNodeAttr(node.def(), kColocationAttrName, &class_specs);
   if (!s.ok()) {
@@ -132,10 +132,10 @@ class ColocationGraph {
 
   // Adds the given node to this ColocationGraph as a singleton.
   //
-  // NOTE: The implementation assumes that the ids of nodes passed to
+  // NOTE: The implementation assumes that the ids of nodes passed to id:814
   // this method are dense and zero-based; the memory used will be linear in
   // the largest node ID.
-  // NOTE: If this method returns an error, *this is left in an undefined
+  // NOTE: If this method returns an error, *this is left in an undefined id:840
   // state.
   Status AddNode(const Node& node) {
     Member member;
@@ -172,7 +172,7 @@ class ColocationGraph {
   // "y". Returns OK if the all nodes in the union of these sets can
   // be placed on the same device type.
   //
-  // NOTE: If this method returns an error, *this is left in an undefined
+  // NOTE: If this method returns an error, *this is left in an undefined id:698
   // state.
   Status ColocateNodes(const Node& x, const Node& y) {
     int x_root = FindRoot(x.id());
@@ -213,7 +213,7 @@ class ColocationGraph {
 
       // Merge the partial device specifications, and ensure that they are
       // compatible. NULL options_ is treated as allowing soft placement.
-      // TODO(mrry): Consider enriching the error message by pointing
+      // TODO (mrry): Consider enriching the error message by pointing id:931
       // out which nodes have the explicit partial device
       // specifications that caused this conflict.
       s = DeviceNameUtils::MergeDevNames(
@@ -480,7 +480,7 @@ class ColocationGraph {
       // the assigned device, so any nodes colocated with this node
       // will be assigned to the same device (assuming this is
       // possible).
-      // NOTE: Since any assignment must have been performed by
+      // NOTE: Since any assignment must have been performed by id:990
       // the TensorFlow runtime, we consider errors in this branch to
       // be INTERNAL.
       if (!DeviceNameUtils::ParseFullName(node.assigned_device_name(),
@@ -533,7 +533,7 @@ class ColocationGraph {
         // The user has specified a device in the NodeDef, try to find a
         // valid device matching their specification in the set of
         // devices.
-        // NOTE: The full name may specify a device that is not in
+        // NOTE: The full name may specify a device that is not in id:815
         // n.supported_device_types(), but we check that in AssignDevice().
         if (!DeviceNameUtils::ParseFullName(node.def().device(),
                                             &member->device_name)) {
@@ -572,7 +572,7 @@ class ColocationGraph {
   int FindRoot(int node_id) {
     DCHECK_GE(members_[node_id].parent, 0);
     if (members_[node_id].parent != node_id) {
-      // NOTE: Compress paths from node_id to its root, so that future
+      // NOTE: Compress paths from node_id to its root, so that future id:841
       // calls to FindRoot and ColocateNodes are more efficient.
       members_[node_id].parent = FindRoot(members_[node_id].parent);
     }
@@ -599,7 +599,7 @@ bool IsMetadataNode(const Node* node) {
 // Returns true if the node has no inputs and produces outputs
 // that are consumed by a single node.
 //
-// TODO(vrv): Currently this handles only nodes with one output, but
+// TODO (vrv): Currently this handles only nodes with one output, but id:699
 // this could be extended to handle the case where a node has many
 // outputs that are connected to nodes in the same colocation group.
 bool IsGeneratorNode(const Node* node) {
@@ -748,7 +748,7 @@ Status SimplePlacer::Run() {
     // Returns the first device in sorted devices list so we will always
     // choose the same device.
     //
-    // TODO(vrv): Factor this assignment out into a pluggable
+    // TODO (vrv): Factor this assignment out into a pluggable id:932
     // algorithm, so that SimplePlacer is responsible for enforcing
     // preconditions and we can experiment with other algorithms when
     // given a choice of devices. Once we have a better idea of the
@@ -763,7 +763,7 @@ Status SimplePlacer::Run() {
       // Make sure that the input device type is in the list of supported
       // device types for this node.
       const Node* input = (*node->in_edges().begin())->src();
-      // TODO(vrv): if the input is empty, consider postponing this
+      // TODO (vrv): if the input is empty, consider postponing this id:991
       // node's assignment to the second pass, so that we handle the
       // case where a metadata node's input comes from a backedge
       // of a loop.

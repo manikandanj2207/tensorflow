@@ -164,7 +164,7 @@ template <>
 void Image<uint8_t>::DownsampleAveragedNeon(const uint8_t* const original,
                                             const int stride,
                                             const int factor) {
-  // TODO(andrewharp): stride is a bad approximation for the src image's width.
+  // TODO (andrewharp): stride is a bad approximation for the src image's width. id:1785
   // Better to pass that in directly.
   SCHECK(width_ * factor <= stride, "Uh oh!");
   const int last_starting_index = width_ * factor - 32;

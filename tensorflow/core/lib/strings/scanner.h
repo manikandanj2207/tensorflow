@@ -39,7 +39,7 @@ class Scanner {
   // LETTER means ascii letter a-zA-Z.
   // DIGIT means ascii digit: 0-9.
   enum CharClass {
-    // NOTE: When adding a new CharClass, update the AllCharClasses ScannerTest
+    // NOTE: When adding a new CharClass, update the AllCharClasses ScannerTest id:1752
     // in scanner_test.cc
     ALL,
     DIGIT,

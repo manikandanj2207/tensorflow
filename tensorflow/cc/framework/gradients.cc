@@ -161,7 +161,7 @@ Status SymbolicGradientBuilder::Initialize() {
     input_nodes_.insert({inputs_[i], i});
   }
 
-  // TODO(andydavis) Consider a more efficient data structure for `pending_` to
+  // TODO (andydavis) Consider a more efficient data structure for `pending_` to id:94
   // handle computing gradients over small subgraphs from a very large graph.
   pending_.resize(scope_.graph()->num_node_ids(), 0);
   {
@@ -242,7 +242,7 @@ Status SymbolicGradientBuilder::SumGradients(const Output& src, Output* grad) {
     *grad = grads_to_keep[0];
   } else {
     // Otherwise, adds backprop-ed gradients.
-    // TODO(andydavis) Use a better accumulator here.
+    // TODO (andydavis) Use a better accumulator here. id:20
     *grad = ops::AddN(scope_, grads_to_keep);
   }
 
@@ -324,20 +324,20 @@ Status SymbolicGradientBuilder::AddGradients() {
       // The outputs of 'n' returned a mixture of valid gradients and
       // 'NoGradient'. Therefore, we need to add 'ZerosLike' nodes for each
       // 'NoGradient' output before we call the gradient function for 'n'.
-      // TODO(andydavis) If static shapes are known, replace 'ZerosLike' with
+      // TODO (andydavis) If static shapes are known, replace 'ZerosLike' with id:8
       // zero-filled Constant node of appropriate shape.
       for (const int dy_index : no_grad_dy_indices) {
         dy[dy_index] = ops::ZerosLike(scope_, Output(n, dy_index));
       }
     }
 
-    // TODO(andydavis) Add option to encapsulate grad function in
+    // TODO (andydavis) Add option to encapsulate grad function in id:66
     // SymbolicGradientOp (as opposed to inlining into the graph).
     std::vector<Output> dx;
     TF_RETURN_IF_ERROR(CallGradFunction(Operation(n), dy, &dx));
 
     // Backprop along the in edges.
-    // TODO(andydavis) Find cleaner way to map each grad output returned by
+    // TODO (andydavis) Find cleaner way to map each grad output returned by id:41
     // gradient function to the src node/output to which it should be
     // backproped. Maybe grad functions can return a vector of Output pairs to
     // make this association explicit.

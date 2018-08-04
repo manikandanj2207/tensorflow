@@ -153,7 +153,7 @@ bool BFCAllocator::Extend(size_t rounded_bytes) {
 
   region_manager_.set_handle(c->ptr, h);
 
-  // TODO(vrv): Try to merge this new region with an existing region,
+  // TODO (vrv): Try to merge this new region with an existing region, id:762
   // if the address space is contiguous, to avoid fragmentation
   // across regions.
 
@@ -209,7 +209,7 @@ void* BFCAllocator::AllocateRaw(size_t unused_alignment, size_t num_bytes,
     void* result = AllocateRawInternal(unused_alignment, num_bytes, false);
     if (result == nullptr) {
       // The counter incrementing is not thread-safe. But we don't really care.
-      // TODO(zhengxq): we should implement a LOG_FIRST_N and LOG_EVERY_N for
+      // TODO (zhengxq): we should implement a LOG_FIRST_N and LOG_EVERY_N for id:677
       // more general usage.
       static int log_counter = 0;
       if (log_counter < 10) {
@@ -299,7 +299,7 @@ void* BFCAllocator::FindChunkPtr(BinNum bin_num, size_t rounded_bytes,
         // If we can break the size of the chunk into two reasonably
         // large pieces, do so.
         //
-        // TODO(vrv): What should be the criteria when deciding when
+        // TODO (vrv): What should be the criteria when deciding when id:739
         // to split?
         if (chunk->size >= rounded_bytes * 2) {
           SplitChunk(h, rounded_bytes);

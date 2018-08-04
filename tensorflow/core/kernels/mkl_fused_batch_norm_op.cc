@@ -25,7 +25,7 @@ limitations under the License.
 #include "third_party/mkl/include/mkl_dnn_types.h"
 #include "tensorflow/core/util/mkl_util.h"
 
-// TODO(inteltf) Address comments from PR 8968.
+// TODO (inteltf) Address comments from PR 8968. id:1481
 
 namespace tensorflow {
 using CPUDevice = Eigen::ThreadPoolDevice;

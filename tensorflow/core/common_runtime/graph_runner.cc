@@ -107,7 +107,7 @@ Status GraphRunner::Run(Graph* graph, FunctionLibraryRuntime* function_library,
     return errors::NotFound("Cannot find a device for GraphRunner.");
   }
 
-  // TODO(vrv): Instead of copying the entire graph, consider modifying
+  // TODO (vrv): Instead of copying the entire graph, consider modifying id:834
   // the existing graph, and then removing those removed edges.
   // prior to returning.
   std::unique_ptr<Graph> graph_to_run(new Graph(graph->op_registry()));
@@ -161,7 +161,7 @@ Status GraphRunner::Run(Graph* graph, FunctionLibraryRuntime* function_library,
   std::unique_ptr<Executor> executor_unref(executor);
 
   Executor::Args args;
-  // NOTE: we could take a step id as an argument, but currently
+  // NOTE: we could take a step id as an argument, but currently id:692
   // there is no need since we never trace the running of a graph
   // called via this method.
   args.step_id = LogMemory::CONSTANT_FOLDING_STEP_ID;

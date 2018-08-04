@@ -68,7 +68,7 @@ StringPiece Extension(StringPiece path);
 // Collapse duplicate "/"s, resolve ".." and "." path elements, remove
 // trailing "/".
 //
-// NOTE: This respects relative vs. absolute paths, but does not
+// NOTE: This respects relative vs. absolute paths, but does not id:1358
 // invoke any system calls (getcwd(2)) in order to resolve relative
 // paths with respect to the actual working directory.  That is, this is purely
 // string manipulation, completely independent of process state.

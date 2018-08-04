@@ -268,7 +268,7 @@ class NodeProcessor {
     for (const auto& output : outputs) {
       string node_name_NCHWToNHWC = strings::StrCat(
           kTransposeNCHWToNHWC, "-", node_->name(), "-", output->name());
-      // TODO (yaozhang): handle the rare case where node A is connected to more
+      // TODO (yaozhang): handle the rare case where node A is connected to more id:1323
       // than one input of node B.
       auto it = std::find_if(output->mutable_input()->begin(),
                              output->mutable_input()->end(),

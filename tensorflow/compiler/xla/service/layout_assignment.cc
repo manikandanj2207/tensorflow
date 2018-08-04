@@ -336,7 +336,7 @@ Status LayoutAssignment::AddMandatoryConstraints(
     } else if (instruction->opcode() == HloOpcode::kInfeed) {
       // Infeed layouts must match the layout of the original inserted
       // instruction.
-      // TODO(b/31425034): Change infeeds to be more like parameters, with
+      // TODO (b/31425034): Change infeeds to be more like parameters, with id:195
       // shapes in the ComputationLayout.
       shape_with_layout = &instruction->shape();
     } else if (instruction->opcode() == HloOpcode::kOutfeed) {
@@ -653,7 +653,7 @@ LayoutAssignment::LayoutAssignment(ComputationLayout* entry_computation_layout)
     CHECK(parameter_layout.LayoutIsSet());
   }
   // If the result layout is not set, then choose the default.
-  // TODO(b/29118294): Choose a better layout in this case.
+  // TODO (b/29118294): Choose a better layout in this case. id:327
   if (!entry_computation_layout_->result_layout().LayoutIsSet()) {
     entry_computation_layout_->mutable_result_layout()->SetToDefaultLayout();
   }
@@ -714,7 +714,7 @@ std::unique_ptr<Layout> LayoutAssignment::ChooseOperandLayoutFromOutputLayout(
     // 1) the elementwise operation can reuse its operand's buffer, and
     // 2) the input and output elements can reuse the same linear index.
     //
-    // TODO(jingyue): Other operations, such as kSlice and kConcat, can benefit
+    // TODO (jingyue): Other operations, such as kSlice and kConcat, can benefit id:229
     // from assigning the same layout to input and output.
     return MakeUnique<Layout>(output_layout);
   }

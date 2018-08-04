@@ -69,7 +69,7 @@ class QrOp : public LinearAlgebraOp<Scalar> {
     double min_size = std::min(m, n);
     double cost = 2 * max_size * min_size * min_size -
                   2 * min_size * min_size * min_size / 3.;
-    // TODO(jpoulson): Increase the cost if full_matrices is true in a manner
+    // TODO (jpoulson): Increase the cost if full_matrices is true in a manner id:1487
     // that reflects the algorithm used for the expansion.
     return cost >= static_cast<double>(kint64max) ? kint64max
                                                   : static_cast<int64>(cost);
@@ -91,7 +91,7 @@ class QrOp : public LinearAlgebraOp<Scalar> {
       outputs->at(0) = qr.householderQ();
       outputs->at(1) = qr.matrixQR().template triangularView<Eigen::Upper>();
     } else {
-      // TODO(jpoulson): Exploit the fact that Householder transformations can
+      // TODO (jpoulson): Exploit the fact that Householder transformations can id:1175
       // be expanded faster than they can be applied to an arbitrary matrix
       // (Cf. LAPACK's DORGQR).
       Matrix tmp = Matrix::Identity(m, min_size);

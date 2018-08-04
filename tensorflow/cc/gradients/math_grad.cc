@@ -21,7 +21,7 @@ namespace tensorflow {
 namespace ops {
 namespace {
 
-// TODO(andydavis) Add control dependencies to gradient functions (as needed).
+// TODO (andydavis) Add control dependencies to gradient functions (as needed). id:43
 
 Status AbsGrad(const Scope& scope, const Operation& op,
                const std::vector<Output>& grad_inputs,
@@ -317,7 +317,7 @@ Status MatMulGradHelper(const Scope& scope, const bool is_batch,
 // MatMulGrad common used to read and check node attr state, and determine
 // proper MatMul products for gradients based on input matrix transposition
 // combinations.
-// TODO(andydavis) Re-use this function for BatchMatMulGrad.
+// TODO (andydavis) Re-use this function for BatchMatMulGrad. id:97
 Status MatMulGradCommon(const Scope& scope, const Operation& op,
                         const bool is_batch,
                         const std::vector<Output>& grad_inputs,

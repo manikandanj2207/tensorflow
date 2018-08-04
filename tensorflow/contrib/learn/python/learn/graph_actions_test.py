@@ -122,7 +122,7 @@ class GraphActionsTest(test.TestCase):
         expected_added_meta_graphs=expected_meta_graphs,
         expected_session_logs=expected_session_logs)
 
-  # TODO(ptucker): Test number and contents of checkpoint files.
+  # TODO (ptucker): Test number and contents of checkpoint files. id:467
   def _assert_ckpt(self, output_dir, expected=True):
     ckpt_state = saver_lib.get_checkpoint_state(output_dir)
     if expected:
@@ -136,7 +136,7 @@ class GraphActionsTest(test.TestCase):
     else:
       self.assertTrue(ckpt_state is None)
 
-  # TODO(ptucker): Test lock, multi-threaded access?
+  # TODO (ptucker): Test lock, multi-threaded access? id:498
   def test_summary_writer(self):
     writer = learn.graph_actions.get_summary_writer('log/dir/0')
     self._assert_summaries('log/dir/0', writer)
@@ -147,10 +147,10 @@ class GraphActionsTest(test.TestCase):
         learn.graph_actions.get_summary_writer('log/dir/0') is
         not learn.graph_actions.get_summary_writer('log/dir/1'))
 
-  # TODO(ptucker): Test restore_checkpoint_path for eval; this should obsolete
+  # TODO (ptucker): Test restore_checkpoint_path for eval; this should obsolete id:552
   # test_evaluate_with_saver().
-  # TODO(ptucker): Test start_queue_runners for both eval & train.
-  # TODO(ptucker): Test coord.request_stop & coord.join for eval.
+  # TODO (ptucker): Test start_queue_runners for both eval & train. id:636
+  # TODO (ptucker): Test coord.request_stop & coord.join for eval. id:572
 
   def _build_inference_graph(self):
     """Build simple inference graph.
@@ -267,7 +267,7 @@ class GraphActionsTest(test.TestCase):
               None, {'c': out}, feed_dict={in0: 4.0}))
       self._assert_ckpt(self._output_dir, False)
 
-  # TODO(ptucker): Test eval for 1 epoch.
+  # TODO (ptucker): Test eval for 1 epoch. id:468
 
   def test_evaluate_invalid_args(self):
     with ops.Graph().as_default() as g, self.test_session(g):
@@ -394,13 +394,13 @@ class GraphActionsTest(test.TestCase):
           }},
           expected_session_logs=[])
 
-  # TODO(ptucker): Resume training from previous ckpt.
-  # TODO(ptucker): !supervisor_is_chief
-  # TODO(ptucker): Custom init op for training.
-  # TODO(ptucker): Mock supervisor, and assert all interactions.
+  # TODO (ptucker): Resume training from previous ckpt. id:499
+  # TODO (ptucker): !supervisor_is_chief id:553
+  # TODO (ptucker): Custom init op for training. id:637
+  # TODO (ptucker): Mock supervisor, and assert all interactions. id:573
 
 
-# TODO(ispir): remove following tests after deprecated train.
+# TODO (ispir): remove following tests after deprecated train. id:469
 class GraphActionsTrainTest(test.TestCase):
   """Tests for train."""
 
@@ -432,7 +432,7 @@ class GraphActionsTrainTest(test.TestCase):
         expected_added_meta_graphs=expected_meta_graphs,
         expected_session_logs=expected_session_logs)
 
-  # TODO(ptucker): Test number and contents of checkpoint files.
+  # TODO (ptucker): Test number and contents of checkpoint files. id:500
   def _assert_ckpt(self, output_dir, expected=True):
     ckpt_state = saver_lib.get_checkpoint_state(output_dir)
     if expected:
@@ -496,10 +496,10 @@ class GraphActionsTrainTest(test.TestCase):
             train_op=constant_op.constant(1.0),
             loss_op=loss_op)
 
-  # TODO(ptucker): Resume training from previous ckpt.
-  # TODO(ptucker): !supervisor_is_chief
-  # TODO(ptucker): Custom init op for training.
-  # TODO(ptucker): Mock supervisor, and assert all interactions.
+  # TODO (ptucker): Resume training from previous ckpt. id:554
+  # TODO (ptucker): !supervisor_is_chief id:638
+  # TODO (ptucker): Custom init op for training. id:574
+  # TODO (ptucker): Mock supervisor, and assert all interactions. id:470
 
   def test_train(self):
     with ops.Graph().as_default() as g, self.test_session(g):
@@ -513,7 +513,7 @@ class GraphActionsTrainTest(test.TestCase):
           train_op=train_op,
           loss_op=constant_op.constant(2.0),
           steps=1)
-      # TODO(ebrevdo,ptucker,ispir): this meta_graph_def lacks the
+      # TODO (ebrevdo,ptucker,ispir): this meta_graph_def lacks the id:501
       # SaverDef, so we can't add it to the summary assertion test below.
       # meta_graph_def = meta_graph.create_meta_graph_def()
       self.assertEqual(2.0, loss)
@@ -589,7 +589,7 @@ class GraphActionsTrainTest(test.TestCase):
           train_op=train_op,
           loss_op=loss_var.value(),
           steps=6)
-      # TODO(ebrevdo,ptucker,ispir): this meta_graph_def lacks the
+      # TODO (ebrevdo,ptucker,ispir): this meta_graph_def lacks the id:555
       # SaverDef, so we can't add it to the summary assertion test below.
       # meta_graph_def = meta_graph.create_meta_graph_def()
       self.assertEqual(4.0, loss)
@@ -610,7 +610,7 @@ class GraphActionsTrainTest(test.TestCase):
           train_op=train_op,
           loss_op=loss_op,
           steps=1)
-      # TODO(ebrevdo,ptucker,ispir): this meta_graph_def lacks the
+      # TODO (ebrevdo,ptucker,ispir): this meta_graph_def lacks the id:639
       # SaverDef, so we can't add it to the summary assertion test below.
       # meta_graph_def = meta_graph.create_meta_graph_def()
       self.assertEqual(2.0, loss)

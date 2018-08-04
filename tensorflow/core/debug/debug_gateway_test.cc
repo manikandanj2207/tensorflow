@@ -338,7 +338,7 @@ TEST_F(SessionDebugMinusAXTest, RunSimpleNetworkWithTwoDebugNodesInserted) {
 }
 
 #ifndef GOOGLE_CUDA
-// TODO(cais): Reinstate the following test for concurrent debugged runs on
+// TODO (cais): Reinstate the following test for concurrent debugged runs on id:702
 //   a GPU once the root cause of the ~0.5% flakiness has been addressed.
 //   (b/34081273)
 TEST_F(SessionDebugMinusAXTest,

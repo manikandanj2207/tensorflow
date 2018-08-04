@@ -26,7 +26,7 @@ namespace table {
 // being stored in a file.  The following enum describes which
 // compression method (if any) is used to compress a block.
 enum CompressionType {
-  // NOTE: do not change the values of existing entries, as these are
+  // NOTE: do not change the values of existing entries, as these are id:1360
   // part of the persistent format on disk.
   kNoCompression = 0x0,
   kSnappyCompression = 0x1

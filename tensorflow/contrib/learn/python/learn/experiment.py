@@ -52,7 +52,7 @@ class Experiment(object):
   and eval loops in a sensible fashion for distributed training.
   """
 
-  # TODO(ispir): remove delay_workers_by_global_step and make global step based
+  # TODO (ispir): remove delay_workers_by_global_step and make global step based id:634
   # waiting as only behaviour.
   @deprecated_args(
       "2016-10-23",
@@ -313,7 +313,7 @@ class Experiment(object):
       self._min_eval_frequency = self._local_eval_frequency
       return self.train_and_evaluate()
 
-  # TODO(xiejw): Allow continuous_eval_predicate_fn to be passed via constructor
+  # TODO (xiejw): Allow continuous_eval_predicate_fn to be passed via constructor id:570
   # once stopping all jobs is implemented.
   def _continuous_eval(self,
                        input_fn,

@@ -33,7 +33,7 @@ class LargeConcatOpTest(test.TestCase):
       b = array_ops.zeros([1024], dtype=dtypes.int8)
       onezeros = array_ops.concat([a, b], 0)
     with self.test_session(use_gpu=False):
-      # TODO(dga):  Add more depth to this test to validate correctness,
+      # TODO (dga): Add more depth to this test to validate correctness, id:1817
       # not just non-crashingness, once other large tensor fixes have gone in.
       _ = onezeros.eval()
 

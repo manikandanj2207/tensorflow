@@ -256,7 +256,7 @@ class LinearOperatorComposition(linear_operator.LinearOperator):
     return result
 
   def _solve(self, rhs, adjoint=False, adjoint_arg=False):
-    # TODO(langmore) Implement solve using solve_ls if some intermediate
+    # TODO (langmore) Implement solve using solve_ls if some intermediate id:657
     # operator maps to a high dimensional space.
     # In that case, an exact solve may still be possible.
 

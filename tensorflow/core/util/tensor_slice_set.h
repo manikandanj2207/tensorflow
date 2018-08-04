@@ -16,7 +16,7 @@ limitations under the License.
 // A class to manage slices of a tensor. You can "register" set of slices for a
 // tensor and then "query" if we have data for a given slice.
 
-// TODO(yangke): consider moving it to a more private place so that we don't
+// TODO (yangke): consider moving it to a more private place so that we don't id:1637
 // need to expose the API.
 
 #ifndef TENSORFLOW_UTIL_TENSOR_SLICE_SET_H_
@@ -58,7 +58,7 @@ class TensorSliceSet {
   // Query about a new slice: checks if we have data for "slice" and if we have
   // the data and "data" is not nullptr, fill "data" with the slice data. The
   // caller needs to make sure "data" point to a large enough buffer.
-  // TODO(yangke): avoid unnecessary copying by using a core::RefCounted
+  // TODO (yangke): avoid unnecessary copying by using a core::RefCounted id:1849
   // pointer.
   bool Query(const TensorSlice& slice, float* data) const;
 

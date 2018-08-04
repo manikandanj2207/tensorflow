@@ -98,7 +98,7 @@ class SnappyOutputBuffer {
   WritableFile* file_;  // Not owned
 
   // Buffer for storing contents read from input `file_`.
-  // TODO(srbs): Consider using circular buffers. That would greatly simplify
+  // TODO (srbs): Consider using circular buffers. That would greatly simplify id:1359
   // the implementation.
   std::unique_ptr<char[]> input_buffer_;
   size_t input_buffer_capacity_;

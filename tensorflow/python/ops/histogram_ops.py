@@ -89,7 +89,7 @@ def histogram_fixed_width(values,
     indices = math_ops.cast(
         clip_ops.clip_by_value(indices, 0, nbins_float - 1), dtypes.int32)
 
-    # TODO(langmore) This creates an array of ones to add up and place in the
+    # TODO (langmore) This creates an array of ones to add up and place in the id:1904
     # bins.  This is inefficient, so replace when a better Op is available.
     return math_ops.unsorted_segment_sum(
         array_ops.ones_like(indices, dtype=dtype),

@@ -454,7 +454,7 @@ Status StridedSliceGradGrad(const AttrSlice& attrs, FunctionDef* g) {
         "SliceGrad for int64 index are not supported.");
   }
 
-  // TODO(aselle): Shouldn't the int32 tensors return zeros of shape like
+  // TODO (aselle): Shouldn't the int32 tensors return zeros of shape like id:1683
   // dy_grad?
   // I'm following slice's behavior for now.
   *g = FDH::Define(

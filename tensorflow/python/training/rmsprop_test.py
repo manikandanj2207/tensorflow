@@ -88,7 +88,7 @@ class RMSPropOptimizerTest(test.TestCase):
     return var_t, mg_t, rms_t, mom_t
 
   def testDense(self):
-    # TODO(yori): Use ParameterizedTest when available
+    # TODO (yori): Use ParameterizedTest when available id:2127
     for (dtype, learning_rate, decay, momentum,
          epsilon, centered, use_resource) in _TESTPARAMS:
       with self.test_session(use_gpu=True):
@@ -207,7 +207,7 @@ class RMSPropOptimizerTest(test.TestCase):
             [[-111, -138]], var0.eval(), atol=0.01)
 
   def testSparse(self):
-    # TODO(yori): Use ParameterizedTest when available
+    # TODO (yori): Use ParameterizedTest when available id:2375
     for (dtype, learning_rate, decay,
          momentum, epsilon, centered, _) in _TESTPARAMS:
       with self.test_session(use_gpu=True):

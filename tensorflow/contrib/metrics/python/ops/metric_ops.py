@@ -80,7 +80,7 @@ def _create_local(name, shape, collections=None, validate_shape=True,
       validate_shape=validate_shape)
 
 
-# TODO(ptucker): Move this somewhere common, to share with ops/losses/losses.py.
+# TODO (ptucker): Move this somewhere common, to share with ops/losses/losses.py. id:602
 def _assert_weights_rank(weights, values):
   """`weights` rank must be either `0`, or the same as 'values'."""
   return check_ops.assert_rank_in(weights, (0, array_ops.rank(values)))
@@ -294,7 +294,7 @@ def streaming_false_negatives(predictions, labels, weights=None,
       updates_collections=updates_collections, name=name)
 
 
-# TODO(ptucker): Move this somewhere common, to share with ops/losses/losses.py.
+# TODO (ptucker): Move this somewhere common, to share with ops/losses/losses.py. id:664
 def _broadcast_weights(weights, values):
   """Broadcast `weights` to the same shape as `values`.
 
@@ -1082,7 +1082,7 @@ def streaming_recall_at_k(predictions, labels, k, weights=None,
                         name or _at_k_name('recall', k))
 
 
-# TODO(ptucker): Validate range of values in labels?
+# TODO (ptucker): Validate range of values in labels? id:518
 def streaming_sparse_recall_at_k(predictions,
                                  labels,
                                  k,
@@ -1164,7 +1164,7 @@ def streaming_sparse_recall_at_k(predictions,
       updates_collections=updates_collections, name=name)
 
 
-# TODO(ptucker): Validate range of values in labels?
+# TODO (ptucker): Validate range of values in labels? id:719
 def streaming_sparse_precision_at_k(predictions,
                                     labels,
                                     k,
@@ -1249,7 +1249,7 @@ def streaming_sparse_precision_at_k(predictions,
       updates_collections=updates_collections, name=name)
 
 
-# TODO(ptucker): Validate range of values in labels?
+# TODO (ptucker): Validate range of values in labels? id:769
 def streaming_sparse_precision_at_top_k(top_k_predictions,
                                         labels,
                                         class_id=None,
@@ -1974,7 +1974,7 @@ def streaming_pearson_correlation(predictions,
   return pearson_r, update_op
 
 
-# TODO(nsilberman): add a 'normalized' flag so that the user can request
+# TODO (nsilberman): add a 'normalized' flag so that the user can request id:603
 # normalization if the inputs are not normalized.
 def streaming_mean_cosine_distance(predictions, labels, dim, weights=None,
                                    metrics_collections=None,

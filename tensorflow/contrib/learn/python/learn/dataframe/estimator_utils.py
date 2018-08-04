@@ -137,7 +137,7 @@ def to_feature_columns_and_input_fn(dataframe,
   new_feature_series_dict, feature_specs = _build_alternate_universe(
       dataframe, base_input_keys_with_defaults, feature_keys)
 
-  # TODO(soergel): Allow non-real, non-dense DataFrameColumns
+  # TODO (soergel): Allow non-real, non-dense DataFrameColumns id:479
   for key in new_feature_series_dict.keys():
     spec = feature_specs[key]
     if not (
@@ -167,7 +167,7 @@ def to_feature_columns_and_input_fn(dataframe,
     base_input_features = {key: tensors[key] for key in base_input_keys}
     labels = {key: tensors[key] for key in label_keys}
 
-    # TODO(soergel): Remove this special case when b/30367437 is fixed.
+    # TODO (soergel): Remove this special case when b/30367437 is fixed. id:452
     if len(labels) == 1:
       labels = list(labels.values())[0]
 

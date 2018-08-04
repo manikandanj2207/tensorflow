@@ -25,7 +25,7 @@ namespace cpu {
 // This pass prepares an HLO module for parallel execution by transforming
 // subgraphs of the top-level computation into embedded computations which can
 // be executed in parallel.
-// TODO(b/29630486): Currently, it is limited to turning all instructions (which
+// TODO (b/29630486): Currently, it is limited to turning all instructions (which id:238
 // are not constants or parameters) in the entry computation into embedded
 // computations.  However, it could make sense to coarsen the parallelization to
 // improve cache locality.  Also, we will need to do something to intelligently

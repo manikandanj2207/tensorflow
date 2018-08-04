@@ -173,7 +173,7 @@ def add_dict_to_dict(add_from, add_to):
 
 # Exclude some libaries in contrib from the documentation altogether.
 def _get_default_do_not_descend_map():
-  # TODO(wicke): Shrink this list.
+  # TODO (wicke): Shrink this list. id:2327
   return {
       '': ['cli', 'lib', 'wrappers'],
       'contrib': [

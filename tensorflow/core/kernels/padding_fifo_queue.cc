@@ -71,7 +71,7 @@ void PaddingFIFOQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
     Tuple tuple;
     tuple.reserve(num_components());
     for (int i = 0; i < num_components(); ++i) {
-      // TODO(josh11b,misard): Switch to allocate_output().
+      // TODO (josh11b,misard): Switch to allocate_output(). id:1172
       // See similar comment in fifo_queue.cc
       Tensor element;
       // Here, ManyOutShape returns zeros for undetermined shapes,
@@ -92,7 +92,7 @@ void PaddingFIFOQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
     already_cancelled = !cm->RegisterCallback(
         token, [this, cm, token]() { Cancel(kDequeue, cm, token); });
     if (!already_cancelled) {
-      // TODO(josh11b): This makes two copies of callback, avoid this if possible.
+      // TODO (josh11b): This makes two copies of callback, avoid this if possible. id:1410
       dequeue_attempts_.emplace_back(
           num_elements, [callback]() { callback(Tuple()); }, ctx, cm, token,
           [callback, allow_small_batch,
@@ -194,7 +194,7 @@ void PaddingFIFOQueue::TryDequeueMany(int num_elements, OpKernelContext* ctx,
 
                   dynamic_shape.push_back(has_dynamic_shape);
 
-                  // TODO(ebrevdo): should this be a persistent tensor?
+                  // TODO (ebrevdo): should this be a persistent tensor? id:1554
                   attempt->tuple.emplace_back(element);
                 }
 

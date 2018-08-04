@@ -47,11 +47,11 @@ namespace checkpoint {
 // The reader reads in all the meta data about all the tensor slices. Then it
 // will try to read the relevant data on-demand to produce the data for the
 // slices needed.
-// NOTE(yangke): another way to do this is to first load a list of the tensor
+// NOTE (yangke): another way to do this is to first load a list of the tensor id:1848
 // slices needed and then just selectively read some of the meta data. That
 // might optimize the loading but makes the logic a bit more complicated. We
 // might want to revisit that.
-// TODO(yangke): consider moving to TensorProto.
+// TODO (yangke): consider moving to TensorProto. id:1397
 class TensorSliceReader {
  public:
   // Abstract interface for reading data out of a tensor slice checkpoint file

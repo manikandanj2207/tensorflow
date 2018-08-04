@@ -85,7 +85,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_GPU_KERNEL);
 #undef REGISTER_GPU_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1533
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Shape")
                             .Device(DEVICE_GPU)
@@ -134,7 +134,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_GPU_KERNEL);
 #undef REGISTER_GPU_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1573
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("ShapeN")
                             .Device(DEVICE_GPU)
@@ -171,7 +171,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_SYCL_KERNEL);
 #undef REGISTER_SYCL_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1302
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("ShapeN")
                             .Device(DEVICE_SYCL)
@@ -205,7 +205,7 @@ REGISTER_SYCL_KERNEL(double);
 #undef REGISTER_SYCL_KERNEL
 
 // A special GPU kernel for int32 and bool.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1504
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Rank")
                             .Device(DEVICE_SYCL)
@@ -233,7 +233,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_GPU_KERNEL);
 #undef REGISTER_GPU_KERNEL
 
 // A special GPU kernel for int32 and bool.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1192
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Rank")
                             .Device(DEVICE_GPU)
@@ -280,7 +280,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_GPU_KERNEL);
 #undef REGISTER_GPU_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1601
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Size")
                             .Device(DEVICE_GPU)
@@ -317,7 +317,7 @@ REGISTER_SYCL_KERNEL(double);
 #undef REGISTER_SYCL_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1574
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Size")
                             .Device(DEVICE_SYCL)
@@ -398,7 +398,7 @@ TF_CALL_NUMBER_TYPES_NO_INT32(REGISTER_GPU_KERNEL);
 #undef REGISTER_GPU_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1303
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Squeeze")
                             .Device(DEVICE_GPU)
@@ -418,7 +418,7 @@ REGISTER_SYCL_KERNEL(double);
 #undef REGISTER_SYCL_KERNEL
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1505
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Squeeze")
                             .Device(DEVICE_SYCL)

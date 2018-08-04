@@ -197,7 +197,7 @@ def register_dense_tensor_like_type(tensor_type):
   _TENSOR_LIKE_TYPES = tuple(list(_TENSOR_LIKE_TYPES) + [tensor_type])
 
 
-# NOTE(ebrevdo): Do not subclass this.  If you do, I will break you on purpose.
+# NOTE (ebrevdo): Do not subclass this. If you do, I will break you on purpose. id:1729
 class _TensorLike(object):
   """Internal cls for grouping Tensor, SparseTensor, ..., for is_instance."""
   pass
@@ -487,11 +487,11 @@ class Tensor(_TensorLike):
     # Necessary to support Python's collection membership operators
     return id(self) == id(other)
 
-  # NOTE(mrry): This enables the Tensor's overloaded "right" binary
+  # NOTE (mrry): This enables the Tensor's overloaded "right" binary id:2033
   # operators to run when the left operand is an ndarray, because it
   # accords the Tensor class higher priority than an ndarray, or a
   # numpy matrix.
-  # TODO(mrry): Convert this to using numpy's __numpy_ufunc__
+  # TODO (mrry): Convert this to using numpy's __numpy_ufunc__ id:1971
   # mechanism, which allows more control over how Tensors interact
   # with ndarrays.
   __array_priority__ = 100
@@ -1119,7 +1119,7 @@ def _NodeDef(op_type, name, device=None, attrs=None):
 
 
 # Copied from core/framework/node_def_util.cc
-# TODO(mrry,josh11b): Consolidate this validation in C++ code.
+# TODO (mrry,josh11b): Consolidate this validation in C++ code. id:1802
 _VALID_OP_NAME_REGEX = re.compile("^[A-Za-z0-9.][A-Za-z0-9_.\\-/]*$")
 _VALID_SCOPE_NAME_REGEX = re.compile("^[A-Za-z0-9_.\\-/]*$")
 
@@ -1244,7 +1244,7 @@ class Operation(object):
     self._control_flow_context = g._get_control_flow_context()
     if self._control_flow_context is not None:
       self._control_flow_context.AddOp(self)
-    # NOTE(keveman): Control flow context's AddOp could be creating new ops and
+    # NOTE (keveman): Control flow context's AddOp could be creating new ops and id:2073
     # setting op.inputs[index] = new_op. Thus the new ops' id could be larger
     # than this op's id even though this op depend on them. Therefore, delaying
     # assigning id to this op until all ops this could be dependent on are
@@ -1965,7 +1965,7 @@ class Graph(object):
     # `get_collection_ref()`) is by the lock. Thread-safety is provided on a
     # best-effort basis to support buggy programs, and is not guaranteed by the
     # public `tf.Graph` API.
-    # NOTE(mrry): This does not protect the various stacks. A warning will
+    # NOTE (mrry): This does not protect the various stacks. A warning will id:1730
     # be reported if these are used from multiple threads
     self._lock = threading.Lock()
     self._nodes_by_id = dict()  # GUARDED_BY(self._lock)
@@ -3265,7 +3265,7 @@ class Graph(object):
           break
       if not dominated:
         # Don't add a control input if we already have a data dependency on i.
-        # NOTE(mrry): We do not currently track transitive data dependencies,
+        # NOTE (mrry): We do not currently track transitive data dependencies, id:2034
         #   so we may add redundant control inputs.
         ret.extend([c for c in controller.control_inputs if c not in input_ops])
     return ret
@@ -3355,7 +3355,7 @@ class Graph(object):
     if control_inputs is None:
       return self._ControlDependenciesController(self, None)
     # First convert the inputs to ops, and deduplicate them.
-    # NOTE(mrry): Other than deduplication, we do not currently track direct
+    # NOTE (mrry): Other than deduplication, we do not currently track direct id:1972
     #   or indirect dependencies between control_inputs, which may result in
     #   redundant control inputs.
     control_ops = []
@@ -3832,7 +3832,7 @@ class _DefaultGraphStack(_DefaultStack):
 
   def _GetGlobalDefaultGraph(self):
     if self._global_default_graph is None:
-      # TODO(mrry): Perhaps log that the default graph is being used, or set
+      # TODO (mrry): Perhaps log that the default graph is being used, or set id:1803
       #   provide some other feedback to prevent confusion when a mixture of
       #   the global default graph and an explicit graph are combined in the
       #   same process.
@@ -4076,7 +4076,7 @@ class GraphKeys(object):
   WHILE_CONTEXT = "while_context"
 
   # Key for streaming model ports.
-  # NOTE(yuanbyu): internal and experimental.
+  # NOTE (yuanbyu): internal and experimental. id:2074
   _STREAMING_MODEL_PORTS = "streaming_model_ports"
 
   @decorator_utils.classproperty

@@ -25,7 +25,7 @@ ConditionalAccumulatorBase::ConditionalAccumulatorBase(
 }
 
 Status ConditionalAccumulatorBase::MatchesNodeDef(const NodeDef& node_def) {
-  // TODO(xinghao@): implement the checks for the node definition
+  // TODO (xinghao@): implement the checks for the node definition id:1087
   return Status::OK();
 }
 
@@ -173,7 +173,7 @@ void ConditionalAccumulatorBase::FlushUnlocked() {
   Unref();
   for (const auto& to_clean : clean_up) {
     if (to_clean.to_deregister != CancellationManager::kInvalidToken) {
-      // NOTE(mrry): We can safely ignore the return value of
+      // NOTE (mrry): We can safely ignore the return value of id:1232
       // DeregisterCallback because the mutex mu_ ensures that the
       // cleanup action only executes once.
       to_clean.cm->DeregisterCallback(to_clean.to_deregister);

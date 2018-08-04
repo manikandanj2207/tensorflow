@@ -45,11 +45,11 @@ class PublicAPIVisitor(object):
             'core',
             'examples',
             'flags',  # Don't add flags
-            # TODO(drpng): This can be removed once sealed off.
+            # TODO (drpng): This can be removed once sealed off. id:2421
             'platform',
-            # TODO(drpng): This can be removed once sealed.
+            # TODO (drpng): This can be removed once sealed. id:2107
             'pywrap_tensorflow',
-            # TODO(drpng): This can be removed once sealed.
+            # TODO (drpng): This can be removed once sealed. id:2408
             'user_ops',
             'python',
             'tools',
@@ -81,7 +81,7 @@ class PublicAPIVisitor(object):
 
   def _isprivate(self, name):
     """Return whether a name is private."""
-    # TODO(wicke): Find out what names to exclude.
+    # TODO (wicke): Find out what names to exclude. id:2324
     return (name.startswith('_') and not re.match('__.*__$', name) or
             name in ['__base__', '__class__'])
 

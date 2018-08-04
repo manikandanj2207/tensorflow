@@ -102,7 +102,7 @@ def string_split(source, delimiter=" "):  # pylint: disable=invalid-name
 
 def _reduce_join_reduction_dims(x, axis, reduction_indices):
   """Returns range(rank(x) - 1, 0, -1) if reduction_indices is None."""
-  # TODO(aselle): Remove this after deprecation
+  # TODO (aselle): Remove this after deprecation id:2120
   if reduction_indices is not None:
     if axis is not None:
       raise ValueError("Can't specify both 'axis' and 'reduction_indices'.")

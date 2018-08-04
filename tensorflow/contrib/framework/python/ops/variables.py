@@ -460,7 +460,7 @@ def assign_from_values(var_names_to_values):
     else:
       var = var[0]
 
-    # TODO(nsilberman): ensure placeholder and assign are on the same device.
+    # TODO (nsilberman): ensure placeholder and assign are on the same device. id:352
     # Assign a placeholder to the value that will be filled later.
     placeholder_name = 'placeholder/' + var.op.name
     placeholder_value = array_ops.placeholder(
@@ -520,9 +520,9 @@ def get_variable_full_name(var):
     return var.op.name
 
 
-# TODO(nsilberman): add flag to load exponential moving averages instead
+# TODO (nsilberman): add flag to load exponential moving averages instead id:380
 #
-# TODO(sguada): Update docs in slim/g3doc/index.md to describe
+# TODO (sguada): Update docs in slim/g3doc/index.md to describe id:442
 # the new feature where the var_list dictionary can have values that
 # are each a list of Variables.
 def assign_from_checkpoint(model_path, var_list):

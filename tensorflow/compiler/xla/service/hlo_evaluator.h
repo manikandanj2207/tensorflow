@@ -52,8 +52,8 @@ class HloEvaluator : public DfsHloVisitorWithDefault {
   // 1. argument literals are in post-order corresponding to the input
   // instruction's parameters.
   // 2. the instruction's operands must be of either Parameter or Constant type.
-  // TODO(b/35950897): implement more ops other than element-wise ops.
-  // TODO(b/35950897): handle broadcasts.
+  // TODO (b/35950897): implement more ops other than element-wise ops. id:192
+  // TODO (b/35950897): handle broadcasts. id:275
   StatusOr<std::unique_ptr<Literal>> Evaluate(
       HloInstruction* instruction,
       tensorflow::gtl::ArraySlice<const Literal*> arg_literals);
@@ -63,7 +63,7 @@ class HloEvaluator : public DfsHloVisitorWithDefault {
   //
   // DefaultAction here handles all non-specificialized (i.e., instruction
   // without corresponding Handle* method) instructions.
-  // TODO(b/35950897): it's likely better to refactor the switches here and push
+  // TODO (b/35950897): it's likely better to refactor the switches here and push id:226
   // up the switch to templated methods instead, likely at DfsHloVisitor level.
   Status DefaultAction(HloInstruction* hlo_instruction) override;
 

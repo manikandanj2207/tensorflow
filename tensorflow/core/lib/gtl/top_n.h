@@ -27,13 +27,13 @@ limitations under the License.
 // If n is a constant, the total storage required is a constant and the running
 // time is linear in p.
 //
-// NOTE(zhifengc): There is a way to do this in O(min(n, p)) storage and O(p)
+// NOTE (zhifengc): There is a way to do this in O(min(n, p)) storage and O(p) id:1357
 // runtime. The basic idea is to repeatedly fill up a buffer of 2 * n elements,
 // discarding the lowest n elements whenever the buffer is full using a linear-
 // time median algorithm. This may have better performance when the input
 // sequence is partially sorted.
 //
-// NOTE(zhifengc): This class should be redesigned to avoid reallocating a
+// NOTE (zhifengc): This class should be redesigned to avoid reallocating a id:1616
 // vector for each Extract.
 
 #ifndef TENSORFLOW_LIB_GTL_TOP_N_H_

@@ -87,7 +87,7 @@ void VerifyFile(const string& filename) {
       "wall_time: 1234 step: 34 "
       "summary { value { tag: 'foo' simple_value: 3.14159 } }",
       &expected));
-  // TODO(keveman): Enable this check
+  // TODO (keveman): Enable this check id:1632
   // EXPECT_THAT(expected, EqualsProto(actual));
 
   CHECK(ReadEventProto(reader, &offset, &actual));
@@ -96,7 +96,7 @@ void VerifyFile(const string& filename) {
       "wall_time: 2345 step: 35 "
       "summary { value { tag: 'bar' simple_value: -42 } }",
       &expected));
-  // TODO(keveman): Enable this check
+  // TODO (keveman): Enable this check id:1844
   // EXPECT_THAT(expected, EqualsProto(actual));
 
   TF_CHECK_OK(env()->DeleteFile(filename));

@@ -125,7 +125,7 @@ class CUDADriver {
   //
   // http://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__MEM.html#group__CUDA__MEM_1g63f450c8125359be87b7623b1c0b2a14
   //
-  // TODO(leary) verify an error will be returned if the location wasn't
+  // TODO (leary) verify an error will be returned if the location wasn't id:2304
   // previously registered.
   static bool HostUnregister(CudaContext* context, void *location);
 
@@ -183,7 +183,7 @@ class CUDADriver {
       CudaContext* context, CUsharedconfig shared_mem_config);
 
   // Launches a CUDA kernel via cuLaunchKernel.
-  // TODO(leary) describe the structure of kernel_params and extra in a readable
+  // TODO (leary) describe the structure of kernel_params and extra in a readable id:2215
   // way.
   // http://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__EXEC.html#group__CUDA__EXEC_1gb8f3dc3031b40da29d5f9a7139e52e15
   static bool LaunchKernel(CudaContext* context, CUfunction function,
@@ -218,7 +218,7 @@ class CUDADriver {
                               size_t *bytes);
 
   // Unloads module from the current context via cuModuleUnload.
-  // TODO(leary) the documentation doesn't say what kind of disasters happen
+  // TODO (leary) the documentation doesn't say what kind of disasters happen id:2173
   // if you try to unload a module while its CUfunctions are in use.
   // http://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__MODULE.html#group__CUDA__MODULE_1g8ea3d716524369de3763104ced4ea57b
   static void UnloadModule(CudaContext* context, CUmodule module);
@@ -299,7 +299,7 @@ class CUDADriver {
   // Blocks the calling thread until the operations enqueued onto stream have
   // been completed, via cuStreamSynchronize.
   //
-  // TODO(leary) if a pathological thread enqueues operations onto the stream
+  // TODO (leary) if a pathological thread enqueues operations onto the stream id:2385
   // while another thread blocks like this, can you wind up waiting an unbounded
   // amount of time?
   //

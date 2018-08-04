@@ -15,7 +15,7 @@ limitations under the License.
 
 // See core/ops/sparse_ops.cc for documentation.
 //
-// NOTE: the operations in this file only are suitable for execution
+// NOTE: the operations in this file only are suitable for execution id:1509
 // on CPUs.
 
 #define EIGEN_USE_THREADS
@@ -103,7 +103,7 @@ class SparseToDense : public OpKernel {
 
     // If we received a scalar, we'll need to create a new
     // tensor with copies of the values as a vec.
-    // TODO(ebrevdo): find a way to avoid this temp allocation.
+    // TODO (ebrevdo): find a way to avoid this temp allocation. id:1307
     Tensor sparse_values_b;
 
     if (TensorShapeUtils::IsScalar(sparse_values.shape())) {

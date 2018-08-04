@@ -32,8 +32,8 @@ void TransposeSimple(const Device& d, const Tensor& in,
   const T* p = reinterpret_cast<const T*>(in.tensor_data().data());
   T* q = reinterpret_cast<T*>(const_cast<char*>((out->tensor_data().data())));
 
-  // TODO(zhifengc): Shard by range.
-  // TODO(zhifengc): Avoids the division.
+  // TODO (zhifengc): Shard by range. id:1312
+  // TODO (zhifengc): Avoids the division. id:1611
   for (int64 o_idx = 0; o_idx < nelem; ++o_idx) {
     int64 i_idx = 0;
     int64 t = o_idx;
@@ -87,7 +87,7 @@ struct Transpose<CPUDevice, T> {
   }
 };
 
-// TODO(yangzihao): Merge this code with its GPU counterpart to reduce code
+// TODO (yangzihao): Merge this code with its GPU counterpart to reduce code id:1672
 // duplication.
 template <>
 Status DoTranspose<CPUDevice>(const CPUDevice& d, const Tensor& in,

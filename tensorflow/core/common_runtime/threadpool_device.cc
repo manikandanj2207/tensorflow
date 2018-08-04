@@ -50,7 +50,7 @@ void ThreadPoolDevice::Compute(OpKernel* op_kernel, OpKernelContext* context) {
   // false value. Measurements show that its overhead is negligible.
   port::Tracing::TraceMe trace_me(op_kernel->name(), op_kernel->type_string());
   if (port::Tracing::IsActive()) {
-    // TODO(pbar) We really need a useful identifier of the graph node.
+    // TODO (pbar) We really need a useful identifier of the graph node. id:701
     const uint64 id = Hash64(op_kernel->name());
     port::Tracing::ScopedActivity region(port::Tracing::EventCategory::kCompute,
                                          id);

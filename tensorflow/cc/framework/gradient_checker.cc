@@ -26,11 +26,11 @@ using namespace ops;  // NOLINT(build/namespaces)
 
 namespace {
 
-// TODO(andydavis) Support returning relative error (as opposed to max error)
+// TODO (andydavis) Support returning relative error (as opposed to max error) id:7
 // between theoretical and numerical jacobians:
 //   fabs(jac_t - jac_n) / max(fabs(jac_t), fabs(jac_n))
 
-// TODO(andydavis) Vectorize and/or multi-thread Jacobian computations if
+// TODO (andydavis) Vectorize and/or multi-thread Jacobian computations if id:65
 // performance becomes an issue.
 
 template <typename T>
@@ -45,7 +45,7 @@ Status ComputeTheoreticalJacobianTranspose(
   // Call AddSymbolicGradients to get 'dxs' (we will feed 'dys').
   OutputList dys;
   for (const auto& y_shape : y_shapes) {
-    // TODO(suharshs): This currently assumes that all x's are the same type.
+    // TODO (suharshs): This currently assumes that all x's are the same type. id:40
     dys.push_back(Cast(scope, Const(scope, 1.0, y_shape), xs[0].type()));
   }
   OutputList dxs;

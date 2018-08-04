@@ -239,7 +239,7 @@ FixedUnigramSampler::FixedUnigramSampler(Env* env, int64 range,
       num_shards_(num_shards),
       shard_(shard) {
   FillReservedIds(num_reserved_ids);
-  // TODO(vanhoucke): make this non-crashing.
+  // TODO (vanhoucke): make this non-crashing. id:1491
   TF_CHECK_OK(LoadFromFile(env, vocab_file, distortion));
   CHECK_EQ(range, weights_.size());
   dist_sampler_.reset(new random::DistributionSampler(weights_));
@@ -256,7 +256,7 @@ FixedUnigramSampler::FixedUnigramSampler(int64 range,
       shard_(shard) {
   FillReservedIds(num_reserved_ids);
   LoadFromUnigrams(unigrams, distortion);
-  // TODO(vanhoucke): make this non-crashing.
+  // TODO (vanhoucke): make this non-crashing. id:1179
   CHECK_EQ(range, weights_.size());
   dist_sampler_.reset(new random::DistributionSampler(weights_));
 }

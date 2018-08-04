@@ -34,7 +34,7 @@ class SplitMask(transform.Transform):
         partition; the remaining (1 - proportion) rows form the '0'
         partition.
     """
-    # TODO(soergel): allow seed?
+    # TODO (soergel): allow seed? id:454
     super(SplitMask, self).__init__()
     self._proportion = proportion
 
@@ -72,7 +72,7 @@ class SplitMask(transform.Transform):
     Returns:
       Two `DataFrame`s containing the partitioned rows.
     """
-    # TODO(soergel): allow seed?
+    # TODO (soergel): allow seed? id:396
     num_buckets = 1000000  # close enough for simple splits
     hashed_input, = hashes.HashFast(num_buckets)(input_series[0])
     threshold = int(num_buckets * self._proportion)

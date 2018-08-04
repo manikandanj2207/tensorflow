@@ -366,7 +366,7 @@ class TextLineReader(ReaderBase):
   Newlines are stripped from the output.
   See ReaderBase for supported methods.
   """
-  # TODO(josh11b): Support serializing and restoring state.
+  # TODO (josh11b): Support serializing and restoring state. id:2273
 
   def __init__(self, skip_header_lines=None, name=None):
     """Create a TextLineReader.
@@ -389,7 +389,7 @@ class FixedLengthRecordReader(ReaderBase):
 
   See ReaderBase for supported methods.
   """
-  # TODO(josh11b): Support serializing and restoring state.
+  # TODO (josh11b): Support serializing and restoring state. id:2153
 
   def __init__(self,
                record_bytes,
@@ -423,7 +423,7 @@ class TFRecordReader(ReaderBase):
 
   See ReaderBase for supported methods.
   """
-  # TODO(josh11b): Support serializing and restoring state.
+  # TODO (josh11b): Support serializing and restoring state. id:1954
 
   def __init__(self, name=None, options=None):
     """Create a TFRecordReader.

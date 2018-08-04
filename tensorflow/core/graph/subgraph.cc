@@ -39,7 +39,7 @@ namespace tensorflow {
 // ----------------------------------------------------------------------------
 // Subgraph construction-related routines
 // ----------------------------------------------------------------------------
-// TODO(vrv): Profile the unordered_set and unordered_map use in this file to
+// TODO (vrv): Profile the unordered_set and unordered_map use in this file to id:1056
 // see if we should use an alternative implementation.
 
 namespace {
@@ -90,7 +90,7 @@ static Status FeedInputs(Graph* g, const DeviceAttributes& device_info,
               .Attr("client_terminated", true)
               .Finalize(g, &recv_node));
     } else {
-      // NOTE(mrry): We must include the index as part of the node
+      // NOTE (mrry): We must include the index as part of the node id:1132
       // name, because _Arg is a "stateful" kernel and therefore
       // its name must uniquely identify a kernel instance across all
       // graphs in the same session.
@@ -134,7 +134,7 @@ static Status FeedInputs(Graph* g, const DeviceAttributes& device_info,
         // When feeding a Placeholder node, any outgoing control edges
         // will be replaced with a control edge from the replacement
         // recv_node.
-        // TODO(josh11b,mrry): Come up with a more elegant way of addressing
+        // TODO (josh11b,mrry): Come up with a more elegant way of addressing id:892
         // the general version of this problem.
         to_remove.emplace_back(e);
       }
@@ -251,7 +251,7 @@ Status FetchOutputs(Graph* g, const DeviceAttributes& device_info,
               .Attr("client_terminated", true)
               .Finalize(g, &send_node));
     } else {
-      // NOTE(mrry): We must include the index as part of the node
+      // NOTE (mrry): We must include the index as part of the node id:1223
       // name, because _Retval is a "stateful" kernel and therefore
       // its name must uniquely identify a kernel instance across all
       // graphs in the same session.

@@ -127,7 +127,7 @@ class FileIO(object):
       "position is deprecated in favor of the offset argument.",
       "position")
   def seek(self, offset=None, whence=0, position=None):
-    # TODO(jhseu): Delete later. Used to omit `position` from docs.
+    # TODO (jhseu): Delete later. Used to omit `position` from docs. id:1833
     # pylint: disable=g-doc-args
     """Seeks to the offset in the file.
 
@@ -143,7 +143,7 @@ class FileIO(object):
     # We needed to make offset a keyword argument for backwards-compatibility.
     # This check exists so that we can convert back to having offset be a
     # positional argument.
-    # TODO(jhseu): Make `offset` a positional argument after `position` is
+    # TODO (jhseu): Make `offset` a positional argument after `position` is id:2187
     # deleted.
     if offset is None and position is None:
       raise TypeError("seek(): offset argument required")

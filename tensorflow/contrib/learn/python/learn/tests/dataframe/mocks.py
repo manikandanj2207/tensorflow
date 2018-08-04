@@ -24,7 +24,7 @@ from tensorflow.contrib.learn.python import learn
 from tensorflow.python.framework import dtypes
 from tensorflow.python.framework import tensor_shape
 
-# TODO(soergel): Consider cleaning this up using tf.test.mock
+# TODO (soergel): Consider cleaning this up using tf.test.mock id:477
 
 
 class MockTensor(object):

@@ -240,7 +240,7 @@ class TensorFlowDataFrame(df.DataFrame):
     right_mask = ~left_mask
     self["left_mask__"] = left_mask
     self["right_mask__"] = right_mask
-    # TODO(soergel): instead of base_batch_size can we just do one big batch?
+    # TODO (soergel): instead of base_batch_size can we just do one big batch? id:394
     # avoid computing the hashes twice
     m = self.materialize_to_memory(batch_size=base_batch_size)
     left_rows_df = m.select_rows(m["left_mask__"])
@@ -293,7 +293,7 @@ class TensorFlowDataFrame(df.DataFrame):
     # there may already be an 'index' column, in which case from_ordereddict)
     # below will complain because it wants to generate a new one.
     # for now, just remove it.
-    # TODO(soergel): preserve index history, potentially many levels deep
+    # TODO (soergel): preserve index history, potentially many levels deep id:537
     del unordered_dict_of_arrays["index"]
 
     # the order of the columns in this dict is arbitrary; we just need it to

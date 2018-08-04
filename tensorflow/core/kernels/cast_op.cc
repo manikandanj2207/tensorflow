@@ -124,7 +124,7 @@ class CpuCastOp : public CastOpBase {
       work_ = GetCpuCastFromBfloat(dst_dtype_);
     }
 
-    // TODO(sesse): If CPU casting to or from Eigen::half ever becomes a
+    // TODO (sesse): If CPU casting to or from ever becomes a Eigen::half id:1085
     // bottleneck, we could probably implement specialized support for
     // vectorized versions (not the least based on F16C for Haswell
     // or newer).

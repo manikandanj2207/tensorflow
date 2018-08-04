@@ -446,7 +446,7 @@ def _RawNestedShape(nested_shape):
   return nest.map_structure(_RawShape, nested_shape)
 
 
-# TODO(yori): Add tests for indexed slices.
+# TODO (yori): Add tests for indexed slices. id:2006
 class DataTypesTest(TensorFlowTestCase):
 
   def assertAllEqualNested(self, a, b):

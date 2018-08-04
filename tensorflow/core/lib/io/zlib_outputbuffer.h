@@ -87,7 +87,7 @@ class ZlibOutputBuffer : public WritableFile {
   size_t output_buffer_capacity_;
 
   // Buffer for storing contents read from input `file_`.
-  // TODO(srbs): Consider using circular buffers. That would greatly simplify
+  // TODO (srbs): Consider using circular buffers. That would greatly simplify id:1370
   // the implementation.
   std::unique_ptr<Bytef[]> z_stream_input_;
 

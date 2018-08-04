@@ -230,7 +230,7 @@ class MklShape {
   (TF_LAYOUT_OFFSET(dims) +            \
    SIZE_OF_MKL_DNN_BUF)  // Location of tf_to_mkl_dim_map_
 
-  // TODO(agramesh1) make sure to create a const to share with rewrite pass
+  // TODO (agramesh1) make sure to create a const to share with rewrite pass id:1633
   // for min size of MKL metadata tensor.
 
   void DeSerializeMklShape(const unsigned char* buf, size_t buf_size) {
@@ -358,7 +358,7 @@ inline Tensor ConvertMklToTF(OpKernelContext* context, const Tensor& mkl_tensor,
 // the total number of tensors (parameter total).
 //
 typedef enum { TENSORS_INTERLEAVED, TENSORS_CONTIGUOUS } MklTfTensorOrdering;
-// NOTE: Currently, we use contiguous ordering. If you change this, then you
+// NOTE: Currently, we use contiguous ordering. If you change this, then you id:1845
 // would need to change Mkl op definitions in nn_ops.cc.
 static MklTfTensorOrdering kTensorOrdering = TENSORS_CONTIGUOUS;
 
@@ -556,7 +556,7 @@ inline void CopyMklTensorInToOut(OpKernelContext* context,
   Tensor output(data.dtype());
   Tensor meta_output(meta.dtype());
 
-  // TODO(intel_tf): alternatively, call forward_input_to_output_with_shape(...)
+  // TODO (intel_tf): alternatively, call forward_input_to_output_with_shape(...) id:1394
   CHECK(output.CopyFrom(data, data.shape()));
   CHECK(meta_output.CopyFrom(meta, meta.shape()));
   context->set_output(idx_data_out, output);
@@ -576,7 +576,7 @@ inline void CopyTfTensorInToOutWithShape(OpKernelContext* context,
   mkl_shape_output.SetMklTensor(false);
   AllocateOutputSetMklShape(context, idx_out, mkl_shape_output);
   Tensor output(data.dtype());
-  // TODO(intel_tf): alternatively, call forward_input_to_output_with_shape(...)
+  // TODO (intel_tf): alternatively, call forward_input_to_output_with_shape(...) id:1777
   CHECK(output.CopyFrom(data, shape));
   context->set_output(idx_data_out, output);
 }

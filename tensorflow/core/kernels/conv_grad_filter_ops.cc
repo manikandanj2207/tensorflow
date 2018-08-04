@@ -343,7 +343,7 @@ class Conv2DCustomBackpropFilterOp : public OpKernel {
     // size ('target_working_set_size') by the matmul size of an individual
     // image ('work_unit_size').
 
-    // TODO(andydavis)
+    // TODO (andydavis) id:1090
     // *) Get L3 cache size from device at runtime (30MB is from ivybridge).
     // *) Consider reducing 'target_working_set_size' if L3 is shared by
     //    other concurrently running tensorflow ops.
@@ -542,7 +542,7 @@ class Conv2DSlowBackpropFilterOp : public OpKernel {
                                    dims.spatial_dims[1].filter_size -
                                    dims.spatial_dims[1].input_size);
 
-    // TODO(zhengxq): cuDNN only supports equal padding on both sides, so only
+    // TODO (zhengxq): cuDNN only supports equal padding on both sides, so only id:1235
     // calling it when that is true. Remove this check when (if?) cuDNN starts
     // supporting different padding.
     bool rows_odd = (padding_rows % 2 != 0);
@@ -677,7 +677,7 @@ class Conv2DSlowBackpropFilterOp : public OpKernel {
         .set_zero_padding_height(padding_rows / 2)
         .set_zero_padding_width(padding_cols / 2);
 
-    // NOTE(zhengxq):
+    // NOTE (zhengxq): id:1332
     // cuDNN only supports the following layouts :
     // Input  : B x D x R x C
     // Filter : OD x ID x R x C
@@ -780,7 +780,7 @@ class Conv2DSlowBackpropFilterOp : public OpKernel {
       ProfileResult best_result;
       ProfileResult best_result_no_scratch;
       for (auto profile_algorithm : algorithms) {
-        // TODO(zhengxq): profile each algorithm multiple times to better
+        // TODO (zhengxq): profile each algorithm multiple times to better id:1069
         // accuracy.
         CudnnScratchAllocator scratch_allocator(
             ConvolveBackwardFilterScratchSize, context);

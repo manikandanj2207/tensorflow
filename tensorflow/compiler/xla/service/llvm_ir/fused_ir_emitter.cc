@@ -107,7 +107,7 @@ Status FusedIrEmitter::HandleGetTupleElement(HloInstruction* get_tuple_element,
   if (!ShapeUtil::IsTuple(get_tuple_element->shape())) {
     generators_[get_tuple_element] =
         [=](const IrArray::Index& index) -> StatusOr<llvm::Value*> {
-      // TODO(b/34080002) Add aliasing information to tuple element IrArray.
+      // TODO (b/34080002) Add aliasing information to tuple element IrArray. id:279
       return IrArray(tuple_element_ptr, get_tuple_element->shape())
           .EmitReadArrayElement(index, ir_builder_);
     };

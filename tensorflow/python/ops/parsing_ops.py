@@ -195,7 +195,7 @@ def _features_to_raw_params(features, types):
   dense_defaults = {}
   dense_shapes = []
   if features:
-    # NOTE: We iterate over sorted keys to keep things deterministic.
+    # NOTE: We iterate over sorted keys to keep things deterministic. id:2282
     for key in sorted(features.keys()):
       feature = features[key]
       if isinstance(feature, VarLenFeature):

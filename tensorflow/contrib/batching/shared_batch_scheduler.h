@@ -90,7 +90,7 @@ namespace serving {
 // For bulk processing jobs and throughput-oriented benchmarks, you may want to
 // set the maximum queue size to a large value.
 //
-// TODO(b/26539183): Support queue servicing policies other than round-robin.
+// TODO (b/26539183): Support queue servicing policies other than round-robin. id:311
 // E.g. let each queue specify a "share" (an int >= 1), so e.g. with queues A
 // and B having shares 1 and 2 respectively, the servicing pattern is ABBABB...
 //
@@ -101,7 +101,7 @@ template <typename TaskType>
 class SharedBatchScheduler
     : public std::enable_shared_from_this<SharedBatchScheduler<TaskType>> {
  public:
-  // TODO(b/25089730): Tune defaults based on best practices as they develop.
+  // TODO (b/25089730): Tune defaults based on best practices as they develop. id:260
   struct Options {
     // The name to use for the pool of batch threads.
     string thread_pool_name = {"batch_threads"};

@@ -22,7 +22,7 @@ from __future__ import print_function
 from tensorflow.python.framework import ops
 
 
-# TODO(b/31222613): These ops may be differentiable, and there may be
+# TODO (b/31222613): These ops may be differentiable, and there may be id:1921
 # latent bugs here.
 ops.NotDifferentiable("Assign")
 

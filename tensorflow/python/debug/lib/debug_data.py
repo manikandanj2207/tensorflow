@@ -378,7 +378,7 @@ class DebugTensorDatum(object):
       raise ValueError(
           "Dump file path does not conform to the naming pattern: %s" % base)
 
-    # TODO(cais): Add hostname and pid to support dumps from distributed
+    # TODO (cais): Add hostname and pid to support dumps from distributed id:1886
     #             sessions.
 
     self._extended_timestamp = base.split("_")[-1]
@@ -425,7 +425,7 @@ class DebugTensorDatum(object):
 
     return load_tensor_from_event_file(self.file_path)
 
-  # TODO(cais): Add time unit suffix to timestamp and t0 (us).
+  # TODO (cais): Add time unit suffix to timestamp and t0 (us). id:1660
   @property
   def timestamp(self):
     """Timestamp of when this tensor value was dumped.

@@ -44,7 +44,7 @@ class DepthwiseConv2dNativeOp : public XlaOpKernel {
  public:
   explicit DepthwiseConv2dNativeOp(OpKernelConstruction* ctx)
       : XlaOpKernel(ctx) {
-    // TODO(keveman): Refactor this (and other XLA OpKernel constructors) so
+    // TODO (keveman): Refactor this (and other XLA OpKernel constructors) so id:131
     // that they use a common implementation shared with non-XLA kernels.
     OP_REQUIRES_OK(ctx, ctx->GetAttr("strides", &strides_));
     OP_REQUIRES(ctx, strides_.size() == 4,

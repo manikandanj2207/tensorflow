@@ -77,7 +77,7 @@ struct SparseTensorDenseMatMulFunctor<GPUDevice, T, Tindices, ADJ_A, ADJ_B> {
     int b_rows = b.dimension(0);
     int b_cols = b.dimension(1);
 
-    // TODO(ebrevdo): Should this be alpha * nnz instead of
+    // TODO (ebrevdo): Should this be alpha * nnz instead of id:1578
     // out.size()?  Perhaps p * nnz ?
     CudaLaunchConfig config = GetCudaLaunchConfig(p * nnz, d);
 

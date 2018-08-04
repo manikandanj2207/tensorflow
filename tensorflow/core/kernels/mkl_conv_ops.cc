@@ -165,7 +165,7 @@ class MklConv2DOp : public OpKernel {
 
     // If there is nothing to compute, return.
     if (out_shape.num_elements() == 0) {
-      // TODO(jbobba): Verify correctness here
+      // TODO (jbobba): Verify correctness here id:1271
       //               Need semantics for Null MKL tensor
       return;
     }

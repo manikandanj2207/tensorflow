@@ -220,7 +220,7 @@ class TensorFlowDataFrameTestCase(test.TestCase):
     actual_num_batches = len(result_batches)
     self.assertEqual(expected_num_batches, actual_num_batches)
 
-    # TODO(soergel): figure out how to dequeue the final small batch
+    # TODO (soergel): figure out how to dequeue the final small batch id:508
     expected_rows = 1696  # num_epochs * 100
     actual_rows = sum([len(x["int"]) for x in result_batches])
     self.assertEqual(expected_rows, actual_rows)
@@ -340,7 +340,7 @@ class TensorFlowDataFrameTestCase(test.TestCase):
 
     print("Split rows: %s => %s, %s" % (total_rows, a_total_rows, b_total_rows))
 
-    # TODO(soergel): figure out how to dequeue the final small batch
+    # TODO (soergel): figure out how to dequeue the final small batch id:709
     expected_total_rows = 1696  # (num_epochs * 100)
 
     self.assertEqual(expected_total_rows, total_rows)

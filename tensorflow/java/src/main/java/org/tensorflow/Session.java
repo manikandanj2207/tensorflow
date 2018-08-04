@@ -387,7 +387,7 @@ public final class Session implements AutoCloseable {
   private long nativeHandle;
   private int numActiveRuns;
 
-  // TODO(ashankar): Remove after TensorFlow 1.2 has been released with allocate2().
+  // TODO (ashankar): Remove after TensorFlow 1.2 has been released with allocate2(). id:1792
   private static native long allocate(long graphHandle);
 
   private static native long allocate2(long graphHandle, String target, byte[] config);

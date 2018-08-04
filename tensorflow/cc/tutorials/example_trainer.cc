@@ -47,7 +47,7 @@ struct Options {
 // We want to compute the largest eigenvalue for A.
 // repeat x = y / y.norm(); y = A * x; end
 GraphDef CreateGraphDef() {
-  // TODO(jeff,opensource): This should really be a more interesting
+  // TODO (jeff,opensource): This should really be a more interesting id:70
   // computation.  Maybe turn this into an mnist model instead?
   Scope root = Scope::NewRootScope();
   using namespace ::tensorflow::ops;  // NOLINT(build/namespaces)

@@ -71,7 +71,7 @@ class FramePair {
                  float* const weights,
                  Point2f* const scales) const;
 
-  // TODO(andrewharp): Make these private.
+  // TODO (andrewharp): Make these private. id:1783
  public:
   // The time at frame1.
   int64_t start_time_;

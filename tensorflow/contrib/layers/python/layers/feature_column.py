@@ -296,7 +296,7 @@ class _FeatureColumn(object):
     return "{}({})".format(type(self).__name__, ", ".join(fields_values))
 
 
-# TODO(b/30410315): Support warm starting in all feature columns.
+# TODO (b/30410315): Support warm starting in all feature columns. id:533
 class _SparseColumn(
     _FeatureColumn,
     fc_core._CategoricalColumn,  # pylint: disable=protected-access

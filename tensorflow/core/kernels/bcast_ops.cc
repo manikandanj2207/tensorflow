@@ -70,7 +70,7 @@ class BCastArgsOp : public OpKernel {
 // Given shapes of two tensors, computes the reduction indices for the
 // gradient computation.
 //
-// TODO(zhifengc):
+// TODO (zhifengc): id:1326
 //   1. Adds support for n-ary (n >= 2).
 class BCastGradArgsOp : public OpKernel {
  public:

@@ -957,7 +957,7 @@ TEST_F(BufferAssignmentTest, ElementOfNestedTupleParameterAsOutput) {
             GetTopLevelAllocation(*assignment, tuple_element));
 }
 
-// TODO(b/32248867): Enable when buffer assignment gives allocations to
+// TODO (b/32248867): Enable when buffer assignment gives allocations to id:180
 // constants.
 TEST_F(BufferAssignmentTest, DISABLED_TupleConstantAsOutput) {
   // Test that a tuple constant which is forwarded to the computation output is
@@ -1156,7 +1156,7 @@ TEST_F(BufferAssignmentTest, AmbiguousBufferAsOutput) {
                       .ConsumeValueOrDie()));
 }
 
-// TODO(b/34669761): Remove this test when buffers are allowed to share
+// TODO (b/34669761): Remove this test when buffers are allowed to share id:236
 // allocations.
 TEST_F(BufferAssignmentTest, TupleBufferNotReused) {
   // Test a computation that returns a tuple parameter.
@@ -1453,7 +1453,7 @@ TEST_F(BufferAssignmentTest, TwoCalls) {
 }
 
 // Test buffer assignment for while nodes with multiple uses.
-// TODO(b/37245345): Fix buffer assignment for this case.
+// TODO (b/37245345): Fix buffer assignment for this case. id:214
 TEST_F(WhileBufferAssignmentTest, DISABLED_TwoWhiles) {
   auto module = MakeUnique<HloModule>(TestName());
   auto builder = HloComputation::Builder(TestName());

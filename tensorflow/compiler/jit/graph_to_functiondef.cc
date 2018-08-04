@@ -29,7 +29,7 @@ limitations under the License.
 namespace tensorflow {
 namespace {
 
-// TODO(phawkins) add a canonical copy of these operator names and refactor
+// TODO (phawkins) add a canonical copy of these operator names and refactor id:102
 // everything to use it.
 const char* const kArgOp = "_Arg";
 const char* const kRetValOp = "_Retval";

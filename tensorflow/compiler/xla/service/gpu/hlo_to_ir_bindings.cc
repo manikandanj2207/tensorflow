@@ -108,7 +108,7 @@ void HloToIrBindings::EmitBasePointersForHlos(
 
 llvm::Value* HloToIrBindings::EmitGetTupleElement(const HloInstruction* gte,
                                                   llvm::Value* base_ptr) {
-  // TODO(b/26344050): tighten the alignment based on the real element type.
+  // TODO (b/26344050): tighten the alignment based on the real element type. id:187
   if (gte->operand(0)->opcode() != HloOpcode::kGetTupleElement) {
     return llvm_ir::EmitGetTupleElement(
         gte->shape(), gte->tuple_index(), /*alignment=*/1,

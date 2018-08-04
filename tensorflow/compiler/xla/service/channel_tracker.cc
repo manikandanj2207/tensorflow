@@ -80,7 +80,7 @@ Status ChannelTracker::RegisterRecvInternal(const ChannelHandle& handle) {
     return NotFound("channel handle not found: %lld", handle.handle());
   }
   Channel& channel = opaque_to_channel_[handle.handle()];
-  // TODO(b/33942691): Allow more than 1 receivers for broadcast.
+  // TODO (b/33942691): Allow more than 1 receivers for broadcast. id:134
   if (channel.receiver_count >= 1) {
     return FailedPrecondition("channel handle is already used by a receiver");
   }

@@ -64,7 +64,7 @@ class RandomCropOp : public OpKernel {
       *output = context->input(0);
     }
 
-    // TODO(shlens): Implement edge case to guarantee output size dimensions.
+    // TODO (shlens): Implement edge case to guarantee output size dimensions. id:1415
     // Edge case. The target dimensions are larger then the image, so
     // zero-pad the image. This guarantees that the image will *always*
     // be [target_height, target_width] in size.
@@ -90,7 +90,7 @@ class RandomCropOp : public OpKernel {
       offset_height = random.Rand32() % (height - target_height + 1);
     }
 
-    // TODO(shlens): Do this more efficiently with memcpy once padding is
+    // TODO (shlens): Do this more efficiently with memcpy once padding is id:1559
     // available for smaller images.
     typename TTypes<T, 3>::ConstTensor input_data = input.tensor<T, 3>();
     typename TTypes<T, 3>::Tensor output_data = output->tensor<T, 3>();

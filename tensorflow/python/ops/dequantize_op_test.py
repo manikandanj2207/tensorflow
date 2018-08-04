@@ -37,7 +37,7 @@ class DequantizeOpTest(test.TestCase):
       dequantized = array_ops.dequantize(input_op, min_range, max_range)
       tf_ans = dequantized.eval()
 
-    # TODO(vrv): Add support for DT_QINT32 quantization if needed.
+    # TODO (vrv): Add support for DT_QINT32 quantization if needed. id:1900
     type_dict = {
         dtypes.quint8: np.uint8,
         dtypes.qint8: np.int8,

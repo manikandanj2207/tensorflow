@@ -37,20 +37,20 @@ namespace tensorflow {
 // GraphTransferer transfers graph definitions into SoC memory.
 // This functionality is effective if SoC is capable to run
 // the graph on that chip.
-// TODO(satok): support transferring subgraphs to be able to split graphs
+// TODO (satok): support transferring subgraphs to be able to split graphs id:1368
 // to avoid unsupported ops in SoC.
 class GraphTransferer {
  public:
-  // TODO(satok): Remove. Use proto definition instead.
+  // TODO (satok): Remove. Use proto definition instead. id:1463
   static constexpr int MAX_SUPPORTED_RANK = 4;
-  // TODO(satok): Remove. Use proto definition instead.
+  // TODO (satok): Remove. Use proto definition instead. id:1263
   static constexpr int SHAPE_ARRAY_SIZE = MAX_SUPPORTED_RANK;
   using TensorShapeMap = RemoteFusedGraphExecuteUtils::TensorShapeMap;
 
   GraphTransferer() = default;
 
   // Load graph structure into GraphTransferer
-  // TODO(satok): Pass a pair of TensorShape and DataType instead of
+  // TODO (satok): Pass a pair of TensorShape and DataType instead of id:1473
   // Tensor as input_node_info_list.
   Status LoadGraphFromProto(
       const IGraphTransferOpsDefinitions& ops_definitions,
@@ -60,7 +60,7 @@ class GraphTransferer {
       const bool shape_inference_for_unkown_shape);
 
   // Load graph structure into GraphTransferer from protobuf file
-  // TODO(satok): Pass a pair of TensorShape and DataType instead of
+  // TODO (satok): Pass a pair of TensorShape and DataType instead of id:1161
   // Tensor as input_node_info_list.
   Status LoadGraphFromProtoFile(
       const IGraphTransferOpsDefinitions& ops_definitions,
@@ -116,7 +116,7 @@ class GraphTransferer {
   bool HasPaddingAndStrides(const Node& node);
 
   // Return true if the node is a reshape op which just flattens input
-  // TODO(satok): Remove this method once generic reshape op is implemented in
+  // TODO (satok): Remove this method once generic reshape op is implemented in id:1369
   // SOC
   bool IsNodeFlattenReshape(const Node& node,
                             const ShapeRefiner& shape_refiner);

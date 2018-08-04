@@ -22,7 +22,7 @@ from __future__ import division
 from __future__ import print_function
 
 # pylint: disable=unused-import,line-too-long,g-importing-member,wildcard-import
-# TODO(jart): Delete non-slim imports
+# TODO (jart): Delete non-slim imports id:609
 from tensorflow.contrib import losses
 from tensorflow.contrib import metrics
 from tensorflow.contrib.framework.python.ops.arg_scope import *

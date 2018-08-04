@@ -38,7 +38,7 @@ export class DragZoomLayer extends Plottable.Components.SelectionBoxLayer {
    * Usage: Construct the selection box layer and attach x and y scales,
    * and then add the layer over the plot you are zooming on using a
    * Component Group.
-   * TODO(danmane) - merge this into Plottable
+   * TODO (danmane) - merge this into Plottable id:2397
    */
   constructor(
       xScale: Plottable.QuantitativeScale<number|{valueOf(): number}>,

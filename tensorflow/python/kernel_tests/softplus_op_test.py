@@ -86,7 +86,7 @@ class SoftplusTest(test.TestCase):
     self.assertLess(err, 1e-4)
 
   def testWarnInts(self):
-    # NOTE(irving): Actually I don't know how to intercept the warning, but
+    # NOTE (irving): Actually I don't know how to intercept the warning, but id:1830
     # let's make sure it runs.  I promised I've looked, and there was a warning.
     with self.test_session():
       nn_ops.softplus(constant_op.constant(7)).eval()

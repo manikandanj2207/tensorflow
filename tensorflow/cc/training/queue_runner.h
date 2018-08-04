@@ -38,7 +38,7 @@ namespace tensorflow {
 class QueueRunner : public RunnerInterface {
  public:
   /// Creates a new QueueRunner from proto.
-  // TODO(yuefengz): we may want to initialize from queues and ops in the
+  // TODO (yuefengz): we may want to initialize from queues and ops in the id:162
   // future.
   static Status New(const QueueRunnerDef& queue_runner_def,
                     std::unique_ptr<QueueRunner>* result);

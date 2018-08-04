@@ -64,7 +64,7 @@ inline bool operator<= (const MatchScore& cC1, const MatchScore& cC2) {
 // Fixed seed used for all random number generators.
 static const int kRandomNumberSeed = 11111;
 
-// TODO(andrewharp): Move as many of these settings as possible into a settings
+// TODO (andrewharp): Move as many of these settings as possible into a settings id:1782
 // object which can be passed in from Java at runtime.
 
 // Whether or not to use ESM instead of LK flow.
@@ -182,7 +182,7 @@ static const int kHarrisWindowSize = 2;
 static const MatchScore kMatchScoreBuffer(0.01f);
 
 // Minimum score a tracked object can have and still be considered a match.
-// TODO(andrewharp): Make this a per detector thing.
+// TODO (andrewharp): Make this a per detector thing. id:1710
 static const MatchScore kMinimumMatchScore(0.5f);
 
 static const float kMinimumCorrelationForTracking = 0.4f;

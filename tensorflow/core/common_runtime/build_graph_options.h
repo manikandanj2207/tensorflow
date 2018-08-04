@@ -27,13 +27,13 @@ struct BuildGraphOptions {
   std::vector<string> feed_endpoints;
   std::vector<string> fetch_endpoints;
 
-  // TODO(vrv): Remove this when we unify target_nodes and fetch_endpoint,
+  // TODO (vrv): Remove this when we unify target_nodes and fetch_endpoint, id:789
   // the former via "ref" fetch_endpoints.
   std::vector<string> target_nodes;
 
   // If `true`, uses Arg/Retval to implement feeds/fetches; otherwise
   // uses Recv/Send to implement feeds/fetches.
-  // TODO(mrry): Remove this when the distributed runtime supports Arg/Retval.
+  // TODO (mrry): Remove this when the distributed runtime supports Arg/Retval. id:623
   bool use_function_convention = false;
 
   DebugOptions debug_options;

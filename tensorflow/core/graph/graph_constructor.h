@@ -40,7 +40,7 @@ struct GraphConstructorOptions {
   // devices for all nodes. A node in the resulting graph "g" has the
   // device name set accordingly.
   //
-  // TODO(zhifengc): if possible, consider removing this option.
+  // TODO (zhifengc): if possible, consider removing this option. id:1124
   bool expect_device_spec = false;
 };
 extern Status ConvertGraphDefToGraph(const GraphConstructorOptions& opts,
@@ -55,7 +55,7 @@ extern Status ConvertGraphDefToGraph(const GraphConstructorOptions& opts,
 // allows the caller to validate shapes of those nodes (since
 // ShapeRefiner::AddNode must be called in topological order).
 //
-// TODO(ashankar): Push this mechanism and get rid of Session::Extend()
+// TODO (ashankar): Push this mechanism and get rid of Session::Extend() id:884
 // as a means of enhancing an existing Graph.
 struct ImportGraphDefOptions {
   ImportGraphDefOptions() {}
@@ -74,10 +74,10 @@ struct ImportGraphDefOptions {
   //
   // If this is non-empty, ImportGraphDef must be called with the shape refiner
   // used to create the existing nodes referenced in `input_map`.
-  // TODO(skyewm): can we remove this requirement? How do we access the original
+  // TODO (skyewm): can we remove this requirement? How do we access the original id:1215
   // shape refiner?
   //
-  // TODO(skyewm): add functionality to retrieve unused `input_map` keys
+  // TODO (skyewm): add functionality to retrieve unused `input_map` keys id:1277
   std::map<TensorId, TensorId> input_map;
 
   // The names of existing nodes in `g` that the imported graph should have
@@ -100,7 +100,7 @@ struct ImportGraphDefOptions {
   // corresponding existing tensor in `g` will be returned.
   std::vector<TensorId> return_tensors;
 
-  // TODO(ashankar): Enable handling of GraphDefs produced by newer binaries
+  // TODO (ashankar): Enable handling of GraphDefs produced by newer binaries id:1049
   // with ops that are not defined in the binary calling ImportGraphDef.
   // Similar to the producer_op_list argument to import_graph_def in the
   // python API.

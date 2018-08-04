@@ -137,7 +137,7 @@ def inference(inp, num_clusters, hidden1_units, hidden2_units):
       inp,
       num_clusters,
       distance_metric=tf.contrib.factorization.COSINE_DISTANCE,
-      # TODO(agarwal): kmeans++ is currently causing crash in dbg mode.
+      # TODO (agarwal): kmeans++ is currently causing crash in dbg mode. id:320
       # Enable this after fixing.
       # initial_clusters=tf.contrib.factorization.KMEANS_PLUS_PLUS_INIT,
       use_mini_batch=True)

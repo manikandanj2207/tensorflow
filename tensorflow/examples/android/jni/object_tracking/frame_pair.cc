@@ -223,7 +223,7 @@ Point2f FramePair::GetWeightedMedian(
     const float* const weights, const Point2f* const deltas) const {
   Point2f median_delta;
 
-  // TODO(andrewharp): only sort deltas that could possibly have an effect.
+  // TODO (andrewharp): only sort deltas that could possibly have an effect. id:1851
   static WeightedDelta weighted_deltas[kMaxKeypoints];
 
   // Compute median X value.
@@ -269,7 +269,7 @@ float FramePair::GetWeightedMedianScale(
     const float* const weights, const Point2f* const deltas) const {
   float median_delta;
 
-  // TODO(andrewharp): only sort deltas that could possibly have an effect.
+  // TODO (andrewharp): only sort deltas that could possibly have an effect. id:1514
   static WeightedDelta weighted_deltas[kMaxKeypoints * 2];
 
   // Compute median scale value across x and y.

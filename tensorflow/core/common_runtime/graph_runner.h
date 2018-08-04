@@ -52,7 +52,7 @@ class GraphRunner {
   // Function semantics for `inputs`, `output_names` and `outputs`
   // matches those from Session::Run().
   //
-  // NOTE: The output tensors share lifetime with the GraphRunner, and could
+  // NOTE: The output tensors share lifetime with the GraphRunner, and could id:925
   // be destroyed once the GraphRunner is destroyed.
   //
   // REQUIRES: `graph`, `env`, and `outputs` are not nullptr.

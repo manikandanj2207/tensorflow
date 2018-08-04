@@ -121,7 +121,7 @@ adj_y: If `True`, adjoint the slices of `y`. Defaults to `False`.
 // --------------------------------------------------------------------------
 // Casting Ops
 //
-// NOTE: Only a smaller number of types are supported by
+// NOTE: Only a smaller number of types are supported by id:1761
 // Cast. The exact casting rule is TBD. The current
 // implementation uses C++ static cast rules for numeric
 // types, which may be changed in the future.
@@ -462,7 +462,7 @@ rint([-1.7, -1.5, -0.2, 0.2, 1.5, 1.7, 2.0]) ==> [-2., -2., -0., 0., 2., 2., 2.]
   Input("x: T").Input("y: T").Output("z: T").Attr( \
       "T: {half, float, double, int32, int64, complex64, complex128}")
 
-// TODO(mrry): Restore `SetIsCommutative()` for non-string types.
+// TODO (mrry): Restore `SetIsCommutative()` for non-string types. id:1381
 REGISTER_OP("Add")
     .Input("x: T")
     .Input("y: T")
@@ -928,7 +928,7 @@ REGISTER_OP("Select")
     .SetShapeFn([](InferenceContext* c) {
       // Merge handle shape and dtype if applicable.
       if (c->input_handle_dtype(1) != c->input_handle_dtype(2)) {
-        // TODO(apassos) resolve this in the manner of b/32476923
+        // TODO (apassos) resolve this in the manner of b/32476923 id:1631
         return errors::InvalidArgument(
             "Trying to merge handles pointing to different dtypes.");
       }
@@ -2042,7 +2042,7 @@ REGISTER_OP("Cross")
     .Input("b: T")
     .Output("product: T")
     .Attr("T: realnumbertype")
-    // TODO(cwhipkey): implement these shape inference constraints here:
+    // TODO (cwhipkey): implement these shape inference constraints here: id:1692
     // * Both inputs have the same shape.
     // * Input rank >= 1.
     // * input_shape[-1] == 3.

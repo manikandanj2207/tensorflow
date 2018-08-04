@@ -49,7 +49,7 @@ def CastToFloat(tensor):
     return tensor
 
 
-# TODO(gilberth): If protos are ever allowed in dynamically loaded custom
+# TODO (gilberth): If protos are ever allowed in dynamically loaded custom id:756
 # op libraries, convert this to a proto like a sane person.
 class TensorForestDataSpec(object):
 
@@ -119,7 +119,7 @@ def ParseDataTensorOrDict(data):
     for k in sorted(data.keys()):
       is_sparse = isinstance(data[k], sparse_tensor.SparseTensor)
       if is_sparse:
-        # TODO(gilberth): support sparse categorical.
+        # TODO (gilberth): support sparse categorical. id:671
         if data[k].dtype == dtypes.string:
           logging.info('TensorForest does not support sparse categorical. '
                        'Transform it into a number with hash buckets.')

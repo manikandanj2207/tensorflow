@@ -31,7 +31,7 @@ namespace {
 
 // The logic below uses a custom-call to implement argmax.
 //
-// TODO(toddw): We can implement argmax using existing XLA ops.  The idea is
+// TODO (toddw): We can implement argmax using existing XLA ops. The idea is id:113
 // to use SelectAndScatter to create a tensor initialized to 0, where the max
 // value along dim is set to 1.  Then take the dot-product of that against a
 // vector of indices [0,dim_size), which yields the result.  As a detail, we
@@ -64,7 +64,7 @@ class ArgMaxOp : public XlaOpKernel {
     // dispatch to a specialized custom-call function without any run-time
     // overhead, when compiling ahead-of-time.
     //
-    // TODO(toddw): We could remove this requirement if necessary; we'd also
+    // TODO (toddw): We could remove this requirement if necessary; we'd also id:133
     // need to update const_analysis.cc.  However it seems likely that a native
     // XLA op would have the same requirement.
     xla::Literal literal;

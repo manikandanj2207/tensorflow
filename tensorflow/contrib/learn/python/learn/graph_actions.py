@@ -281,7 +281,7 @@ def _train_internal(graph,
           save_summary_steps=supervisor_save_summaries_steps,
           summary_writer=summary_writer) if supervisor_is_chief else []
 
-    # TODO(ipolosukhin): Replace all functionality of Supervisor
+    # TODO (ipolosukhin): Replace all functionality of Supervisor id:466
     # with Chief-Exclusive Monitors.
     if not supervisor_is_chief:
       # Prune list of monitor to the ones runnable on all workers.
@@ -371,7 +371,7 @@ def _train_internal(graph,
         supervisor.Stop(close_summary_writer=False)
 
         # Save one last checkpoint and summaries
-        # TODO(wicke): This should be handled by Supervisor
+        # TODO (wicke): This should be handled by Supervisor id:497
 
         # In case we encountered an exception in the try block before we updated
         # last_step, update it here (again).
@@ -553,14 +553,14 @@ def evaluate(graph,
   with session:
     if not initialized:
       logging.warning('Failed to initialize from %s.', checkpoint_path)
-      # TODO(ipolosukhin): This should be failing, but old code relies on that.
+      # TODO (ipolosukhin): This should be failing, but old code relies on that. id:551
       session.run(variables.global_variables_initializer())
       if checkpoint_path:
         _restore_from_checkpoint(session, graph, checkpoint_path, saver)
 
     current_global_step = session.run(global_step_tensor)
     eval_results = None
-    # TODO(amodei): Fix this to run through the eval set exactly once.
+    # TODO (amodei): Fix this to run through the eval set exactly once. id:635
     step = 0
     eval_step = None
     feed_dict = None
@@ -579,7 +579,7 @@ def evaluate(graph,
             eval_results = session.run(eval_dict, feed_dict=feed_dict)
             eval_step = step
 
-          # TODO(wicke): We should assert that the global step hasn't changed.
+          # TODO (wicke): We should assert that the global step hasn't changed. id:571
           if step % log_every_steps == 0:
             if eval_step is None or step != eval_step:
               eval_results = session.run(eval_dict, feed_dict=feed_dict)

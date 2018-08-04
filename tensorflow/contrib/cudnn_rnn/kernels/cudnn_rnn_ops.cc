@@ -170,7 +170,7 @@ Status ToRNNInputMode(TFRNNInputMode tf_input_mode, int num_units,
   return Status::OK();
 }
 
-// TODO(zhengxq): Merge those into stream_executor_util.h.
+// TODO (zhengxq): Merge those into stream_executor_util.h. id:314
 template <typename T>
 const DeviceMemory<T> AsDeviceMemory(const Tensor* tensor) {
   return DeviceMemory<T>::MakeFromByteSize(
@@ -698,8 +698,8 @@ class CudnnRNNForwardOp<GPUDevice, T> : public CudnnRNNKernelCommon {
     OP_REQUIRES_OK(context,
                    ToRNNInputMode(rnn_input_mode(), model_shapes.num_units,
                                   model_shapes.input_size, &input_mode));
-    // TODO(zhengxq): add dropout support.
-    // TODO(zhengxq): cache the descriptor so we don't have to create them all
+    // TODO (zhengxq): add dropout support. id:263
+    // TODO (zhengxq): cache the descriptor so we don't have to create them all id:294
     // the time.
     auto data_type = ToDataType<T>::value;
     auto rnn_desc_s = executor->createRnnDescriptor(
@@ -881,8 +881,8 @@ class CudnnRNNBackwardOp<GPUDevice, T> : public CudnnRNNKernelCommon {
     OP_REQUIRES_OK(context,
                    ToRNNInputMode(rnn_input_mode(), model_shapes.num_units,
                                   model_shapes.input_size, &input_mode));
-    // TODO(zhengxq): add dropout support.
-    // TODO(zhengxq): cache the descriptor so we don't have to create them all
+    // TODO (zhengxq): add dropout support. id:370
+    // TODO (zhengxq): cache the descriptor so we don't have to create them all id:378
     // the time.
     auto rnn_desc_s = executor->createRnnDescriptor(
         model_shapes.num_layers, model_shapes.num_units,
@@ -960,7 +960,7 @@ REGISTER_KERNEL_BUILDER(
     Name("CudnnRNNBackprop").Device(DEVICE_GPU).TypeConstraint<float>("T"),
     CudnnRNNBackwardOp<GPUDevice, float>);
 
-// TODO(zhengxq): Add the conversion of Cudnn RNN Params from and to
+// TODO (zhengxq): Add the conversion of Cudnn RNN Params from and to id:315
 // its canonical form.
 
 #endif  // GOOGLE_CUDA

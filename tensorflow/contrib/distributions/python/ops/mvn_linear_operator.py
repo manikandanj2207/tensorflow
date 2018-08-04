@@ -64,7 +64,7 @@ def _broadcast_shape(shape1, shape2):
   return array_ops.broadcast_dynamic_shape(shape1, shape2)
 
 
-# TODO(b/35290280): Import in `../../__init__.py` after adding unit-tests.
+# TODO (b/35290280): Import in `../../__init__.py` after adding unit-tests. id:400
 class MultivariateNormalLinearOperator(
     transformed_distribution.TransformedDistribution):
   """The multivariate normal distribution on `R^k`.
@@ -277,7 +277,7 @@ class MultivariateNormalLinearOperator(
         isinstance(self.scale, linalg.LinearOperatorDiag)):
       return array_ops.matrix_diag(math_ops.square(self.scale.diag_part()))
     else:
-      # TODO(b/35040238): Remove transpose once LinOp supports `transpose`.
+      # TODO (b/35040238): Remove transpose once LinOp supports `transpose`. id:318
       return self.scale.apply(array_ops.matrix_transpose(self.scale.to_dense()))
 
   def _variance(self):
@@ -290,7 +290,7 @@ class MultivariateNormalLinearOperator(
       return array_ops.matrix_diag_part(
           self.scale.apply(self.scale.to_dense()))
     else:
-      # TODO(b/35040238): Remove transpose once LinOp supports `transpose`.
+      # TODO (b/35040238): Remove transpose once LinOp supports `transpose`. id:343
       return array_ops.matrix_diag_part(
           self.scale.apply(array_ops.matrix_transpose(self.scale.to_dense())))
 
@@ -304,7 +304,7 @@ class MultivariateNormalLinearOperator(
       return math_ops.sqrt(array_ops.matrix_diag_part(
           self.scale.apply(self.scale.to_dense())))
     else:
-      # TODO(b/35040238): Remove transpose once LinOp supports `transpose`.
+      # TODO (b/35040238): Remove transpose once LinOp supports `transpose`. id:298
       return math_ops.sqrt(array_ops.matrix_diag_part(
           self.scale.apply(array_ops.matrix_transpose(self.scale.to_dense()))))
 
@@ -347,7 +347,7 @@ def _kl_brute_force(a, b, name=None):
     # http://mathworld.wolfram.com/FrobeniusNorm.html
     return math_ops.square(linalg_ops.norm(x, ord="fro", axis=[-2, -1]))
 
-  # TODO(b/35041439): See also b/35040945. Remove this function once LinOp
+  # TODO (b/35041439): See also b/35040945. Remove this function once LinOp id:433
   # supports something like:
   #   A.inverse().solve(B).norm(order='fro', axis=[-1, -2])
   def is_diagonal(x):

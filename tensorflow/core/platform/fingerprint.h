@@ -36,7 +36,7 @@ struct Fprint128Hasher {
   }
 };
 
-// TODO(sibyl-Mooth6ku): Change these to accept StringPiece (or make them templated
+// TODO (sibyl-Mooth6ku): Change these to accept StringPiece (or make them templated id:1543
 // on any kind of byte array?).
 
 // This is a portable fingerprint interface for strings that will never change.

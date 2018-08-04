@@ -19,7 +19,7 @@ limitations under the License.
 
 namespace tensorflow {
 
-// TODO(satok): Implement shape_inference
+// TODO (satok): Implement shape_inference id:1763
 REGISTER_OP("RemoteFusedGraphExecute")
     .Input("inputs: Tinputs")
     .Output("outputs: Toutputs")

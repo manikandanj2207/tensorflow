@@ -482,7 +482,7 @@ def fill_lower_triangular(x, validate_args=False, name="fill_lower_triangular"):
     ValueError: if shape if `x` has static shape which cannot be mapped to a
       lower triangular matrix.
   """
-  # TODO(jvdillon): Replace this code with dedicated op when it exists.
+  # TODO (jvdillon): Replace this code with dedicated op when it exists. id:1947
   with ops.name_scope(name, values=[x]):
     x = ops.convert_to_tensor(x, name="x")
     if (x.get_shape().ndims is not None and
@@ -563,7 +563,7 @@ def fill_lower_triangular(x, validate_args=False, name="fill_lower_triangular"):
     return y
 
 
-# TODO(jvdillon): Merge this test back into:
+# TODO (jvdillon): Merge this test back into: id:2259
 # tensorflow/python/ops/softplus_op_test.py
 # once TF core is accepting new ops.
 def softplus_inverse(x, name=None):
@@ -620,7 +620,7 @@ def softplus_inverse(x, name=None):
                            array_ops.where(is_too_large, too_large_value, y))
 
 
-# TODO(b/35290280): Add unit-tests.
+# TODO (b/35290280): Add unit-tests. id:1901
 def dimension_size(x, axis):
   """Returns the size of a specific dimension."""
   # Since tf.gather isn't "constant-in, constant-out", we must first check the

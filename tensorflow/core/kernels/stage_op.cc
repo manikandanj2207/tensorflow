@@ -42,7 +42,7 @@ class Buffer : public ResourceBase {
                                        // how often this signal is sent
   }
 
-  void Get(Tuple* tuple) {  // TODO(zhifengc): Support cancellation.
+  void Get(Tuple* tuple) {  // TODO (zhifengc): Support cancellation. id:1607
     mutex_lock l(mu_);
     while (buf_.empty()) {
       non_empty_cond_var_.wait(l);

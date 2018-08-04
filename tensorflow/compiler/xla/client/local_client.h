@@ -41,7 +41,7 @@ class ExecutableBuildOptions {
   // the underlying platform of the service. A value of nullptr indicates the
   // option has not been set.
   //
-  // TODO(b/28616830): Support multiple platforms.
+  // TODO (b/28616830): Support multiple platforms. id:177
   ExecutableBuildOptions& set_platform(perftools::gputools::Platform* platform);
   perftools::gputools::Platform* platform() const;
 
@@ -195,7 +195,7 @@ class LocalClient : public Client {
   // intended for use in static compilation. The |options| parameter describes
   // the target for which the compiler should emit code.
   //
-  // TODO(b/31222190): This doesn't really belong in LocalClient. Move it to its
+  // TODO (b/31222190): This doesn't really belong in LocalClient. Move it to its id:142
   // own library.
   StatusOr<std::vector<std::unique_ptr<AotCompilationResult>>>
   CompileAheadOfTime(

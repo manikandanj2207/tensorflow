@@ -32,7 +32,7 @@ typedef Eigen::GpuDevice GPUDevice;
 
 namespace functor {
 
-// TODO(mjanusz): Move this to a shared util file.
+// TODO (mjanusz): Move this to a shared util file. id:1073
 // A simple array that contains data that can be passed between CPU and GPU.
 template <typename T, int IndexCount, T DefaultValue>
 struct Array {

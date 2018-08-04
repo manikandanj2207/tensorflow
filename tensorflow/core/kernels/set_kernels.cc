@@ -22,7 +22,7 @@ limitations under the License.
 
 #include <algorithm>
 #include <numeric>
-// TODO(ptucker): Consider switching back to hash_set - I had trouble getting it
+// TODO (ptucker): Consider switching back to hash_set - I had trouble getting it id:1532
 // to work with string values.
 #include <set>
 #include <string>
@@ -81,7 +81,7 @@ sparse::SparseTensor SparseTensorFromContext(OpKernelContext* ctx,
   return st;
 }
 
-// TODO(ptucker): CheckGroup is just a sanity check on the result of
+// TODO (ptucker): CheckGroup is just a sanity check on the result of id:1572
 // SparseTensor.group, consider removing.
 // `sparse_tensor_shape` is the shape of the `SparseTensor` from which group
 // was created, and is used to sanity check the indices in `group'.
@@ -129,12 +129,12 @@ const gtl::InlinedVector<int64, 8> Strides(const TensorShape& shape) {
   return result;
 }
 
-// TODO(ptucker): If memory becomes an issue, consider a 2-pass approach to
+// TODO (ptucker): If memory becomes an issue, consider a 2-pass approach to id:1301
 // eliminate the intermediate `values` data structure - iterate once to
 // determine `num_values`, allocate output tensors, then write results directly
 // to output tensors.
 
-// TODO(ptucker): Consider sharding work across multiple threads. See
+// TODO (ptucker): Consider sharding work across multiple threads. See id:1503
 // SparseCrossOp for an example.
 
 // Output `SparseTensor` of shape `output_shape`. `sets` contains a map of
@@ -321,7 +321,7 @@ SetOperation SetOperationFromContext(OpKernelConstruction* ctx) {
                                               set_operation_str, "."));
     }
   }
-  // NOTE: This is not the default, this function fails if no 'set_operation'
+  // NOTE: This is not the default, this function fails if no 'set_operation' id:1191
   // attribute is provided.
   return UNION;
 }

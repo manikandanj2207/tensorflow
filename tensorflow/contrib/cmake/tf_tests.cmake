@@ -124,7 +124,7 @@ if (tensorflow_BUILD_PYTHON_TESTS)
   #
   # python tests. This assumes that the tensorflow wheel is
   # installed on the test system.
-  # TODO: we currently don't handle tests that need to have
+  # TODO: we currently don't handle tests that need to have id:313
   # some environment setup: see AddTest how to add this
   #
 
@@ -147,7 +147,7 @@ if (tensorflow_BUILD_PYTHON_TESTS)
     "${tensorflow_source_dir}/tensorflow/contrib/factorization/*_test.py"
     "${tensorflow_source_dir}/tensorflow/contrib/keras/python/keras/integration_test.py"
     "${tensorflow_source_dir}/tensorflow/contrib/stateless/python/kernel_tests/*_test.py"
-    # NOTE: tensor_forest tests in tensor_forest/hybrid/... still don't pass.
+    # NOTE: tensor_forest tests in tensor_forest/hybrid/... still don't pass. id:262
     "${tensorflow_source_dir}/tensorflow/contrib/tensor_forest/client/*_test.py"
     "${tensorflow_source_dir}/tensorflow/contrib/tensor_forest/python/*_test.py"
   )
@@ -172,7 +172,7 @@ if (tensorflow_BUILD_PYTHON_TESTS)
       # generally excluded
       "${tensorflow_source_dir}/tensorflow/python/kernel_tests/__init__.py"
 
-      # TODO: failing tests.
+      # TODO: failing tests. id:293
       # Nothing critical in here but should get this list down to []
       # The failing list is grouped by failure source
       # stl on windows handles overflows different
@@ -302,7 +302,7 @@ if (tensorflow_BUILD_CC_TESTS)
       "${tensorflow_source_dir}/tensorflow/contrib/ffmpeg/default/ffmpeg_lib_test.cc"
       "${tensorflow_source_dir}/tensorflow/cc/framework/cc_ops_test.cc" # test_op.h missing
 
-      # TODO: test failing
+      # TODO: test failing id:369
       "${tensorflow_source_dir}/tensorflow/core/common_runtime/simple_placer_test.cc"
       "${tensorflow_source_dir}/tensorflow/core/debug/debug_gateway_test.cc" # hangs
       "${tensorflow_source_dir}/tensorflow/core/distributed_runtime/executor_test.cc"
@@ -318,7 +318,7 @@ if (tensorflow_BUILD_CC_TESTS)
       "${tensorflow_source_dir}/tensorflow/contrib/rnn/ops/gru_ops_test.cc" # status 5
       "${tensorflow_source_dir}/tensorflow/contrib/rnn/ops/lstm_ops_test.cc" # status 5
 
-      # TODO: not compiling
+      # TODO: not compiling id:377
       "${tensorflow_source_dir}/tensorflow/core/kernels/quantization_utils_test.cc"
       "${tensorflow_source_dir}/tensorflow/core/kernels/quantize_and_dequantize_op_test.cc"
       "${tensorflow_source_dir}/tensorflow/core/kernels/quantize_down_and_shrink_range_op_test.cc"

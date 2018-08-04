@@ -50,7 +50,7 @@ class BaseLinearOperatorUDVHUpdatetest(object):
 
   @property
   def _dtypes_to_test(self):
-    # TODO(langmore) Test complex types once cholesky works with them.
+    # TODO (langmore) Test complex types once cholesky works with them. id:711
     # See comment in LinearOperatorUDVHUpdate.__init__.
     return [dtypes.float32, dtypes.float64]
 

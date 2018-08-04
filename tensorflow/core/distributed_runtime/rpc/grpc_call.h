@@ -235,7 +235,7 @@ class Call : public UntypedCall<Service> {
 
  private:
   // Creates a completion queue tag for handling cancellation by the client.
-  // NOTE: This method must be called before this call is enqueued on a
+  // NOTE: This method must be called before this call is enqueued on a id:1004
   // completion queue.
   void RegisterCancellationHandler() {
     this->Ref();  // Ref for grpc; released in Tag callback.

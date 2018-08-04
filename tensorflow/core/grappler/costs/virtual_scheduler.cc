@@ -50,13 +50,13 @@ Costs CombineCosts(const Costs& left, const Costs& right) {
 VirtualScheduler::VirtualScheduler(const GraphDef& graph,
                                    const std::vector<string>& fetch_nodes)
     : graph_costs_(Costs::ZeroCosts()),
-      // TODO(dyoon): Use a better way than FIFO.
+      // TODO (dyoon): Use a better way than FIFO. id:894
       ready_nodes_(new FIFOManager()) {
   // First, get the nodes that would run to output fetch_nodes.
   std::vector<const NodeDef*> nodes =
       ComputeTransitiveFanin(graph, fetch_nodes);
 
-  // TODO(dyoon): this is a bit inefficient as name_to_node is already built in
+  // TODO (dyoon): this is a bit inefficient as name_to_node is already built in id:1225
   // ComputeTransitiveFanin().
   std::unordered_map<string, const NodeDef*> name_to_node;
   for (const auto& node : graph.node()) {
@@ -66,7 +66,7 @@ VirtualScheduler::VirtualScheduler(const GraphDef& graph,
   // Build node_map.
   for (const auto* node : nodes) {
     auto& node_state = GetNodeStateOrCreateIt(node);
-    // TODO(dyoon): add SendRecv considering devices and control dependency.
+    // TODO (dyoon): add SendRecv considering devices and control dependency. id:1322
     for (const string& input : node->input()) {
       const NodeDef* in = name_to_node[NodeName(input)];
       CHECK(in);
@@ -155,7 +155,7 @@ bool VirtualScheduler::MarkCurrNodeExecuted(const Costs& node_costs) {
       if (input_state.num_outputs_executed == input_state.outputs.size()) {
         // All the outputs are executed; no reference to this input nodel
         input_state.time_no_reference = curr_time;
-        // TODO(dyoon): collect device memory usage; note that this input node
+        // TODO (dyoon): collect device memory usage; note that this input node id:1059
         // use device memory between time_scheduled and time_no_reference.
       }
     }

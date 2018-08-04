@@ -33,7 +33,7 @@ static const bool DBG_EXECUTION = true;
 static const int OUT_RANKING_SIZE = 5;
 
 // static only for this file.
-// TODO(satok): allocate dynamically
+// TODO (satok): allocate dynamically id:421
 static float s_output_values[300 * 300 * 3 * 4];
 
 extern void init_graph(uint32_t id);
@@ -53,12 +53,12 @@ static enum InceptionVersion s_inception_version = INCEPTION_V3;
 // file local functions
 
 static const char *ConvertGraphInfoIdToName(unsigned int id) {
-  // TODO(satok): implement
+  // TODO (satok): implement id:354
   return "?";
 }
 
 static const char *ConvertGraphInfoIdToOpName(unsigned int id) {
-  // TODO(satok): implement
+  // TODO (satok): implement id:382
   return "?";
 }
 
@@ -141,7 +141,7 @@ uint32_t hexagon_controller_InstantiateGraph() {
   const uint32_t nn_id = hexagon_nn_init();
   // set debug level to 99 for now
   //hexagon_nn_set_debug_level(nn_id, 99);
-  // TODO(satok): make this as argument
+  // TODO (satok): make this as argument id:444
   hexagon_nn_set_debug_level(nn_id, 0);
   return nn_id;
 }

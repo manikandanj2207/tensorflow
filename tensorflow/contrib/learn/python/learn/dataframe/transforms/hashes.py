@@ -32,7 +32,7 @@ class HashFast(transform.TensorFlowTransform):
     Args:
       num_buckets: The number of hash buckets to use.
     """
-    # TODO(soergel): allow seed?
+    # TODO (soergel): allow seed? id:579
     super(HashFast, self).__init__()
     self._num_buckets = num_buckets
 

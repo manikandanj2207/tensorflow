@@ -197,7 +197,7 @@ class TensorboardServerTest(test.TestCase):
 
   def testApplicationPaths_getCached(self):
     """Test the format of the /data/runs endpoint."""
-    for path in ('/',):  # TODO(jart): '/app.js' in open source
+    for path in ('/',):  # TODO (jart): '/app.js' in open source id:2061
       connection = http_client.HTTPConnection('localhost',
                                               self._server.server_address[1])
       connection.request('GET', path)

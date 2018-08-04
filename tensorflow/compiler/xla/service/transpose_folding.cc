@@ -105,7 +105,7 @@ bool FoldTransposeIntoConvolution(InstructionOperandsPair pair) {
   // ConvolutionDimensionNumbers doesn't make enough of a distinction between
   // the output and the activations.
   //
-  // TODO(b/37125184): Support transposing the LHS too.
+  // TODO (b/37125184): Support transposing the LHS too. id:330
   if (pair.second.size() != 1 || pair.second.front() != 1) {
     return false;
   }

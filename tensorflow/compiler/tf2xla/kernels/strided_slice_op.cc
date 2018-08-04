@@ -78,7 +78,7 @@ class StridedSliceOp : public XlaOpKernel {
     gtl::InlinedVector<int64, 4> dimensions_to_reverse;
     gtl::InlinedVector<int64, 4> slice_begin, slice_end;
     for (int i = 0; i < begin.size(); ++i) {
-      // TODO(phawkins): implement strides != 1 when b/30878775 is fixed.
+      // TODO (phawkins): implement strides != 1 when b/30878775 is fixed. id:208
       OP_REQUIRES(
           ctx, strides[i] == 1 || strides[i] == -1,
           errors::Unimplemented("Strides != 1 or -1 are not yet implemented"));

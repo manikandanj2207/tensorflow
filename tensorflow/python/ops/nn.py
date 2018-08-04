@@ -123,13 +123,13 @@ from tensorflow.python.ops.rnn import *
 # pylint: enable=wildcard-import
 
 
-# TODO(cwhipkey): sigmoid and tanh should not be exposed from tf.nn.
+# TODO (cwhipkey): sigmoid and tanh should not be exposed from tf.nn. id:2340
 _allowed_symbols = [
     "zero_fraction",  # documented in training.py
     # Modules whitelisted for reference through tf.nn.
-    # TODO(cwhipkey): migrate callers to use the submodule directly.
+    # TODO (cwhipkey): migrate callers to use the submodule directly. id:1915
     # Symbols whitelisted for export without documentation.
-    # TODO(cwhipkey): review these and move to contrib or expose through
+    # TODO (cwhipkey): review these and move to contrib or expose through id:2281
     # documentation.
     "all_candidate_sampler",  # Excluded in gen_docs_combined.
     "lrn",  # Excluded in gen_docs_combined.

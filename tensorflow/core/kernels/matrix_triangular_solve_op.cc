@@ -135,7 +135,7 @@ REGISTER_LINALG_OP_CPU("BatchMatrixTriangularSolve",
 
 #ifdef GOOGLE_CUDA
 
-// TODO(rmlarsen): Re-factor to
+// TODO (rmlarsen): Re-factor to id:1479
 // 1. Enable buffer forwarding from rhs->out.
 // 2. Save Memcpy when buffer forwarding is used.
 // 3. Copy entire rhs in a single Memcpy when forwarding is not used.

@@ -31,7 +31,7 @@ from tensorflow.python.ops import variables
 from tensorflow.python.platform import gfile
 from tensorflow.python.platform import test
 
-# XXX: this depends on pywrap_tensorflow and must come later
+# XXX: this depends on pywrap_tensorflow and must come later id:619
 from tensorflow.contrib.tfprof.python.tools.tfprof import model_analyzer
 
 

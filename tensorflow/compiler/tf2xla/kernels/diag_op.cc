@@ -100,7 +100,7 @@ class DiagPartOp : public XlaOpKernel {
 
     xla::ComputationDataHandle diag = ctx->Input(0);
 
-    // TODO(b/30878775): use Slice with strides when supported, in place of
+    // TODO (b/30878775): use Slice with strides when supported, in place of id:205
     // the Pad -> Reshape -> Slice.
 
     // Picture:
@@ -191,7 +191,7 @@ class MatrixDiagPartOp : public XlaOpKernel {
     // The smaller of the last two dimension sizes.
     int64 smaller_dim_size = std::min(dims[last_dim - 1], dims[last_dim]);
 
-    // TODO(b/30878775): use Slice with strides when supported, in place of
+    // TODO (b/30878775): use Slice with strides when supported, in place of id:84
     // the Pad -> Reshape -> Slice.
 
     // Picture: for each 2D matrix in the tensor's last two dimensions:

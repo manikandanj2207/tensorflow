@@ -69,7 +69,7 @@ def _get_model_fn_with_logistic_metrics(model_fn):
   return _model_fn
 
 
-# TODO(roumposg): Deprecate and delete after converting users to use head.
+# TODO (roumposg): Deprecate and delete after converting users to use head. id:464
 def LogisticRegressor(  # pylint: disable=invalid-name
     model_fn, thresholds=None, model_dir=None, config=None,
     feature_engineering_fn=None):

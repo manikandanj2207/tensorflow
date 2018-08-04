@@ -62,7 +62,7 @@ void CUDATimer::Destroy() {
 
 float CUDATimer::GetElapsedMilliseconds() const {
   CHECK(start_event_ != nullptr && stop_event_ != nullptr);
-  // TODO(leary) provide a way to query timer resolution?
+  // TODO (leary) provide a way to query timer resolution? id:2386
   // CUDA docs say a resolution of about 0.5us
   float elapsed_milliseconds = NAN;
   (void)CUDADriver::GetEventElapsedTime(parent_->cuda_context(),

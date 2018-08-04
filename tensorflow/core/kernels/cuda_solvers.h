@@ -55,7 +55,7 @@ class CudaSolverDN {
                int* info) const;
 
   /*
-  TODO(rmlarsen, volunteers): Implement the kernels below.
+  TODO (rmlarsen, volunteers): Implement the kernels below. id:1095
   // Uses Cholesky factorization to solve A * X = B.
   // See: http://docs.nvidia.com/cuda/cusolver/#cuds-lt-t-gt-potrs
   template <typename Scalar>
@@ -121,7 +121,7 @@ class CudaSolverDN {
 };
 
 /*
-  TODO(rmlarsen, volunteers): Implement the kernels below. These are utils and
+  TODO (rmlarsen, volunteers): Implement the kernels below. These are utils and id:1240
 batched solvers not currently wrapped by stream executor. class CudaBlas {
  public:
   // Initializes a cuSolverDN handle that will launch kernels using the

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// TODO(ashankar): Remove this file when TensorFlow 1.1 is released.
+// TODO (ashankar): Remove this file when TensorFlow 1.1 is released. id:1791
 // See lib.go for details.
 
 extern "C" {

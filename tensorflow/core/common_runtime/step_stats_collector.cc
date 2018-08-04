@@ -217,7 +217,7 @@ void StepStatsCollector::Save(const string& device, NodeExecStats* nt) {
     DeviceStepStats* dss = nullptr;
     // Slow linear scan, but it should only be called
     // by a Worker in a context with < ~10 devices.
-    // TODO(tucker): consider adding a std::unordered_map.
+    // TODO (tucker): consider adding a std::unordered_map. id:992
     for (auto& ds : *step_stats_->mutable_dev_stats()) {
       if (ds.device() == device) {
         dss = &ds;

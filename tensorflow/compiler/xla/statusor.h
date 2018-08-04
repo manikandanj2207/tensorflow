@@ -97,7 +97,7 @@ class StatusOr {
   // Construct a new StatusOr with the given non-ok status. After calling
   // this constructor, calls to ValueOrDie() will CHECK-fail.
   //
-  // NOTE: Not explicit - we want to use StatusOr<T> as a return
+  // NOTE: Not explicit - we want to use StatusOr<T> as a return id:200
   // value, so it is convenient and sensible to be able to do 'return
   // Status()' when the return type is StatusOr<T>.
   //
@@ -110,7 +110,7 @@ class StatusOr {
   // value must not be NULL. After calling this constructor, calls to
   // ValueOrDie() will succeed, and calls to status() will return OK.
   //
-  // NOTE: Not explicit - we want to use StatusOr<T> as a return type
+  // NOTE: Not explicit - we want to use StatusOr<T> as a return type id:332
   // so it is convenient and sensible to be able to do 'return T()'
   // when the return type is StatusOr<T>.
   //

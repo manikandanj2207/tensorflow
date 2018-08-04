@@ -85,7 +85,7 @@ struct MultinomialFunctor<GPUDevice, T> {
 #endif
 
     // Calculates "scores = logits - log(-log(noises))"; B*C*S elements.
-    // NOTE: we don't store back to "noises" because having it appear on both
+    // NOTE: we don't store back to "noises" because having it appear on both id:1170
     // sides is potentially unsafe (e.g. Eigen may use ldg() to load RHS data).
     To32Bit(scores).device(d) =
         To32Bit(logits).reshape(boc).broadcast(oso).template cast<float>() -

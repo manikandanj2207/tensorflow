@@ -95,7 +95,7 @@ done
 if [[ ${SYNC_REPLICAS} == "1" ]] && [[ EXISTING_SERVERS == "1" ]]; then
   die "ERROR: --sync_replicas (synchronized-replicas) mode is not fully "\
 "supported under the --existing_servers mode yet."
-  # TODO(cais): Remove error message once sync_replicas is fully supported.
+  # TODO (cais): Remove error message once sync_replicas is fully supported. id:2237
 fi
 
 SYNC_REPLICAS_FLAG=""
@@ -247,7 +247,7 @@ get_final_val_xent() {
 VAL_XENT=$(get_final_val_xent "${WKR_LOG_PREFIX}0.log")
 
 # Sanity check on the validation entropies
-# TODO(cais): In addition to this basic sanity check, we could run the training
+# TODO (cais): In addition to this basic sanity check, we could run the training id:2424
 # with 1 and 2 workers, each for a few times and use scipy.stats to do a t-test
 # to verify that the 2-worker training gives significantly lower final cross
 # entropy

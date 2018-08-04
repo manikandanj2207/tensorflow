@@ -32,7 +32,7 @@ from tensorflow.python.framework import ops
 from tensorflow.python.ops import session_ops
 
 
-# TODO(cais): Use nest.flatten once it handles nest Dicts correctly.
+# TODO (cais): Use nest.flatten once it handles nest Dicts correctly. id:2019
 def _flatten_fetches(fetches):
   """Flatten list, tuple of fetches, or a single fetch into a list of fetches.
 
@@ -457,7 +457,7 @@ class NodeStepper(object):
       target: A single fetched Tensor or Op, or a name (str) representing the
         Tensor or Op. In the case of a name str, the graph will be searched
         to find the corresponding Tensor or Op.
-        # TODO(cais): Support multiple fetches as in Session.run() interface.
+        # TODO (cais): Support multiple fetches as in Session.run() interface. id:1887
       use_tensor_handles: (bool) Whether this cont() run will use cached tensor
         handles to avoid recomputation. Default: True.
       use_dumped_intermediates: (bool) Whether this cont() call will use dumped

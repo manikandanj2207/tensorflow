@@ -635,7 +635,7 @@ class AlignTest(Base):
 
 class ConvertToLabeledTensorTest(Base):
 
-  # TODO(shoyer): Simplify these tests once we can reuse labeled tensors in
+  # TODO (shoyer): Simplify these tests once we can reuse labeled tensors in id:530
   # assertLabeledTensorsEqual.
 
   def test_labeled_tensor(self):
@@ -704,7 +704,7 @@ class CoreUnaryOpsTest(Base, DocStringCheckMixin, UnaryOpsTestsMixin):
     self.ops = [
         ('abs', operator.abs, math_ops.abs, core.abs_function),
         ('neg', operator.neg, math_ops.negative, core.neg),
-        # TODO(shoyer): add unary + to core TensorFlow
+        # TODO (shoyer): add unary + to core TensorFlow id:417
         ('pos', None, None, None),
         ('sign', None, math_ops.sign, core.sign),
         ('reciprocal', None, math_ops.reciprocal, core.reciprocal),

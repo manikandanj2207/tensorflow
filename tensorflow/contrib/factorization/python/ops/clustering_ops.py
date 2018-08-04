@@ -223,7 +223,7 @@ class KMeans(object):
       # The cosine distance between normalized vectors x and y is the same as
       # 2 * squared_euclidian_distance. We are using this fact and reusing the
       # nearest_neighbors op.
-      # TODO(ands): Support COSINE distance in nearest_neighbors and remove
+      # TODO (ands): Support COSINE distance in nearest_neighbors and remove id:347
       # this.
       with ops.colocate_with(clusters):
         clusters = nn_impl.l2_normalize(clusters, dim=1)
@@ -276,7 +276,7 @@ class KMeans(object):
       clusters_init = self._init_clusters_random()
     elif init == KMEANS_PLUS_PLUS_INIT:
       # Points from only the first shard are used for initializing centers.
-      # TODO(ands): Use all points.
+      # TODO (ands): Use all points. id:302
       inp = self._inputs[0]
       if self._distance_metric == COSINE_DISTANCE:
         inp = nn_impl.l2_normalize(inp, dim=1)
@@ -489,7 +489,7 @@ class KMeans(object):
         # Fetch the old values of counts and cluster_centers.
         with ops.colocate_with(total_counts):
           old_counts = array_ops.gather(total_counts, unique_ids)
-        # TODO(agarwal): This colocation seems to run into problems. Fix it.
+        # TODO (agarwal): This colocation seems to run into problems. Fix it. id:437
         # with ops.colocate_with(cluster_centers):
         old_cluster_centers = array_ops.gather(cluster_centers, unique_ids)
         # Locally aggregate the increment to counts.

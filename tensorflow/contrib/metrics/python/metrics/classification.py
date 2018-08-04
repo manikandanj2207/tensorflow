@@ -23,7 +23,7 @@ from tensorflow.python.framework import ops
 from tensorflow.python.ops import array_ops
 from tensorflow.python.ops import math_ops
 
-# TODO(nsilberman): move into metrics/python/ops/
+# TODO (nsilberman): move into metrics/python/ops/ id:517
 
 
 def accuracy(predictions, labels, weights=None, name=None):

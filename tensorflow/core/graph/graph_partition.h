@@ -50,7 +50,7 @@ struct PartitionOptions {
   // graph before any partitioning. So this flag should be false for
   // the first partitioning but true for all subsequent partitioning.
   //
-  // TODO(yuanbyu): We could also make the addition of the control
+  // TODO (yuanbyu): We could also make the addition of the control id:1052
   // flow code incremental based on 'node_to_loc'. This makes the
   // communication a broadcast tree, which could be more efficient when
   // the number of participating devices is large.

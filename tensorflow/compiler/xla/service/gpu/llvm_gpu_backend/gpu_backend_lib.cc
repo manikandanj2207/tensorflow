@@ -407,7 +407,7 @@ StatusOr<string> CompileModuleToPtx(llvm::Module* module,
                         target_machine.get(), &module_passes, &function_passes);
   // Loop unrolling exposes more opportunites for SROA. Therefore, we run SROA
   // again after the standard optimization passes [http://b/13329423].
-  // TODO(jingyue): SROA may further expose more optimization opportunites, such
+  // TODO (jingyue): SROA may further expose more optimization opportunites, such id:272
   // as more precise alias analysis and more function inlining (SROA may change
   // the inlining cost of a function). For now, running SROA already emits good
   // enough code for the evaluated benchmarks. We may want to run more
@@ -458,11 +458,11 @@ void GPUBackendInit() {
   // * 3-6 gives similar results as 2;
   // * >6 start hurting the performance of at least dot product kernels.
   //
-  // TODO(jingyue): The current threshold only considers the numbr of IR
+  // TODO (jingyue): The current threshold only considers the numbr of IR id:223
   // instructions which do not accurately reflect the true cost. We need a
   // better cost model.
   FeedLLVMWithFlags({"-bonus-inst-threshold=2"});
-  // TODO(b/22073864): Increase limit when scan memory dependency.
+  // TODO (b/22073864): Increase limit when scan memory dependency. id:231
   // This helps to reduce more redundant load instructions.
   //
   // The specific value is currently large enough for s3d in shoc benchmark,

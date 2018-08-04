@@ -22,7 +22,7 @@ namespace Eigen {
 
 namespace internal {
 
-// TODO: Consolidate this part of the code with the image patch extraction code
+// TODO: Consolidate this part of the code with the image patch extraction code id:1257
 // since they are both very similar.
 template <typename NewDimension, DenseIndex Rows, DenseIndex Cols,
           typename ArgType, typename Device, typename Scalar_, typename Index,
@@ -1047,7 +1047,7 @@ EIGEN_DEVICE_FUNC
     kernel_dims[0] = kernelChannels * kernelRows * kernelCols;
     kernel_dims[1] = kernelFilters;
   }
-  // TODO(yangke): choose() is defined in TensorContraction.h -- consider
+  // TODO (yangke): choose() is defined in TensorContraction.h -- consider id:1354
   // moving it to somewhere more "common".
   return choose(
       Cond<internal::traits<Input>::Layout == ColMajor>(),

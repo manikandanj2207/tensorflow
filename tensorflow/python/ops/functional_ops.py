@@ -45,7 +45,7 @@ from tensorflow.python.ops.gen_functional_ops import _symbolic_gradient
 from tensorflow.python.util import nest
 
 
-# TODO(yuanbyu, mrry): Handle stride to support sliding windows.
+# TODO (yuanbyu, mrry): Handle stride to support sliding windows. id:2009
 def foldl(fn, elems, initializer=None, parallel_iterations=10, back_prop=True,
           swap_memory=False, name=None):
   """foldl on the list of tensors unpacked from `elems` on dimension 0.
@@ -93,7 +93,7 @@ def foldl(fn, elems, initializer=None, parallel_iterations=10, back_prop=True,
     varscope = vs.get_variable_scope()
     varscope_caching_device_was_none = False
     if varscope.caching_device is None:
-      # TODO(ebrevdo): Change to using colocate_with here and in other methods.
+      # TODO (ebrevdo): Change to using colocate_with here and in other methods. id:1948
       varscope.set_caching_device(lambda op: op.device)
       varscope_caching_device_was_none = True
 
@@ -173,7 +173,7 @@ def foldr(fn, elems, initializer=None, parallel_iterations=10, back_prop=True,
     varscope = vs.get_variable_scope()
     varscope_caching_device_was_none = False
     if varscope.caching_device is None:
-      # TODO(ebrevdo): Change to using colocate_with here and in other methods.
+      # TODO (ebrevdo): Change to using colocate_with here and in other methods. id:2260
       varscope.set_caching_device(lambda op: op.device)
       varscope_caching_device_was_none = True
 
@@ -330,7 +330,7 @@ def map_fn(fn, elems, dtype=None, parallel_iterations=10, back_prop=True,
     varscope = vs.get_variable_scope()
     varscope_caching_device_was_none = False
     if varscope.caching_device is None:
-      # TODO(ebrevdo): Change to using colocate_with here and in other methods.
+      # TODO (ebrevdo): Change to using colocate_with here and in other methods. id:1902
       varscope.set_caching_device(lambda op: op.device)
       varscope_caching_device_was_none = True
 
@@ -515,7 +515,7 @@ def scan(fn, elems, initializer=None, parallel_iterations=10, back_prop=True,
     varscope = vs.get_variable_scope()
     varscope_caching_device_was_none = False
     if varscope.caching_device is None:
-      # TODO(ebrevdo): Change to using colocate_with here and in other methods.
+      # TODO (ebrevdo): Change to using colocate_with here and in other methods. id:2195
       varscope.set_caching_device(lambda op: op.device)
       varscope_caching_device_was_none = True
 

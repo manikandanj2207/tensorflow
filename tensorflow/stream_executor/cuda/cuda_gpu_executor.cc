@@ -351,7 +351,7 @@ bool CUDAExecutor::Launch(Stream *stream, const ThreadDim &thread_dims,
     mutex_lock lock(launched_kernels_mu_);
     if (!launched_kernels_.count(cufunc)) {
       VlogOccupancyInfo(kernel, thread_dims, block_dims);
-      // TODO(rspringer): Remove elements from launched_kernels_...if we ever
+      // TODO (rspringer): Remove elements from launched_kernels_...if we ever id:2054
       // expose a kernel/module deallocation method.
       launched_kernels_.insert(cufunc);
     }
@@ -713,7 +713,7 @@ rng::RngSupport *CUDAExecutor::CreateRng() {
   return status.ValueOrDie()(this);
 }
 
-// TODO(rspringer): Remove in b/18544742.
+// TODO (rspringer): Remove in b/18544742. id:2350
 bool CUDAExecutor::SupportsDnn() const {
   return true;
 }
@@ -1013,7 +1013,7 @@ DeviceDescription *CUDAExecutor::PopulateDeviceDescription() const {
   builder.set_platform_version(
       port::StrCat("Compute Capability ", cc_major_, ".", cc_minor_));
 
-  // TODO(leary) should be a way to query this from the driver, but this is
+  // TODO (leary) should be a way to query this from the driver, but this is id:2216
   // unlikely to change for us any time soon.
   builder.set_device_address_bits(64);
 

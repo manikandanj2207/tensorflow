@@ -114,7 +114,7 @@ GpuHloOrdering::GpuHloOrdering(
   // dependencies. I.e. the strict predecessors of each subcomputation
   // instruction is its transitive operands.
   //
-  // TODO(toddw): Each subcomputation is actually emitted as a function in DFS
+  // TODO (toddw): Each subcomputation is actually emitted as a function in DFS id:161
   // postorder, so we can do better and establish the total order here. We don't
   // do that yet since it's hard to ensure that the order here is the order used
   // by IrEmitterNested. And mismatched ordering bugs would be hard to find.

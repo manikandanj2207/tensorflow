@@ -76,7 +76,7 @@ void RandomlyInitializeBatchFeatures(
     sparse_float_feature_shapes_list.push_back(shape_tensor);
   }
 
-  // TODO(salehay): Add categorical feature generation support.
+  // TODO (salehay): Add categorical feature generation support. id:375
   TF_EXPECT_OK(batch_features->Initialize(
       dense_float_features_list, sparse_float_feature_indices_list,
       sparse_float_feature_values_list, sparse_float_feature_shapes_list, {},

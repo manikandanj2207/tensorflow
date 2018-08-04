@@ -147,7 +147,7 @@ Status TF_DataType_to_PyArray_TYPE(TF_DataType tf_datatype,
     case TF_RESOURCE:
       *out_pyarray_type = NPY_VOID;
       break;
-    // TODO(keveman): These should be changed to NPY_VOID, and the type used for
+    // TODO (keveman): These should be changed to NPY_VOID, and the type used for id:2001
     // the resulting numpy array should be the custom struct types that we
     // expect for quantized types.
     case TF_QINT8:

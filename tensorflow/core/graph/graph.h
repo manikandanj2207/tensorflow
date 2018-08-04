@@ -94,9 +94,9 @@ class Node {
 
   // This gives the device the runtime has assigned this node to.  If
   // you want the device the user requested, use def().device() instead.
-  // TODO(josh11b): Validate that the assigned_device, if not empty:
+  // TODO (josh11b): Validate that the assigned_device, if not empty: id:1122
   // fully specifies a device, and satisfies def().device().
-  // TODO(josh11b): Move assigned_device_name outside of Node into a
+  // TODO (josh11b): Move assigned_device_name outside of Node into a id:882
   // NodeId->DeviceName map.
   string assigned_device_name() const { return assigned_device_name_; }
   void set_assigned_device_name(const string& device_name) {
@@ -451,7 +451,7 @@ class Graph {
   const OpRegistryInterface* op_registry() const { return &ops_; }
   const FunctionLibraryDefinition& flib_def() const { return ops_; }
 
-  // TODO(josh11b): uint64 hash() const;
+  // TODO (josh11b): uint64 hash() const; id:976
 
  private:
   bool IsValidNode(Node* node) const;
@@ -494,7 +494,7 @@ class Graph {
   TF_DISALLOW_COPY_AND_ASSIGN(Graph);
 };
 
-// TODO(josh11b): We may want to support keeping an index on various
+// TODO (josh11b): We may want to support keeping an index on various id:1275
 // node/edge attributes in a graph, particularly node names.
 
 // Helper routines

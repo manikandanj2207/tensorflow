@@ -14,8 +14,8 @@ limitations under the License.
 ==============================================================================*/
 
 // XLA implementations of Random ops
-// TODO(misard,phawkins): handle random number generator seeds/states correctly.
-// TODO(misard,phawkins): add tests.
+// TODO (misard,phawkins): handle random number generator seeds/states correctly. id:135
+// TODO (misard,phawkins): add tests. id:207
 
 #include "tensorflow/compiler/tf2xla/shape_util.h"
 #include "tensorflow/compiler/tf2xla/xla_helpers.h"

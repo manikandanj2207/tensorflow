@@ -1100,7 +1100,7 @@ Status GcsFileSystem::RenameObject(const string& src, const string& target) {
     // If GCS didn't complete rewrite in one call, this means that a large file
     // is being copied to a bucket with a different storage class or location,
     // which requires multiple rewrite calls.
-    // TODO(surkov): implement multi-step rewrites.
+    // TODO (surkov): implement multi-step rewrites. id:1694
     return errors::Unimplemented(
         "Couldn't rename ", src, " to ", target,
         ": moving large files between buckets with different "

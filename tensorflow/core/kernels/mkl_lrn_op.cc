@@ -104,7 +104,7 @@ class MklLRNOp : public OpKernel {
       return;
     }
 
-    // TODO(inteltf) MKL will support depth radius not equal to 2 in the future
+    // TODO (inteltf) MKL will support depth radius not equal to 2 in the future id:1169
     if (depth_radius_ != 2) {
       Tensor converted_tensor =
           ConvertMklToTF<T>(context, input, mkl_context.input_shape);
@@ -276,7 +276,7 @@ class MklLRNOp : public OpKernel {
     }
 
     // Fallback implementation - Taken from lrn_op.cc
-    // TODO(inteltf) Check if we can use EigenLRNOp directly instead of making a
+    // TODO (inteltf) Check if we can use EigenLRNOp directly instead of making a id:1407
     // copy.
     void MklDefaultToEigen(OpKernelContext* context, int depth_radius_,
                            float bias_, float alpha_, float beta_,
@@ -586,7 +586,7 @@ class MklLRNGradOp : public OpKernel {
 // So we set dnnResourceSrc here. But we do not know why we are setting
 // dnnResourceDst.
 #if 0
-    // NOTE: The code below is kept just so that we know how we should handle
+    // NOTE: The code below is kept just so that we know how we should handle id:1551
     // dnnResourceSrc if the primitive layout for dnnResourceSrc was supported.
 
     if (!dnnLayoutCompare_F32(lt_internal_input,
@@ -625,7 +625,7 @@ class MklLRNGradOp : public OpKernel {
     }
 
     // Fallback implementation - Taken from lrn_op.cc
-    // TODO(intelft) Check if we can use EigenLRNOp directly instead of making a
+    // TODO (intelft) Check if we can use EigenLRNOp directly instead of making a id:1272
     // copy.
     void MklDefaultToEigen(OpKernelContext* context) {
       // CHECK(false);

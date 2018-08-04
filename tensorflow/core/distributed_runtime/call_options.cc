@@ -24,10 +24,10 @@ CallOptions::CallOptions() {}
 void CallOptions::StartCancel() {
   mutex_lock l(mu_);
   if (cancel_func_ != nullptr) {
-    // NOTE: We must call the cancel_func_ with mu_ held. This ensure
+    // NOTE: We must call the cancel_func_ with mu_ held. This ensure id:820
     // that ClearCancelCallback() does not race with StartCancel().
     cancel_func_();
-    // NOTE: We can clear cancel_func_ if needed.
+    // NOTE: We can clear cancel_func_ if needed. id:846
   }
 }
 

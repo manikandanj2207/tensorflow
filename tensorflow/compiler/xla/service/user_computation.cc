@@ -1370,7 +1370,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
     }
 
     case OpRequest::kCrossReplicaSumRequest: {
-      // TODO(b/33009255): Implmement constant folding for cross replica sum.
+      // TODO (b/33009255): Implmement constant folding for cross replica sum. id:335
       *is_constant = false;
       break;
     }
@@ -1390,7 +1390,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
       for (const ComputationDataHandle& handle : call_request.operands()) {
         ConstantVisitor(session_computation, handle, visited, is_constant);
       }
-      // TODO(b/32495713): We aren't checking the to_apply computation itself,
+      // TODO (b/32495713): We aren't checking the to_apply computation itself, id:282
       // so we conservatively say that computations containing the Call op
       // cannot be constant.  We cannot set is_constant=false in other similar
       // cases since we're already relying on IsConstant to return true.
@@ -1418,7 +1418,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
       for (const ComputationDataHandle& handle : map_request.operands()) {
         ConstantVisitor(session_computation, handle, visited, is_constant);
       }
-      // TODO(b/32495713): We aren't checking the to_apply computation itself.
+      // TODO (b/32495713): We aren't checking the to_apply computation itself. id:251
       break;
     }
 
@@ -1428,7 +1428,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
                       is_constant);
       ConstantVisitor(session_computation, reduce_request.init_value(), visited,
                       is_constant);
-      // TODO(b/32495713): We aren't checking the to_apply computation itself.
+      // TODO (b/32495713): We aren't checking the to_apply computation itself. id:199
       break;
     }
 
@@ -1439,7 +1439,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
                       visited, is_constant);
       ConstantVisitor(session_computation, reduce_window_request.init_value(),
                       visited, is_constant);
-      // TODO(b/32495713): We aren't checking the to_apply computation itself.
+      // TODO (b/32495713): We aren't checking the to_apply computation itself. id:331
       break;
     }
 
@@ -1453,7 +1453,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
       ConstantVisitor(session_computation,
                       select_and_scatter_request.init_value(), visited,
                       is_constant);
-      // TODO(b/32495713): We aren't checking the select and scatter
+      // TODO (b/32495713): We aren't checking the select and scatter id:336
       // computations themselves.
       break;
     }
@@ -1508,7 +1508,7 @@ void ConstantVisitor(const SessionComputation& session_computation,
       const WhileRequest& while_request = request.request().while_request();
       ConstantVisitor(session_computation, while_request.init(), visited,
                       is_constant);
-      // TODO(b/32495713): We aren't checking the condition and body
+      // TODO (b/32495713): We aren't checking the condition and body id:283
       // computations themselves.
       *is_constant = false;
       break;

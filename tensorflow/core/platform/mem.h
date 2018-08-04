@@ -16,7 +16,7 @@ limitations under the License.
 #ifndef TENSORFLOW_PLATFORM_MEM_H_
 #define TENSORFLOW_PLATFORM_MEM_H_
 
-// TODO(cwhipkey): remove this when callers use annotations directly.
+// TODO (cwhipkey): remove this when callers use annotations directly. id:1387
 #include "tensorflow/core/platform/dynamic_annotations.h"
 #include "tensorflow/core/platform/platform.h"
 #include "tensorflow/core/platform/types.h"

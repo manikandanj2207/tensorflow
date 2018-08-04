@@ -85,7 +85,7 @@ inline void SetAttrValue(const AttrValue& value, AttrValue* out) {
 }
 
 // Returns true if a and b have the same value.
-// NOTE: May return false negatives for tensor values.
+// NOTE: May return false negatives for tensor values. id:914
 bool AreAttrValuesEqual(const AttrValue& a, const AttrValue& b);
 
 // Returns true if "val" has a placeholder.

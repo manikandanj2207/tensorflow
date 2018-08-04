@@ -24,7 +24,7 @@ limitations under the License.
 #include "tensorflow/core/framework/types.h"
 #include "tensorflow/core/util/sparse/sparse_tensor.h"
 
-// TODO(b/31496047): Fix non-standard include order.
+// TODO (b/31496047): Fix non-standard include order. id:1577
 #include <numeric>  // clang-format off
 
 using tensorflow::sparse::SparseTensor;
@@ -145,7 +145,7 @@ class SparseReduceSumOp : public OpKernel {
 
     OP_REQUIRES_OK(ctx, ValidateInputs(shape_t, reduction_axes_t));
 
-    // TODO(zongheng): we will call Reorder() below, which will modify
+    // TODO (zongheng): we will call Reorder() below, which will modify id:1421
     // in-place the underlying indices and values buffers.  To avoid
     // surprises of this kernel being stateful, we work around the above by
     // making deep copies here.  Remove this if/when we change Reorder()'s

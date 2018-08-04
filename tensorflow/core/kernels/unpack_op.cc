@@ -142,7 +142,7 @@ TF_CALL_GPU_NUMBER_TYPES(REGISTER_GPU);
 #undef REGISTER_GPU
 
 // A special GPU kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1612
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Unpack")
                             .Device(DEVICE_GPU)
@@ -164,7 +164,7 @@ REGISTER_SYCL(double);
 #undef REGISTER_SYCL
 
 // A special SYCL kernel for int32.
-// TODO(b/25387198): Also enable int32 in device memory. This kernel
+// TODO (b/25387198): Also enable int32 in device memory. This kernel id:1673
 // registration requires all int32 inputs and outputs to be in host memory.
 REGISTER_KERNEL_BUILDER(Name("Unpack")
                             .Device(DEVICE_SYCL)

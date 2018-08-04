@@ -163,7 +163,7 @@ def get_input_alternatives(input_ops):
   if not features:
     raise ValueError('Features must be defined.')
 
-  # TODO(b/34253951): reinstate the "features" input_signature.
+  # TODO (b/34253951): reinstate the "features" input_signature. id:593
   # The "features" input_signature, as written, does not work with
   # SparseTensors.  It is simply commented out as a stopgap, pending discussion
   # on the bug as to the correct solution.

@@ -79,7 +79,7 @@ def frames(signal, frame_length, frame_step, name=None):
 
     indices = indices_frames + indices_steps
 
-    # TODO(androbin): remove `transpose` when `gather` gets `axis` support
+    # TODO (androbin): remove `transpose` when `gather` gets `axis` support id:775
     pad_signal = array_ops.transpose(pad_signal)
     signal_frames = array_ops.gather(pad_signal, indices)
     signal_frames = array_ops.transpose(signal_frames, perm=[2, 0, 1])

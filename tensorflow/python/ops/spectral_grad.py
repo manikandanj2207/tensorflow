@@ -88,7 +88,7 @@ def _RFFTGradHelper(rank, irfft_fn):
           expanded, array_ops.concat([array_ops.shape(t)[:-2], [1, 1]], 0))
 
     def _MaskMatrix(length):
-      # TODO(rjryan): Speed up computation of twiddle factors using the
+      # TODO (rjryan): Speed up computation of twiddle factors using the id:2344
       # following recurrence relation and cache them across invocations of RFFT.
       #
       # t_n = exp(sqrt(-1) * pi * n^2 / line_len)

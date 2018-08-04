@@ -30,11 +30,11 @@ class Master;
 // This master implementation is intended to provide more efficient access to
 // a master service that has been created in the same process as the client.
 //
-// TODO(mrry): Add methods that avoid protobuf encoding the request/response
+// TODO (mrry): Add methods that avoid protobuf encoding the request/response id:823
 // objects where this affects performance.
-// TODO(mrry): Avoid closure creation/context switch overhead for synchronous
+// TODO (mrry): Avoid closure creation/context switch overhead for synchronous id:938
 // invocation of Master methods.
-// TODO(mrry): Make all potentially blocking Master methods take CallOptions
+// TODO (mrry): Make all potentially blocking Master methods take CallOptions id:997
 // for cancellation.
 class LocalMaster : public MasterInterface {
  public:

@@ -356,7 +356,7 @@ class _DistributionShape(object):
               slice_shape([sample_ndims, self.batch_ndims], self.event_ndims,
                           name="event_shape"))
 
-  # TODO(jvdillon): Make remove expand_batch_dim and make expand_batch_dim=False
+  # TODO (jvdillon): Make remove expand_batch_dim and make expand_batch_dim=False id:299
   # the default behavior.
   def make_batch_of_event_sample_matrices(
       self, x, expand_batch_dim=True,
@@ -394,7 +394,7 @@ class _DistributionShape(object):
       # x.shape: B_+E_+[prod(S)]
       return x, sample_shape
 
-  # TODO(jvdillon): Make remove expand_batch_dim and make expand_batch_dim=False
+  # TODO (jvdillon): Make remove expand_batch_dim and make expand_batch_dim=False id:434
   # the default behavior.
   def undo_make_batch_of_event_sample_matrices(
       self, x, sample_shape, expand_batch_dim=True,

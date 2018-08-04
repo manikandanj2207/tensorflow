@@ -261,7 +261,7 @@ static size_t kNodeMergeContextMaxDepth = 10;
 class MklLayoutRewritePass : public GraphOptimizationPass {
  public:
   MklLayoutRewritePass() {
-    // NOTE: names are alphabetically sorted.
+    // NOTE: names are alphabetically sorted. id:888
     csinfo_.avg_pool = "AvgPool";
     csinfo_.avg_pool_grad = "AvgPoolGrad";
     csinfo_.bias_add = "BiasAdd";
@@ -288,7 +288,7 @@ class MklLayoutRewritePass : public GraphOptimizationPass {
     csinfo_.reshape               = "Reshape";
     csinfo_.split                 = "Split";
 
-    // NOTE: names are alphabetically sorted.
+    // NOTE: names are alphabetically sorted. id:1219
     rinfo_.push_back({csinfo_.avg_pool,
                       GetMklOpName(csinfo_.avg_pool),
                       CopyAttrsPooling, AlwaysRewrite, nullptr});
@@ -437,7 +437,7 @@ class MklLayoutRewritePass : public GraphOptimizationPass {
   } MergeInfo;
 
   /// Structure to store all constant strings
-  /// NOTE: names are alphabetically sorted.
+  /// NOTE: names are alphabetically sorted. id:1281
   struct {
     string avg_pool;
     string avg_pool_grad;
@@ -529,7 +529,7 @@ class MklLayoutRewritePass : public GraphOptimizationPass {
 
   // Get the name of Mkl op from original TensorFlow op
   // We prefix 'Mkl' to the original op to get Mkl op.
-  // TODO(nhasabni) We should move this to mkl_util.h.
+  // TODO (nhasabni) We should move this to mkl_util.h. id:1053
   inline string GetMklOpName(const string& name) const {
     // Prefix that we add to Tensorflow op name to construct Mkl op name.
     const char* const kMklOpPrefix = "_Mkl";
@@ -766,7 +766,7 @@ class MklLayoutRewritePass : public GraphOptimizationPass {
   // Functions specific to operators to copy attributes
   // We need operator-specific function to copy attributes because the framework
   // does not provide any generic function for it.
-  // NOTE: names are alphabetically sorted.
+  // NOTE: names are alphabetically sorted. id:1129
   static void CopyAttrsBiasAddGrad(const Node* orig_node, NodeBuilder* nb);
   static void CopyAttrsConcat(const Node* orig_node, NodeBuilder* nb);
   static void CopyAttrsConcatV2(const Node* orig_node, NodeBuilder* nb);
@@ -781,7 +781,7 @@ class MklLayoutRewritePass : public GraphOptimizationPass {
 
   // Generate a graph node in graph 'g' representing a dummy Mkl tensor node,
   // using node for original node 'orig_node' and return it in '*out'.
-  // TODO(nhasabni) We should move this to mkl_util.h
+  // TODO (nhasabni) We should move this to mkl_util.h id:889
   void GetDummyMklTensorNode(std::unique_ptr<Graph>* g, Node** out,
                              Node* orig_node);
   void GetDummyWorkspaceTensorNode(std::unique_ptr<Graph>* g, Node** out,
@@ -846,7 +846,7 @@ void MklLayoutRewritePass::GetNodesProducingTFTensorList(
   }
 }
 
-// TODO(nhasabni) We should move this to mkl_util.h.
+// TODO (nhasabni) We should move this to mkl_util.h. id:1220
 void MklLayoutRewritePass::GetDummyMklTensorNode(std::unique_ptr<Graph>* g,
                                                  Node** out, Node* orig_node) {
   // We use a tensor of shape {8} and value 0,0,0,0,0,0,0,0 to represent
@@ -1054,7 +1054,7 @@ Status MklLayoutRewritePass::SetUpInputs(
 
   int new_node_input_slots = 0;
   if (kTensorOrdering == MklTfTensorOrdering::TENSORS_INTERLEAVED) {
-    // TODO(nhasabni): implement this function just for same of completion.
+    // TODO (nhasabni): implement this function just for same of completion. id:1317
     // We do not use interleaved ordering right now.
     return Status(
         error::Code::UNIMPLEMENTED,
@@ -1090,7 +1090,7 @@ Status MklLayoutRewritePass::SetUpInputs(
 //           Helper functions related to workspace pass
 //////////////////////////////////////////////////////////////////////////
 
-// TODO(nhasabni) We should move this to mkl_util.h.
+// TODO (nhasabni) We should move this to mkl_util.h. id:1054
 void MklLayoutRewritePass::GetDummyWorkspaceTensorNode(
     std::unique_ptr<Graph>* g, Node** out, Node* orig_node) {
   // We use a tensor of shape {1} and value 0 to represent
@@ -1433,7 +1433,7 @@ void MklLayoutRewritePass::CopyAttrsFusedBatchNorm(const Node* orig_node,
 //////////////////////////////////////////////////////////////////////////
 
 Node* MklLayoutRewritePass::CheckForNodeMerge(const Node* a) const {
-  // TODO(nhasabni) Add check for type of node similar to CheckForNodeRewrite
+  // TODO (nhasabni) Add check for type of node similar to CheckForNodeRewrite id:1130
   // once we support BiasAddGrad as Mkl layer.
 
   // Search for all matching mergeinfo.
@@ -1460,7 +1460,7 @@ Node* MklLayoutRewritePass::CheckForNodeMerge(const Node* a) const {
     Node* b = nullptr;
     b = a_in[mi->op].first;
     if (b == nullptr || (b->type_string() != mi->pred)) {
-      // NOTE: Should the first check be assert?
+      // NOTE: Should the first check be assert? id:890
       continue;
     }
 

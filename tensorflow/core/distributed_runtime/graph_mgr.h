@@ -145,7 +145,7 @@ class GraphMgr {
 
   // Table mapping graph handles to registered graphs.
   //
-  // TODO(zhifengc): If the client does not call Deregister, we'll
+  // TODO (zhifengc): If the client does not call Deregister, we'll id:847
   // lose memory over time. We should implement a timeout-based
   // mechanism to gc these graphs.
   std::unordered_map<string, Item*> table_;

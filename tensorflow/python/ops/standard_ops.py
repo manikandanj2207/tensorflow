@@ -39,7 +39,7 @@ from tensorflow.python.ops.array_ops import *
 from tensorflow.python.ops.check_ops import *
 from tensorflow.python.ops.clip_ops import *
 from tensorflow.python.ops.special_math_ops import *
-# TODO(vrv): Switch to import * once we're okay with exposing the module.
+# TODO (vrv): Switch to import * once we're okay with exposing the module. id:1919
 from tensorflow.python.ops.confusion_matrix import confusion_matrix
 from tensorflow.python.ops.control_flow_ops import Assert
 from tensorflow.python.ops.control_flow_ops import group
@@ -77,7 +77,7 @@ from tensorflow.python.ops.state_ops import scatter_sub
 from tensorflow.python.ops.state_ops import scatter_update
 from tensorflow.python.ops.state_ops import scatter_nd_add
 from tensorflow.python.ops.state_ops import scatter_nd_sub
-# TODO(simister): Re-enable once binary size increase due to scatter_nd
+# TODO (simister): Re-enable once binary size increase due to scatter_nd id:2285
 # ops is under control.
 # from tensorflow.python.ops.state_ops import scatter_nd_mul
 # from tensorflow.python.ops.state_ops import scatter_nd_div
@@ -122,7 +122,7 @@ from tensorflow.python.ops import variables as _variables
 
 
 _allowed_symbols_math_ops = [
-    # TODO(drpng): decide if we want to reference these in the documentation.
+    # TODO (drpng): decide if we want to reference these in the documentation. id:2165
     "reduced_shape",
     "sparse_segment_mean_grad",
     "sparse_segment_sqrt_n_grad",
@@ -151,7 +151,7 @@ _allowed_symbols_math_ops = [
 ]
 
 _allowed_symbols_array_ops = [
-    # TODO(drpng): make sure they are documented.
+    # TODO (drpng): make sure they are documented. id:1966
     # Scalars:
     "NEW_AXIS",
     "SHRINK_AXIS",
@@ -159,15 +159,15 @@ _allowed_symbols_array_ops = [
 
     # Documented in training.py.
     # I do not import train, to avoid circular dependencies.
-    # TODO(drpng): this is defined in gen_array_ops, clearly not the right
+    # TODO (drpng): this is defined in gen_array_ops, clearly not the right id:2345
     # place.
     "stop_gradient",
 
     # See gen_docs_combined for tf.copy documentation.
     "copy",
 
-    ## TODO(drpng): make them inaccessible directly.
-    ## TODO(drpng): Below, to-doc means that we need to find an appropriate
+    ## TODO (drpng): make them inaccessible directly. id:1920
+    ## TODO (drpng): Below, to-doc means that we need to find an appropriate id:2286
     ##  documentation section to reference.
     ## For re-exporting to tf.*:
     "constant",
@@ -178,7 +178,7 @@ _allowed_symbols_array_ops = [
     "invert_permutation",  # to-doc
     "quantize_and_dequantize",  # to-doc
 
-    # TODO(drpng): legacy symbols to be removed.
+    # TODO (drpng): legacy symbols to be removed. id:2166
     "list_diff",  # Use tf.listdiff instead.
     "batch_matrix_diag",
     "batch_matrix_band_part",
@@ -196,7 +196,7 @@ _allowed_symbols_partitioned_variables = [
 ]
 
 _allowed_symbols_control_flow_ops = [
-    # TODO(drpng): Find a place in the documentation to reference these or
+    # TODO (drpng): Find a place in the documentation to reference these or id:2119
     # remove.
     "control_trigger",
     "loop_cond",
@@ -236,7 +236,7 @@ _allowed_symbols_image_ops = [
     "merge_summary",
     "scalar_summary",
 
-    # TODO(drpng): link in training.py if it should be documented.
+    # TODO (drpng): link in training.py if it should be documented. id:2346
     "get_summary_op",
 ]
 

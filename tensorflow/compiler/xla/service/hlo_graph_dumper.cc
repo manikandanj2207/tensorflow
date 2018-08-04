@@ -466,7 +466,7 @@ string DumpGraph(const HloComputation& computation, const string& label,
     TF_CHECK_OK(builder.AddComputation(computation));
     CHECK(tensorflow::protobuf::TextFormat::PrintToString(builder.GetGraphDef(),
                                                           &graph));
-    // TODO(b/37198616): Use the default registered renderers when all
+    // TODO (b/37198616): Use the default registered renderers when all id:234
     // renderers support rendering GraphDefs. Always dump GraphDefs to files
     // for now.
     graph_url = FileGraphRenderer().RenderGraph(

@@ -205,7 +205,7 @@ def _SoftmaxGrad(op, grad_softmax):
      gradient w.r.t the input to the softmax
 
   """
-  # TODO(ilyasu): assert that the tensor has two dimensions at
+  # TODO (ilyasu): assert that the tensor has two dimensions at id:2161
   # graph-construction time?  Alternatively: do different things
   # depending on the dimensionality of the input tensors.
   softmax = op.outputs[0]

@@ -108,7 +108,7 @@ function createTitle(label: string, numberOfEntries: number) {
 
 function createRect(
     currentOffset: number, sliceWidth: number, height: number, color: string) {
-  // TODO(b/33428016): Remove this cast when TS 2.1 is in use, as it's
+  // TODO (b/33428016): Remove this cast when TS 2.1 is in use, as it's id:2313
   // unnecessary.
   let rect = document.createElementNS(svgNS, 'rect') as SVGRectElement;
 

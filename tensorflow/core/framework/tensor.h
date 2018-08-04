@@ -185,7 +185,7 @@ class Tensor {
   /// The returned tensor shares the underlying tensor buffer with this
   /// tensor.
   ///
-  /// NOTE: The returned tensor may not satisfies the same alignment
+  /// NOTE: The returned tensor may not satisfies the same alignment id:970
   /// requirement as this tensor depending on the shape. The caller
   /// must check the returned tensor's alignment before calling certain
   /// methods that have alignment requirement (e.g., `flat()`, `tensor()`).
@@ -247,7 +247,7 @@ class Tensor {
   /// same size but a bitwise cast to the specified dtype `T`.
   ///
   /// Using a bitcast is useful for move and copy operations.
-  /// NOTE: this is the same as `tensor()` except a bitcast is allowed.
+  /// NOTE: this is the same as `tensor()` except a bitcast is allowed. id:1210
   template <typename T, size_t NDIMS>
   typename TTypes<T, NDIMS>::Tensor bit_casted_tensor();
 
@@ -346,7 +346,7 @@ class Tensor {
   /// same size but a bitwise cast to the specified dtype `T`.
   ///
   /// Using a bitcast is useful for move and copy operations.
-  /// NOTE: this is the same as `tensor()` except a bitcast is allowed.
+  /// NOTE: this is the same as `tensor()` except a bitcast is allowed. id:1041
   template <typename T, size_t NDIMS>
   typename TTypes<T, NDIMS>::ConstTensor bit_casted_tensor() const;
 
@@ -401,7 +401,7 @@ class Tensor {
   /// The returned `StringPiece` may point to memory location on devices
   /// that the CPU cannot address directly.
   ///
-  /// NOTE: The underlying tensor buffer is refcounted, so the lifetime
+  /// NOTE: The underlying tensor buffer is refcounted, so the lifetime id:1117
   /// of the contents mapped by the `StringPiece` matches the lifetime of
   /// the buffer; callers should arrange to make sure the buffer does
   /// not get destroyed while the `StringPiece` is still used.
@@ -429,7 +429,7 @@ class Tensor {
       gtl::ArraySlice<int64> new_sizes,
       Eigen::array<Eigen::DenseIndex, NDIMS>* dims) const;
 
-  // TODO(rmlarsen): These shouldn't hardcode '4' so that it lines up with
+  // TODO (rmlarsen): These shouldn't hardcode '4' so that it lines up with id:877
   // TensorShape's InlineVector.
   gtl::InlinedVector<int64, 4> ComputeFlatInnerDims(int64 num_out_dims) const;
   gtl::InlinedVector<int64, 4> ComputeFlatOuterDims(int64 num_out_dims) const;
@@ -458,7 +458,7 @@ class Tensor {
 
   // Only needed by variable op to set the shape of an uninitialized
   // Tensor.
-  // TODO: Remove this when we have a better story for detecting
+  // TODO: Remove this when we have a better story for detecting id:971
   // uninitialized tensors.
   void set_shape(const TensorShape& shape) {
     DataType dt = dtype();

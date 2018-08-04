@@ -99,7 +99,7 @@ namespace {
 int64 RequiredSpace(const Shape& shape, bool allocate_space_for_deep_copy,
                     TransferManager* transfer_manager) {
   int64 size = 0;
-  // TODO(b/33492279) remove once no devices represent result tuples as
+  // TODO (b/33492279) remove once no devices represent result tuples as id:248
   // contiguous buffers.
   if (allocate_space_for_deep_copy) {
     TF_CHECK_OK(ShapeUtil::ForEachSubshape(

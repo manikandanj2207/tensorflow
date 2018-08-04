@@ -193,7 +193,7 @@ class MultivariateNormalTriL(
         else:
           if validate_args:
             scale_tril = control_flow_ops.with_dependencies([
-                # TODO(b/35157376): Use `assert_none_equal` once it exists.
+                # TODO (b/35157376): Use `assert_none_equal` once it exists. id:401
                 check_ops.assert_greater(
                     math_ops.abs(array_ops.matrix_diag_part(scale_tril)),
                     array_ops.zeros([], scale_tril.dtype),

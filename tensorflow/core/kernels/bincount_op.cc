@@ -101,7 +101,7 @@ class BincountOp : public OpKernel {
 
 TF_CALL_NUMBER_TYPES(REGISTER);
 
-// TODO(ringwalt): Add a GPU implementation. We probably want to take a
+// TODO (ringwalt): Add a GPU implementation. We probably want to take a id:1139
 // different approach, e.g. threads in a warp each taking a pass over the same
 // data, and each thread summing a single bin.
 

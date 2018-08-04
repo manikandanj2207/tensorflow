@@ -120,7 +120,7 @@ def static_rnn(cell, inputs, initial_state=None, dtype=None,
       first_input = first_input[0]
 
     # Temporarily avoid EmbeddingWrapper and seq2seq badness
-    # TODO(lukaszkaiser): remove EmbeddingWrapper
+    # TODO (lukaszkaiser): remove EmbeddingWrapper id:607
     if first_input.get_shape().ndims != 1:
 
       input_shape = first_input.get_shape().with_rank_at_least(2)

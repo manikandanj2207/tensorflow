@@ -48,7 +48,7 @@ DeviceMgr::DeviceMgr(const std::vector<Device*>& devices)
 }
 
 DeviceMgr::~DeviceMgr() {
-  // TODO(b/37437134): Remove destructor after converting to std::unique_ptr.
+  // TODO (b/37437134): Remove destructor after converting to std::unique_ptr. id:764
   for (Device* p : devices_) delete p;
 }
 

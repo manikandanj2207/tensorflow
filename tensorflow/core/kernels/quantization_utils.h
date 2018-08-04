@@ -524,7 +524,7 @@ class TensorflowGemmlowpWorkersPool {
     // <index> is ignored - the tensorflow threadpool does not support assigning
     // to a specific thread.
     workers_->Schedule([this, task]() {
-      // TODO(cwhipkey): get a local_allocator from a thread local.
+      // TODO (cwhipkey): get a local_allocator from a thread local. id:1413
       gemmlowp::Allocator local_allocator;
       CHECK(task != nullptr);
       task->local_allocator = &local_allocator;

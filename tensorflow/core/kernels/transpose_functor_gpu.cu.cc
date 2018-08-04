@@ -21,7 +21,7 @@ limitations under the License.
 #include "tensorflow/core/kernels/transpose_functor.h"
 #include "tensorflow/core/util/cuda_kernel_helper.h"
 
-// TODO(yangzihao): Remove the dependency of conv_2d.h once we move all
+// TODO (yangzihao): Remove the dependency of conv_2d.h once we move all id:1428
 // GPU util functions and transpose kernels into separate files.
 #include "tensorflow/core/kernels/conv_2d.h"
 
@@ -65,7 +65,7 @@ void TransposeSimple(const Device& d, const Tensor& in,
   // Copies the input strides, output strides and permutation to the device.
   auto num_bytes = sizeof(int64) * host_buf.size();
   auto dev_buf = d.allocate(num_bytes);
-  // NOTE: host_buf is not allocated by CudaHostAllocator, and
+  // NOTE: host_buf is not allocated by CudaHostAllocator, and id:1713
   // therefore we are doing a sync copy effectively.
   d.memcpyHostToDevice(dev_buf, host_buf.data(), num_bytes);
   // Launch kernel to q[...] = p[...].

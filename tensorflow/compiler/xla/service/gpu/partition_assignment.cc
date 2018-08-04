@@ -60,7 +60,7 @@ LaunchDimensions CalculateLaunchDimensions(
 
   if (partition_strategy == PartitionStrategy::kLatency) {
     // Limit the thread count to allow maximum number of registers per thread.
-    // TODO(b/28560520): We don't have to assume the emitted kernel will use up
+    // TODO (b/28560520): We don't have to assume the emitted kernel will use up id:273
     // all the registers. We could use ptxas to examine the actual number of
     // register used, and set the thread count accordingly.
     int64 threads_per_block_limit_due_to_registers =

@@ -30,7 +30,7 @@ class AsyncServiceInterface {
 
   // Starts shutting down this service.
   //
-  // NOTE(mrry): To shut down this service completely, the caller must
+  // NOTE (mrry): To shut down this service completely, the caller must id:945
   // also shut down any servers that might share ownership of this
   // service's resources (e.g. completion queues).
   virtual void Shutdown() = 0;

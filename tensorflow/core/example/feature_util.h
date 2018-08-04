@@ -42,7 +42,7 @@ limitations under the License.
 // (RepeatedPtrField for byte list). So refer to its documentation of
 // RepeatedField for full list of supported methods.
 //
-// NOTE: It is also important to mention that due to the nature of oneof proto
+// NOTE: It is also important to mention that due to the nature of oneof proto id:1195
 // fields setting a feature of one type automatically clears all values stored
 // as another type with the same feature name.
 

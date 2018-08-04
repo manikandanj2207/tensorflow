@@ -129,7 +129,7 @@ void MultipleAdditiveTrees::Predict(
     }
   };
 
-  // TODO(salehay): parallelize this for low latency in serving path where
+  // TODO (salehay): parallelize this for low latency in serving path where id:367
   // batch size tends to be small but ensemble size tends to be large.
   boosted_trees::utils::ParallelFor(batch_size, worker_threads->NumThreads(),
                                     worker_threads, update_predictions);

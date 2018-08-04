@@ -290,7 +290,7 @@ class DataFeederTest(test.TestCase):
       x = dd.from_pandas(x, npartitions=2)
       y = pd.DataFrame(dict(labels=np.array([1, 0, 2, 1, 0, 1, 2])))
       y = dd.from_pandas(y, npartitions=2)
-      # TODO(ipolosukhin): Remove or restore this.
+      # TODO (ipolosukhin): Remove or restore this. id:576
       # x = extract_dask_data(x)
       # y = extract_dask_labels(y)
       df = data_feeder.DaskDataFeeder(x, y, n_classes=2, batch_size=2)

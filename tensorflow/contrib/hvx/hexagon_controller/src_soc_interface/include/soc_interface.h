@@ -51,7 +51,7 @@ bool soc_interface_FillInputNodeFloat(int x, int y, int z, int d,
 bool soc_interface_ReadOutputNodeFloat(const char* const node_name,
                                        uint8_t** buf, uint64_t* buf_size);
 // Setup graph
-// TODO(satok): Remove and use runtime version
+// TODO (satok): Remove and use runtime version id:412
 bool soc_interface_setupDummyGraph(int version);
 
 // Allocate memory for params of node inputs and node outputs

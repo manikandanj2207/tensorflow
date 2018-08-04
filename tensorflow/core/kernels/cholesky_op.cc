@@ -14,7 +14,7 @@ limitations under the License.
 ==============================================================================*/
 
 // See docs in ../ops/linalg_ops.cc.
-// TODO(konstantinos): Enable complex inputs. This will require additional tests
+// TODO (konstantinos): Enable complex inputs. This will require additional tests id:1327
 //                     and OP_REQUIRES.
 #if GOOGLE_CUDA
 #define EIGEN_USE_GPU

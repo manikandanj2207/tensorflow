@@ -364,7 +364,7 @@ class DebugAnalyzer(object):
         help="Regular expression filter for node name.")
     self._arg_parsers["list_source"] = ap
 
-    # TODO(cais): Implement list_nodes.
+    # TODO (cais): Implement list_nodes. id:1586
 
   def add_tensor_filter(self, filter_name, filter_callable):
     """Add a tensor filter.
@@ -442,7 +442,7 @@ class DebugAnalyzer(object):
       Output text lines as a RichTextLines object.
     """
 
-    # TODO(cais): Add annotations of substrings for dumped tensor names, to
+    # TODO (cais): Add annotations of substrings for dumped tensor names, to id:2012
     # facilitate on-screen highlighting/selection of node names.
     _ = screen_info
 
@@ -480,7 +480,7 @@ class DebugAnalyzer(object):
     else:
       data_to_show = self._debug_dump.dumped_tensor_data
 
-    # TODO(cais): Implement filter by lambda on tensor value.
+    # TODO (cais): Implement filter by lambda on tensor value. id:1880
 
     max_timestamp_width, max_dump_size_width, max_op_type_width = (
         self._measure_tensor_list_column_widths(data_to_show))
@@ -684,7 +684,7 @@ class DebugAnalyzer(object):
       Output text lines as a RichTextLines object.
     """
 
-    # TODO(cais): Add annotation of substrings for node names, to facilitate
+    # TODO (cais): Add annotation of substrings for node names, to facilitate id:1654
     # on-screen highlighting/selection of node names.
     _ = screen_info
 
@@ -707,7 +707,7 @@ class DebugAnalyzer(object):
           enable_list_outputs=False)
       return output
 
-    # TODO(cais): Provide UI glossary feature to explain to users what the
+    # TODO (cais): Provide UI glossary feature to explain to users what the id:1866
     # term "partition graph" means and how it is related to TF graph objects
     # in Python. The information can be along the line of:
     # "A tensorflow graph defined in Python is stripped of unused ops
@@ -803,7 +803,7 @@ class DebugAnalyzer(object):
     # Screen info not currently used by this handler. Include this line to
     # mute pylint.
     _ = screen_info
-    # TODO(cais): Use screen info to format the output lines more prettily,
+    # TODO (cais): Use screen info to format the output lines more prettily, id:1587
     # e.g., hanging indent of long node names.
 
     parsed = self._arg_parsers["list_inputs"].parse_args(args)
@@ -874,7 +874,7 @@ class DebugAnalyzer(object):
       else:
         # There are more than one dumped tensors from this node. Indicate as
         # such.
-        # TODO(cais): Provide an output screen with command links for
+        # TODO (cais): Provide an output screen with command links for id:2013
         # convenience.
         lines = [
             "Node \"%s\" generated debug dumps from %s output slots:" %
@@ -980,7 +980,7 @@ class DebugAnalyzer(object):
     # Screen info not currently used by this handler. Include this line to
     # mute pylint.
     _ = screen_info
-    # TODO(cais): Use screen info to format the output lines more prettily,
+    # TODO (cais): Use screen info to format the output lines more prettily, id:1881
     # e.g., hanging indent of long node names.
 
     parsed = self._arg_parsers["list_outputs"].parse_args(args)
@@ -1267,7 +1267,7 @@ class DebugAnalyzer(object):
     if op_type:
       lines.append("  [Op]: Input node has op type Op.")
 
-    # TODO(cais): Consider appending ":0" at the end of 1st outputs of nodes.
+    # TODO (cais): Consider appending ":0" at the end of 1st outputs of nodes. id:1655
 
     return debugger_cli_common.RichTextLines(
         lines, font_attr_segs=font_attr_segs)
@@ -1396,7 +1396,7 @@ class DebugAnalyzer(object):
       A RichTextLines object.
     """
 
-    # TODO(cais): Return RichTextLines instead, to allow annotation of node
+    # TODO (cais): Return RichTextLines instead, to allow annotation of node id:2039
     # names.
     lines = []
     font_attr_segs = {}

@@ -53,7 +53,7 @@ TEST(RemoteFusedGraphOpsTest, RemoteFusedGraphExecute_ShapeFn) {
   set_n(4, 3, 3);
   INFER_OK(op, "?;?;?;?;?;?;?", "?;?;?");  // output rank unknown
 
-  // TODO(satok): Implement shape inference and do its test here
+  // TODO (satok): Implement shape inference and do its test here id:1383
 }
 
 }  // namespace tensorflow

@@ -27,7 +27,7 @@ class LRNOp : public XlaOpKernel {
   explicit LRNOp(OpKernelConstruction* ctx) : XlaOpKernel(ctx) {
     OP_REQUIRES_OK(ctx, ctx->GetAttr("depth_radius", &depth_radius_));
 
-    // TODO(phawkins): handle non-float types for attributes.
+    // TODO (phawkins): handle non-float types for attributes. id:206
     OP_REQUIRES_OK(ctx, ctx->GetAttr("bias", &bias_));
     OP_REQUIRES_OK(ctx, ctx->GetAttr("alpha", &alpha_));
     OP_REQUIRES_OK(ctx, ctx->GetAttr("beta", &beta_));
@@ -76,7 +76,7 @@ class LRNGradOp : public XlaOpKernel {
   explicit LRNGradOp(OpKernelConstruction* ctx) : XlaOpKernel(ctx) {
     OP_REQUIRES_OK(ctx, ctx->GetAttr("depth_radius", &depth_radius_));
 
-    // TODO(phawkins): handle non-float types for attributes.
+    // TODO (phawkins): handle non-float types for attributes. id:85
     OP_REQUIRES_OK(ctx, ctx->GetAttr("bias", &bias_));
     OP_REQUIRES_OK(ctx, ctx->GetAttr("alpha", &alpha_));
     OP_REQUIRES_OK(ctx, ctx->GetAttr("beta", &beta_));

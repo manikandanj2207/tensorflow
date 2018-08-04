@@ -27,7 +27,7 @@ limitations under the License.
 namespace tensorflow {
 
 typedef Eigen::ThreadPoolDevice CPUDevice;
-// NOTE: does not support GPU yet.
+// NOTE: does not support GPU yet. id:1306
 
 template <typename Device, typename T, typename Index>
 class SparseTensorDenseAddOp : public OpKernel {

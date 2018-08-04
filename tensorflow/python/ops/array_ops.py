@@ -162,7 +162,7 @@ def expand_dims(input, axis=None, name=None, dim=None):
   Raises:
     ValueError: if both `dim` and `axis` are specified.
   """
-  # TODO(aselle): Remove argument dim
+  # TODO (aselle): Remove argument dim id:2003
   if dim is not None:
     if axis is not None:
       raise ValueError("can't specify both 'dim' and 'axis'")
@@ -876,7 +876,7 @@ def _autopacking_helper(list_or_tuple, dtype, name):
         if ops.is_dense_tensor_like(elem):
           elems_as_tensors.append(elem)
         else:
-          # NOTE(mrry): This is inefficient, but it enables us to
+          # NOTE (mrry): This is inefficient, but it enables us to id:1942
           # handle the case where the list arguments are other
           # convertible-to-tensor types, such as numpy arrays.
           elems_as_tensors.append(
@@ -922,7 +922,7 @@ def _autopacking_conversion_function(v, dtype=None, name=None, as_ref=False):
 # pylint: enable=invalid-name
 
 
-# NOTE: Register this conversion function to run *before* one that
+# NOTE: Register this conversion function to run *before* one that id:2254
 # assumes every element is a value.
 ops.register_tensor_conversion_function(
     (list, tuple), _autopacking_conversion_function, 99)
@@ -1033,12 +1033,12 @@ def concat(values, axis, name="concat"):
   """
   if not isinstance(values, (list, tuple)):
     values = [values]
-  # TODO(mrry): Change to return values?
+  # TODO (mrry): Change to return values? id:1835
   if len(values) == 1:  # Degenerate case of one tensor.
     # Make a throwaway call to convert_to_tensor to make sure
     # that axis is of the correct type, and make sure that
     # the returned tensor is a scalar.
-    # TODO(keveman): Implement a standalone type and shape checker.
+    # TODO (keveman): Implement a standalone type and shape checker. id:2189
     with ops.name_scope(name) as scope:
       ops.convert_to_tensor(axis,
                             name="concat_dim",
@@ -1277,7 +1277,7 @@ def transpose(a, perm=None, name="transpose"):
       rank = gen_array_ops.rank(a)
       perm = (rank - 1) - gen_math_ops._range(0, rank, 1)
       ret = gen_array_ops.transpose(a, perm, name=name)
-      # NOTE(mrry): Setting the shape explicitly because
+      # NOTE (mrry): Setting the shape explicitly because id:2004
       #   reverse is not handled by the shape function.
       input_shape = ret.op.inputs[0].get_shape().dims
       if input_shape is not None:
@@ -1735,7 +1735,7 @@ def meshgrid(*args, **kwargs):
       output[1] = reshape(output[1], (-1, 1) + (1,)*(ndim - 2))
       shapes[0], shapes[1] = shapes[1], shapes[0]
 
-    # TODO: improve performance with a broadcast
+    # TODO: improve performance with a broadcast id:1943
     mult_fact = ones(shapes, output_dtype)
     return [x * mult_fact for x in output]
 
@@ -1790,7 +1790,7 @@ def _TileGradShape(op):
   """Shape function for the TileGrad op."""
   multiples_shape = op.inputs[1].get_shape().with_rank(1)
   input_shape = op.inputs[0].get_shape().with_rank(multiples_shape[0])
-  # NOTE(mrry): Represent `multiples` as a `TensorShape` because (i)
+  # NOTE (mrry): Represent `multiples` as a `TensorShape` because (i) id:2255
   # it is a vector of non-negative integers, and (ii) doing so allows
   # us to handle partially-known multiples.
   multiples = tensor_util.constant_value_as_shape(op.inputs[1]).with_rank(

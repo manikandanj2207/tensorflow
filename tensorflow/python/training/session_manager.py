@@ -513,7 +513,7 @@ def _ready(op, sess, msg):
           ready_value.size == 0):
         return True, None
       else:
-        # TODO(sherrym): If a custom ready_op returns other types of tensor,
+        # TODO (sherrym): If a custom ready_op returns other types of tensor, id:2130
         # or strings other than variable names, this message could be
         # confusing.
         non_initialized_varnames = ", ".join(

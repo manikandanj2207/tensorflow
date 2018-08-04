@@ -16,7 +16,7 @@ limitations under the License.
 // XLA-specific BatchMatMul Op.
 // The current implementation simply unrolls the computation along the batch
 // dimension.
-// TODO(dominikg,phawkins): Use a real batched matmul instead of unrolling.
+// TODO (dominikg,phawkins): Use a real batched matmul instead of unrolling. id:83
 
 #include "tensorflow/compiler/tf2xla/xla_op_kernel.h"
 #include "tensorflow/compiler/tf2xla/xla_op_registry.h"

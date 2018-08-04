@@ -635,7 +635,7 @@ class DNNRegressor(estimator.Estimator):
                checkpoint_path=None,
                hooks=None):
     """See evaluable.Evaluable."""
-    # TODO(zakaria): remove once deprecation is finished (b/31229024)
+    # TODO (zakaria): remove once deprecation is finished (b/31229024) id:455
     custom_metrics = {}
     if metrics:
       for key, metric in six.iteritems(metrics):

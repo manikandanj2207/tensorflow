@@ -122,7 +122,7 @@ class FunctionDefHelper {
                             gtl::ArraySlice<std::pair<string, string>> ret_def);
 
   // The two Define() functions use the old FunctionDef::Node field.
-  // TODO(josh11b): Get rid of these and transition to the one above.
+  // TODO (josh11b): Get rid of these and transition to the one above. id:866
   static FunctionDef Define(const string& function_name,
                             gtl::ArraySlice<string> arg_def,
                             gtl::ArraySlice<string> ret_def,
@@ -341,7 +341,7 @@ class FunctionLibraryDefinition : public OpRegistryInterface {
   }
 
  private:
-  // TODO(cwhipkey): support shape functions in FunctionDefLibrary.
+  // TODO (cwhipkey): support shape functions in FunctionDefLibrary. id:960
   struct FunctionDefAndOpRegistration {
     FunctionDefAndOpRegistration(const FunctionDef& fdef_in)
         : fdef(fdef_in), op_registration_data(fdef.signature()) {}
@@ -476,10 +476,10 @@ class FunctionLibraryRuntime {
 //   return Status::OK();
 // }
 //
-// NOTE: $T is substituted with the type variable "T" when the
+// NOTE: $T is substituted with the type variable "T" when the id:1200
 // gradient function MatMul is instantiated.
 //
-// TODO(zhifengc): Better documentation somewhere.
+// TODO (zhifengc): Better documentation somewhere. id:1009
 
 // Macros to define a gradient function factory for a primitive
 // operation.

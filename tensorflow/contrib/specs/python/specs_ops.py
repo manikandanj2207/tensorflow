@@ -72,12 +72,12 @@ debug = specs_lib.debug
 Print = Fun(logging_ops.Print)
 Id = Fun(array_ops.identity)
 
-# TODO(tmb) add Assert
+# TODO (tmb) add Assert id:527
 
 # Two letter names for the most common layers.
 
 # 2D Convolutional layers with nonlinearities (s/t/r/m/l)
-# TODO(tmb) add Cbs, Fbs etc. for batch norms
+# TODO (tmb) add Cbs, Fbs etc. for batch norms id:728
 
 Cx = Fun(layers.conv2d)
 Cs = Fun(layers.conv2d, activation_fn=math_ops.sigmoid)
